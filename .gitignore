@@ -16,3 +16,6 @@ esm/
 
 # typescript
 *.tsbuildinfo
+
+# cache
+.eslintcache

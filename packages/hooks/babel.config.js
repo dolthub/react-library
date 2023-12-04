@@ -1,1 +1,1 @@
-module.exports = require("@react-library/babel-config");
+module.exports = require("@dolthub/react-babel-config");
