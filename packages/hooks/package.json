@@ -5,6 +5,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "packageManager": "yarn@4.0.2",
   "type": "module",
   "scripts": {
     "compile": "tsc -b",
