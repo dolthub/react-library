@@ -6,8 +6,11 @@
     "packages/*"
   ],
   "scripts": {
+    "ci": "yarn prettier && yarn compile && yarn lint",
     "compile": "tsc --noEmit",
-    "build": "yarn workspace @react-library/hooks build"
+    "build": "yarn workspace @react-library/hooks build",
+    "lint": "yarn workspace @react-library/hooks lint",
+    "prettier": "yarn workspace @react-library/hooks prettier"
   },
   "dependencies": {
     "react": "^18.2.0"
@@ -16,8 +19,20 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@types/eslint": "^8",
     "@types/react": "^18.2.40",
     "@types/rollup-plugin-peer-deps-external": "^2",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.1.0",
     "rollup": "^4.6.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",

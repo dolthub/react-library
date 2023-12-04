@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import useEffectOnMount from "./useEffectOnMount";
 
 export function useReactiveHeight<E extends HTMLElement>(
-  elem?: E | null
+  elem?: E | null,
 ): E["clientHeight"] {
   const [clientHeight, setClientHeight] = useState(
-    elem?.clientHeight ?? window.innerHeight
+    elem?.clientHeight ?? window.innerHeight,
   );
 
   useEffectOnMount(() => {
@@ -28,10 +28,10 @@ export function useReactiveHeight<E extends HTMLElement>(
 
 export function useReactiveWidth<E extends HTMLElement>(
   elem?: E | null,
-  mobileBreakpoint = 768
+  mobileBreakpoint = 768,
 ): { clientWidth: E["clientWidth"]; isMobile: boolean } {
   const [clientWidth, setClientWidth] = useState(
-    elem?.clientWidth ?? window.innerWidth
+    elem?.clientWidth ?? window.innerWidth,
   );
 
   useEffectOnMount(() => {
@@ -55,7 +55,7 @@ export function useReactiveWidth<E extends HTMLElement>(
 }
 
 export function useReactiveScrollWidth<E extends HTMLElement>(
-  elem?: E | null
+  elem?: E | null,
 ): { scrollWidth: E["scrollWidth"]; windowInnerWidth: Window["innerWidth"] } {
   const [scrollWidth, setScrollWidth] = useState(elem?.scrollWidth ?? 0);
   const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);

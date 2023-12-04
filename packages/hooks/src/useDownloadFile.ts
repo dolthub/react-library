@@ -4,7 +4,7 @@ type ReturnType = {
 
 export default function useDownloadFile(
   fileName: string,
-  fileType = "text/plain"
+  fileType = "text/plain",
 ): ReturnType {
   const onDownload = (contents: string) => {
     const file = new Blob([contents], {
