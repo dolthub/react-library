@@ -1395,6 +1395,47 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dolthub/react-babel-config@npm:^0.1.0, @dolthub/react-babel-config@workspace:packages/babel-config":
+  version: 0.0.0-use.local
+  resolution: "@dolthub/react-babel-config@workspace:packages/babel-config"
+  dependencies:
+    "@babel/core": "npm:^7.22.15"
+    "@babel/preset-env": "npm:^7.23.2"
+    "@babel/preset-typescript": "npm:^7.22.15"
+    "@types/jest": "npm:^29.5.8"
+    babel-jest: "npm:^29.7.0"
+    jest: "npm:^29.7.0"
+  languageName: unknown
+  linkType: soft
+
+"@dolthub/react-hooks@workspace:packages/hooks":
+  version: 0.0.0-use.local
+  resolution: "@dolthub/react-hooks@workspace:packages/hooks"
+  dependencies:
+    "@dolthub/react-babel-config": "npm:^0.1.0"
+    "@rollup/plugin-babel": "npm:^6.0.4"
+    "@rollup/plugin-commonjs": "npm:^25.0.7"
+    "@rollup/plugin-node-resolve": "npm:^15.2.3"
+    "@rollup/plugin-typescript": "npm:^11.1.5"
+    "@types/eslint": "npm:^8"
+    "@types/react": "npm:^18.2.40"
+    "@types/rollup-plugin-peer-deps-external": "npm:^2"
+    "@typescript-eslint/eslint-plugin": "npm:^6.13.2"
+    "@typescript-eslint/parser": "npm:^6.13.2"
+    eslint: "npm:^8.55.0"
+    prettier: "npm:^3.1.0"
+    rollup: "npm:^4.6.1"
+    rollup-plugin-dts: "npm:^6.1.0"
+    rollup-plugin-peer-deps-external: "npm:^2.2.4"
+    rollup-plugin-postcss: "npm:^4.0.2"
+    rollup-plugin-terser: "npm:^7.0.2"
+    tslib: "npm:^2.6.2"
+    typescript: "npm:^5.3.2"
+  peerDependencies:
+    react: ^18.2.0
+  languageName: unknown
+  linkType: soft
+
 "@eslint-community/eslint-utils@npm:^4.2.0, @eslint-community/eslint-utils@npm:^4.4.0":
   version: 4.4.0
   resolution: "@eslint-community/eslint-utils@npm:4.4.0"
@@ -1847,47 +1888,6 @@ __metadata:
   checksum: 7c3e68f6405a1d4c51f418d8d580e71d7bade2683d5db07e8413d8e57f7e389047eda44a2341f77a1b3085895fca7676a9d45e8812a58312524f8c4c65d501be
   languageName: node
   linkType: hard
-
-"@react-library/babel-config@npm:^0.1.0, @react-library/babel-config@workspace:packages/babel-config":
-  version: 0.0.0-use.local
-  resolution: "@react-library/babel-config@workspace:packages/babel-config"
-  dependencies:
-    "@babel/core": "npm:^7.22.15"
-    "@babel/preset-env": "npm:^7.23.2"
-    "@babel/preset-typescript": "npm:^7.22.15"
-    "@types/jest": "npm:^29.5.8"
-    babel-jest: "npm:^29.7.0"
-    jest: "npm:^29.7.0"
-  languageName: unknown
-  linkType: soft
-
-"@react-library/hooks@workspace:packages/hooks":
-  version: 0.0.0-use.local
-  resolution: "@react-library/hooks@workspace:packages/hooks"
-  dependencies:
-    "@react-library/babel-config": "npm:^0.1.0"
-    "@rollup/plugin-babel": "npm:^6.0.4"
-    "@rollup/plugin-commonjs": "npm:^25.0.7"
-    "@rollup/plugin-node-resolve": "npm:^15.2.3"
-    "@rollup/plugin-typescript": "npm:^11.1.5"
-    "@types/eslint": "npm:^8"
-    "@types/react": "npm:^18.2.40"
-    "@types/rollup-plugin-peer-deps-external": "npm:^2"
-    "@typescript-eslint/eslint-plugin": "npm:^6.13.2"
-    "@typescript-eslint/parser": "npm:^6.13.2"
-    eslint: "npm:^8.55.0"
-    prettier: "npm:^3.1.0"
-    rollup: "npm:^4.6.1"
-    rollup-plugin-dts: "npm:^6.1.0"
-    rollup-plugin-peer-deps-external: "npm:^2.2.4"
-    rollup-plugin-postcss: "npm:^4.0.2"
-    rollup-plugin-terser: "npm:^7.0.2"
-    tslib: "npm:^2.6.2"
-    typescript: "npm:^5.3.2"
-  peerDependencies:
-    react: ^18.2.0
-  languageName: unknown
-  linkType: soft
 
 "@rollup/plugin-babel@npm:^6.0.4":
   version: 6.0.4

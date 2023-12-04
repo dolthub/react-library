@@ -1,5 +1,5 @@
 {
-  "name": "@react-library/babel-config",
+  "name": "@dolthub/react-babel-config",
   "author": "DoltHub",
   "version": "0.1.0",
   "private": true,

@@ -8,9 +8,9 @@
   "scripts": {
     "ci": "yarn prettier && yarn compile && yarn lint",
     "compile": "tsc --noEmit",
-    "build": "yarn workspace @react-library/hooks build",
-    "lint": "yarn workspace @react-library/hooks lint",
-    "prettier": "yarn workspace @react-library/hooks prettier"
+    "build": "yarn workspace @dolthub/react-hooks build",
+    "lint": "yarn workspace @dolthub/react-hooks lint",
+    "prettier": "yarn workspace @dolthub/react-hooks prettier"
   },
   "dependencies": {
     "react": "^18.2.0"
