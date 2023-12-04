@@ -1,14 +1,21 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "include": ["./src", "./types"],
+  "include": ["./src"],
   "exclude": ["./lib", "./esm", "./cjs"],
   "compilerOptions": {
     "rootDir": "src",
     "baseUrl": ".",
-    "outDir": "lib",
     "declaration": true,
-    "declarationDir": "types",
-    "composite": true,
-    "emitDeclarationOnly": true
+    "declarationDir": "lib",
+    "target": "ES2015",
+    "lib": ["DOM", "ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react",
+    "emitDeclarationOnly": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "composite": true
   }
 }
