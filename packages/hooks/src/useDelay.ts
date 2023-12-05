@@ -18,7 +18,7 @@ export default function useDelay(
 
   useEffect(() => {
     if (active) {
-      const h = setTimeout(stop, length);
+      const h = setTimeout(() => stop(), length);
       handle.current = h;
       return () => clearTimeout(h);
     }
@@ -27,6 +27,7 @@ export default function useDelay(
     }
     return () => {};
   }, [active, length, stop]);
+
   useEffect(() => {
     const thereAreErrors = errors.some(e => !!e);
     if (thereAreErrors) {

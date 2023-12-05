@@ -18,8 +18,8 @@
     "prettier-fix": "prettier --write 'src/**/*.{js,ts}'"
   },
   "peerDependencies": {
-    "@types/react": ">=18.2",
-    "react": ">=18.2"
+    "@types/react": "^18.2.0",
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.23.3",

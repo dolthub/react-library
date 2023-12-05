@@ -7,6 +7,7 @@ export function useReactiveHeight<E extends HTMLElement>(
   const [clientHeight, setClientHeight] = useState(elem?.clientHeight ?? 0);
 
   useEffectOnMount(() => {
+    setClientHeight(elem?.clientHeight ?? window.innerHeight);
     const handleResize = () =>
       setClientHeight(elem?.clientHeight ?? window.innerHeight);
     window.addEventListener("resize", handleResize);
