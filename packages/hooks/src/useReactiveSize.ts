@@ -4,9 +4,7 @@ import useEffectOnMount from "./useEffectOnMount";
 export function useReactiveHeight<E extends HTMLElement>(
   elem?: E | null,
 ): E["clientHeight"] {
-  const [clientHeight, setClientHeight] = useState(
-    elem?.clientHeight ?? window.innerHeight,
-  );
+  const [clientHeight, setClientHeight] = useState(elem?.clientHeight ?? 0);
 
   useEffectOnMount(() => {
     const handleResize = () =>
@@ -30,11 +28,10 @@ export function useReactiveWidth<E extends HTMLElement>(
   elem?: E | null,
   mobileBreakpoint = 768,
 ): { clientWidth: E["clientWidth"]; isMobile: boolean } {
-  const [clientWidth, setClientWidth] = useState(
-    elem?.clientWidth ?? window.innerWidth,
-  );
+  const [clientWidth, setClientWidth] = useState(elem?.clientWidth ?? 0);
 
   useEffectOnMount(() => {
+    setClientWidth(elem?.clientWidth ?? window.innerWidth);
     const handleResize = () =>
       setClientWidth(elem?.clientWidth ?? window.innerWidth);
     window.addEventListener("resize", handleResize);

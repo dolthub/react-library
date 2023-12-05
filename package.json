@@ -12,15 +12,11 @@
     "lint": "yarn workspace @dolthub/react-hooks lint",
     "prettier": "yarn workspace @dolthub/react-hooks prettier"
   },
-  "dependencies": {
-    "react": "^18.2.0"
-  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/eslint": "^8",
-    "@types/react": "^18.2.40",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",

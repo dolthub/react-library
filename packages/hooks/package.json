@@ -12,13 +12,14 @@
   "scripts": {
     "compile": "tsc -b",
     "build": "rollup -c --bundleConfigAsCjs",
+    "build:watch": "rollup -c --bundleConfigAsCjs --watch",
     "lint": "eslint --cache --ext .ts,.js,.tsx,.jsx src",
     "prettier": "prettier --check 'src/**/*.{js,ts}'",
     "prettier-fix": "prettier --write 'src/**/*.{js,ts}'"
   },
   "peerDependencies": {
-    "react": "*",
-    "react-dom": "*"
+    "@types/react": ">=18.2",
+    "react": ">=18.2"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.23.3",
@@ -28,15 +29,11 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/eslint": "^8",
-    "@types/react": "^18.2.40",
-    "@types/react-dom": "^18",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
     "eslint": "^8.55.0",
     "prettier": "^3.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "rollup": "^4.6.1",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",

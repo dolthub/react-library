@@ -8,7 +8,7 @@
 node_modules
 
 # build
-lib/
+types/
 cjs/
 dist/
 esm/
