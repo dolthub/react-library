@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "ci": "yarn prettier && yarn compile && yarn lint",
+    "ci": "yarn prettier && yarn compile && yarn lint && yarn build",
     "compile": "tsc --noEmit",
     "build": "yarn workspace @dolthub/react-hooks build",
     "lint": "yarn workspace @dolthub/react-hooks lint",
