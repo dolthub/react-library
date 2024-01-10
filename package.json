@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "ci": "yarn prettier && yarn compile && yarn lint && yarn build",
-    "compile": "tsc --noEmit",
+    "compile": "yarn workspace @dolthub/react-hooks compile",
     "build": "yarn workspace @dolthub/react-hooks build",
     "lint": "yarn workspace @dolthub/react-hooks lint",
     "prettier": "yarn workspace @dolthub/react-hooks prettier"
@@ -17,7 +17,8 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/eslint": "^8",
-    "@types/react": "^18",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
@@ -37,6 +38,7 @@
     "typescript": "^5.3.2"
   },
   "dependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

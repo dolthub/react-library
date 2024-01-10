@@ -34,6 +34,7 @@ export default function useDelay(
       stop();
     }
   }, [errors, stop]);
+
   return useMemo(
     () =>
       Object.freeze({
