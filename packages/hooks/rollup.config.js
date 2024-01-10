@@ -4,19 +4,18 @@ import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import { dts } from "rollup-plugin-dts";
-import babel from "@rollup/plugin-babel";
 
 const packageJson = require("./package.json");
 
 export default [
   {
     input: "src/index.ts",
+    external: ["react", "react-dom"],
     output: [
       {
         file: packageJson.main,
         format: "cjs",
         sourcemap: true,
-        name: "react-ts-lib",
       },
       {
         file: packageJson.module,
@@ -27,19 +26,13 @@ export default [
     plugins: [
       external(),
       resolve(),
-      babel({
-        babelHelpers: "runtime",
-        presets: ["@babel/preset-react"],
-        extensions: [".js", ".jsx"],
-        exclude: "**/node_modules/**",
-      }),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
     ],
   },
   {
-    input: "dist/esm/lib/index.d.ts",
+    input: "types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     external: [/\.css$/],
     plugins: [dts()],

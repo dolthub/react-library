@@ -1,11 +1,12 @@
 {
   "include": ["./src"],
-  "exclude": ["./lib", "./esm", "./cjs"],
+  "exclude": ["./types", "./esm", "./cjs", "node_modules", "dist"],
   "compilerOptions": {
     "rootDir": "src",
     "baseUrl": ".",
     "declaration": true,
-    "declarationDir": "lib",
+    "declarationDir": "types",
+    "outDir": "dist",
     "target": "ES2015",
     "lib": ["DOM", "ESNext"],
     "module": "ESNext",

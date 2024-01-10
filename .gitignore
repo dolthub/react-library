@@ -8,7 +8,7 @@
 node_modules
 
 # build
-lib/
+types/
 cjs/
 dist/
 esm/
@@ -16,3 +16,6 @@ esm/
 
 # typescript
 *.tsbuildinfo
+
+# cache
+.eslintcache

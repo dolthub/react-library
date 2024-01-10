@@ -1,30 +1,38 @@
 {
   "name": "@dolthub/react-hooks",
   "author": "DoltHub",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hooks",
+    "state",
+    "frontend"
+  ],
   "packageManager": "yarn@4.0.2",
-  "type": "module",
   "scripts": {
     "compile": "tsc -b",
     "build": "rollup -c --bundleConfigAsCjs",
+    "build:watch": "rollup -c --bundleConfigAsCjs --watch",
     "lint": "eslint --cache --ext .ts,.js,.tsx,.jsx src",
     "prettier": "prettier --check 'src/**/*.{js,ts}'",
     "prettier-fix": "prettier --write 'src/**/*.{js,ts}'"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@dolthub/react-babel-config": "^0.1.0",
-    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/eslint": "^8",
-    "@types/react": "^18.2.40",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
     "@typescript-eslint/parser": "^6.13.2",
