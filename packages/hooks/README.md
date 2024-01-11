@@ -30,6 +30,12 @@ function MyComponent() {
 
 ## Testing in a local package
 
+First compile and build the package:
+
+```
+% yarn compile & yarn build
+```
+
 If you have a local copy of this package and want to test a change in another local
 package, you can either add `@dolthub/react-hooks` and point it at the file path, or if
 `@dolthub/react-hooks` is already installed add the file path to `resolutions` in your
@@ -46,4 +52,4 @@ package, you can either add `@dolthub/react-hooks` and point it at the file path
 }
 ```
 
-Note that you may also need the same `@types/react` version.
+Note that you may also need the same `@types/react` version and it should be added to the root `package.json` in a monorepo.

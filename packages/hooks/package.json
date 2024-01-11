@@ -32,6 +32,7 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
+    "@types/babel__core": "^7",
     "@types/eslint": "^8",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@typescript-eslint/eslint-plugin": "^6.13.2",
@@ -52,5 +53,8 @@
   },
   "bugs": {
     "url": "https://github.com/dolthub/react-library/issues"
+  },
+  "dependencies": {
+    "@babel/core": "^7.23.7"
   }
 }

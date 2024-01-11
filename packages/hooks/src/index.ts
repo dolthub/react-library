@@ -14,5 +14,6 @@ export {
   useReactiveScrollWidth,
   useReactiveWidth,
 } from "./useReactiveSize";
+export { default as useSessionQueryHistory } from "./useSessionQueryHistory";
 export { default as useSetState } from "./useSetState";
 export { default as useStateWithSessionStorage } from "./useStateWithSessionStorage";
