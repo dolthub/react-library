@@ -6,12 +6,13 @@
     "packages/*"
   ],
   "scripts": {
-    "ci": "yarn prettier && yarn compile && yarn lint && yarn build",
+    "ci": "yarn prettier && yarn compile && yarn lint && yarn test && yarn build",
     "clean": "rimraf node_modules -g 'packages/*/.eslintcache' 'packages/*/*.tsbuildinfo' 'packages/*/dist' 'packages/*/.rollup.cache' 'packages/*/types'",
     "compile": "yarn workspace @dolthub/react-hooks compile",
     "build": "yarn workspace @dolthub/react-hooks build",
     "lint": "yarn workspace @dolthub/react-hooks lint",
-    "prettier": "yarn workspace @dolthub/react-hooks prettier"
+    "prettier": "yarn workspace @dolthub/react-hooks prettier",
+    "test": "yarn workspace @dolthub/react-hooks test"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.18.1",
