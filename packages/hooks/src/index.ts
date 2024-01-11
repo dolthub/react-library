@@ -6,7 +6,10 @@ export { default as useEffectAsync } from "./useEffectAsync";
 export { default as useEffectOnMount } from "./useEffectOnMount";
 export { default as useElementIsVisible } from "./useElementIsVisible";
 export { default as useFocus } from "./useFocus";
+export { default as useHostname } from "./useHostname";
+export { GlobalHotKeys, useHotKeysForToggle } from "./useHotKeys";
 export { default as useInterval } from "./useInterval";
+export { default as useIsSignedIn } from "./useIsSignedIn";
 export { default as useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect";
 export { default as useOnClickOutside } from "./useOnClickOutside";
 export {

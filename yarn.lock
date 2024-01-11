@@ -48,11 +48,14 @@ __metadata:
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.5"
     "@types/eslint": "npm:^8"
+    "@types/js-cookie": "npm:^3"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
     "@typescript-eslint/eslint-plugin": "npm:^6.13.2"
     "@typescript-eslint/parser": "npm:^6.13.2"
     eslint: "npm:^8.55.0"
+    js-cookie: "npm:^3.0.5"
     prettier: "npm:^3.1.0"
+    react-hotkeys: "npm:^2.0.0"
     rollup: "npm:^4.6.1"
     rollup-plugin-dts: "npm:^6.1.0"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
@@ -454,6 +457,13 @@ __metadata:
   version: 0.0.39
   resolution: "@types/estree@npm:0.0.39"
   checksum: f0af6c95ac1988c4827964bd9d3b51d24da442e2188943f6dfcb1e1559103d5d024d564b2e9d3f84c53714a02a0a7435c7441138eb63d9af5de4dfc66cdc0d92
+  languageName: node
+  linkType: hard
+
+"@types/js-cookie@npm:^3":
+  version: 3.0.6
+  resolution: "@types/js-cookie@npm:3.0.6"
+  checksum: 173afaf5ea9d86c22395b9d2a00b6adb0006dcfef165d6dcb0395cdc32f5a5dcf9c3c60f97194119963a15849b8f85121e1ae730b03e40bc0c29b84396ba22f9
   languageName: node
   linkType: hard
 
@@ -2871,6 +2881,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-cookie@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "js-cookie@npm:3.0.5"
+  checksum: 04a0e560407b4489daac3a63e231d35f4e86f78bff9d792011391b49c59f721b513411cd75714c418049c8dc9750b20fcddad1ca5a2ca616c3aca4874cce5b3a
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -4057,7 +4074,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.1, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -4100,6 +4117,17 @@ __metadata:
   peerDependencies:
     react: ^18.2.0
   checksum: 66dfc5f93e13d0674e78ef41f92ed21dfb80f9c4ac4ac25a4b51046d41d4d2186abc915b897f69d3d0ebbffe6184e7c5876f2af26bfa956f179225d921be713a
+  languageName: node
+  linkType: hard
+
+"react-hotkeys@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "react-hotkeys@npm:2.0.0"
+  dependencies:
+    prop-types: "npm:^15.6.1"
+  peerDependencies:
+    react: ">= 0.14.0"
+  checksum: 3b0b47c4426775a86ecf0654760d60e4141da8fc47ef90fe51053210259d55d5905750c3787abfdf5a1fbb29ca7c73a516fa0bec21055ddd7ac11116194ed067
   languageName: node
   linkType: hard
 
