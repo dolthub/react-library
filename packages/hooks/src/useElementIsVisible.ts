@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
-export default function useIsVisible(id: string): boolean {
+export default function useElementIsVisible(
+  id: string,
+  rerender?: boolean,
+): boolean {
   const [isIntersecting, setIntersecting] = useState(false);
 
   useEffect(() => {
@@ -13,7 +16,7 @@ export default function useIsVisible(id: string): boolean {
     return () => {
       observer.disconnect();
     };
-  }, [document]);
+  }, [document, rerender]);
 
   return isIntersecting;
 }
