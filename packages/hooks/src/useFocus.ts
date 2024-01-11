@@ -8,7 +8,7 @@ type ReturnType = {
 export default function useFocus(containerId = "main-content"): ReturnType {
   const [scrollToTop, setScrollToTop] = useState(false);
   const [refocus, setRefocus] = useState(false);
-  console.log("FOCUS TEST");
+
   useEffect(() => {
     const main = document.getElementById(containerId);
     if (scrollToTop) {

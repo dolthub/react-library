@@ -52,4 +52,4 @@ package, you can either add `@dolthub/react-hooks` and point it at the file path
 }
 ```
 
-Note that you may also need the same `@types/react` version and it should be added to the root `package.json` in a monorepo.
+Note that you may also need the same `@types/react` version.
