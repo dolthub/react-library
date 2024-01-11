@@ -1,11 +1,10 @@
 import { renderHook } from "@testing-library/react-hooks";
 import { useInterval } from "..";
 
-let callback = jest.fn();
+const callback = jest.fn();
 
 describe("useInterval", () => {
   beforeEach(() => {
-    callback = jest.fn();
     jest.spyOn(global, "setInterval");
     jest.spyOn(global, "clearInterval");
   });
@@ -15,9 +14,7 @@ describe("useInterval", () => {
   });
 
   afterEach(() => {
-    callback.mockRestore();
     jest.clearAllTimers();
-    jest.restoreAllMocks();
   });
 
   afterAll(() => {
