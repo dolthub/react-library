@@ -1497,6 +1497,7 @@ __metadata:
     jest-environment-jsdom: "npm:^29.7.0"
     js-cookie: "npm:^3.0.5"
     prettier: "npm:^3.1.0"
+    raf-stub: "npm:^3.0.0"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-hotkeys: "npm:^2.0.0"
@@ -6835,6 +6836,13 @@ __metadata:
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
   checksum: 900a93d3cdae3acd7d16f642c29a642aea32c2026446151f0778c62ac089d4b8e6c986811076e1ae180a694cedf077d453a11b58ff0a865629a4f82ab558e102
+  languageName: node
+  linkType: hard
+
+"raf-stub@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "raf-stub@npm:3.0.0"
+  checksum: 2c323b7a3d160a1b9144233d741e97b8af2feb94d1702f08e15a8394e5a4be38042b82a5eb403319e4f4fd3b39453bc86a9feea7450de13c3ca588a7560a8d4c
   languageName: node
   linkType: hard
 

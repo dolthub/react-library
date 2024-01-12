@@ -1,57 +1,41 @@
 import { useEffect, useState } from "react";
 import useEffectOnMount from "./useEffectOnMount";
 
-export function useReactiveHeight<E extends HTMLElement>(
-  elem?: E | null,
-): E["clientHeight"] {
-  const [clientHeight, setClientHeight] = useState(elem?.clientHeight ?? 0);
+export function useReactiveHeight<E extends HTMLElement>(): E["clientHeight"] {
+  const [clientHeight, setClientHeight] = useState(0);
 
   useEffectOnMount(() => {
-    setClientHeight(elem?.clientHeight ?? window.innerHeight);
-    const handleResize = () =>
-      setClientHeight(elem?.clientHeight ?? window.innerHeight);
+    setClientHeight(window.innerHeight);
+    const handleResize = () => setClientHeight(window.innerHeight);
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   });
-
-  useEffect(() => {
-    if (elem) {
-      setClientHeight(elem.clientHeight);
-    }
-  }, [elem]);
 
   return clientHeight;
 }
 
 export function useReactiveWidth<E extends HTMLElement>(
-  elem?: E | null,
   mobileBreakpoint = 768,
 ): { clientWidth: E["clientWidth"]; isMobile: boolean } {
-  const [clientWidth, setClientWidth] = useState(elem?.clientWidth ?? 0);
+  const [clientWidth, setClientWidth] = useState(0);
 
   useEffectOnMount(() => {
-    setClientWidth(elem?.clientWidth ?? window.innerWidth);
-    const handleResize = () =>
-      setClientWidth(elem?.clientWidth ?? window.innerWidth);
+    setClientWidth(window.innerWidth);
+    const handleResize = () => setClientWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   });
-
-  useEffect(() => {
-    if (elem) {
-      setClientWidth(elem.clientWidth);
-    }
-  }, [elem]);
 
   const isMobile = !(clientWidth >= mobileBreakpoint);
 
   return { clientWidth, isMobile };
 }
 
+// TODO: This is broken
 export function useReactiveScrollWidth<E extends HTMLElement>(
   elem?: E | null,
 ): { scrollWidth: E["scrollWidth"]; windowInnerWidth: Window["innerWidth"] } {

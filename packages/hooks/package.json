@@ -23,7 +23,7 @@
     "lint": "eslint --cache --ext .ts,.js,.tsx,.jsx src",
     "prettier": "prettier --check 'src/**/*.{js,ts}'",
     "prettier-fix": "prettier --write 'src/**/*.{js,ts}'",
-    "test": "jest --env=jest-environment-jsdom --silent"
+    "test": "jest --env=jest-environment-jsdom"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -55,6 +55,7 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.1.0",
+    "raf-stub": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^4.9.4",
