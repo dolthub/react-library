@@ -1,6 +1,6 @@
 {
   "include": ["./src"],
-  "exclude": ["./types", "./esm", "./cjs", "node_modules", "dist"],
+  "exclude": ["./types", "./esm", "./cjs", "node_modules", "dist", "__tests__"],
   "compilerOptions": {
     "rootDir": "src",
     "baseUrl": ".",
@@ -17,6 +17,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-    "composite": true
+    "composite": true,
+    "noImplicitAny": true,
+    "types": ["node", "jsdom", "@testing-library/jest-dom"]
   }
 }
