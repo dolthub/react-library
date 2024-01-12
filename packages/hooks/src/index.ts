@@ -1,4 +1,5 @@
 export { default as useAnchorTag } from "./useAnchorTag";
+export { default as useBaseUrl } from "./useBaseUrl";
 export { default as useContextWithError } from "./useContextWithError";
 export { default as useDelay } from "./useDelay";
 export { createLink, default as useDownloadFile } from "./useDownloadFile";
@@ -6,7 +7,6 @@ export { default as useEffectAsync } from "./useEffectAsync";
 export { default as useEffectOnMount } from "./useEffectOnMount";
 export { default as useElementIsVisible } from "./useElementIsVisible";
 export { default as useFocus } from "./useFocus";
-export { default as useHostname } from "./useHostname";
 export { GlobalHotKeys, useHotKeysForToggle } from "./useHotKeys";
 export { default as useInterval } from "./useInterval";
 export { default as useIsSignedIn } from "./useIsSignedIn";
