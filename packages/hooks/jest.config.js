@@ -8,6 +8,6 @@ module.exports = {
   },
   testPathIgnorePatterns: ["types", "node_modules", ".rollup.cache", "dist"],
   moduleFileExtensions: ["ts", "js"],
-  collectCoverage: false,
+  collectCoverage: true,
   clearMocks: true,
 };
