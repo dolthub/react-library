@@ -1,6 +1,6 @@
 {
   "include": ["./src"],
-  "exclude": ["./types", "./esm", "./cjs", "node_modules", "dist", "__tests__"],
+  "exclude": ["./types", "./esm", "./cjs", "node_modules", "./dist"],
   "compilerOptions": {
     "rootDir": "src",
     "baseUrl": ".",

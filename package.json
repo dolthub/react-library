@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "ci": "yarn prettier && yarn compile && yarn lint && yarn test && yarn build",
-    "clean": "rimraf node_modules -g 'packages/*/.eslintcache' 'packages/*/*.tsbuildinfo' 'packages/*/dist' 'packages/*/.rollup.cache' 'packages/*/types'",
+    "clean": "rimraf node_modules -g 'packages/*/.eslintcache' 'packages/*/*.tsbuildinfo' 'packages/*/dist' 'packages/*/.rollup.cache' 'packages/*/types' 'packages/*/coverage'",
     "compile": "yarn workspace @dolthub/react-hooks compile",
     "build": "yarn workspace @dolthub/react-hooks build",
     "lint": "yarn workspace @dolthub/react-hooks lint",

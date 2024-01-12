@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-// getHostFn is a function that returns the host to use based on location.hostname.
-export default function useHostname(
-  getHostFn: () => string,
+// getUrlFn is a function that returns the base url based on location.hostname.
+export default function useBaseUrl(
+  getUrlFn: () => string,
   defaultHost = "",
 ): string {
   const [host, setHost] = useState(defaultHost);
@@ -10,10 +10,10 @@ export default function useHostname(
 
   useEffect(() => {
     if (typeof window !== "undefined" && !setOnce) {
-      setHost(getHostFn());
+      setHost(getUrlFn());
       setSetOnce(true);
     }
-  }, [host, setHost, getHostFn]);
+  }, [host, setHost, getUrlFn]);
 
   return host;
 }
