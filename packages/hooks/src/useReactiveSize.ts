@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useEffectOnMount from "./useEffectOnMount";
 
 export function useReactiveHeight<E extends HTMLElement>(): E["clientHeight"] {
-  const [clientHeight, setClientHeight] = useState(0);
+  const [clientHeight, setClientHeight] = useState(window.innerHeight);
 
   useEffectOnMount(() => {
     setClientHeight(window.innerHeight);
@@ -16,10 +16,35 @@ export function useReactiveHeight<E extends HTMLElement>(): E["clientHeight"] {
   return clientHeight;
 }
 
+export function useReactiveElementHeight<E extends HTMLElement>(
+  elem?: E | null,
+): E["clientHeight"] {
+  const [clientHeight, setClientHeight] = useState(
+    elem?.clientHeight ?? window.innerHeight,
+  );
+
+  useEffectOnMount(() => {
+    const handleResize = () =>
+      setClientHeight(elem?.clientHeight ?? window.innerHeight);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
+  useEffect(() => {
+    if (elem) {
+      setClientHeight(elem.clientHeight);
+    }
+  }, [elem]);
+
+  return clientHeight;
+}
+
 export function useReactiveWidth<E extends HTMLElement>(
   mobileBreakpoint = 768,
 ): { clientWidth: E["clientWidth"]; isMobile: boolean } {
-  const [clientWidth, setClientWidth] = useState(0);
+  const [clientWidth, setClientWidth] = useState(window.innerWidth);
 
   useEffectOnMount(() => {
     setClientWidth(window.innerWidth);

@@ -13,6 +13,7 @@ export { default as useIsSignedIn } from "./useIsSignedIn";
 export { default as useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect";
 export { default as useOnClickOutside } from "./useOnClickOutside";
 export {
+  useReactiveElementHeight,
   useReactiveHeight,
   useReactiveScrollWidth,
   useReactiveWidth,
