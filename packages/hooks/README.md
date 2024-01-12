@@ -27,29 +27,3 @@ function MyComponent() {
   return <div>Home</div>;
 }
 ```
-
-## Testing in a local package
-
-First compile and build the package:
-
-```
-% yarn compile & yarn build
-```
-
-If you have a local copy of this package and want to test a change in another local
-package, you can either add `@dolthub/react-hooks` and point it at the file path, or if
-`@dolthub/react-hooks` is already installed add the file path to `resolutions` in your
-`package.json`, like so:
-
-```json
-// ../other-package/package.json
-{
-  ...,
-  "resolutions": {
-    "@dolthub/react-hooks": "file:../../react-library/packages/hooks",
-    "@types/react": "18.2.33"
-  }
-}
-```
-
-Note that you may also need the same `@types/react` version.
