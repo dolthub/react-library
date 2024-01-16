@@ -1,4 +1,4 @@
-export default function (data: any): string {
+export default function prettyJSON(data: any): string {
   try {
     return JSON.stringify(data, null, 2);
   } catch (err) {

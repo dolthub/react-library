@@ -56,5 +56,8 @@
   },
   "bugs": {
     "url": "https://github.com/dolthub/react-library/issues"
+  },
+  "dependencies": {
+    "timeago.js": "^4.0.2"
   }
 }
