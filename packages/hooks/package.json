@@ -23,6 +23,7 @@
     "lint": "eslint --cache --ext .ts,.js,.tsx,.jsx src",
     "prettier": "prettier --check 'src/**/*.{js,ts}'",
     "prettier-fix": "prettier --write 'src/**/*.{js,ts}'",
+    "publish": "yarn dbuild && npm publish",
     "test": "jest --env=jest-environment-jsdom",
     "yalc:publish": "yarn dbuild && yalc publish",
     "yalc:push": "yarn dbuild && yalc push"
