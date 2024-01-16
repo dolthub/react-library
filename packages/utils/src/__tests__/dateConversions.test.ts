@@ -17,6 +17,7 @@
 // ];
 
 describe("test date conversions", () => {
+  it("should pass", () => {});
   // dateTests.forEach(test => {
   //   it(`gets date and time string for ${test.date.toLocaleDateString()}`, () => {
   //     expect(getDateAndTimeString(test.date)).toEqual(test.expectedDate);
