@@ -1,7 +1,7 @@
 {
   "name": "@dolthub/web-utils",
   "author": "DoltHub",
-  "version": "0.1.6",
+  "version": "0.1.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",

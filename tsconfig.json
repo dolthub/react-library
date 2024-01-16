@@ -1,6 +1,6 @@
 {
   "include": [
-    "./packages/*/src", "packages/utils/src/__tests__/safeJSONParse.test.ts",
+    "./packages/*/src",
   ],
   "exclude": [
     "node_modules",
