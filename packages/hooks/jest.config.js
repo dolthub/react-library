@@ -7,7 +7,7 @@ module.exports = {
     "^.+\\.tsx?$": "babel-jest",
   },
   testPathIgnorePatterns: ["types", "node_modules", ".rollup.cache", "dist"],
-  moduleFileExtensions: ["ts", "js"],
+  moduleFileExtensions: ["ts", "js", "tsx"],
   collectCoverage: false,
   clearMocks: true,
 };
