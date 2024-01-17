@@ -146,7 +146,6 @@ export function convertToSqlWithNewCols(
     return convertToSql({
       ...ast,
       columns,
-      from: [{ db: null, table: null, as: null }],
       where: escapeSingleQuotesInWhereObj(ast.where),
     });
   }
