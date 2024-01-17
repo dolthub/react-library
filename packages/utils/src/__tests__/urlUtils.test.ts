@@ -190,6 +190,22 @@ describe("test Route class and methods", () => {
       },
     },
     {
+      desc: "UrlObject link, maybe add static str",
+      link: urlLink.maybeAddStatic("commits"),
+      exp: {
+        href: "/repositories/[ownerName]/commits",
+        as: "/repositories/taylor/commits",
+      },
+    },
+    {
+      desc: "UrlObject link, maybe add static undefined",
+      link: urlLink.maybeAddStatic(undefined),
+      exp: {
+        href: "/repositories/[ownerName]",
+        as: "/repositories/taylor",
+      },
+    },
+    {
       desc: "UrlObject link, add static str and dynamic str with hash",
       link: urlLink
         .addStatic("commits")

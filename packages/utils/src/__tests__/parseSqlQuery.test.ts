@@ -1,14 +1,19 @@
+import { Column } from "node-sql-parser";
 import compareArray from "../compareArray";
 import { NULL_VALUE } from "../null";
 import {
+  convertToSqlWithNewColNames,
+  convertToSqlWithNewCols,
   convertToSqlWithNewCondition,
   convertToSqlWithOrderBy,
   fallbackGetTableNamesForSelect,
+  getColumns,
   getQueryType,
   getTableName,
   isMultipleQueries,
   isMutation,
   makeQueryExecutable,
+  queryHasOrderBy,
   removeColumnFromQuery,
   TableColumn,
 } from "../parseSqlQuery";
@@ -444,6 +449,192 @@ describe("test use regex to get table names from query", () => {
       expect(
         compareArray(fallbackGetTableNamesForSelect(test.query), test.expected),
       ).toBe(true);
+    });
+  });
+});
+
+describe("convertToSqlWithNewCols", () => {
+  it("should convert query string with new columns and table name", () => {
+    const queryString = "SELECT column1 FROM table1 ORDER BY column1 DESC";
+    const cols = [{ name: "column2" }];
+    const tableNames = ["newTable"];
+
+    const result = convertToSqlWithNewCols(queryString, cols, tableNames);
+    expect(result).toBe(
+      "SELECT `column2` FROM `newTable` ORDER BY `column1` DESC",
+    );
+  });
+
+  it("should handle wildcard (*) for columns", () => {
+    const queryString = "SELECT column1 FROM table1 WHERE column1 = 1";
+    const cols = "*";
+    const tableNames = ["newTable"];
+
+    const result = convertToSqlWithNewCols(queryString, cols, tableNames);
+    expect(result).toBe("SELECT * FROM `newTable` WHERE `column1` = 1");
+  });
+
+  it("should handle multiple table names", () => {
+    const queryString = "SELECT column1 FROM table1 WHERE id = 1";
+    const cols = [{ name: "column2", sourceTable: "newTable2" }];
+    const tableNames = ["newTable1", "newTable2"];
+
+    const result = convertToSqlWithNewCols(queryString, cols, tableNames);
+    expect(result).toBe(
+      "SELECT `newTable2`.`column2` FROM `newTable1`, `newTable2` WHERE `id` = 1",
+    );
+  });
+
+  it("should handle no table names", () => {
+    const queryString = "SELECT column1 FROM table1 WHERE id = 1";
+    const cols = [{ name: "column2" }];
+
+    const result = convertToSqlWithNewCols(queryString, cols);
+    expect(result).toBe("SELECT `column2` FROM `table1` WHERE `id` = 1");
+  });
+});
+
+describe("convertToSqlWithNewColNames", () => {
+  it("should convert query string with new columns and table name", () => {
+    const queryString = "SELECT column1 FROM table1 ORDER BY column1 DESC";
+    const cols = ["column2"];
+    const tableName = "newTable";
+
+    const result = convertToSqlWithNewColNames(queryString, cols, tableName);
+    expect(result).toBe(
+      "SELECT `column2` FROM `newTable` ORDER BY `column1` DESC",
+    );
+  });
+
+  it("should handle wildcard (*) for columns", () => {
+    const queryString = "SELECT column1 FROM table1 WHERE column1 = 1";
+    const cols = "*";
+    const tableName = "newTable";
+
+    const result = convertToSqlWithNewColNames(queryString, cols, tableName);
+    expect(result).toBe("SELECT * FROM `newTable` WHERE `column1` = 1");
+  });
+
+  it("should handle multiple columns", () => {
+    const queryString = "SELECT column1 FROM table1 WHERE id = 1";
+    const cols = ["column2", "column1"];
+    const tableName = "newTable1";
+
+    const result = convertToSqlWithNewColNames(queryString, cols, tableName);
+    expect(result).toBe(
+      "SELECT `column2`, `column1` FROM `newTable1` WHERE `id` = 1",
+    );
+  });
+});
+
+function getParserCol(
+  name: string,
+  includeType?: boolean,
+  table?: string,
+): Column {
+  return {
+    expr: {
+      column: name,
+      table: table ?? null,
+      type: "column_ref",
+    },
+    as: null,
+    type: includeType ? "expr" : undefined,
+  };
+}
+
+describe("test getColumns", () => {
+  const tests = [
+    {
+      desc: "select *",
+      query: "select * from `test`",
+      expected: [getParserCol("*")],
+    },
+    {
+      desc: "select one column",
+      query: "select `col1` from `test`",
+      expected: [getParserCol("col1")],
+    },
+    {
+      desc: "select two columns",
+      query: "select `col1`, `col2` from `test`",
+      expected: [getParserCol("col1"), getParserCol("col2")],
+    },
+    {
+      desc: "update query",
+      query: "update `test` set `col1` = 'val1', `col2` = 'val2'",
+      expected: undefined,
+    },
+    {
+      desc: "invalid query",
+      query: invalidQuery,
+      expected: undefined,
+    },
+  ];
+
+  tests.forEach(test => {
+    it(test.desc, () => {
+      expect(getColumns(test.query)).toEqual(test.expected);
+    });
+  });
+});
+
+describe("test queryHasOrderBy", () => {
+  const tests = [
+    {
+      desc: "no order by",
+      query: "select * from `test`",
+      column: "test",
+      expectedDef: true,
+      expectedAsc: false,
+      expectedDesc: false,
+    },
+    {
+      desc: "order by, column doesn't match",
+      query: "select * from `test` ORDER BY `other-col` ASC",
+      column: "not-col",
+      expectedDef: true,
+      expectedAsc: false,
+      expectedDesc: false,
+    },
+    {
+      desc: "order by, column matches, desc",
+      query: "select * from `test` ORDER BY `my-col` DESC",
+      column: "my-col",
+      expectedDef: false,
+      expectedAsc: false,
+      expectedDesc: true,
+    },
+    {
+      desc: "order by, column matches, asc",
+      query: "select * from `test` ORDER BY `my-col` ASC",
+      column: "my-col",
+      expectedDef: false,
+      expectedAsc: true,
+      expectedDesc: false,
+    },
+    {
+      desc: "invalid query",
+      query: invalidQuery,
+      column: "my-col",
+      expectedDef: false,
+      expectedAsc: false,
+      expectedDesc: false,
+    },
+  ];
+
+  tests.forEach(test => {
+    it(test.desc, () => {
+      // Default
+      expect(queryHasOrderBy(test.query, test.column)).toBe(test.expectedDef);
+      // ASC
+      expect(queryHasOrderBy(test.query, test.column, "ASC")).toBe(
+        test.expectedAsc,
+      );
+      // DESC
+      expect(queryHasOrderBy(test.query, test.column, "DESC")).toBe(
+        test.expectedDesc,
+      );
     });
   });
 });
