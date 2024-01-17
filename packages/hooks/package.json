@@ -33,7 +33,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@dolthub/web-utils": "0.1.0",
+    "@dolthub/web-utils": "^0.1.2",
     "js-cookie": "^3.0.5",
     "react-hotkeys": "^2.0.0"
   },

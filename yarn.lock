@@ -1475,7 +1475,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.23.8"
     "@babel/preset-react": "npm:^7.23.3"
     "@babel/preset-typescript": "npm:^7.23.3"
-    "@dolthub/web-utils": "npm:0.1.0"
+    "@dolthub/web-utils": "npm:^0.1.2"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.5"
@@ -1515,7 +1515,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dolthub/web-utils@npm:0.1.0, @dolthub/web-utils@workspace:packages/utils":
+"@dolthub/web-utils@npm:^0.1.2, @dolthub/web-utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@dolthub/web-utils@workspace:packages/utils"
   dependencies:
