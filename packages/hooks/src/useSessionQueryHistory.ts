@@ -1,3 +1,4 @@
+import { safeJSONParse } from "@dolthub/web-utils";
 import { useState } from "react";
 import useStateWithSessionStorage from "./useStateWithSessionStorage";
 
@@ -67,14 +68,4 @@ export default function useSessionQueryHistory(
     getPrevQuery,
     queryIdx,
   };
-}
-
-// safeJSONParse attempts to parse a JSON string, and if it fails returns the
-// original string instead of throwing an error
-function safeJSONParse(text: string): any {
-  try {
-    return JSON.parse(text);
-  } catch (_) {
-    return text;
-  }
 }
