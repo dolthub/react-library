@@ -58,6 +58,7 @@
     "url": "https://github.com/dolthub/react-library/issues"
   },
   "dependencies": {
+    "node-sql-parser": "^4.17.0",
     "timeago.js": "^4.0.2"
   }
 }

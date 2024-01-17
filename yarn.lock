@@ -1533,6 +1533,7 @@ __metadata:
     babel-jest: "npm:^29.7.0"
     eslint: "npm:^8.56.0"
     jest: "npm:^29.7.0"
+    node-sql-parser: "npm:^4.17.0"
     prettier: "npm:^3.1.0"
     rollup: "npm:^4.9.4"
     rollup-plugin-dts: "npm:^6.1.0"
@@ -3072,6 +3073,13 @@ __metadata:
   version: 1.0.2
   resolution: "balanced-match@npm:1.0.2"
   checksum: 9308baf0a7e4838a82bbfd11e01b1cb0f0cf2893bc1676c27c2a8c0e70cbae1c59120c3268517a8ae7fb6376b4639ef81ca22582611dbee4ed28df945134aaee
+  languageName: node
+  linkType: hard
+
+"big-integer@npm:^1.6.48":
+  version: 1.6.52
+  resolution: "big-integer@npm:1.6.52"
+  checksum: 9604224b4c2ab3c43c075d92da15863077a9f59e5d4205f4e7e76acd0cd47e8d469ec5e5dba8d9b32aa233951893b29329ca56ac80c20ce094b4a647a66abae0
   languageName: node
   linkType: hard
 
@@ -6301,6 +6309,15 @@ __metadata:
   version: 2.0.14
   resolution: "node-releases@npm:2.0.14"
   checksum: 199fc93773ae70ec9969bc6d5ac5b2bbd6eb986ed1907d751f411fef3ede0e4bfdb45ceb43711f8078bea237b6036db8b1bf208f6ff2b70c7d615afd157f3ab9
+  languageName: node
+  linkType: hard
+
+"node-sql-parser@npm:^4.17.0":
+  version: 4.17.0
+  resolution: "node-sql-parser@npm:4.17.0"
+  dependencies:
+    big-integer: "npm:^1.6.48"
+  checksum: 151c8d1c4ad8b827f2ec9811f0c704a99e1521317990ffd25cad35c9775ee2112b9598b051eb85c582f23c74bb4f92e467be8ec8d6f01f9870a8744d8d873492
   languageName: node
   linkType: hard
 

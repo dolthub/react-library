@@ -2,6 +2,7 @@ export { default as Maybe } from "./Maybe";
 export { default as compareArray } from "./compareArray";
 export {
   areTimeAgosEqual,
+  convertToUTCDate,
   getDateMinusHours,
   getDateString,
   getLongDateTimeString,
@@ -27,6 +28,21 @@ export {
   isNullValue,
 } from "./null";
 export { formatNumber, formatToRoundedUsd, formatToUsd } from "./numberFormat";
+export {
+  convertToSqlWithNewColNames,
+  convertToSqlWithNewCols,
+  convertToSqlWithNewCondition,
+  convertToSqlWithOrderBy,
+  getColumns,
+  getTableName,
+  isMultipleQueries,
+  isMutation,
+  makeQueryExecutable,
+  parseSelectQuery,
+  queryHasOrderBy,
+  removeColumnFromQuery,
+  requireTableNameForSelect,
+} from "./parseSqlQuery";
 export { default as pluralize } from "./pluralize";
 export { default as prettyJSON, prettyJSONText } from "./prettyJSON";
 export { default as randomArrayItem } from "./randomArrayItem";

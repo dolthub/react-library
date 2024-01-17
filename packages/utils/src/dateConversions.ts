@@ -5,12 +5,14 @@ const oneSecond = 1000;
 const oneMinute = oneSecond * 60;
 export const oneHour = oneMinute * 60;
 
+// Gets UTC date in format YYYY-MM-DD HH:MM:SS
 export function getUTCDateAndTimeString(date: Date): string {
   const d = getUTCDateString(date);
   const t = `${getUTCTimeString(date)}:${zeroPadNumber(date.getUTCSeconds())}`;
   return `${d} ${t}`;
 }
 
+// Gets date in format YYYY-MM-DD
 export function getDateString(date: Date): string {
   const month = zeroPadNumber(date.getMonth() + 1); // January is 0
   const day = zeroPadNumber(date.getDate());
@@ -18,6 +20,7 @@ export function getDateString(date: Date): string {
   return `${year}-${month}-${day}`;
 }
 
+// Gets UTC date in format YYYY-MM-DD
 export function getUTCDateString(date: Date): string {
   const month = zeroPadNumber(date.getUTCMonth() + 1); // January is 0
   const day = zeroPadNumber(date.getUTCDate());
@@ -25,6 +28,7 @@ export function getUTCDateString(date: Date): string {
   return `${year}-${month}-${day}`;
 }
 
+// Gets UTC time in format HH:MM:SS
 export function getUTCTimeString(date: Date): string {
   const hour = date.getUTCHours();
   const mins = date.getUTCMinutes();
@@ -76,4 +80,16 @@ export function getTimeAgoString(oldDateTime: number): string {
 
 export function areTimeAgosEqual(a: Date, b: Date): boolean {
   return format(a) === format(b);
+}
+
+// Manually convert local date to UTC
+export function convertToUTCDate(d: Date): Date {
+  const utcDate = new Date(d);
+  utcDate.setUTCFullYear(d.getFullYear());
+  utcDate.setUTCMonth(d.getMonth());
+  utcDate.setUTCDate(d.getDate());
+  utcDate.setUTCHours(d.getHours());
+  utcDate.setUTCMinutes(d.getMinutes());
+  utcDate.setUTCSeconds(d.getSeconds());
+  return utcDate;
 }
