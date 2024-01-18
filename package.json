@@ -8,10 +8,10 @@
   "scripts": {
     "ci": "yarn prettier && yarn lint && yarn dbuild && yarn test",
     "clean": "rimraf node_modules -g 'packages/*/.eslintcache' 'packages/*/*.tsbuildinfo' 'packages/*/dist' 'packages/*/.rollup.cache' 'packages/*/types' 'packages/*/coverage'",
-    "dbuild": "yarn workspace @dolthub/web-utils dbuild && yarn workspace @dolthub/react-hooks dbuild",
-    "lint": "yarn workspace @dolthub/react-hooks lint && yarn workspace @dolthub/web-utils lint",
-    "prettier": "yarn workspace @dolthub/react-hooks prettier && yarn workspace @dolthub/web-utils prettier",
-    "test": "yarn workspace @dolthub/react-hooks test && yarn workspace @dolthub/web-utils test"
+    "dbuild": "yarn workspace @dolthub/web-utils dbuild && yarn workspace @dolthub/react-hooks dbuild && yarn workspace @dolthub/proto-resource-utils dbuild",
+    "lint": "yarn workspace @dolthub/react-hooks lint && yarn workspace @dolthub/web-utils lint && yarn workspace @dolthub/proto-resource-utils lint",
+    "prettier": "yarn workspace @dolthub/react-hooks prettier && yarn workspace @dolthub/web-utils prettier && yarn workspace @dolthub/proto-resource-utils prettier",
+    "test": "yarn workspace @dolthub/react-hooks test && yarn workspace @dolthub/web-utils test && yarn workspace @dolthub/proto-resource-utils test"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.18.1",
