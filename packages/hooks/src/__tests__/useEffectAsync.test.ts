@@ -1,19 +1,22 @@
-import { renderHook } from "@testing-library/react-hooks";
-import { useEffectAsync } from "..";
-
-const mockEffectCleanup = jest.fn();
-const mockEffectCallback = jest.fn().mockReturnValue(mockEffectCleanup);
+import { act, renderHook } from "@testing-library/react-hooks";
+import useEffectAsync from "../useEffectAsync";
 
 describe("useEffectAsync", () => {
-  it("should run provided effect", () => {
-    const val = 1;
-    const { rerender } = renderHook(() =>
-      useEffectAsync(mockEffectCallback, [val]),
-    );
-    expect(mockEffectCallback).toHaveBeenCalledTimes(1);
-    expect(mockEffectCallback).toHaveBeenCalledWith({ subscribed: true });
+  it("should call the provided async function", async () => {
+    const asyncFunction = jest.fn(async () => Promise.resolve());
+    renderHook(() => useEffectAsync(asyncFunction));
+    expect(asyncFunction).toHaveBeenCalledTimes(1);
+  });
 
-    rerender();
-    expect(mockEffectCallback).toHaveBeenCalledTimes(2);
+  it("should handle async function rejection and log an error", async () => {
+    const err = new Error("Error");
+    const asyncFunction = jest.fn(async () => Promise.reject(err));
+    const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+
+    renderHook(() => useEffectAsync(asyncFunction));
+    await act(async () => {});
+
+    expect(errorSpy).toHaveBeenCalledWith(err);
+    errorSpy.mockRestore();
   });
 });
