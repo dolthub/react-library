@@ -8,7 +8,6 @@ export default function useAnchorTag() {
   // navigation is full page load and client-side rendered.
   useEffect(() => {
     const { hash } = window.location;
-    console.log("HASH", hash);
     if (!hash.length) return;
     window.location.hash = "";
     window.location.hash = hash;
