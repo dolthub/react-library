@@ -20,7 +20,4 @@ export {
   default as doParamValidation,
 } from "./doParamValidation";
 export * as validResourceSegmentPattern from "./validResourceSegmentPattern";
-export {
-  invalidBranchNames,
-  validBranchNames,
-} from "./__tests__/validResourceSegmentPattern.test";
+export { invalidBranchNames, validBranchNames } from "./__tests__/branchNames";
