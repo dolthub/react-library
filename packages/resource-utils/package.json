@@ -2,7 +2,7 @@
   "name": "@dolthub/proto-resource-utils",
   "author": "DoltHub",
   "description": "Utilities for handling Google protobuf resources and names",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",

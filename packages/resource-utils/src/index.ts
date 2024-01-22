@@ -23,4 +23,4 @@ export * as validResourceSegmentPattern from "./validResourceSegmentPattern";
 export {
   invalidBranchNames,
   validBranchNames,
-} from "./__tests__/validResourceSegmentPattern.test";
+} from "./__tests__/helpers/branchNames";
