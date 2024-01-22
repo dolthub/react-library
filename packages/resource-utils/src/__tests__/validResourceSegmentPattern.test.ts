@@ -1,5 +1,5 @@
 import { validBranchNamePattern } from "../validResourceSegmentPattern";
-import { invalidBranchNames, validBranchNames } from "./branchNames";
+import { invalidBranchNames, validBranchNames } from "./helpers/branchNames";
 
 const validBranchNameRegex = new RegExp(validBranchNamePattern);
 
