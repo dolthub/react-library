@@ -11,9 +11,16 @@ export { default as byName } from "./byName";
 export { default as byResourceName } from "./byResourceName";
 export { default as comparatorsToSorters } from "./comparatorsToSorters";
 export { default as displayName } from "./displayName";
-export { default as doNameValidation } from "./doNameValidation";
+export {
+  default as doNameValidation,
+  ResourceNameValidationError,
+} from "./doNameValidation";
 export {
   ResourceParamValidationError,
   default as doParamValidation,
 } from "./doParamValidation";
 export * as validResourceSegmentPattern from "./validResourceSegmentPattern";
+export {
+  invalidBranchNames,
+  validBranchNames,
+} from "./__tests__/validResourceSegmentPattern.test";
