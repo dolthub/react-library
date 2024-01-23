@@ -5,6 +5,7 @@ import defaultWords from "./words";
 
 type LoremerOptions = { words: string[] | string };
 
+// custom lorem ipsum generator: https://en.wikipedia.org/wiki/Lorem_ipsum
 export default function Loremer(opts: LoremerOptions) {
   const _words =
     typeof opts.words === "string" ? parseWords(opts.words) : opts.words;
