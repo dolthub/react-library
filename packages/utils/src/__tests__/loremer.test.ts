@@ -1,4 +1,4 @@
-import Loremer, { parseWords } from ".";
+import Loremer, { parseWords } from "../loremer";
 
 const ourLanguage = ["foo", "bar", "baz", "boom", "bop", "ass", "doop"];
 const sourceText = `foo
