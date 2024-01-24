@@ -8,6 +8,9 @@ module.exports = {
   },
   testPathIgnorePatterns: ["types", "node_modules", ".rollup.cache", "dist"],
   moduleFileExtensions: ["ts", "js", "tsx"],
+  moduleNameMapper: {
+    "\\.(css|less)$": "identity-obj-proxy",
+  },
   collectCoverage: false,
   clearMocks: true,
 };
