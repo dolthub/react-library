@@ -1,0 +1,19 @@
+.stackedButton {
+  @apply flex flex-col;
+
+  button {
+    @apply mb-4 h-10;
+  }
+}
+
+.group {
+  @apply text-center mt-4;
+
+  > button:last-of-type {
+    @apply px-2;
+  }
+}
+
+.left {
+  @apply text-left;
+}
