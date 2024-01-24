@@ -1,4 +1,3 @@
 .errorMsg {
-  color: red;
-  font-weight: 600;
+  @apply text-red-500 font-semibold mx-auto pt-6;
 }
