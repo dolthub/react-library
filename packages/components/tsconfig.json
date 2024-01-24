@@ -1,7 +1,8 @@
 {
-  "include": ["./src"],
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
   "exclude": ["./types", "./esm", "./cjs", "node_modules", "./dist"],
   "compilerOptions": {
+    "plugins": [{"name": "typescript-plugin-css-modules"}],
     "rootDir": "src",
     "baseUrl": ".",
     "declaration": true,

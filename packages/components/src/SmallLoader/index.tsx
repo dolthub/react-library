@@ -1,6 +1,7 @@
 import cx from "classnames";
 import React from "react";
 import ReactLoader from "react-loader";
+import css from "./index.module.css";
 
 const smallLoaderDefaultOptions = {
   lines: 10,
@@ -46,13 +47,11 @@ export default function SmallLoader(props: Props) {
 type WithTextProps = {
   text: string;
   outerClassName?: string;
-  className?: string;
 } & Props;
 
 function WithText(props: WithTextProps) {
-  // TODO(css)
   return (
-    <div className={cx(props.className, props.outerClassName)}>
+    <div className={cx(css.loading, props.outerClassName)}>
       <SmallLoader {...props} />
       <span>{props.text}</span>
     </div>

@@ -1,5 +1,6 @@
 import cx from "classnames";
 import React from "react";
+import css from "./index.module.css";
 
 type Props = {
   err?: Error;
@@ -28,7 +29,11 @@ export default function ErrorMsg({
 
   // TODO(css)
   return (
-    <div className={cx(className)} data-cy="error-msg" aria-label="error-msg">
+    <div
+      className={cx(css.errorMsg, className)}
+      data-cy="error-msg"
+      aria-label="error-msg"
+    >
       {splitMsg.map(m => (
         <div key={m}>{m}</div>
       ))}

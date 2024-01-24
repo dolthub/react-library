@@ -5,6 +5,9 @@ import { terser } from "rollup-plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import { dts } from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
+import autoprefixer from "autoprefixer";
+import postcssPresetEnv from "postcss-preset-env";
+import stringHash from "string-hash";
 
 const packageJson = require("./package.json");
 
@@ -29,7 +32,22 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
-      postcss(),
+      postcss({
+        plugins: [postcssPresetEnv(), autoprefixer()],
+        autoModules: false,
+        onlyModules: false,
+        modules: {
+          generateScopedName: (name, filename, css) => {
+            if (filename.includes("global")) {
+              return name;
+            }
+            const hash = stringHash(css).toString(36).substring(0, 5);
+            return `${name}_${hash}`;
+          },
+        },
+        minimize: true,
+        sourceMap: false,
+      }),
       terser(),
     ],
   },
