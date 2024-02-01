@@ -47,7 +47,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@testing-library/jest-dom": "^6.2.0",
-    "@testing-library/react": "^14.1.2",
+    "@testing-library/react": "^14.2.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/babel__core": "^7",
     "@types/babel__preset-env": "^7",
