@@ -1,3 +1,4 @@
 .successMsg {
-  @apply text-green-500;
+  /* TODO(color): acc-green */
+  @apply text-[#5ac58d] font-semibold;
 }
