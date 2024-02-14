@@ -18,3 +18,5 @@ export default function Popup(props: PopupProps) {
     </ReactPopup>
   );
 }
+
+export { PopupProps };
