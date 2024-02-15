@@ -1,3 +1,8 @@
+const colors = {
+  "acc-grey": "#b2c0c4",
+  "acc-red": "#ff9a99",
+};
+
 const config = {
   corePlugins: {
     preflight: false,
@@ -6,6 +11,8 @@ const config = {
   theme: {
     extend: {
       transitionProperty: { width: "width" },
+      gradientColorStops: colors,
+      colors,
       fontFamily: {
         sans: ["Source Sans Pro", "sans-serif"],
       },
