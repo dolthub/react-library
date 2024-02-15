@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React from "react";
+import React, { ReactNode } from "react";
 import ReactLoader from "react-loader";
 import css from "./index.module.css";
 
@@ -29,7 +29,7 @@ type Props = {
   loaded: boolean;
   className?: string;
   options?: Partial<typeof smallLoaderDefaultOptions>;
-  tableLoader?: boolean;
+  children?: ReactNode;
 };
 
 export default function SmallLoader(props: Props) {
@@ -53,7 +53,7 @@ function WithText(props: WithTextProps) {
   return (
     <div className={cx(css.loading, props.outerClassName)}>
       <SmallLoader {...props} />
-      <span>{props.text}</span>
+      {!props.loaded && <span>{props.text}</span>}
     </div>
   );
 }
