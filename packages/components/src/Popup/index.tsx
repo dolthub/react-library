@@ -1,7 +1,7 @@
 import React from "react";
 import ReactPopup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import { PopupProps } from "reactjs-popup/dist/types";
+import type { PopupProps } from "reactjs-popup/dist/types.d";
 
 export default function Popup(props: PopupProps) {
   return (
