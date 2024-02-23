@@ -11,13 +11,13 @@ export default meta;
 
 type Story = StoryObj<typeof CharCount>;
 
-export const Short: Story = {
+export const WithinLimit: Story = {
   args: {
     desc: "short desc",
   },
 };
 
-export const Long: Story = {
+export const TooLong: Story = {
   args: {
     desc: "abc".repeat(2048),
   },

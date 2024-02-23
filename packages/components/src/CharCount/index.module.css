@@ -3,5 +3,5 @@
 }
 
 .charCountOver {
-  @apply text-red-500;
+  @apply text-acc-red;
 }

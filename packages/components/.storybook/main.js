@@ -17,20 +17,6 @@ const config = {
     getAbsolutePath("@storybook/addon-onboarding"),
     getAbsolutePath("@storybook/addon-interactions"),
     getAbsolutePath("@storybook/addon-styling-webpack"),
-    // {
-    //   name: "@storybook/addon-postcss",
-    //   options: {
-    //     cssLoaderOptions: {
-    //       // When you have splitted your css over multiple files
-    //       // and use @import('./other-styles.css')
-    //       importLoaders: 1,
-    //     },
-    //     postcssLoaderOptions: {
-    //       // When using postCSS 8
-    //       implementation: require("postcss"),
-    //     },
-    //   },
-    // },
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-webpack5"),

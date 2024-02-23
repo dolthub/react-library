@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "ci": "yarn prettier && yarn lint && yarn dbuild && yarn test",
+    "ci": "yarn prettier && yarn lint && yarn sbuild && yarn dbuild && yarn test",
     "clean": "rimraf node_modules -g 'packages/*/.eslintcache' 'packages/*/*.tsbuildinfo' 'packages/*/dist' 'packages/*/.rollup.cache' 'packages/*/types' 'packages/*/coverage'",
     "dbuild": "npm-run-all 'dbuild:*'",
     "dbuild:utils": "yarn workspace @dolthub/web-utils dbuild",
@@ -13,6 +13,7 @@
     "dbuild:contexts": "yarn workspace @dolthub/react-contexts dbuild",
     "dbuild:resource": "yarn workspace @dolthub/proto-resource-utils dbuild",
     "dbuild:components": "yarn workspace @dolthub/react-components dbuild",
+    "sbuild": "yarn workspace @dolthub/react-components build-storybook",
     "lint": "npm-run-all --parallel 'lint:*'",
     "lint:hooks": "yarn workspace @dolthub/react-hooks lint",
     "lint:contexts": "yarn workspace @dolthub/react-contexts lint",
