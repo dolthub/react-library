@@ -28,6 +28,6 @@ const reactComponentsTailwindConfig: Config = {
  */
 export function withRC(tailwindConfig: Config) {
   const merged = merge(reactComponentsTailwindConfig, { ...tailwindConfig });
-  console.log("MERGE", merged.theme.extend?.colors);
+  // console.log("MERGE", merged.theme.extend?.colors);
   return merged;
 }

@@ -1,5 +1,5 @@
 const staticColors = {
-  // primary: "#010a40",
+  primary: "#010a40",
   "acc-grey": "#b2c0c4",
   "acc-red": "#ff9a99",
 
@@ -32,13 +32,6 @@ export default colors;
 // Reference for using CSS variables in Tailwind:
 // https://tailwindcss.com/docs/customizing-colors#using-css-variables
 
-function withOpacity(
-  variableName: string,
-): (o: { opacityValue?: number }) => string {
-  return ({ opacityValue }) => {
-    if (opacityValue !== undefined) {
-      return `rgba(var(${variableName}), ${opacityValue})`;
-    }
-    return `rgb(var(${variableName}))`;
-  };
+function withOpacity(variableName: string): string {
+  return `rgb(var(${variableName}) / <alpha-value>)`;
 }
