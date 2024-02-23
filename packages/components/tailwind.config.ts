@@ -1,4 +1,10 @@
+<<<<<<< Updated upstream
 const config = {
+=======
+import { withRC } from "./src/utils/withRC";
+
+const config = withRC({
+>>>>>>> Stashed changes
   corePlugins: {
     preflight: false,
   },
@@ -6,11 +12,14 @@ const config = {
   theme: {
     extend: {
       transitionProperty: { width: "width" },
+<<<<<<< Updated upstream
       fontFamily: {
         sans: ["Source Sans Pro", "sans-serif"],
       },
+=======
+>>>>>>> Stashed changes
     },
   },
-};
+});
 
 export default config;

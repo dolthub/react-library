@@ -39,6 +39,8 @@ export default [
           insertAt: "top",
         },
         sourceMap: false,
+        modules: false,
+        autoModules: true,
       }),
       terser(),
     ],
