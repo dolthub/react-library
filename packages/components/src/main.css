@@ -1,0 +1,53 @@
+/* Fonts import should come first */
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i|Space+Mono:400,400i,700,700i&display=swap");
+
+@tailwind base;
+
+html,
+body {
+  @apply font-sans text-primary;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply text-primary;
+}
+
+h2,
+h3,
+h4 {
+  @apply font-semibold;
+}
+
+h1 {
+  @apply font-bold text-3xl;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-xl;
+}
+
+h4 {
+  @apply text-lg;
+}
+
+a {
+  @apply font-semibold text-link-1;
+}
+
+a:hover {
+  @apply text-link-2;
+}
+
+p {
+  @apply text-sm text-primary leading-normal;
+}
+
+@tailwind components;
+@tailwind utilities;
