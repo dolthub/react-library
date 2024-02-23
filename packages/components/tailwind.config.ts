@@ -1,4 +1,5 @@
 const colors = {
+  primary: "#010a40",
   "acc-grey": "#b2c0c4",
   "acc-red": "#ff9a99",
 };
