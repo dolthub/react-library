@@ -5,5 +5,5 @@ export { default as Markdown } from "./Markdown";
 export { default as Popup, PopupProps } from "./Popup";
 export { default as SmallLoader } from "./SmallLoader";
 export { default as SuccessMsg } from "./SuccessMsg";
-export { default as useTailwindTheme } from "./utils/useTailwindTheme";
-export { withRC } from "./utils/withRC";
+export { default as applyTailwindTheme } from "./tailwind/applyTheme";
+export { mergeConfig } from "./tailwind/mergeConfig";

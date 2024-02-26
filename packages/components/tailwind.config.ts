@@ -1,6 +1,6 @@
-import { withRC } from "./src/utils/withRC";
+import { mergeConfig } from "./src/tailwind/mergeConfig";
 
-const config = withRC({
+const config = mergeConfig({
   corePlugins: {
     preflight: false,
   },

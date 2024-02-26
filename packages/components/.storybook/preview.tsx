@@ -1,7 +1,7 @@
 import { Preview } from "@storybook/react";
 import React from "react";
 import "../src/main.css";
-import ThemeWrapper from "../src/utils/theme";
+import ThemeWrapper from "../src/tailwind/Wrapper";
 
 const preview: Preview = {
   parameters: {

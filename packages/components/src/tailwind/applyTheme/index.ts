@@ -1,28 +1,28 @@
-import base from "./base";
+import { baseColorVariableValues } from "../theme/base/colors";
 import { IMappedTheme, ITheme } from "./types";
 
-export default function useTailwindTheme() {
-  function applyTheme(tailwindColorOverrides?: ITheme) {
-    const themeObject: IMappedTheme = mapTheme(
-      tailwindColorOverrides ? extend(base, tailwindColorOverrides) : base,
-    );
-    const root = document.documentElement;
+// Should be used to apply the theme to the root element of the app. Will use
+// base colors in `theme/base/colors.ts` if no overrides are provided.
+export default function applyTheme(tailwindColorOverrides?: ITheme) {
+  const themeObject: IMappedTheme = mapTheme(
+    tailwindColorOverrides
+      ? extend(baseColorVariableValues, tailwindColorOverrides)
+      : baseColorVariableValues,
+  );
+  const root = document.documentElement;
 
-    Object.keys(themeObject).forEach(property => {
-      if (property === "name") {
-        return;
-      }
-      const propertyVal = themeObject[property];
-      const validation = validateRGB(propertyVal);
-      if (!validation) {
-        throw new Error(`Invalid RGB value for ${property}: ${propertyVal}`);
-      }
+  Object.keys(themeObject).forEach(property => {
+    if (property === "name") {
+      return;
+    }
+    const propertyVal = themeObject[property];
+    const validation = validateRGB(propertyVal);
+    if (!validation) {
+      throw new Error(`Invalid RGB value for ${property}: ${propertyVal}`);
+    }
 
-      root.style.setProperty(property, propertyVal);
-    });
-  }
-
-  return { applyTheme };
+    root.style.setProperty(property, propertyVal);
+  });
 }
 
 function mapTheme(variables: ITheme): IMappedTheme {

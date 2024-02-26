@@ -22,8 +22,7 @@ const reactComponentsTailwindConfig: Config = {
 /**
  * Merge @dolthub/react-components and Tailwind CSS configurations
  */
-export function withRC(tailwindConfig: Config) {
+export function mergeConfig(tailwindConfig: Config): Config {
   const merged = merge(reactComponentsTailwindConfig, { ...tailwindConfig });
-  // console.log("MERGE", merged.theme.extend?.colors);
   return merged;
 }
