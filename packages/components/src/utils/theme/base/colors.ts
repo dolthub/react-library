@@ -2,15 +2,6 @@ const staticColors = {
   primary: "#010a40",
   "acc-grey": "#b2c0c4",
   "acc-red": "#ff9a99",
-
-  // "acc-1": "#fc42c9",
-  // "background-acc-1": "#182134",
-  // "background-acc-start": "#1F2942",
-  // "button-1": "#3d91f0",
-  // "link-1": "#1f6dc6",
-  // "button-2": "#1f6dc6",
-  // "link-2": "#3d91f0",
-  // "link-light": "#6db0fc",
 };
 
 const colors = {
@@ -33,5 +24,5 @@ export default colors;
 // https://tailwindcss.com/docs/customizing-colors#using-css-variables
 
 function withOpacity(variableName: string): string {
-  return `rgb(var(${variableName}) / <alpha-value>)`;
+  return `rgb(var(${variableName}), <alpha-value>)`;
 }

@@ -1,6 +1,6 @@
 import "../src/main.css";
 import React from "react";
-import { ThemeProvider } from "../src/utils/themeContext";
+import ThemeWrapper from "../src/utils/theme";
 
 /** @type { import('@storybook/react').Preview } */
 const preview = {
@@ -14,13 +14,11 @@ const preview = {
     },
   },
   decorators: [
-    Story => {
-      return (
-        <ThemeProvider>
-          <Story />
-        </ThemeProvider>
-      );
-    },
+    Story => (
+      <ThemeWrapper>
+        <Story />
+      </ThemeWrapper>
+    ),
   ],
 };
 
