@@ -27,14 +27,14 @@ export default function useTailwindTheme() {
 
 function mapTheme(variables: ITheme): IMappedTheme {
   return {
-    "--color-acc-1": variables["rgb-acc-1"] || "",
-    "--color-background-acc-1": variables["rgb-background-acc-1"] || "",
-    "--color-background-acc-start": variables["rgb-background-acc-start"] || "",
-    "--color-button-1": variables["rgb-button-1"] || "",
-    "--color-link-1": variables["rgb-link-1"] || "",
-    "--color-button-2": variables["rgb-button-2"] || "",
-    "--color-link-2": variables["rgb-link-2"] || "",
-    "--color-link-light": variables["rgb-link-light"] || "",
+    "--color-acc-1": variables["rgb-acc-1"] ?? "",
+    "--color-background-acc-1": variables["rgb-background-acc-1"] ?? "",
+    "--color-background-acc-start": variables["rgb-background-acc-start"] ?? "",
+    "--color-button-1": variables["rgb-button-1"] ?? "",
+    "--color-link-1": variables["rgb-link-1"] ?? "",
+    "--color-button-2": variables["rgb-button-2"] ?? "",
+    "--color-link-2": variables["rgb-link-2"] ?? "",
+    "--color-link-light": variables["rgb-link-light"] ?? "",
   };
 }
 
