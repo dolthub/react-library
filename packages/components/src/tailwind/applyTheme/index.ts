@@ -27,6 +27,7 @@ export default function applyTheme(tailwindColorOverrides?: ITheme) {
 
 function mapTheme(variables: ITheme): IMappedTheme {
   return {
+    "--color-primary": variables["rgb-primary"] ?? "",
     "--color-acc-1": variables["rgb-acc-1"] ?? "",
     "--color-background-acc-1": variables["rgb-background-acc-1"] ?? "",
     "--color-background-acc-start": variables["rgb-background-acc-start"] ?? "",

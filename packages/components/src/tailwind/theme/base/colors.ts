@@ -1,11 +1,11 @@
 const staticColors = {
-  primary: "#010a40",
   "acc-grey": "#b2c0c4",
   "acc-red": "#ff9a99",
+  "acc-green": "#5ac58d",
 };
 
 const configurableColors = {
-  // primary: withOpacity("--color-primary"),
+  primary: withOpacity("--color-primary"),
   "acc-1": withOpacity("--color-acc-1"),
   "background-acc-1": withOpacity("--color-background-acc-1"),
   "background-acc-start": withOpacity("--color-background-acc-start"),
@@ -24,6 +24,7 @@ export default colors;
 // Can override these values by passing this object with different values to
 // `applyTheme`
 export const baseColorVariableValues = {
+  "rgb-primary": "1, 10, 64",
   "rgb-acc-1": "252, 66, 201",
   "rgb-background-acc-1": "24, 33, 52",
   "rgb-background-acc-start": "31, 41, 66",
@@ -38,5 +39,5 @@ export const baseColorVariableValues = {
 // https://tailwindcss.com/docs/customizing-colors#using-css-variables
 
 function withOpacity(variableName: string): string {
-  return `rgb(var(${variableName}), <alpha-value>)`;
+  return `rgba(var(${variableName}), <alpha-value>)`;
 }

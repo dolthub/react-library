@@ -5,6 +5,11 @@ import { terser } from "rollup-plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import { dts } from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
+// import autoprefixer from "autoprefixer";
+// import cssnano from "cssnano";
+// import postcssPresetEnv from "postcss-preset-env";
+// import tailwindNesting from "tailwindcss/nesting";
+// import tailwind from "tailwindcss";
 
 const packageJson = require("./package.json");
 
@@ -33,14 +38,14 @@ export default [
         config: {
           path: "./postcss.config.js",
         },
-        extensions: [".css"],
+        modules: {
+          generateScopedName: "[folder]_[local]___[hash:base64:5]",
+        },
         minimize: true,
         inject: {
           insertAt: "top",
         },
         sourceMap: false,
-        modules: false,
-        autoModules: true,
       }),
       terser(),
     ],
