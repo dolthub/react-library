@@ -1,9 +1,9 @@
-import "../src/main.css";
+import { Preview } from "@storybook/react";
 import React from "react";
+import "../src/main.css";
 import ThemeWrapper from "../src/utils/theme";
 
-/** @type { import('@storybook/react').Preview } */
-const preview = {
+const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
