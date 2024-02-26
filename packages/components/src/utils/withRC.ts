@@ -1,8 +1,4 @@
-/**
- * This is a helper function for merging the main configuration of @dolthub/react-components with the Tailwind CSS configuration
- */
-
-import { merge } from "@dolthub/web-utils";
+import merge from "deepmerge";
 import { Config } from "tailwindcss";
 import breakpoints from "./theme/base/breakpoints";
 import colors from "./theme/base/colors";

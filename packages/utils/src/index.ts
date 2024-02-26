@@ -21,7 +21,6 @@ export { default as excerpt } from "./excerpt";
 export { default as fakeEscapePress } from "./fakeEscapePress";
 export { default as initialUppercase } from "./initialUppercase";
 export { loremer } from "./loremer";
-export { combineArrayMerge, merge } from "./merge";
 export { default as nTimes, nTimesWithIndex } from "./nTimes";
 export {
   NULL_VALUE,
