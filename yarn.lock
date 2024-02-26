@@ -2036,6 +2036,7 @@ __metadata:
     cssnano: "npm:^6.0.3"
     eslint: "npm:^8.56.0"
     eslint-plugin-storybook: "npm:^0.8.0"
+    github-markdown-css: "npm:^5.5.1"
     identity-obj-proxy: "npm:^3.0.0"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
@@ -9684,6 +9685,13 @@ __metadata:
   bin:
     giget: dist/cli.mjs
   checksum: 7a2a66146278f36a1fe0e57e792d43500a757c9a70e796a84e264cf4dfdbc3677499b308dfd96dd53940b5d1065ee14cba75dd75d78a78c2a9abec74e5e4ea62
+  languageName: node
+  linkType: hard
+
+"github-markdown-css@npm:^5.5.1":
+  version: 5.5.1
+  resolution: "github-markdown-css@npm:5.5.1"
+  checksum: 40077adeaf3c23776b6805a5442e97cdd67babb41b1c053f5be0ddec35d593bbd66bb72c63d70b3d056d335fad830cdbb728f83b1e7ed7300beb9e2b5e73e812
   languageName: node
   linkType: hard
 

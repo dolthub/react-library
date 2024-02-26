@@ -41,13 +41,5 @@ p {
   @apply text-sm text-primary leading-normal;
 }
 
-a {
-  @apply font-semibold text-link-2;
-}
-
-a:hover {
-  @apply text-link-1;
-}
-
 @tailwind components;
 @tailwind utilities;
