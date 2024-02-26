@@ -33,7 +33,9 @@ export default [
         config: {
           path: "./postcss.config.js",
         },
-        extensions: [".css"],
+        modules: {
+          generateScopedName: "[folder]_[local]___[hash:base64:5]",
+        },
         minimize: true,
         inject: {
           insertAt: "top",

@@ -1,0 +1,7 @@
+.link {
+  @apply font-semibold text-link-2;
+
+  &:hover {
+    @apply text-link-1;
+  }
+}

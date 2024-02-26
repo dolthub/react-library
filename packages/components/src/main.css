@@ -37,14 +37,6 @@ h4 {
   @apply text-lg;
 }
 
-/* a {
-  @apply font-semibold text-link-1;
-}
-
-a:hover {
-  @apply text-link-2;
-} */
-
 p {
   @apply text-sm text-primary leading-normal;
 }
