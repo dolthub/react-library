@@ -2,9 +2,12 @@ const staticColors = {
   "acc-grey": "#b2c0c4",
   "acc-red": "#ff9a99",
   "acc-green": "#5ac58d",
+  "acc-lightgrey": "#c6cdd0",
+  "ld-darkgrey": "#95a3a7",
   "ld-lightgrey": "#e1e5e7",
   "ld-lightpurple": "#f1f3f8",
   "ld-lightblue": "#f6f8f9",
+  "ld-darkergrey": "#384B52",
 };
 
 const configurableColors = {

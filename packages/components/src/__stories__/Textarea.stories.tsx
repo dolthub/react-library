@@ -18,6 +18,14 @@ export const Basic: Story = {
   },
 };
 
+export const Placeholder: Story = {
+  args: {
+    label: "Label",
+    value: "",
+    placeholder: "Placeholder",
+  },
+};
+
 export const Horizontal: Story = {
   args: {
     label: "Label",
@@ -40,4 +48,25 @@ export const Light: Story = {
     value: "test",
     light: true,
   },
+};
+
+export const WithDescription: Story = {
+  args: {
+    label: "Label",
+    description: "Description",
+    value: "test",
+  },
+};
+
+export const MobileFriendly: Story = {
+  args: {
+    label: "Label",
+    value: "test",
+    mobileFriendly: true,
+  },
+  // parameters: {
+  //   viewport: {
+  //     defaultViewport: "iphonex",
+  //   },
+  // },
 };
