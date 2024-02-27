@@ -22,3 +22,10 @@ export const TooLong: Story = {
     desc: "abc".repeat(2048),
   },
 };
+
+export const CustomMax: Story = {
+  args: {
+    desc: "short desc",
+    maxChar: 10,
+  },
+};

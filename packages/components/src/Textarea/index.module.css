@@ -2,17 +2,13 @@
   @apply max-w-xl w-full text-primary mb-4;
 
   &:focus-within {
-    @apply bg-transparent;
+    @apply bg-white;
   }
 }
 
 .mobileFriendly {
   @media (max-width: 640px) {
-    @apply border-t border-ld-lightgrey px-4 py-3 bg-white;
-
-    &:focus-within {
-      @apply bg-white border-ld-darkergrey;
-    }
+    @apply border-t border-ld-lightgrey p-4 bg-white;
   }
 }
 
@@ -26,10 +22,10 @@
 }
 
 .textarea {
-  @apply text-sm rounded py-2 px-3 bg-ld-lightblue border border-acc-lightgrey w-full;
+  @apply font-sans text-primary text-sm rounded py-2 px-3 bg-ld-lightblue border border-acc-lightgrey w-full;
 
-  &:focus-within {
-    @apply outline-none;
+  &:focus {
+    @apply outline-none bg-white;
   }
 
   &:disabled {
@@ -43,10 +39,10 @@
 
 .mobileFriendlyTextarea {
   @media (max-width: 640px) {
-    @apply py-2 px-3 bg-white text-primary;
+    @apply px-0 py-1 bg-white text-primary border-none;
 
-    &:focus-within {
-      @apply bg-white;
+    &:focus {
+      @apply bg-white outline outline-blue-300;
     }
 
     &:disabled {

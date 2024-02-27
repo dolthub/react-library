@@ -7,4 +7,10 @@ export { default as SmallLoader } from "./SmallLoader";
 export { default as SuccessMsg } from "./SuccessMsg";
 export { default as Textarea } from "./Textarea";
 export { default as applyTailwindTheme } from "./tailwind/applyTheme";
+export { ITheme } from "./tailwind/applyTheme/types";
 export { mergeConfig } from "./tailwind/mergeConfig";
+export { colors as dolthubColors } from "./tailwind/theme/dolthub/colors";
+export {
+  colors as hostedColors,
+  tailwindColorTheme as hostedTailwindColorTheme,
+} from "./tailwind/theme/hosted/colors";

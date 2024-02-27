@@ -5,6 +5,9 @@ const meta: Meta<typeof Textarea> = {
   title: "Textarea",
   component: Textarea,
   tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
 };
 
 export default meta;
@@ -15,6 +18,7 @@ export const Basic: Story = {
   args: {
     label: "Label",
     value: "test",
+    rows: 5,
   },
 };
 
