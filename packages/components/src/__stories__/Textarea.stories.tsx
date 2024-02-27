@@ -64,9 +64,4 @@ export const MobileFriendly: Story = {
     value: "test",
     mobileFriendly: true,
   },
-  // parameters: {
-  //   viewport: {
-  //     defaultViewport: "iphonex",
-  //   },
-  // },
 };

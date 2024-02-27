@@ -7,17 +7,11 @@
 }
 
 .mobileFriendly {
-  @apply border-t border-ld-lightgrey px-4 py-3 bg-white;
-
-  &:focus-within {
-    @apply bg-white border-ld-darkergrey;
-  }
-
-  @screen sm {
-    @apply max-w-xl w-full text-primary mb-4 border-none p-0 bg-transparent;
+  @media (max-width: 640px) {
+    @apply border-t border-ld-lightgrey px-4 py-3 bg-white;
 
     &:focus-within {
-      @apply bg-transparent;
+      @apply bg-white border-ld-darkergrey;
     }
   }
 }
@@ -25,7 +19,6 @@
 .horizontal {
   @screen sm {
     @apply flex;
-
     div {
       @apply mr-3 mt-1 text-right w-20;
     }
@@ -49,21 +42,15 @@
 }
 
 .mobileFriendlyTextarea {
-  @apply py-2 px-3 bg-white text-primary;
-
-  &:focus-within {
-    @apply bg-white;
-  }
-
-  &:disabled {
-    @apply text-ld-darkgrey;
-  }
-
-  @screen sm {
-    @apply text-sm rounded bg-ld-lightblue border border-acc-lightgrey;
+  @media (max-width: 640px) {
+    @apply py-2 px-3 bg-white text-primary;
 
     &:focus-within {
-      @apply outline-none;
+      @apply bg-white;
+    }
+
+    &:disabled {
+      @apply text-ld-darkgrey;
     }
   }
 }

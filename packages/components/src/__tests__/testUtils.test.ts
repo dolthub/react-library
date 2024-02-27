@@ -1,6 +1,6 @@
 import { render, RenderResult, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { JSXElementConstructor, ReactElement } from "react";
+import userEvent, { UserEvent } from "@testing-library/user-event";
+import React, { JSXElementConstructor, ReactElement } from "react";
 
 /**
  * Waits for all query loaders to disappear
@@ -32,7 +32,7 @@ export async function renderAndWait(
 export async function setupAndWait(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ui: ReactElement<any, string | JSXElementConstructor<any>>,
-): Promise<RenderResult & { user: any }> {
+): Promise<RenderResult & { user: UserEvent }> {
   const result = render(ui);
 
   await waitForQueryLoaders();
@@ -43,7 +43,9 @@ export async function setupAndWait(
 /**
  * Renders the given component, returning the result and user event
  */
-export function setup(jsx: React.ReactElement) {
+export function setup(
+  jsx: React.ReactElement,
+): RenderResult & { user: UserEvent } {
   return {
     user: userEvent.setup(),
     ...render(jsx),

@@ -16,8 +16,7 @@ type Props = {
   HTMLTextAreaElement
 >;
 
-// eslint-disable-next-line prefer-arrow-callback
-export default forwardRef<HTMLTextAreaElement, Props>(function Textarea(
+const Textarea = (
   {
     label,
     description,
@@ -31,8 +30,8 @@ export default forwardRef<HTMLTextAreaElement, Props>(function Textarea(
     mobileFriendly = false,
     ...textAreaProps
   }: Props,
-  ref,
-) {
+  ref: any,
+) => {
   return (
     <div
       className={cx(
@@ -64,4 +63,6 @@ export default forwardRef<HTMLTextAreaElement, Props>(function Textarea(
       />
     </div>
   );
-});
+};
+
+export default forwardRef<HTMLTextAreaElement, Props>(Textarea);
