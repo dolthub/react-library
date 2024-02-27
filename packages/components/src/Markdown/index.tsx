@@ -20,21 +20,18 @@ export default function Markdown({
   ...props
 }: Props) {
   return (
-    <div
-      className={cx(
-        css.preview,
-        {
-          [css.forModal]: forModal,
-          [css.baseText]: baseTextSize,
-        },
-        props.className,
-      )}
-      data-cy={props["data-cy"]}
-      aria-label="markdown"
-      dir="auto"
-    >
+    <div data-cy={props["data-cy"]} aria-label="markdown" dir="auto">
       <ReactMarkdown
-        className={`markdown-body ${props.isDoc ? "markdown-doc" : ""}`}
+        className={cx(
+          "markdown-body",
+          css.preview,
+          {
+            "markdown-doc": props.isDoc,
+            [css.forModal]: forModal,
+            [css.baseText]: baseTextSize,
+          },
+          props.className,
+        )}
         remarkPlugins={[remarkGfm]}
       >
         {props.value}

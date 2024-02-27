@@ -34,13 +34,12 @@ export default [
           path: "./postcss.config.js",
         },
         modules: {
-          generateScopedName: "[folder]_[local]___[hash:base64:5]",
+          generateScopedName: "[folder]_[local]__[hash:base64:5]",
         },
         minimize: true,
         inject: {
           insertAt: "top",
         },
-        sourceMap: false,
       }),
       terser(),
     ],

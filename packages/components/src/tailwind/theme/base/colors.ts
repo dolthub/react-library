@@ -1,7 +1,30 @@
+// TODO: Improve these names
 const staticColors = {
   "acc-grey": "#b2c0c4",
   "acc-red": "#ff9a99",
   "acc-green": "#5ac58d",
+  "acc-lightgrey": "#c6cdd0",
+  "ld-darkgrey": "#95a3a7",
+  "ld-lightgrey": "#e1e5e7",
+  "ld-lightpurple": "#f1f3f8",
+  "ld-lightblue": "#f6f8f9",
+  "ld-darkergrey": "#384B52",
+  "ld-darkerblue": "#1e2842",
+  "ld-darkestblue": "#182134",
+  "ld-blue": "#6db0fc",
+  "ld-green": "#5deda2",
+  "acc-linkblue": "#1f6dc6",
+  "acc-hoverlinkblue": "#3d91f0",
+  "acc-hoverblue": "#1d2c7f",
+  "acc-darkgrey": "#5d6280",
+  "acc-hovergreen": "#6fdda4",
+  "acc-lightgreen": "#d4f5e4",
+  "acc-hoverred": "#fca8a7",
+  "acc-code": "#575662",
+  "acc-orange": "#ed8936",
+  "acc-pink": "#d588d5",
+  "acc-bright-green": "#29e3c1",
+  "acc-purple": "#805EDD",
 };
 
 const configurableColors = {

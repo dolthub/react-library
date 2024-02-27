@@ -1,6 +1,7 @@
 .preview {
   @apply p-6 font-sans text-primary leading-5;
   text-align: -webkit-auto;
+
   > * {
     @apply text-primary font-sans;
   }
