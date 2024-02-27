@@ -29,7 +29,8 @@
     "yalc:publish": "yarn dbuild && yalc publish",
     "yalc:push": "yarn dbuild && yalc push",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "clean": "rm -rf dist && rm -rf .rollup.cache && rm -rf types && rm -rf tsconfig.tsbuildinfo"
   },
   "peerDependencies": {
     "react": "^18",

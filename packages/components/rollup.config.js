@@ -37,9 +37,9 @@ export default [
           generateScopedName: "[folder]_[local]___[hash:base64:5]",
         },
         minimize: true,
-        inject: {
-          insertAt: "top",
-        },
+        // inject: {
+        //   insertAt: "top",
+        // },
         sourceMap: false,
       }),
       terser(),
