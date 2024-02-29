@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { forwardRef } from "react";
+import React, { ForwardedRef, forwardRef } from "react";
 import css from "./index.module.css";
 
 type Props = {
@@ -30,7 +30,7 @@ const Textarea = (
     mobileFriendly = false,
     ...textAreaProps
   }: Props,
-  ref: any,
+  ref: ForwardedRef<HTMLTextAreaElement>,
 ) => (
   <div
     className={cx(

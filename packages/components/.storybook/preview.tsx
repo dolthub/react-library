@@ -1,7 +1,7 @@
 import { Preview } from "@storybook/react";
 import React from "react";
 import "../src/main.css";
-import ThemeWrapper from "../src/tailwind/Wrapper";
+import ThemeProvider from "../src/tailwind/context";
 
 const preview: Preview = {
   parameters: {
@@ -15,9 +15,9 @@ const preview: Preview = {
   },
   decorators: [
     Story => (
-      <ThemeWrapper>
+      <ThemeProvider>
         <Story />
-      </ThemeWrapper>
+      </ThemeProvider>
     ),
   ],
 };
