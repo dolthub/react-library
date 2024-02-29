@@ -11,6 +11,7 @@ const staticColors = {
   "ld-lightblue": "#f6f8f9",
   "ld-lightgrey": "#e1e5e7",
   "ld-lightpurple": "#f1f3f8",
+  "ld-mediumblue": "#2b5db6",
 
   "acc-bright-green": "#29e3c1",
   "acc-code": "#575662",

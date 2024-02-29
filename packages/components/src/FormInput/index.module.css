@@ -1,5 +1,5 @@
 .container {
-  @apply max-w-xl w-full text-primary mb-4 relative;
+  @apply max-w-xl w-full text-primary mb-4 border-none p-0 bg-transparent;
 
   &:focus-within {
     @apply bg-transparent;
@@ -17,29 +17,35 @@
 }
 
 .horizontal {
-  @screen sm {
-    @apply flex;
-
-    div {
-      @apply mr-3 mt-1 text-right w-20;
-    }
-  }
+  @apply flex;
 }
 
 .label {
-  @apply font-semibold pb-2 text-base;
+  @apply font-semibold pb-2;
+}
+
+.horizontalLabel {
+  @apply mr-3 mt-1 text-right w-20;
 }
 
 .input {
-  @apply py-2 pl-3 pr-8 w-full text-sm rounded bg-ld-lightblue border border-acc-lightgrey;
+  @apply py-2 pl-3 w-full text-sm rounded bg-ld-lightblue border border-acc-lightgrey;
+
+  &::placeholder {
+    @apply text-ld-darkgrey;
+  }
 
   &:focus {
     @apply bg-white outline-none;
   }
 }
 
-.input::placeholder {
-  @apply text-ld-darkgrey;
+.pill {
+  @apply rounded-[20px] border-transparent;
+
+  &:focus {
+    @apply border border-ld-darkgrey;
+  }
 }
 
 .mobileFriendlyInput {
@@ -60,12 +66,17 @@
   @apply bg-white;
 }
 
-.blue {
+.blue,
+.blueText {
   @apply border-button-1;
 
   &::placeholder {
     @apply text-button-1;
   }
+}
+
+.blueText {
+  @apply text-ld-mediumblue rounded-lg;
 }
 
 .error,

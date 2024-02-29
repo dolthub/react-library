@@ -1,10 +1,5 @@
 import cx from "classnames";
-import React, {
-  DetailedHTMLProps,
-  ForwardedRef,
-  forwardRef,
-  InputHTMLAttributes,
-} from "react";
+import React from "react";
 import css from "./index.module.css";
 
 type Props = {
@@ -14,14 +9,23 @@ type Props = {
   onChangeString?: (s: string) => void;
   horizontal?: boolean;
   description?: string;
+  pill?: boolean;
   blue?: boolean;
+  blueText?: boolean;
   mobileFriendly?: boolean;
-} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+  labelClassName?: string;
+  inputClassName?: string;
+} & React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
 
 const FormInput = (
   {
     label,
     className,
+    labelClassName,
+    inputClassName,
     onChange,
     onChangeString,
     placeholder = "",
@@ -30,32 +34,46 @@ const FormInput = (
     horizontal = false,
     mobileFriendly = false,
     blue = false,
+    blueText = false,
     type = "text",
     description,
+    pill = false,
     ...inputProps
   }: Props,
-  ref: ForwardedRef<HTMLInputElement>,
+  ref: React.ForwardedRef<HTMLInputElement>,
 ) => (
   <div
     className={cx(
       css.container,
       {
         [css.horizontal]: horizontal,
-        [css.mobileFriendly]: !blue && mobileFriendly,
+        [css.mobileFriendly]: mobileFriendly,
       },
       className,
     )}
     aria-label="form-input-container"
   >
-    {label && <div className={css.label}>{label}</div>}
+    {label && (
+      <div
+        className={cx(
+          css.label,
+          { [css.horizontalLabel]: horizontal },
+          labelClassName,
+        )}
+      >
+        {label}
+      </div>
+    )}
     {description && <p className={css.description}>{description}</p>}
     <input
       {...inputProps}
-      className={cx(css.input, {
+      className={cx(css.input, inputClassName, {
         [css.error]: hasError,
-        [css.mobileFriendlyInput]: !blue && mobileFriendly,
+        [css.mobileFriendlyInput]: mobileFriendly,
         [css.bgwhite]: light,
+        [css.pill]: pill,
         [css.blue]: blue,
+        [css.blueText]: blueText,
       })}
       onChange={e =>
         onChangeString ? onChangeString(e.target.value) : onChange?.(e)
@@ -67,4 +85,4 @@ const FormInput = (
   </div>
 );
 
-export default forwardRef<HTMLInputElement, Props>(FormInput);
+export default React.forwardRef<HTMLInputElement, Props>(FormInput);

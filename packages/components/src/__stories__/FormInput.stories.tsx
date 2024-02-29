@@ -21,6 +21,13 @@ export const Basic: Story = {
   },
 };
 
+export const Longer: Story = {
+  args: {
+    label: "Label",
+    value: "testing this longer input with a longer value",
+  },
+};
+
 export const Placeholder: Story = {
   args: {
     label: "Label",
@@ -66,5 +73,29 @@ export const MobileFriendly: Story = {
     label: "Label",
     value: "test",
     mobileFriendly: true,
+  },
+};
+
+export const Blue: Story = {
+  args: {
+    label: "Label",
+    value: "test",
+    blue: true,
+  },
+};
+
+export const BlueText: Story = {
+  args: {
+    label: "Label",
+    value: "test",
+    blueText: true,
+  },
+};
+
+export const Pill: Story = {
+  args: {
+    label: "Label",
+    value: "test",
+    pill: true,
   },
 };
