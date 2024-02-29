@@ -2,33 +2,32 @@ import { renderHook } from "@testing-library/react-hooks";
 import useSetContainerHeight from "../useSetContainerHeight";
 import { useReactiveHeight } from "../useReactiveSize";
 
- 
 describe("useSetContainerHeight", () => {
- const componentID = 'testComponent';
+  const componentID = "testComponent";
 
- beforeAll(() => {
-   const mockElement = document.createElement('div');
-   mockElement.id = componentID;
+  beforeAll(() => {
+    const mockElement = document.createElement("div");
+    mockElement.id = componentID;
 
-   mockElement.getBoundingClientRect = jest.fn().mockReturnValue({ top: 100 });
+    mockElement.getBoundingClientRect = jest.fn().mockReturnValue({ top: 100 });
 
-   document.body.appendChild(mockElement);
+    document.body.appendChild(mockElement);
 
-   global.document.getElementById = jest.fn((id) => {
-     if (id === componentID) {
-       return mockElement;
-     }
-     return null; 
-   });
- });
+    global.document.getElementById = jest.fn(id => {
+      if (id === componentID) {
+        return mockElement;
+      }
+      return null;
+    });
+  });
 
- afterEach(() => {
-   jest.clearAllMocks();
-   const mockElement = document.getElementById(componentID);
-   if (mockElement) {
-     document.body.removeChild(mockElement);
-   }
- });
+  afterEach(() => {
+    jest.clearAllMocks();
+    const mockElement = document.getElementById(componentID);
+    if (mockElement) {
+      document.body.removeChild(mockElement);
+    }
+  });
 
   it("calculates container height correctly based on window height", () => {
     const { result: windowHeightResult } = renderHook(() =>
