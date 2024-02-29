@@ -16,10 +16,13 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType>({
   themeRGB: baseColorVariableValues,
-  convertThemeRGBToHex: () => ({}),
+  convertThemeRGBToHex: () => {
+    return {};
+  },
 });
 
-// ThemedProvider applies tailwind theme default, potentially with provided overrides
+// ThemedProvider applies tailwind theme default, potentially with provided
+// overrides. Must wrap your app root in this provider to use this library.
 export default function ThemeProvider(props: Props) {
   const themeRGB: IThemeRGB = {
     ...baseColorVariableValues,
@@ -35,9 +38,10 @@ export default function ThemeProvider(props: Props) {
     const hexThemeRGB: IThemeColors = {};
     Object.keys(themeRGB).forEach(key => {
       const rgb = themeRGB[key as keyof IThemeRGB];
-      if (!rgb) return "";
-      const color = key.replace("rgb-", "");
-      hexThemeRGB[color as keyof IThemeColors] = rgbToHex(rgb);
+      if (rgb) {
+        const color = key.replace("rgb-", "");
+        hexThemeRGB[color as keyof IThemeColors] = rgbToHex(rgb);
+      }
     });
     return hexThemeRGB;
   }
@@ -49,6 +53,6 @@ export default function ThemeProvider(props: Props) {
   );
 }
 
-export function useThemeContext() {
+export function useThemeContext(): ThemeContextType {
   return useContext(ThemeContext);
 }

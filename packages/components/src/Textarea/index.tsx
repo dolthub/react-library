@@ -58,7 +58,7 @@ const Textarea = (
         onChangeString ? onChangeString(e.target.value) : onChange?.(e)
       }
       ref={ref}
-      aria-label={textAreaProps["aria-label"] || "textarea"}
+      aria-label={textAreaProps["aria-label"] ?? "textarea"}
     />
   </div>
 );

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+
 export interface IThemeRGB {
   "rgb-primary"?: string;
   "rgb-acc-1"?: string;
