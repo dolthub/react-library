@@ -19,5 +19,6 @@ export {
   useReactiveWidth,
 } from "./useReactiveSize";
 export { default as useSessionQueryHistory } from "./useSessionQueryHistory";
+export { default as useSetContainerHeight } from "./useSetContainerHeight";
 export { default as useSetState } from "./useSetState";
 export { default as useStateWithSessionStorage } from "./useStateWithSessionStorage";
