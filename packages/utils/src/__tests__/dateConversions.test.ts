@@ -65,7 +65,8 @@ describe("getTimeAgoString", () => {
   it("should return time ago string for months ago", () => {
     const now = getNow();
     const monthsAgo = 4;
-    now.setMonth(now.getMonth() - monthsAgo);
+    const daysInMonth = 31;
+    now.setDate(now.getDate() - monthsAgo * daysInMonth);
     expect(getTimeAgoString(now.valueOf())).toEqual(`${monthsAgo} months ago`);
   });
 
