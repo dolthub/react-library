@@ -5420,12 +5420,11 @@ __metadata:
   linkType: hard
 
 "@types/rollup-plugin-peer-deps-external@npm:^2":
-  version: 2.2.4
-  resolution: "@types/rollup-plugin-peer-deps-external@npm:2.2.4"
+  version: 2.2.5
+  resolution: "@types/rollup-plugin-peer-deps-external@npm:2.2.5"
   dependencies:
-    "@types/node": "npm:*"
     rollup: "npm:^0.63.4"
-  checksum: e16d37166143753e1f60a81082e9dbbb1be3f9c7ef3f7fcae00591ad96ad8cef63b0b7bac652f8ce60f0926cb5906106b84b5c03ccd0d272eb12701e52851add
+  checksum: 36876e9786a5257b2289cc9d02b3290eaaf5299905814893fe0fe345545b1b2091e6a683b27a012e98b54f25662605d3caf5a5f6297f4392d896cb50de1bbfbc
   languageName: node
   linkType: hard
 
