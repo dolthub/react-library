@@ -28,7 +28,7 @@ export default function Radio({
       >
         {label}
         <input {...props} type="radio" id={props.name} />
-        <span className={css.checkmark} />
+        <span className={css.radio} />
       </label>
       {description && (
         <p

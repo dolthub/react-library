@@ -59,19 +59,11 @@ export const DisabledWithDescription: Story = {
   },
 };
 
-export const Blue: Story = {
-  args: {
-    label: "Label",
-    checked: true,
-    blue: true,
-  },
-};
-
 export const AllBlue: Story = {
   args: {
     label: "Label",
     checked: true,
-    allBlue: true,
+    blue: true,
   },
 };
 

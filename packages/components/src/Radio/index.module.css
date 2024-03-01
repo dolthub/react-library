@@ -10,37 +10,45 @@
   @apply text-ld-darkgrey cursor-default;
 }
 
-.checkmark {
-  @apply absolute top-0 left-0 bg-white rounded-full mt-1 border border-primary w-[16px] h-[16px];
+.radio {
+  @apply absolute top-0 left-0 bg-white rounded-full mt-1 border border-primary/40 w-[17px] h-[17px];
 }
 
-.container:hover input ~ .checkmark {
-  @apply border-link-1;
+.container:hover input ~ .radio {
+  @apply border-button-2;
 }
 
-.container input:checked ~ .checkmark {
+.container input:checked ~ .radio {
+  @apply border-button-2;
+}
+
+.container input:checked ~ .radio {
   @apply bg-white;
 }
-.container input:focus ~ .checkmark {
+.container input:focus ~ .radio {
   @apply widget-shadow-lightblue;
 }
 
-.container input:disabled ~ .checkmark,
-.container:hover input:disabled ~ .checkmark {
-  @apply border-ld-darkgrey;
+.container input:disabled ~ .radio,
+.container:hover input:disabled ~ .radio {
+  @apply border-primary/20 bg-primary/5;
 }
 
-.checkmark:after {
+.radio:after {
   @apply absolute hidden;
   content: "";
 }
 
-.container .checkmark:after {
-  @apply rounded-full bg-white top-[3px] left-[3px] w-[8px] h-[8px];
+.container .radio:after {
+  @apply rounded-full bg-white top-[3px] left-[3px] w-[9px] h-[9px];
 }
 
-.container input:checked ~ .checkmark:after {
-  @apply block bg-button-1;
+.container input:checked ~ .radio:after {
+  @apply block bg-button-2 border-button-2;
+}
+
+.container input:disabled ~ .radio:after {
+  @apply bg-primary/20;
 }
 
 .description {
@@ -48,5 +56,5 @@
 }
 
 .disabledDescription {
-  @apply text-ld-darkgrey;
+  @apply text-primary/40;
 }

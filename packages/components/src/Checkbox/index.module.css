@@ -14,55 +14,48 @@
   }
 }
 
-.checkmark {
-  @apply absolute -top-0.5 left-0 h-5 w-5 bg-white rounded-sm mt-1 border border-gray-300;
+.checkbox {
+  @apply absolute -top-0 left-0 h-[1.1rem] w-[1.1rem] bg-white rounded-sm mt-1 border border-primary/30;
 }
 
-.disabledContainer .checkmark {
-  @apply bg-gray-100 border-gray-300;
+.disabledContainer .checkbox {
+  @apply bg-primary/5 border-primary/20;
 }
 
-.blueContainer .checkmark {
-  @apply border-acc-hoverlinkblue;
+.blueContainer .checkbox {
+  @apply border-button-1;
 }
 
-.container:hover input ~ .checkmark {
-  @apply border-acc-lightgrey;
+.container:hover input ~ .checkbox {
+  @apply border-primary/20;
 }
 
-.blueContainer:hover input ~ .checkmark {
-  @apply border-acc-hoverlinkblue;
+.blueContainer:hover input ~ .checkbox {
+  @apply border-button-1;
 }
 
-.checkmark > svg {
+.checkbox > svg {
   @apply absolute hidden;
 }
 
-.container .checkmark > svg {
-  @apply text-primary font-thin -top-[6px] -left-[1px] text-[28px];
+.container .checkbox > svg {
+  @apply text-button-2 font-thin -top-[6px] -left-[1px] text-[26px];
 }
 
-.blueContainer,
-.blueCheckContainer {
-  .checkmark > svg {
-    @apply text-ld-mediumblue;
-  }
-}
-
-.container input:checked ~ .checkmark {
+.container input:checked ~ .checkbox {
   @apply bg-white;
 }
 
-.container input:checked ~ .checkmark > svg {
+.container input:checked ~ .checkbox > svg {
   @apply block;
 }
 
-.container input:focus ~ .checkmark {
+.container input:focus ~ .checkbox {
   @apply widget-shadow-lightblue;
 }
 
-.container input:disabled ~ .checkmark {
-  @apply border-gray-300;
+.container input:disabled ~ .checkbox {
+  @apply border-primary/20;
   > svg {
     @apply text-ld-darkgrey;
   }

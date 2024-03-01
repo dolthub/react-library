@@ -12,13 +12,11 @@ type Props = {
   className?: string;
   disabled?: boolean;
   blue?: boolean;
-  allBlue?: boolean;
 };
 
 export default function Checkbox({
   className,
   blue = false,
-  allBlue = false,
   label,
   description,
   ...props
@@ -28,14 +26,13 @@ export default function Checkbox({
       <label
         className={cx(css.container, {
           [css.disabledContainer]: !!props.disabled,
-          [css.blueCheckContainer]: blue,
-          [css.blueContainer]: allBlue,
+          [css.blueContainer]: blue,
         })}
         htmlFor={props.name}
       >
         {label}
         <input {...props} id={props.name} type="checkbox" />
-        <span className={css.checkmark}>
+        <span className={css.checkbox}>
           <FiCheck />
         </span>
       </label>
