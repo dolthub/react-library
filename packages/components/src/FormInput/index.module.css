@@ -1,0 +1,89 @@
+.container {
+  @apply max-w-xl w-full text-primary mb-4 border-none p-0 bg-transparent;
+
+  &:focus-within {
+    @apply bg-transparent;
+  }
+}
+
+.mobileFriendly {
+  @media (max-width: 640px) {
+    @apply border-t border-ld-lightgrey mb-0 px-4 pt-3 pb-4 bg-white;
+
+    &:focus-within {
+      @apply bg-ld-lightpurple;
+    }
+  }
+}
+
+.horizontal {
+  @apply flex;
+}
+
+.label {
+  @apply font-semibold pb-2;
+}
+
+.horizontalLabel {
+  @apply mr-3 mt-1 text-right w-20;
+}
+
+.input {
+  @apply py-2 pl-3 w-full text-sm rounded bg-ld-lightblue border border-acc-lightgrey;
+
+  &::placeholder {
+    @apply text-ld-darkgrey;
+  }
+
+  &:focus {
+    @apply bg-white outline-none;
+  }
+}
+
+.pill {
+  @apply rounded-[20px] border-transparent;
+
+  &:focus {
+    @apply border border-ld-darkgrey;
+  }
+}
+
+.mobileFriendlyInput {
+  @media (max-width: 640px) {
+    @apply bg-white text-primary border-none px-0;
+
+    &:focus {
+      @apply bg-ld-lightpurple;
+    }
+
+    &:disabled {
+      @apply text-ld-darkgrey;
+    }
+  }
+}
+
+.bgwhite {
+  @apply bg-white;
+}
+
+.blue,
+.blueText {
+  @apply border-button-1;
+
+  &::placeholder {
+    @apply text-button-1;
+  }
+}
+
+.blueText {
+  @apply text-ld-mediumblue rounded-lg;
+}
+
+.error,
+.error:focus {
+  @apply border border-acc-red bg-white text-acc-red;
+}
+
+.description {
+  @apply text-ld-darkgrey mb-4;
+}

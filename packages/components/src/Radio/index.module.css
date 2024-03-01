@@ -1,0 +1,60 @@
+.container {
+  @apply block relative pl-8 mb-2 text-primary font-semibold cursor-pointer select-none;
+
+  input {
+    @apply absolute opacity-0;
+  }
+}
+
+.disabled {
+  @apply text-ld-darkgrey cursor-default;
+}
+
+.radio {
+  @apply absolute top-0 left-0 bg-white rounded-full mt-1 border border-primary/40 w-[17px] h-[17px];
+}
+
+.container:hover input ~ .radio {
+  @apply border-button-2;
+}
+
+.container input:checked ~ .radio {
+  @apply border-button-2;
+}
+
+.container input:checked ~ .radio {
+  @apply bg-white;
+}
+.container input:focus ~ .radio {
+  @apply widget-shadow-lightblue;
+}
+
+.container input:disabled ~ .radio,
+.container:hover input:disabled ~ .radio {
+  @apply border-primary/20 bg-primary/5;
+}
+
+.radio:after {
+  @apply absolute hidden;
+  content: "";
+}
+
+.container .radio:after {
+  @apply rounded-full bg-white top-[3px] left-[3px] w-[9px] h-[9px];
+}
+
+.container input:checked ~ .radio:after {
+  @apply block bg-button-2 border-button-2;
+}
+
+.container input:disabled ~ .radio:after {
+  @apply bg-primary/20;
+}
+
+.description {
+  @apply ml-8 mb-6 text-acc-darkgrey;
+}
+
+.disabledDescription {
+  @apply text-primary/40;
+}

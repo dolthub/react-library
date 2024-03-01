@@ -1,0 +1,70 @@
+.container {
+  @apply block relative pl-10 mb-2 text-primary font-semibold cursor-pointer select-none;
+
+  input {
+    @apply absolute left-0 opacity-0;
+  }
+}
+
+.disabledContainer {
+  @apply text-ld-darkgrey;
+
+  &:hover {
+    @apply cursor-default;
+  }
+}
+
+.checkbox {
+  @apply absolute -top-0 left-0 h-[1.1rem] w-[1.1rem] bg-white rounded-sm mt-1 border border-primary/30;
+}
+
+.disabledContainer .checkbox {
+  @apply bg-primary/5 border-primary/20;
+}
+
+.blueContainer .checkbox {
+  @apply border-button-1;
+}
+
+.container:hover input ~ .checkbox {
+  @apply border-primary/20;
+}
+
+.blueContainer:hover input ~ .checkbox {
+  @apply border-button-1;
+}
+
+.checkbox > svg {
+  @apply absolute hidden;
+}
+
+.container .checkbox > svg {
+  @apply text-button-2 font-thin -top-[6px] -left-[1px] text-[26px];
+}
+
+.container input:checked ~ .checkbox {
+  @apply bg-white;
+}
+
+.container input:checked ~ .checkbox > svg {
+  @apply block;
+}
+
+.container input:focus ~ .checkbox {
+  @apply widget-shadow-lightblue;
+}
+
+.container input:disabled ~ .checkbox {
+  @apply border-primary/20;
+  > svg {
+    @apply text-ld-darkgrey;
+  }
+}
+
+.description {
+  @apply ml-10 mb-6 text-acc-darkgrey;
+}
+
+.disabledDescription {
+  @apply text-ld-darkgrey;
+}
