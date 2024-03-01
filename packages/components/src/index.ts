@@ -1,4 +1,5 @@
 export { default as CharCount } from "./CharCount";
+export { default as Checkbox } from "./Checkbox";
 export { default as ExternalLink } from "./ExternalLink";
 export { default as FormInput } from "./FormInput";
 export { default as Loader } from "./Loader";
