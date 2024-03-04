@@ -29,6 +29,8 @@ const staticColors = {
   "acc-pink": "#d588d5",
   "acc-purple": "#805EDD",
   "acc-red": "#ff9a99",
+
+  "acc-light-text": "#999db3",
 };
 
 const configurableColors: IThemeColors = {
