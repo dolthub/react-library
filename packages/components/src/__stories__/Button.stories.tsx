@@ -94,3 +94,11 @@ export const DisabledDark: Story = {
     dark: true,
   },
 };
+
+export const DisabledWhite: Story = {
+  args: {
+    children: "Button name",
+    disabled: true,
+    white: true,
+  },
+};

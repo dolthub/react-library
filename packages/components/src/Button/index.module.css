@@ -39,7 +39,7 @@
 }
 
 .link {
-  @apply text-link-1 font-semibold text-sm leading-relaxed;
+  @apply text-link-1 font-semibold text-sm leading-relaxed bg-transparent;
 
   &:hover {
     @apply text-link-2;
@@ -88,6 +88,10 @@
   &:hover {
     @apply bg-white/70;
   }
+
+  &:disabled {
+    @apply text-white;
+  }
 }
 
 .gradient {
@@ -123,7 +127,7 @@
 }
 
 .pill {
-  @apply rounded-full;
+  @apply rounded-full text-base;
 }
 
 .underlined {
