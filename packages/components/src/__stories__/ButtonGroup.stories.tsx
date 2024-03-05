@@ -20,3 +20,9 @@ export const Basic: Story = {
     children: [<Button>Name</Button>, <Button.Link>cancel</Button.Link>],
   },
 };
+
+export const Reverse: Story = {
+  args: {
+    children: [<Button.Link>cancel</Button.Link>, <Button>Name</Button>],
+  },
+};

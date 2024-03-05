@@ -2,13 +2,17 @@ import cx from "classnames";
 import React, { ButtonHTMLAttributes } from "react";
 import css from "./index.module.css";
 
-type ColorProps = {
+type VariantProps = {
   red?: boolean;
   green?: boolean;
   dark?: boolean;
+  pill?: boolean;
+  white?: boolean;
+  gradient?: boolean;
 };
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & ColorProps;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+type Props = ButtonProps & VariantProps;
 
 const Button = ({
   children,
@@ -16,12 +20,22 @@ const Button = ({
   red = false,
   green = false,
   dark = false,
+  pill = false,
+  white = false,
+  gradient = false,
   ...props
 }: Props) => (
   <button
     className={cx(
       css.button,
-      { [css.red]: red, [css.green]: green, [css.dark]: dark },
+      {
+        [css.red]: red,
+        [css.green]: green,
+        [css.dark]: dark,
+        [css.pill]: pill,
+        [css.white]: white,
+        [css.gradient]: gradient,
+      },
       className,
     )}
     type="button"
@@ -31,6 +45,24 @@ const Button = ({
     {children}
   </button>
 );
+
+const Outlined = ({
+  children,
+  className,
+  pill = false,
+  ...props
+}: ButtonProps & { pill?: boolean }) => (
+  <button
+    className={cx(css.outlined, { [css.pill]: pill }, className)}
+    type="button"
+    // These props need to come last
+    {...props}
+  >
+    {children}
+  </button>
+);
+
+Button.Outlined = Outlined;
 
 type LinkProps = Props & {
   underlined?: boolean;

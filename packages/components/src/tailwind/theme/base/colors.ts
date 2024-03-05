@@ -24,13 +24,12 @@ const staticColors = {
   "acc-hoverred": "#fca8a7",
   "acc-lightgreen": "#d4f5e4",
   "acc-lightgrey": "#c6cdd0",
+  "acc-light-text": "#999db3",
   "acc-linkblue": "#1f6dc6",
   "acc-orange": "#ed8936",
   "acc-pink": "#d588d5",
   "acc-purple": "#805EDD",
   "acc-red": "#ff9a99",
-
-  "acc-light-text": "#999db3",
 };
 
 const configurableColors: IThemeColors = {

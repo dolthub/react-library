@@ -41,6 +41,29 @@ export const Dark: Story = {
   },
 };
 
+export const White: Story = {
+  args: {
+    children: "Button name",
+    white: true,
+    pill: true,
+  },
+};
+
+export const Gradient: Story = {
+  args: {
+    children: "Button name",
+    gradient: true,
+    pill: true,
+  },
+};
+
+export const Pill: Story = {
+  args: {
+    children: "Button name",
+    pill: true,
+  },
+};
+
 export const Disabled: Story = {
   args: {
     children: "Button name",
