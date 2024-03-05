@@ -1,6 +1,6 @@
 import { Preview } from "@storybook/react";
 import React from "react";
-import "../src/main.css";
+import "../src/styles/global.css";
 import ThemeProvider from "../src/tailwind/context";
 
 const preview: Preview = {

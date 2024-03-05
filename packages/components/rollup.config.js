@@ -41,15 +41,6 @@ export default [
           insertAt: "top",
         },
       }),
-      postcss({
-        config: {
-          path: "./postcss.config.js",
-        },
-        include: "./main.css",
-        extract: "main.css",
-        minimize: true,
-        sourceMap: true,
-      }),
       terser(),
     ],
   },

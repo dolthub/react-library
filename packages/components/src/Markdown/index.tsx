@@ -11,7 +11,6 @@ type Props = {
   ["data-cy"]?: string;
   forModal?: boolean;
   baseTextSize?: boolean;
-  isDoc?: boolean;
 };
 
 export default function Markdown({
@@ -26,7 +25,6 @@ export default function Markdown({
           "markdown-body",
           css.preview,
           {
-            "markdown-doc": props.isDoc,
             [css.forModal]: forModal,
             [css.baseText]: baseTextSize,
           },

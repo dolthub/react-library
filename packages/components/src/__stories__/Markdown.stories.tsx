@@ -45,10 +45,3 @@ export const BaseText: Story = {
     baseTextSize: true,
   },
 };
-
-export const ForDoc: Story = {
-  args: {
-    value: markdown,
-    isDoc: true,
-  },
-};
