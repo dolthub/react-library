@@ -2,7 +2,7 @@
   "name": "@dolthub/react-components",
   "author": "DoltHub",
   "description": "A collection of React components for common tasks",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",

@@ -1,9 +1,5 @@
 .container {
   @apply max-w-xl w-full text-primary mb-4;
-
-  &:focus-within {
-    @apply bg-white;
-  }
 }
 
 .mobileFriendly {
