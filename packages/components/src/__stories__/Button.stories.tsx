@@ -47,6 +47,9 @@ export const White: Story = {
     white: true,
     pill: true,
   },
+  parameters: {
+    backgrounds: { default: "dark" },
+  },
 };
 
 export const Gradient: Story = {
