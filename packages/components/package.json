@@ -30,13 +30,14 @@
     "yalc:push": "yarn dbuild && yalc push",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "clean": "rm -rf dist && rm -rf .rollup.cache && rm -rf types && rm -rf tsconfig.tsbuildinfo"
+    "clean": "rm -rf dist && rm -rf .rollup.cache && rm -rf types && rm -rf tsconfig.tsbuildinfo && rm -rf .eslintcache"
   },
   "peerDependencies": {
     "react": "^18",
     "react-dom": "^18"
   },
   "dependencies": {
+    "@dolthub/react-hooks": "^0.1.7",
     "@dolthub/web-utils": "^0.1.3",
     "@react-icons/all-files": "^4.1.0",
     "classnames": "^2.5.1",
