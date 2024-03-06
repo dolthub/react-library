@@ -7,7 +7,7 @@ describe("test Checkbox", () => {
   const mocks = [
     { name: "one", label: "one-label" },
     { name: "two", label: "two-label" },
-    { name: "three", label: "three-label" },
+    { name: "three", label: "three-label", description: "description" },
   ];
 
   mocks.forEach((mock, ind) => {
@@ -23,6 +23,7 @@ describe("test Checkbox", () => {
           checked={checked}
           className="classname"
           label={mock.label}
+          description={mock.description}
         />,
       );
 
@@ -34,6 +35,10 @@ describe("test Checkbox", () => {
         expect(input).toBeChecked();
       } else {
         expect(input).not.toBeChecked();
+      }
+
+      if (mock.description) {
+        expect(screen.getByText(mock.description)).toBeVisible();
       }
 
       await user.click(screen.getByLabelText(mock.label));

@@ -5,7 +5,7 @@ import React, { ReactNode } from "react";
 import Popup, { PopupProps } from "../Popup";
 import css from "./index.module.css";
 
-type Props = Partial<PopupProps> & {
+export type Props = Partial<PopupProps> & {
   children: ReactNode;
   isOpen?: boolean;
   setIsOpen?: (o: boolean) => void;

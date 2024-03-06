@@ -7,7 +7,7 @@ describe("test Radio", () => {
   const mocks = [
     { name: "one", label: "one-label" },
     { name: "two", label: "two-label" },
-    { name: "three", label: "three-label" },
+    { name: "three", label: "three-label", description: "description" },
   ];
 
   mocks.forEach((mock, ind) => {
@@ -23,10 +23,17 @@ describe("test Radio", () => {
           checked={checked}
           className="classname"
           disabled={disabled}
+          description={mock.description}
         />,
       );
+
       const content = screen.getByLabelText(mock.label);
       expect(content).toBeVisible();
+
+      if (mock.description) {
+        expect(screen.getByText(mock.description)).toBeVisible();
+      }
+
       if (!disabled) {
         const input = screen.getByRole("radio");
         if (checked) {

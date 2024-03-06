@@ -116,6 +116,15 @@ describe("test Button", () => {
     expect(button).toHaveClass(/underlined/);
   });
 
+  it("renders an outlined button", () => {
+    render(<Button.Outlined>Button Name</Button.Outlined>);
+
+    const button = screen.getByText("Button Name");
+    expect(button).toHaveTextContent("Button Name");
+    expect(button).toHaveAttribute("type", "button");
+    expect(button).toHaveClass(/outlined/);
+  });
+
   it("renders a Button Group", () => {
     render(
       <Button.Group className="class-name">

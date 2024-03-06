@@ -1,11 +1,10 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import React from "react";
-import ButtonWithPopup from "../ButtonWithPopup";
-import { PopupProps } from "../Popup";
+import ButtonWithPopup, { Props } from "../ButtonWithPopup";
 
 // Taken from https://github.com/yjose/reactjs-popup/blob/master/__test__/index.test.tsx
 
-const SimplePopup = ({ ...props }: Partial<PopupProps>) => (
+const SimplePopup = ({ ...props }: Partial<Props>) => (
   <ButtonWithPopup triggerText="trigger" {...props}>
     <span> popup Content </span>
   </ButtonWithPopup>
@@ -17,7 +16,7 @@ const popupContentShouldExist = () => {
   expect(screen.getByText(/popup Content/)).toBeInTheDocument();
 };
 
-describe("Popup Component Render ", () => {
+describe("test ButtonWithPopup ", () => {
   test("should render trigger correctly", () => {
     render(<SimplePopup />);
     expect(screen.getByText(/trigger/)).toBeInTheDocument();
@@ -27,6 +26,20 @@ describe("Popup Component Render ", () => {
     render(<SimplePopup />);
     fireEvent.click(screen.getByText("trigger"));
     expect(screen.getByRole("tooltip")).toBeInTheDocument();
+  });
+
+  test("should use open props to open", async () => {
+    const setIsOpen = jest.fn();
+    render(<SimplePopup isOpen={false} setIsOpen={setIsOpen} />);
+    fireEvent.click(screen.getByText("trigger"));
+    await waitFor(() => expect(setIsOpen).toHaveBeenCalledWith(true));
+  });
+
+  test("should use open props to close", async () => {
+    const setIsOpen = jest.fn();
+    render(<SimplePopup isOpen setIsOpen={setIsOpen} />);
+    fireEvent.click(screen.getByText("trigger"));
+    await waitFor(() => expect(setIsOpen).toHaveBeenCalledWith(false));
   });
 
   test("no Arrow for modal", () => {
