@@ -6,34 +6,34 @@
   }
 }
 
-.cellDropdownForRow {
-  @apply relative;
-}
-
 .button {
   @apply bg-white rounded-full;
+
+  &:focus {
+    @apply outline-none widget-shadow-lightblue;
+  }
+
+  svg {
+    @apply p-1 w-5 h-5 text-ld-darkgrey;
+
+    &:hover {
+      @apply text-primary;
+    }
+  }
 }
 
 .rowButton {
   @apply bg-ld-lightgrey;
-}
 
-.icon {
-  @apply p-1 w-5 h-5 text-ld-darkgrey;
-
-  &:hover {
-    @apply text-primary;
+  svg {
+    @apply text-ld-darkergrey;
   }
 }
 
 .dropdown {
-  @apply absolute bg-white widget-shadow-hover z-100 rounded-b top-[1.95rem] px-3 py-1 border-b border-x border-ld-lightgrey max-w-[9rem] right-0 flex flex-col;
-}
-
-.padding {
-  @apply -right-[0.85rem];
+  @apply absolute bg-white widget-shadow-hover z-100 rounded-b top-8 px-3 py-1 border-b border-x border-ld-lightgrey max-w-36 right-0 flex flex-col;
 }
 
 .rowDropdown {
-  @apply -right-20;
+  @apply -right-20 top-9;
 }

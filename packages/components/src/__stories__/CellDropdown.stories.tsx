@@ -81,7 +81,7 @@ const RowWrapper = ({ children }: { children: React.ReactNode }) => (
     </thead>
     <tbody>
       <tr>
-        <td>{children}</td>
+        <td className="relative">{children}</td>
         <Cell>Cell 1</Cell>
         <Cell>Cell 2</Cell>
       </tr>
@@ -129,17 +129,6 @@ export const ShowHeadCell: Story = {
     buttonClassName,
   },
   decorators: [story => <HeadCellWrapper>{story()}</HeadCellWrapper>],
-};
-
-export const ShowPadding: Story = {
-  args: {
-    children,
-    showDropdown: true,
-    setShowDropdown: () => {},
-    padding: true,
-    buttonClassName,
-  },
-  decorators: [story => <CellWrapper>{story()}</CellWrapper>],
 };
 
 export const ShowRow: Story = {
