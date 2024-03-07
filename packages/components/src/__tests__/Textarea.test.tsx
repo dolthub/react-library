@@ -29,20 +29,42 @@ describe("test Textarea", () => {
     expect(input).toHaveValue("new name");
   });
 
+  it("renders textarea with onChangeString", async () => {
+    const onChangeString = jest.fn();
+    const { user } = setup(
+      <Textarea
+        rows={4}
+        label="Name"
+        className="class-name"
+        placeholder="Placeholder text"
+        onChangeString={onChangeString}
+      />,
+    );
+
+    const input = screen.getByPlaceholderText("Placeholder text");
+    expect(input).toBeVisible();
+
+    await user.type(input, "new name");
+    expect(onChangeString).toHaveBeenCalledWith("new name");
+    expect(input).toHaveValue("new name");
+  });
+
   it("renders textarea with value", () => {
     render(
       <Textarea
         rows={4}
         label="Name"
         className="class-name"
-        placeholder="Placeholder text"
         value="This is my text"
         onChange={jest.fn()}
+        description="description"
       />,
     );
 
-    const input = screen.getByPlaceholderText("Placeholder text");
+    const input = screen.getByRole("textbox");
     expect(input).toBeVisible();
     expect(input).toHaveValue("This is my text");
+    expect(input).toHaveAttribute("placeholder", "");
+    expect(screen.getByText("description")).toBeVisible();
   });
 });

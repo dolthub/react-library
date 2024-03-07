@@ -32,30 +32,28 @@ type Props = {
   children?: ReactNode;
 };
 
-export default function SmallLoader(props: Props) {
-  return (
-    <div className={props.className}>
-      <ReactLoader
-        {...props}
-        // uses default options, but overrides fields provided as props
-        options={{ ...smallLoaderDefaultOptions, ...props.options }}
-      />
-    </div>
-  );
-}
+const SmallLoader = (props: Props) => (
+  <div className={props.className}>
+    <ReactLoader
+      {...props}
+      // uses default options, but overrides fields provided as props
+      options={{ ...smallLoaderDefaultOptions, ...props.options }}
+    />
+  </div>
+);
 
 type WithTextProps = {
   text: string;
   outerClassName?: string;
 } & Props;
 
-function WithText(props: WithTextProps) {
-  return (
-    <div className={cx(css.loading, props.outerClassName)}>
-      <SmallLoader {...props} />
-      {!props.loaded && <span>{props.text}</span>}
-    </div>
-  );
-}
+const WithText = (props: WithTextProps) => (
+  <div className={cx(css.loading, props.outerClassName)}>
+    <SmallLoader {...props} />
+    {!props.loaded && <span>{props.text}</span>}
+  </div>
+);
 
 SmallLoader.WithText = WithText;
+
+export default SmallLoader;

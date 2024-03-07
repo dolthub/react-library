@@ -10,6 +10,7 @@ export interface IThemeRGB {
   "rgb-button-2"?: string;
   "rgb-link-2"?: string;
   "rgb-link-light"?: string;
+  "rgb-code-background"?: string;
 }
 
 export interface IThemeVariables {
@@ -22,6 +23,7 @@ export interface IThemeVariables {
   "--color-button-2": string;
   "--color-link-2": string;
   "--color-link-light": string;
+  "--color-code-background": string;
 }
 
 export interface IThemeColors {
@@ -35,4 +37,5 @@ export interface IThemeColors {
   "link-2"?: string;
   "link-light"?: string;
   "background-light"?: string;
+  "code-background"?: string;
 }

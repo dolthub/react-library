@@ -20,5 +20,9 @@
     "composite": true,
     "noImplicitAny": true,
     "types": ["node", "jsdom", "@testing-library/jest-dom"]
-  }
+  },
+  "references": [
+    { "path": "../hooks"},
+    { "path": "../utils" }
+  ]
 }

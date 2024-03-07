@@ -1,0 +1,39 @@
+.cellDropdown {
+  @apply hidden;
+
+  @screen md {
+    @apply block;
+  }
+}
+
+.button {
+  @apply bg-white rounded-full;
+
+  &:focus {
+    @apply outline-none widget-shadow-lightblue;
+  }
+}
+
+.rowButton {
+  @apply bg-ld-lightgrey;
+}
+
+.icon {
+  @apply p-1 w-5 h-5 text-ld-darkgrey;
+
+  &:hover {
+    @apply text-primary;
+  }
+}
+
+.rowIcon {
+  @apply text-ld-darkergrey;
+}
+
+.dropdown {
+  @apply absolute bg-white widget-shadow-hover z-100 rounded-b top-8 px-3 py-1 border-b border-x border-ld-lightgrey max-w-36 right-0 flex flex-col;
+}
+
+.rowDropdown {
+  @apply -right-20 top-9;
+}

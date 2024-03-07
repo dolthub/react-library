@@ -19,12 +19,9 @@
 }
 
 .container input:checked ~ .radio {
-  @apply border-button-2;
+  @apply border-button-2 bg-white;
 }
 
-.container input:checked ~ .radio {
-  @apply bg-white;
-}
 .container input:focus ~ .radio {
   @apply widget-shadow-lightblue;
 }

@@ -1,0 +1,47 @@
+.code {
+  @apply text-left p-6 mb-4 rounded-lg bg-code-background;
+
+  code {
+    @apply text-white text-sm leading-loose;
+  }
+}
+
+.disabled {
+  @apply bg-ld-darkgrey;
+}
+
+.clipboard {
+  @apply p-2 mx-2 rounded h-10 min-w-[37px] text-white flex items-center justify-center;
+
+  &:hover {
+    @apply bg-ld-darkgrey;
+  }
+}
+
+.withCopy {
+  @apply py-1 pr-0 mt-3;
+
+  > div {
+    @apply flex justify-between items-center;
+  }
+
+  pre {
+    @apply overflow-x-auto mt-[0.4rem] mb-[0.3rem];
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  pre::-webkit-scrollbar {
+    @apply hidden;
+  }
+}
+
+.smallCopy {
+  @apply py-0.5 pl-4;
+
+  .clipboard {
+    @apply p-1 h-7 min-w-[28px];
+  }
+}
