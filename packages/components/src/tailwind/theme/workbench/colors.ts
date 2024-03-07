@@ -23,4 +23,5 @@ export const tailwindColorTheme: IThemeRGB = {
   "rgb-button-2": "61, 145, 240", // acc-linkblue
   "rgb-link-2": "31, 109, 198", // acc-hoverlinkblue
   "rgb-link-light": "109, 176, 252", // ld-blue
+  "rgb-code-background": "24, 51, 98", // ld-darkblue
 };

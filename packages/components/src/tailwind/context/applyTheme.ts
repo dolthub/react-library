@@ -28,6 +28,7 @@ function mapTheme(rgb: IThemeRGB): IThemeVariables {
     "--color-button-2": rgb["rgb-button-2"] ?? "",
     "--color-link-2": rgb["rgb-link-2"] ?? "",
     "--color-link-light": rgb["rgb-link-light"] ?? "",
+    "--color-code-background": rgb["rgb-code-background"] ?? "",
   };
 }
 

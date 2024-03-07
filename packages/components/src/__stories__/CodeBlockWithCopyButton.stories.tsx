@@ -32,21 +32,6 @@ export const Disabled: Story = {
   },
 };
 
-export const Dark: Story = {
-  args: {
-    textToCopy: "const a = 1 + b;",
-    dark: true,
-  },
-};
-
-export const DisabledDark: Story = {
-  args: {
-    textToCopy: "const a = 1 + b;",
-    disabled: true,
-    dark: true,
-  },
-};
-
 export const MultiLine: Story = {
   args: {
     textToCopy: `const a = 1 + b;

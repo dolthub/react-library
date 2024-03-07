@@ -26,21 +26,6 @@ export const Disabled: Story = {
   },
 };
 
-export const Dark: Story = {
-  args: {
-    children: <code>const a = 1 + b;</code>,
-    dark: true,
-  },
-};
-
-export const DisabledDark: Story = {
-  args: {
-    children: <code>const a = 1 + b;</code>,
-    disabled: true,
-    dark: true,
-  },
-};
-
 export const MultiLine: Story = {
   args: {
     children: (

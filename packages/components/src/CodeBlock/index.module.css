@@ -1,13 +1,9 @@
 .code {
-  @apply text-left p-6 mb-4 rounded-lg bg-primary;
+  @apply text-left p-6 mb-4 rounded-lg bg-code-background;
 
   code {
     @apply text-white text-sm leading-loose;
   }
-}
-
-.dark {
-  @apply bg-ld-darkerblue;
 }
 
 .disabled {
@@ -15,11 +11,7 @@
 }
 
 .clipboard {
-  @apply p-2 mx-2 rounded h-10 min-w-[37px] text-white;
-
-  svg {
-    @apply ml-1;
-  }
+  @apply p-2 mx-2 rounded h-10 min-w-[37px] text-white flex items-center justify-center;
 
   &:hover {
     @apply bg-ld-darkgrey;
@@ -47,5 +39,9 @@
 }
 
 .smallCopy {
-  @apply py-0 pl-4;
+  @apply py-0.5 pl-4;
+
+  .clipboard {
+    @apply p-1 h-7 min-w-[28px];
+  }
 }

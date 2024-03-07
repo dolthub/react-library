@@ -10,22 +10,10 @@ type Props = {
   children: ReactNode;
   className?: string;
   disabled?: boolean;
-  dark?: boolean;
 };
 
-const CodeBlock = ({
-  children,
-  className,
-  disabled = false,
-  dark = false,
-}: Props) => (
-  <div
-    className={cx(
-      css.code,
-      { [css.dark]: dark, [css.disabled]: disabled },
-      className,
-    )}
-  >
+const CodeBlock = ({ children, className, disabled = false }: Props) => (
+  <div className={cx(css.code, { [css.disabled]: disabled }, className)}>
     {children}
   </div>
 );
@@ -37,7 +25,6 @@ type CopyProps = {
   ["data-cy"]?: string;
   disabled?: boolean;
   small?: boolean;
-  dark?: boolean;
 };
 
 const WithCopyButton = (props: CopyProps) => {
@@ -45,7 +32,6 @@ const WithCopyButton = (props: CopyProps) => {
   return (
     <CodeBlock
       disabled={props.disabled}
-      dark={props.dark}
       className={cx(
         css.withCopy,
         { [css.smallCopy]: props.small },
