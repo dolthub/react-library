@@ -35,7 +35,7 @@ export default function CellDropdown({
         )}
         data-cy={props["data-cy"]}
       >
-        <RiMenu5Line />
+        <RiMenu5Line className={cx(css.icon, { [css.rowIcon]: forRow })} />
       </button>
       {props.showDropdown && (
         <div

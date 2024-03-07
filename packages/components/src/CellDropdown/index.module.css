@@ -12,22 +12,22 @@
   &:focus {
     @apply outline-none widget-shadow-lightblue;
   }
-
-  svg {
-    @apply p-1 w-5 h-5 text-ld-darkgrey;
-
-    &:hover {
-      @apply text-primary;
-    }
-  }
 }
 
 .rowButton {
   @apply bg-ld-lightgrey;
+}
 
-  svg {
-    @apply text-ld-darkergrey;
+.icon {
+  @apply p-1 w-5 h-5 text-ld-darkgrey;
+
+  &:hover {
+    @apply text-primary;
   }
+}
+
+.rowIcon {
+  @apply text-ld-darkergrey;
 }
 
 .dropdown {

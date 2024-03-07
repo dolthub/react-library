@@ -45,16 +45,16 @@
     @apply text-link-2;
   }
 
+  &:focus {
+    @apply outline-none widget-shadow-lightblue;
+  }
+
   &:disabled {
     @apply text-ld-darkgrey;
 
     &:hover {
       @apply text-ld-darkgrey;
     }
-  }
-
-  &:focus {
-    @apply outline-none widget-shadow-lightblue;
   }
 }
 
