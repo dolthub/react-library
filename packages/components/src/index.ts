@@ -7,6 +7,7 @@ export { default as Checkbox } from "./Checkbox";
 export { default as CodeBlock } from "./CodeBlock";
 export { default as ExternalLink } from "./ExternalLink";
 export { default as FormInput } from "./FormInput";
+export { default as FormSelect } from "./FormSelect";
 export { default as Loader } from "./Loader";
 export { default as Markdown } from "./Markdown";
 export { default as Popup, PopupProps } from "./Popup";

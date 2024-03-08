@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import FormSelect from "../FormSelect";
+import { mobileDarkStyles, mobileLightStyles } from "../FormSelect/styles";
 
 const meta: Meta<typeof FormSelect> = {
   title: "FormSelect",
@@ -106,4 +107,21 @@ export const Horizontal: Story = {
     val: "one",
     horizontal: true,
   },
+};
+
+export const MobileLight: Story = {
+  args: {
+    val: "two",
+    options,
+    customStyles: () => mobileLightStyles,
+  },
+};
+
+export const MobileDark: Story = {
+  args: {
+    val: "two",
+    options,
+    customStyles: () => mobileDarkStyles,
+  },
+  parameters: { backgrounds: { default: "dark" } },
 };
