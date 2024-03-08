@@ -21,3 +21,4 @@ esm/
 .eslintcache
 
 coverage
+*.log
