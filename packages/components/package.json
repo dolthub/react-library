@@ -5,6 +5,14 @@
   },
   "description": "A collection of React components for common tasks",
   "version": "0.1.8",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dolthub/react-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dolthub/react-library/issues"
+  },
+  "homepage": "https://github.com/dolthub/react-library#readme",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
@@ -20,22 +28,21 @@
   ],
   "packageManager": "yarn@4.0.2",
   "scripts": {
+    "chromatic": "chromatic --exit-zero-on-changes",
+    "clean": "rm -rf dist && rm -rf .rollup.cache && rm -rf types && rm -rf tsconfig.tsbuildinfo && rm -rf .eslintcache",
     "compile": "tsc -b",
     "build": "rollup -c --bundleConfigAsCjs",
     "dbuild": "yarn compile && yarn build",
-    "lint": "yarn lint-js-errors && yarn lint-css",
-    "lint-js-errors": "eslint --cache --ext .ts,.js,.tsx,.jsx src",
+    "lint": "yarn lint-js && yarn lint-css",
     "lint-css": "stylelint \"**/*.css\"",
+    "lint-js": "eslint --cache --ext .ts,.js,.tsx,.jsx src",
     "prettier": "prettier --check 'src/**/*.{js,ts,tsx}'",
     "prettier-fix": "prettier --write 'src/**/*.{js,ts,tsx}'",
-    "npm:publish": "yarn dbuild && npm publish",
+    "npm:publish": "yarn clean && yarn dbuild && npm publish",
+    "storybook": "storybook dev -p 6006",
     "test": "jest --env=jest-environment-jsdom",
     "yalc:publish": "yarn dbuild && yalc publish",
-    "yalc:push": "yarn dbuild && yalc push",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "clean": "rm -rf dist && rm -rf .rollup.cache && rm -rf types && rm -rf tsconfig.tsbuildinfo && rm -rf .eslintcache",
-    "chromatic": "chromatic --exit-zero-on-changes"
+    "yalc:push": "yarn dbuild && yalc push"
   },
   "peerDependencies": {
     "react": "^18",
@@ -51,6 +58,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-loader": "^2.4.7",
     "react-markdown": "^9.0.1",
+    "react-select": "^5.8.0",
     "reactjs-popup": "^2.0.6",
     "remark-gfm": "^4.0.0",
     "tailwindcss": "^3.4.1"
@@ -67,6 +75,7 @@
     "@storybook/addon-interactions": "^7.6.17",
     "@storybook/addon-links": "^7.6.17",
     "@storybook/addon-styling-webpack": "^0.0.6",
+    "@storybook/addon-viewport": "^7.6.17",
     "@storybook/blocks": "^7.6.17",
     "@storybook/react": "^7.6.17",
     "@storybook/react-webpack5": "^7.6.17",
@@ -105,6 +114,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-select-event": "^5.5.1",
     "rollup": "^4.12.0",
     "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
@@ -116,13 +126,5 @@
     "tslib": "^2.6.2",
     "typescript": "^5.3.3",
     "yalc": "^1.0.0-pre.53"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dolthub/react-library.git"
-  },
-  "bugs": {
-    "url": "https://github.com/dolthub/react-library/issues"
-  },
-  "homepage": "https://github.com/dolthub/react-library#readme"
+  }
 }
