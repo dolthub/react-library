@@ -6,27 +6,27 @@ import {
   StylesConfig,
 } from "react-select";
 
-export interface Option {
+export interface OptionTypeBase {
   label: string;
   value: any;
-  isDisabled?: boolean;
 }
 
-// Options rendered with details will not render an input; selection can only be made from dropdown.
-export interface OptionWithDetails extends Option {
+export interface Option extends OptionTypeBase {
+  isDisabled?: boolean;
   details?: ReactNode;
   icon?: ReactNode;
 }
+
+// Options rendered with details will not render an input; selection can only be made from dropdown.
+// export interface OptionWithDetails extends Option {
+//   details?: ReactNode;
+//   icon?: ReactNode;
+// }
 
 export type OnChange<OptionType> = (
   value: OnChangeValue<OptionType, false>,
   action: ActionMeta<OptionType>,
 ) => void;
-
-export type OptionTypeBase = {
-  label: string;
-  value: any;
-};
 
 export type CustomStyles<OptionType, IsMulti extends boolean> = (
   s: Partial<StylesConfig<OptionType, IsMulti>>,

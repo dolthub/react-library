@@ -4,13 +4,8 @@ import Select from "react-select";
 import { getComponents } from "./customComponents";
 import css from "./index.module.css";
 import customStyles from "./styles";
-import { Option, OptionWithDetails, Props, WrapperProps } from "./types";
-import {
-  getOnChange,
-  getValue,
-  getValueForOptions,
-  moveSelectedToTop,
-} from "./utils";
+import { Option, Props, WrapperProps } from "./types";
+import { getOnChange, getValue, moveSelectedToTop } from "./utils";
 
 /*
 This custom FormSelect component is simplified to accept values/onChange arguments that represent the `value` field on an `OptionType`.
@@ -52,48 +47,14 @@ const FormSelect = ({
         value={getValue(props, options)}
         styles={props.customStyles ? props.customStyles(styles) : styles}
         components={getComponents(props.components, blue)}
+        formatOptionLabel={formatOptionLabel}
       />
     </Wrapper>
   );
 };
 
-function WithDetails({
-  mono = false,
-  light = false,
-  small = false,
-  selectedOptionFirst: selectedFirst = false,
-  ...props
-}: Props<OptionWithDetails>) {
-  const styles = customStyles<OptionWithDetails>(mono, light, small);
-  const options =
-    selectedFirst && !props.hideSelectedOptions
-      ? moveSelectedToTop(props.val, props.options)
-      : props.options;
-
-  return (
-    <Wrapper {...props}>
-      <Select
-        {...props}
-        options={options}
-        onChange={getOnChange<OptionWithDetails>(props.onChangeValue)}
-        value={getValueForOptions<OptionWithDetails>(
-          props.val,
-          options,
-          props.getValFunc,
-        )}
-        styles={{ ...styles, input: styles.input }}
-        formatOptionLabel={formatOptionLabel}
-        components={getComponents(props.components)}
-      />
-    </Wrapper>
-  );
-}
-
-FormSelect.WithDetails = WithDetails;
-
-function formatOptionLabel(
-  option: OptionWithDetails,
-): React.DetailedReactHTMLElement<Record<string, unknown>, HTMLElement> {
+function formatOptionLabel(option: Option): React.ReactNode {
+  if (!option.icon && !option.details) return option.label;
   return React.createElement(
     "div",
     {},

@@ -14,14 +14,14 @@ export function Dropdown(props: { blue?: boolean }) {
   );
 }
 
-type Components<Option, IsMulti extends boolean> =
-  | Partial<SelectComponentsConfig<Option, IsMulti, GroupBase<Option>>>
+type Components<Option> =
+  | Partial<SelectComponentsConfig<Option, false, GroupBase<Option>>>
   | undefined;
 
-export function getComponents<Option, IsMulti extends boolean>(
-  components?: Components<Option, IsMulti>,
+export function getComponents<Option>(
+  components?: Components<Option>,
   blue?: boolean,
-): Components<Option, IsMulti> {
+): Components<Option> {
   return {
     ...components,
     IndicatorSeparator: () => null,
