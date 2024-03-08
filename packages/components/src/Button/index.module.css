@@ -1,5 +1,5 @@
 .button {
-  @apply rounded px-8 py-1 outline-none text-white text-sm font-semibold leading-relaxed button-shadow bg-button-1;
+  @apply rounded px-8 py-1 outline-none text-white text-sm font-semibold leading-relaxed button-shadow bg-purple-500;
 
   &:hover {
     @apply button-shadow-hover bg-button-2;
