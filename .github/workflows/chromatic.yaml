@@ -14,10 +14,9 @@ jobs:
       - name: Enable Corepack before setting up Node
         run: corepack enable
 
-      - name: Install and compile
-        run: yarn install && yarn compile
-
-
+      - name: Install dependencies
+        run: yarn install --immutable
+        
       - name: Publish to Chromatic
         uses: chromaui/action@latest
         with:
