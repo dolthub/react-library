@@ -14,15 +14,32 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            components:
+              - 'packages/components/**'  
+
       - name: Enable Corepack before setting up Node
         run: corepack enable
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
+
       - name: Install and run CI
         working-directory: ./
         run: |
-          yarn
-          yarn run ci
+          yarn install --immutable
+          yarn ci
+
+      - name: Publish to Chromatic
+        if: steps.filter.outputs.components == 'true'
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/components
+          onlyChanged: true
