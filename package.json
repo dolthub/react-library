@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "ci": "yarn prettier && yarn lint && yarn dbuild && yarn sbuild && yarn test",
+    "ci": "yarn prettier && yarn lint && yarn dbuild && yarn test",
     "clean": "rimraf node_modules -g 'packages/*/.eslintcache' 'packages/*/*.tsbuildinfo' 'packages/*/dist' 'packages/*/.rollup.cache' 'packages/*/types' 'packages/*/coverage'",
     "dbuild": "npm-run-all 'dbuild:*'",
     "dbuild:utils": "yarn workspace @dolthub/web-utils dbuild",

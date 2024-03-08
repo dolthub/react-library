@@ -1,6 +1,8 @@
 {
   "name": "@dolthub/react-components",
-  "author": "DoltHub",
+  "author": {
+    "name": "DoltHub"
+  },
   "description": "A collection of React components for common tasks",
   "version": "0.1.8",
   "main": "dist/cjs/index.js",
@@ -32,7 +34,8 @@
     "yalc:push": "yarn dbuild && yalc push",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "clean": "rm -rf dist && rm -rf .rollup.cache && rm -rf types && rm -rf tsconfig.tsbuildinfo && rm -rf .eslintcache"
+    "clean": "rm -rf dist && rm -rf .rollup.cache && rm -rf types && rm -rf tsconfig.tsbuildinfo && rm -rf .eslintcache",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "peerDependencies": {
     "react": "^18",
@@ -87,6 +90,7 @@
     "@typescript-eslint/parser": "^6.20.0",
     "autoprefixer": "^10.4.17",
     "babel-jest": "^29.7.0",
+    "chromatic": "^11.0.6",
     "cssnano": "^6.0.5",
     "eslint": "^8.57.0",
     "eslint-plugin-storybook": "^0.8.0",
@@ -119,5 +123,6 @@
   },
   "bugs": {
     "url": "https://github.com/dolthub/react-library/issues"
-  }
+  },
+  "homepage": "https://github.com/dolthub/react-library#readme"
 }
