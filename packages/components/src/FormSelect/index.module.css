@@ -17,3 +17,11 @@
 .blueIndicator {
   @apply text-link-1;
 }
+
+.withIconPath {
+  @apply flex items-center font-semibold;
+
+  img {
+    @apply h-7 w-7 rounded-full mr-2;
+  }
+}

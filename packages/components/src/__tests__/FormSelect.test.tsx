@@ -3,7 +3,7 @@ import { queryByAttribute, screen } from "@testing-library/react";
 import React from "react";
 import selectEvent from "react-select-event";
 import FormSelect from "../FormSelect/index";
-import { Option, OptionWithIconPath } from "../FormSelect/types";
+import { Option } from "../FormSelect/types";
 import { getValueForOptions, moveSelectedToTop } from "../FormSelect/utils";
 import { setup } from "./testUtils.test";
 
@@ -16,14 +16,12 @@ const optionWithoutIconPath: Option[] = [...Array(5).keys()].map(i => {
 
 const iconPath =
   "https://dolthubapi.awsdev.ld-corp.com/profilePictures/u/m2lcqc5kf5324lc26td2hs0aioat0m2pbk26igfkklf68";
-const optionsWithIconPath: OptionWithIconPath[] = optionWithoutIconPath.map(
-  o => {
-    return {
-      ...o,
-      iconPath,
-    };
-  },
-);
+const optionsWithIconPath: Option[] = optionWithoutIconPath.map(o => {
+  return {
+    ...o,
+    iconPath,
+  };
+});
 
 const mocks = [
   { options: optionsWithIconPath },
@@ -94,7 +92,7 @@ const stringOps: Option[] = [
   { value: "tim", label: "Tim" },
 ];
 
-const stringOpsWithIcon: OptionWithIconPath[] = stringOps.map(s => {
+const stringOpsWithIcon: Option[] = stringOps.map(s => {
   return { ...s, iconPath: "http://www.pathtoicon.com" };
 });
 
@@ -128,9 +126,9 @@ describe("test FormSelect utils", () => {
     expect(getValueForOptions<Option>("brian", stringOps)).toBeUndefined();
 
     // Options with icon path
-    expect(
-      getValueForOptions<OptionWithIconPath>("katie", stringOpsWithIcon),
-    ).toEqual(stringOpsWithIcon[1]);
+    expect(getValueForOptions<Option>("katie", stringOpsWithIcon)).toEqual(
+      stringOpsWithIcon[1],
+    );
 
     // Options with RepoParam values, which reqiure a getValFunc
     expect(

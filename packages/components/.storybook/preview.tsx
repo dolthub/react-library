@@ -1,3 +1,4 @@
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { Preview } from "@storybook/react";
 import React from "react";
 import "../src/styles/global.css";
@@ -20,6 +21,9 @@ const preview: Preview = {
         { name: "dark", value: "#182134" },
         { name: "blue", value: "#2b5db6" },
       ],
+    },
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
     },
   },
   decorators: [

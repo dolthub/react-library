@@ -1,10 +1,10 @@
-import cx from "classnames";
-import React, { ReactNode } from "react";
+import React from "react";
 import Select from "react-select";
-import { getComponents } from "./customComponents";
-import css from "./index.module.css";
+import AsyncSelect from "react-select/async";
+import Wrapper from "./Wrapper";
+import { formatOptionLabel, getComponents } from "./customComponents";
 import customStyles from "./styles";
-import { Option, Props, WrapperProps } from "./types";
+import { AsyncProps, Option, Props } from "./types";
 import { getOnChange, getValue, moveSelectedToTop } from "./utils";
 
 /*
@@ -53,45 +53,47 @@ const FormSelect = ({
   );
 };
 
-function formatOptionLabel(option: Option): React.ReactNode {
-  if (!option.icon && !option.details) return option.label;
-  return React.createElement(
-    "div",
-    {},
-    <span>
-      {option.icon}
-      <span>{option.label}</span>
-      {option.details}
-    </span>,
-  );
-}
-
-function Wrapper({
-  horizontal = false,
+const FormSelectAsync = ({
+  mono = false,
+  light = false,
+  small = false,
+  // selectedOptionFirst: selectedFirst = false,
+  pill = false,
+  transparentBorder = false,
+  blue = false,
   ...props
-}: WrapperProps & { children: ReactNode }) {
-  return (
-    <div
-      className={cx(props.outerClassName, {
-        [css.horizontal]: horizontal,
-      })}
-      data-cy={props["data-cy"]}
-    >
-      {props.label && (
-        <div
-          className={cx(
-            css.label,
-            { [css.horizontalLabel]: horizontal },
-            props.labelClassName,
-          )}
-        >
-          {props.label}
-        </div>
-      )}
-      {props.children}
-    </div>
+}: AsyncProps<Option>): JSX.Element => {
+  const styles = customStyles<Option>(
+    mono,
+    light,
+    small,
+    pill,
+    transparentBorder,
+    blue,
   );
-}
+
+  // const options =
+  //   selectedFirst && !props.hideSelectedOptions
+  //     ? moveSelectedToTop(props.val, props.options)
+  //     : props.options;
+
+  return (
+    <Wrapper {...props}>
+      <AsyncSelect
+        {...props}
+        // loadOptions={props.loadOptions}
+        // options={options}
+        // onChange={getOnChange<Option>(props.onChangeValue)}
+        // value={getValue(props, options)}
+        styles={props.customStyles ? props.customStyles(styles) : styles}
+        components={getComponents(props.components, blue)}
+        formatOptionLabel={formatOptionLabel}
+      />
+    </Wrapper>
+  );
+};
+
+FormSelect.Async = FormSelectAsync;
 
 export * from "./types";
 export default FormSelect;

@@ -207,3 +207,31 @@ export const WithIconsAndDetails: Story = {
     val: "one",
   },
 };
+
+export const WithIconPath: Story = {
+  args: {
+    label: "Label",
+    options: [
+      {
+        value: "one",
+        label: "One",
+        iconPath:
+          "https://dolthubapi.awsdev.ld-corp.com/profilePictures/u/m2lcqc5kf5324lc26td2hs0aioat0m2pbk26igfkklf68",
+      },
+      {
+        value: "two",
+        label: "Two",
+        iconPath:
+          "https://dolthubapi.awsdev.ld-corp.com/profilePictures/u/m2lcqc5kf5324lc26td2hs0aioat0m2pbk26igfkklf68",
+      },
+      {
+        value: "three",
+        label: "Three",
+        iconPath:
+          "https://dolthubapi.awsdev.ld-corp.com/profilePictures/u/m2lcqc5kf5324lc26td2hs0aioat0m2pbk26igfkklf68",
+        isDisabled: true,
+      },
+    ],
+    val: "one",
+  },
+};

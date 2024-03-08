@@ -1,10 +1,12 @@
 import { ReactNode } from "react";
 import {
   ActionMeta,
+  GroupBase,
   OnChangeValue,
   Props as SelectProps,
   StylesConfig,
 } from "react-select";
+import { AsyncProps as AsyncSelectProps } from "react-select/async";
 
 export interface OptionTypeBase {
   label: string;
@@ -15,13 +17,8 @@ export interface Option extends OptionTypeBase {
   isDisabled?: boolean;
   details?: ReactNode;
   icon?: ReactNode;
+  iconPath?: string;
 }
-
-// Options rendered with details will not render an input; selection can only be made from dropdown.
-// export interface OptionWithDetails extends Option {
-//   details?: ReactNode;
-//   icon?: ReactNode;
-// }
 
 export type OnChange<OptionType> = (
   value: OnChangeValue<OptionType, false>,
@@ -40,8 +37,7 @@ export type WrapperProps = {
   ["data-cy"]?: string;
 };
 
-type CustomProps<OptionType extends OptionTypeBase, IsMulti extends boolean> = {
-  options: OptionType[];
+type CommonProps<OptionType extends OptionTypeBase, IsMulti extends boolean> = {
   val: any | null;
   mono?: boolean;
   light?: boolean;
@@ -52,15 +48,35 @@ type CustomProps<OptionType extends OptionTypeBase, IsMulti extends boolean> = {
   // Show the selected option first in the list
   selectedOptionFirst?: boolean;
   useValueAsSingleValue?: boolean;
-  // onChangeValue handles updating the `val` prop (type any).
-  // onChange can be used to update `value` (type OptionType).
-  onChangeValue: (val: any) => void;
   // Handles getting value if value is not a string
   getValFunc?: (o: any, v: any) => boolean;
   customStyles?: CustomStyles<OptionType, IsMulti>;
 } & WrapperProps;
 
+type CustomSelectProps<
+  OptionType extends OptionTypeBase,
+  IsMulti extends boolean,
+> = CommonProps<OptionType, IsMulti> & {
+  options: OptionType[];
+  // onChangeValue handles updating the `val` prop (type any).
+  // onChange can be used to update `value` (type OptionType).
+  onChangeValue: (val: any) => void;
+};
+
+// type CustomAsyncSelectProps<
+//   OptionType extends OptionTypeBase,
+//   IsMulti extends boolean,
+//   > = CommonProps<OptionType, IsMulti> & {
+//     loadOptions: (o: string) => Promise<OptionType[]>;
+//   }
+
 export type Props<
   OptionType extends OptionTypeBase,
   IsMulti extends boolean = false,
-> = SelectProps<OptionType, IsMulti> & CustomProps<OptionType, IsMulti>;
+> = SelectProps<OptionType, IsMulti> & CustomSelectProps<OptionType, IsMulti>;
+
+export type AsyncProps<
+  OptionType extends OptionTypeBase,
+  IsMulti extends boolean = false,
+> = AsyncSelectProps<OptionType, IsMulti, GroupBase<OptionType>> &
+  CommonProps<OptionType, IsMulti>;
