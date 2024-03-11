@@ -37,6 +37,7 @@ describe("test FormSelect", () => {
           options={mock.options}
           val=""
           onChangeValue={onChangeValue}
+          label="Label"
         />,
       );
 
@@ -46,6 +47,8 @@ describe("test FormSelect", () => {
         expect(screen.getByText(option.value)).toBeVisible();
       });
 
+      expect(screen.getByText("Label")).toBeVisible();
+
       // click new value
       await selectEvent.select(
         screen.getByText(mock.options[0].value),
@@ -54,6 +57,70 @@ describe("test FormSelect", () => {
 
       // check that onChangeValue has been called
       expect(onChangeValue).toHaveBeenCalled();
+      await user.click(screen.getByRole("combobox"));
+
+      // check img src for optionWithIconPath
+      if ("iconPath" in mock.options) {
+        expect(screen.getByRole("img")).toHaveAttribute("src", iconPath);
+      }
+    });
+
+    it("shows the selected option first if selectedOptionFirst is true", async () => {
+      const selected = randomArrayItem(mock.options);
+      const { container, user } = setup(
+        <FormSelect
+          options={mock.options}
+          val={selected.value}
+          selectedOptionFirst
+          onChangeValue={() => {}}
+        />,
+      );
+
+      // expand the options
+      await user.click(screen.getByRole("combobox"));
+
+      // Difficult to get the inner MenuList by anything else
+      const menuList = queryByAttribute("class", container, /MenuList/);
+      if (!menuList) {
+        throw Error("MenuList not found");
+      }
+      expect(menuList.firstElementChild).toHaveTextContent(selected.value);
+    });
+  });
+});
+
+describe("test FormSelect.Async", () => {
+  mocks.forEach(mock => {
+    it("it renders component and is clickable", async () => {
+      const onChange = jest.fn();
+      const { user } = setup(
+        <FormSelect.Async
+          loadOptions={async () => mock.options}
+          onChange={onChange}
+          label="Label"
+          placeholder="select or type..."
+          isClearable
+          defaultOptions
+        />,
+      );
+
+      // expand the options
+      await user.click(screen.getByRole("combobox"));
+      mock.options.forEach(option => {
+        expect(screen.getByText(option.value)).toBeVisible();
+      });
+
+      expect(screen.getByText("select or type...")).toBeVisible();
+      expect(screen.getByText("Label")).toBeVisible();
+
+      // click new value
+      await selectEvent.select(
+        screen.getByText(mock.options[0].value),
+        mock.options[1].value,
+      );
+
+      // check that onChangeValue has been called
+      expect(onChange).toHaveBeenCalled();
       await user.click(screen.getByRole("combobox"));
 
       // check img src for optionWithIconPath
@@ -114,7 +181,7 @@ function repoParamsAreEqual(o: RepoParams, v: RepoParams): boolean {
 }
 
 describe("test FormSelect utils", () => {
-  it("gets value for options", () => {
+  it("test getValueForOptions", () => {
     // Options with string values
     expect(getValueForOptions<Option>("katie", stringOps)).toEqual(
       stringOps[1],
@@ -140,7 +207,7 @@ describe("test FormSelect utils", () => {
     ).toEqual(repoParamsOps[1]);
   });
 
-  it("moves the selected item to the top of the array", () => {
+  it("test moveSelectedToTop", () => {
     stringOps.forEach(selected => {
       const out = moveSelectedToTop(selected.value, stringOps);
       expect(out).toHaveLength(stringOps.length);
@@ -148,12 +215,12 @@ describe("test FormSelect utils", () => {
     });
   });
 
-  it("does not modify options if selectedVal is null", () => {
+  it("test moveSelectedToTop, does not modify options if selectedVal is null", () => {
     const out = moveSelectedToTop(null, stringOps);
     expect(out).toEqual(stringOps);
   });
 
-  it("does not modify options if selectedVal is invalid", () => {
+  it("test moveSelectedToTop, does not modify options if selectedVal is invalid", () => {
     const out = moveSelectedToTop("some invalid value", stringOps);
     expect(out).toEqual(stringOps);
   });

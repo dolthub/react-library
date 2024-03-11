@@ -57,7 +57,6 @@ const FormSelectAsync = ({
   mono = false,
   light = false,
   small = false,
-  // selectedOptionFirst: selectedFirst = false,
   pill = false,
   transparentBorder = false,
   blue = false,
@@ -72,19 +71,10 @@ const FormSelectAsync = ({
     blue,
   );
 
-  // const options =
-  //   selectedFirst && !props.hideSelectedOptions
-  //     ? moveSelectedToTop(props.val, props.options)
-  //     : props.options;
-
   return (
     <Wrapper {...props}>
       <AsyncSelect
         {...props}
-        // loadOptions={props.loadOptions}
-        // options={options}
-        // onChange={getOnChange<Option>(props.onChangeValue)}
-        // value={getValue(props, options)}
         styles={props.customStyles ? props.customStyles(styles) : styles}
         components={getComponents(props.components, blue)}
         formatOptionLabel={formatOptionLabel}

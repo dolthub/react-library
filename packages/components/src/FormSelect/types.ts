@@ -38,18 +38,12 @@ export type WrapperProps = {
 };
 
 type CommonProps<OptionType extends OptionTypeBase, IsMulti extends boolean> = {
-  val: any | null;
   mono?: boolean;
   light?: boolean;
   small?: boolean;
   pill?: boolean;
   blue?: boolean;
   transparentBorder?: boolean;
-  // Show the selected option first in the list
-  selectedOptionFirst?: boolean;
-  useValueAsSingleValue?: boolean;
-  // Handles getting value if value is not a string
-  getValFunc?: (o: any, v: any) => boolean;
   customStyles?: CustomStyles<OptionType, IsMulti>;
 } & WrapperProps;
 
@@ -57,18 +51,17 @@ type CustomSelectProps<
   OptionType extends OptionTypeBase,
   IsMulti extends boolean,
 > = CommonProps<OptionType, IsMulti> & {
+  val: any | null;
   options: OptionType[];
+  // Show the selected option first in the list
+  selectedOptionFirst?: boolean;
+  useValueAsSingleValue?: boolean;
+  // Handles getting value if value is not a string
+  getValFunc?: (o: any, v: any) => boolean;
   // onChangeValue handles updating the `val` prop (type any).
   // onChange can be used to update `value` (type OptionType).
   onChangeValue: (val: any) => void;
 };
-
-// type CustomAsyncSelectProps<
-//   OptionType extends OptionTypeBase,
-//   IsMulti extends boolean,
-//   > = CommonProps<OptionType, IsMulti> & {
-//     loadOptions: (o: string) => Promise<OptionType[]>;
-//   }
 
 export type Props<
   OptionType extends OptionTypeBase,
