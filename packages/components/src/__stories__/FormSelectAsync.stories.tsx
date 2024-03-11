@@ -29,3 +29,41 @@ export const Default: Story = {
     defaultOptions: true,
   },
 };
+
+export const IsMulti: Story = {
+  args: {
+    label: "Label",
+    loadOptions: async () => options,
+    value: [options[0], options[1]],
+    placeholder: "select or type...",
+    isMulti: true,
+    isClearable: true,
+    defaultOptions: true,
+  },
+};
+
+export const IsMultiLight: Story = {
+  args: {
+    label: "Label",
+    loadOptions: async () => options,
+    value: [options[0], options[1]],
+    placeholder: "select or type...",
+    isMulti: true,
+    isClearable: true,
+    defaultOptions: true,
+    light: true,
+  },
+};
+
+export const IsMultiBlue: Story = {
+  args: {
+    label: "Label",
+    loadOptions: async () => options,
+    value: [options[0], options[1]],
+    placeholder: "select or type...",
+    isMulti: true,
+    isClearable: true,
+    defaultOptions: true,
+    blue: true,
+  },
+};

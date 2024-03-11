@@ -1,32 +1,85 @@
 import { AiFillCaretDown } from "@react-icons/all-files/ai/AiFillCaretDown";
+import { AiOutlineClose } from "@react-icons/all-files/ai/AiOutlineClose";
 import cx from "classnames";
 import React from "react";
-import { GroupBase, SelectComponentsConfig } from "react-select";
+import {
+  ClearIndicatorProps,
+  DropdownIndicatorProps,
+  GroupBase,
+  MultiValueRemoveProps,
+  SelectComponentsConfig,
+} from "react-select";
 import css from "./index.module.css";
-import { Option } from "./types";
+import { Option, OptionTypeBase } from "./types";
 
-export function Dropdown(props: { blue?: boolean }) {
+function Dropdown<OptionType extends OptionTypeBase, IsMulti extends boolean>(
+  props: DropdownIndicatorProps<OptionType, IsMulti> & {
+    blue?: boolean;
+    light?: boolean;
+  },
+) {
   return (
-    <AiFillCaretDown
-      className={cx(css.dropdownIndicator, {
-        [css.blueIndicator]: !!props.blue,
-      })}
-    />
+    <div {...props.innerProps}>
+      <AiFillCaretDown
+        className={cx(css.dropdownIndicator, {
+          [css.blueIndicator]: !!props.blue,
+          [css.whiteIndicator]: !!props.light,
+        })}
+      />
+    </div>
   );
 }
 
-type Components<Option> =
-  | Partial<SelectComponentsConfig<Option, false, GroupBase<Option>>>
+function Clear<OptionType extends OptionTypeBase, IsMulti extends boolean>(
+  props: ClearIndicatorProps<OptionType, IsMulti> & { blue?: boolean },
+) {
+  return (
+    <div {...props.innerProps}>
+      <AiOutlineClose
+        className={cx(css.clearIndicator, {
+          [css.blueIndicator]: !!props.blue,
+        })}
+      />
+    </div>
+  );
+}
+
+function MultiValueRemove<
+  OptionType extends OptionTypeBase,
+  IsMulti extends boolean,
+>(props: MultiValueRemoveProps<OptionType, IsMulti> & { blue?: boolean }) {
+  return (
+    <div
+      {...props.innerProps}
+      className={cx(css.multiValueRemove, {
+        [css.blueIndicator]: !!props.blue,
+      })}
+    >
+      <AiOutlineClose />
+    </div>
+  );
+}
+
+type Components<Option, IsMulti extends boolean> =
+  | Partial<SelectComponentsConfig<Option, IsMulti, GroupBase<Option>>>
   | undefined;
 
-export function getComponents<Option>(
-  components?: Components<Option>,
+export function getComponents<
+  OptionType extends OptionTypeBase,
+  IsMulti extends boolean,
+>(
+  components?: Components<OptionType, IsMulti>,
   blue?: boolean,
-): Components<Option> {
+  light?: boolean,
+): Components<OptionType, IsMulti> {
   return {
     ...components,
     IndicatorSeparator: () => null,
-    DropdownIndicator: () => <Dropdown blue={blue} />,
+    DropdownIndicator: props => (
+      <Dropdown {...props} blue={blue} light={light} />
+    ),
+    ClearIndicator: props => <Clear {...props} blue={blue} />,
+    MultiValueRemove: props => <MultiValueRemove {...props} blue={blue} />,
   };
 }
 

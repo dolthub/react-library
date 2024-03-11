@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import FormSelect from "../FormSelect";
-import { mobileDarkStyles, mobileLightStyles } from "../FormSelect/styles";
 
 const meta: Meta<typeof FormSelect> = {
   title: "FormSelect",
@@ -32,6 +31,7 @@ export const NoLabel: Story = {
   args: {
     options,
     val: "two",
+    isClearable: true,
   },
 };
 
@@ -58,6 +58,16 @@ export const Blue: Story = {
     options,
     val: "one",
     blue: true,
+  },
+};
+
+export const BlueRounded: Story = {
+  args: {
+    label: "Label",
+    options,
+    blue: true,
+    rounded: true,
+    isClearable: true,
   },
 };
 
@@ -109,21 +119,36 @@ export const Horizontal: Story = {
   },
 };
 
-export const MobileLight: Story = {
+export const HorizontalSmall: Story = {
   args: {
-    val: "two",
+    label: "Label",
     options,
-    customStyles: () => mobileLightStyles,
+    val: "one",
+    horizontal: true,
+    small: true,
   },
 };
 
-export const MobileDark: Story = {
+export const ForMobileLight: Story = {
   args: {
     val: "two",
     options,
-    customStyles: () => mobileDarkStyles,
+    forMobile: true,
+    light: true,
   },
-  parameters: { backgrounds: { default: "dark" } },
+  parameters: { viewport: { defaultViewport: "iphonex" } },
+};
+
+export const ForMobileDark: Story = {
+  args: {
+    val: "two",
+    options,
+    forMobile: true,
+  },
+  parameters: {
+    viewport: { defaultViewport: "iphonex" },
+    backgrounds: { default: "dark" },
+  },
 };
 
 function Details({ text }: { text: string }) {

@@ -34,6 +34,7 @@ export type WrapperProps = {
   outerClassName?: string;
   labelClassName?: string;
   horizontal?: boolean;
+  small?: boolean;
   ["data-cy"]?: string;
 };
 
@@ -44,6 +45,8 @@ type CommonProps<OptionType extends OptionTypeBase, IsMulti extends boolean> = {
   pill?: boolean;
   blue?: boolean;
   transparentBorder?: boolean;
+  rounded?: boolean;
+  forMobile?: boolean;
   customStyles?: CustomStyles<OptionType, IsMulti>;
 } & WrapperProps;
 
@@ -66,10 +69,14 @@ type CustomSelectProps<
 export type Props<
   OptionType extends OptionTypeBase,
   IsMulti extends boolean = false,
-> = SelectProps<OptionType, IsMulti> & CustomSelectProps<OptionType, IsMulti>;
+> = Omit<SelectProps<OptionType, IsMulti>, "styles"> &
+  CustomSelectProps<OptionType, IsMulti>;
 
 export type AsyncProps<
   OptionType extends OptionTypeBase,
   IsMulti extends boolean = false,
-> = AsyncSelectProps<OptionType, IsMulti, GroupBase<OptionType>> &
+> = Omit<
+  AsyncSelectProps<OptionType, IsMulti, GroupBase<OptionType>>,
+  "styles"
+> &
   CommonProps<OptionType, IsMulti>;

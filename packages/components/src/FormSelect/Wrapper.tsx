@@ -18,7 +18,10 @@ export default function Wrapper({
         <div
           className={cx(
             css.label,
-            { [css.horizontalLabel]: horizontal },
+            {
+              [css.horizontalLabel]: horizontal,
+              [css.smallLabel]: props.small,
+            },
             props.labelClassName,
           )}
         >

@@ -12,14 +12,8 @@ export default function customStyles<
   pill?: boolean,
   transparentBorder?: boolean,
   blue?: boolean,
+  rounded?: boolean,
 ): Partial<StylesConfig<Q, IsMulti>> {
-  const getColor = (isFocused: boolean) => {
-    if (blue) {
-      return isFocused ? colors["ld-mediumblue"] : colors["acc-hoverlinkblue"];
-    }
-    return isFocused ? colors["ld-darkgrey"] : colors["ld-lightgrey"];
-  };
-
   return {
     placeholder: styles => {
       return {
@@ -34,13 +28,13 @@ export default function customStyles<
       return {
         ...styles,
         backgroundColor: isFocused || light ? "white" : colors["ld-lightblue"],
-        borderRadius: getBorderRadius(pill, blue),
+        borderRadius: getBorderRadius(pill, rounded),
         width: transparentBorder && !small ? "10rem" : "",
         borderColor: getBorderColor(isFocused, blue, transparentBorder),
         boxShadow: "none",
         maxHeight: small ? "30px" : styles.maxHeight,
         minHeight: small ? "30px" : styles.minHeight,
-        fontSize: getFontSize(small, mono, blue),
+        fontSize: getFontSize(small, mono),
         fontFamily: getFontFamily(mono),
         "&:hover": {
           borderColor: transparentBorder ? "transparent" : getColor(true),
@@ -71,7 +65,7 @@ export default function customStyles<
       return {
         ...styles,
         color: getRGBVar("primary"),
-        fontSize: getFontSize(small, mono, blue),
+        fontSize: getFontSize(small, mono),
         fontFamily: getFontFamily(mono),
       };
     },
@@ -84,7 +78,7 @@ export default function customStyles<
         backgroundColor:
           isFocused || isSelected ? colors["ld-lightpurple"] : undefined,
         fontFamily: getFontFamily(mono),
-        fontSize: getFontSize(small, mono, blue),
+        fontSize: getFontSize(small, mono),
       };
     },
     singleValue: styles => {
@@ -92,8 +86,19 @@ export default function customStyles<
         ...styles,
         color: blue ? colors["ld-mediumblue"] : getRGBVar("primary"),
         fontFamily: getFontFamily(mono),
-        fontSize: getFontSize(small, mono, blue),
+        fontSize: getFontSize(small, mono),
         top: small ? "45%" : styles.top,
+      };
+    },
+    multiValue: styles => {
+      return {
+        ...styles,
+        color: blue ? colors["ld-mediumblue"] : getRGBVar("primary"),
+        fontFamily: getFontFamily(mono),
+        fontSize: getFontSize(small, mono),
+        top: small ? "45%" : styles.top,
+        backgroundColor: light ? colors["ld-lightpurple"] : "white",
+        border: "1px solid #D1D5D7",
       };
     },
     menu: styles => {
@@ -101,17 +106,13 @@ export default function customStyles<
         ...styles,
         color: getRGBVar("primary"),
         fontFamily: getFontFamily(mono),
-        fontSize: getFontSize(small, mono, blue),
+        fontSize: getFontSize(small, mono),
       };
     },
   };
 }
 
-export const mobileLightStyles: StylesConfig<
-  Option,
-  boolean,
-  GroupBase<Option>
-> = {
+const mobileLightStyles: StylesConfig<Option, boolean, GroupBase<Option>> = {
   container: styles => {
     return {
       ...styles,
@@ -156,11 +157,7 @@ export const mobileLightStyles: StylesConfig<
   },
 };
 
-export const mobileDarkStyles: StylesConfig<
-  Option,
-  boolean,
-  GroupBase<Option>
-> = {
+const mobileDarkStyles: StylesConfig<Option, boolean, GroupBase<Option>> = {
   placeholder: styles => {
     return {
       ...styles,
@@ -195,13 +192,25 @@ export const mobileDarkStyles: StylesConfig<
   },
 };
 
-function getBorderRadius(pill?: boolean, blue?: boolean): string {
-  if (pill) return "9999px";
-  return blue ? "8px" : "0.25rem";
+export const mobileStyles = (
+  light = false,
+): StylesConfig<Option, boolean, GroupBase<Option>> =>
+  light ? mobileLightStyles : mobileDarkStyles;
+
+function getColor(isFocused: boolean, blue?: boolean): string {
+  if (blue) {
+    return isFocused ? colors["ld-mediumblue"] : colors["acc-hoverlinkblue"];
+  }
+  return isFocused ? colors["ld-darkgrey"] : colors["ld-lightgrey"];
 }
 
-function getFontSize(small?: boolean, mono?: boolean, blue?: boolean): string {
-  if (mono) return blue ? "14px" : "11px";
+function getBorderRadius(pill?: boolean, rounded?: boolean): string {
+  if (pill) return "9999px";
+  return rounded ? "8px" : "0.25rem";
+}
+
+function getFontSize(small?: boolean, mono?: boolean): string {
+  if (mono) return "11px";
   return small ? "12px" : "14px";
 }
 
