@@ -2,6 +2,7 @@ export {
   MenuProps,
   OptionProps,
   SingleValueProps,
+  StylesConfig,
   components,
 } from "react-select";
 export { FilterOptionOption } from "react-select/dist/declarations/src/filters";

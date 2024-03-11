@@ -1,10 +1,10 @@
-import { GroupBase, StylesConfig } from "react-select";
+import { StylesConfig } from "react-select";
 import colors from "../tailwind/theme/base/colors";
-import { Option, OptionTypeBase } from "./types";
+import { OptionTypeBase } from "./types";
 
 export default function customStyles<
   Q extends OptionTypeBase,
-  IsMulti extends boolean = false,
+  IsMulti extends boolean,
 >(
   mono?: boolean,
   light?: boolean,
@@ -112,90 +112,103 @@ export default function customStyles<
   };
 }
 
-const mobileLightStyles: StylesConfig<Option, boolean, GroupBase<Option>> = {
-  container: styles => {
-    return {
-      ...styles,
-      marginLeft: "0.25rem",
-      marginRight: "0.25rem",
-      marginBottom: "1rem",
-    };
-  },
-  placeholder: styles => {
-    return {
-      ...styles,
-      color: getRGBVar("link-1"),
-      width: "48%",
-    };
-  },
-  control: styles => {
-    return {
-      ...styles,
-      backgroundColor: "white",
-      borderColor: "rgba(225, 229, 231, 1)",
-    };
-  },
-  menu: styles => {
-    return {
-      ...styles,
-      color: getRGBVar("link-1"),
-      fontWeight: 600,
-    };
-  },
-  singleValue: styles => {
-    return {
-      ...styles,
-      color: getRGBVar("link-1"),
-      fontWeight: 600,
-    };
-  },
-  dropdownIndicator: styles => {
-    return {
-      ...styles,
-      color: getRGBVar("link-1"),
-    };
-  },
+const mobileLightStyles = <
+  Q extends OptionTypeBase,
+  IsMulti extends boolean = false,
+>(): Partial<StylesConfig<Q, IsMulti>> => {
+  return {
+    container: styles => {
+      return {
+        ...styles,
+        marginLeft: "0.25rem",
+        marginRight: "0.25rem",
+        marginBottom: "1rem",
+      };
+    },
+    placeholder: styles => {
+      return {
+        ...styles,
+        color: getRGBVar("link-1"),
+        width: "48%",
+      };
+    },
+    control: styles => {
+      return {
+        ...styles,
+        backgroundColor: "white",
+        borderColor: "rgba(225, 229, 231, 1)",
+      };
+    },
+    menu: styles => {
+      return {
+        ...styles,
+        color: getRGBVar("link-1"),
+        fontWeight: 600,
+      };
+    },
+    singleValue: styles => {
+      return {
+        ...styles,
+        color: getRGBVar("link-1"),
+        fontWeight: 600,
+      };
+    },
+    dropdownIndicator: styles => {
+      return {
+        ...styles,
+        color: getRGBVar("link-1"),
+      };
+    },
+  };
 };
 
-const mobileDarkStyles: StylesConfig<Option, boolean, GroupBase<Option>> = {
-  placeholder: styles => {
-    return {
-      ...styles,
-      color: "#FFFFFFE5",
-    };
-  },
-  control: styles => {
-    return {
-      ...styles,
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
-      borderColor: "rgba(255, 255, 255, 0.1)",
-      marginTop: "1rem",
-    };
-  },
-  menu: styles => {
-    return {
-      ...styles,
-      color: colors["ld-darkergrey"],
-    };
-  },
-  singleValue: styles => {
-    return {
-      ...styles,
-      color: "#FFFFFFE5",
-    };
-  },
-  dropdownIndicator: styles => {
-    return {
-      ...styles,
-      color: "#FFFFFF",
-    };
-  },
+const mobileDarkStyles = <
+  Q extends OptionTypeBase,
+  IsMulti extends boolean = false,
+>(): Partial<StylesConfig<Q, IsMulti>> => {
+  return {
+    placeholder: styles => {
+      return {
+        ...styles,
+        color: "#FFFFFFE5",
+      };
+    },
+    control: styles => {
+      return {
+        ...styles,
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        borderColor: "rgba(255, 255, 255, 0.1)",
+        marginTop: "1rem",
+      };
+    },
+    menu: styles => {
+      return {
+        ...styles,
+        color: colors["ld-darkergrey"],
+      };
+    },
+    singleValue: styles => {
+      return {
+        ...styles,
+        color: "#FFFFFFE5",
+      };
+    },
+    dropdownIndicator: styles => {
+      return {
+        ...styles,
+        color: "#FFFFFF",
+      };
+    },
+  };
 };
 
-export const mobileStyles = (
+export const mobileStyles = <
+  Q extends OptionTypeBase,
+  IsMulti extends boolean = false,
+>(
   light = false,
-): StylesConfig<Option, boolean, GroupBase<Option>> =>
-  light ? mobileLightStyles : mobileDarkStyles;
+): Partial<StylesConfig<Q, IsMulti>> =>
+  light ? mobileLightStyles() : mobileDarkStyles();
 
 function getColor(isFocused: boolean, blue?: boolean): string {
   if (blue) {

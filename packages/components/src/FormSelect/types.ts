@@ -25,7 +25,10 @@ export type OnChange<OptionType> = (
   action: ActionMeta<OptionType>,
 ) => void;
 
-export type CustomStyles<OptionType, IsMulti extends boolean> = (
+export type CustomStyles<
+  OptionType extends OptionTypeBase,
+  IsMulti extends boolean,
+> = (
   s: Partial<StylesConfig<OptionType, IsMulti>>,
 ) => Partial<StylesConfig<OptionType, IsMulti>>;
 

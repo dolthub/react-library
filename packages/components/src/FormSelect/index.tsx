@@ -27,8 +27,8 @@ const FormSelect = ({
   ...props
 }: Props<Option>): JSX.Element => {
   const styles = forMobile
-    ? mobileStyles(light)
-    : customStyles<Option>(
+    ? mobileStyles<Option, false>(light)
+    : customStyles<Option, false>(
         mono,
         light,
         small,
@@ -70,7 +70,7 @@ const FormSelectAsync = <IsMulti extends boolean>({
   ...props
 }: AsyncProps<Option, IsMulti>): JSX.Element => {
   const styles = forMobile
-    ? mobileStyles(light)
+    ? mobileStyles<Option, IsMulti>(light)
     : customStyles<Option, IsMulti>(
         mono,
         light,
