@@ -6,20 +6,14 @@ export const validBranchNames = [
   "user/{/a.tt/}",
 ];
 
-export const invalidBranchNames = [
+export const invalidBranchProtectionNames = [
   "",
-  "this-is-a-..-test",
   "this-is-a-@{-test",
   "this-is-a- -test",
   "this-is-a-\t-test",
   "this-is-a-//-test",
   "this-is-a-:-test",
-  "this-is-a-?-test",
-  "this-is-a-[-test",
-  "this-is-a-\\-test",
-  "this-is-a-^-test",
   "this-is-a-~-test",
-  "this-is-a-*-test",
   "this-is-a-\x00-test",
   "this-is-a-\x01-test",
   "this-is-a-\x02-test",
@@ -62,4 +56,30 @@ export const invalidBranchNames = [
   "mybranch.lock",
   "user.lock/working/mybranch",
   "-",
+];
+
+export const invalidBranchNames = [
+  ...invalidBranchProtectionNames,
+  "this-is-a-..-test",
+  "this-is-a-?-test",
+  "this-is-a-[-test",
+  "this-is-a-\\-test",
+  "this-is-a-^-test",
+  "this-is-a-*-test",
+];
+
+export const validBranchProtectionNames = [
+  ...validBranchNames,
+  "foo*",
+  "qa/**/*",
+  "c{at,ub}s",
+  "c?t",
+  "c??t",
+  "c*",
+  "c*t",
+  "ca[a-z]",
+  "ca[^t]",
+  "?",
+  "*",
+  "[\\?]",
 ];
