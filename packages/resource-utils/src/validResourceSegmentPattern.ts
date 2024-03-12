@@ -29,9 +29,14 @@ const invalidBranchProtectionNamePattern = [
   `/$`,
 ].join("|");
 
-const invalidBranchNamePattern = [`\\?`,`\\^`,`\\[`,  `\\\\`,  `\\*`,invalidBranchProtectionNamePattern].join("|");
-
-
+const invalidBranchNamePattern = [
+  `\\?`,
+  `\\^`,
+  `\\[`,
+  `\\\\`,
+  `\\*`,
+  invalidBranchProtectionNamePattern,
+].join("|");
 
 const invertRegexPattern = (p: string) => `^(?!.*(${p}))`;
 const validBranchNamePattern = invertRegexPattern(invalidBranchNamePattern);
