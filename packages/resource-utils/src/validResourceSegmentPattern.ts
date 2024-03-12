@@ -8,38 +8,6 @@ const validLongResourcePattern = "[-a-zA-Z0-9_]{3,36}";
 const validUuidPattern = "[a-f0-9-]{36}";
 const validBackupIdPattern = "[0-9]{8}T[0-9]{6}.[0-9]{3}";
 
-const invalidBranchNamePattern = [
-  // Any appearance of the following characters: :, ?, [, \, ^, ~, SPACE, TAB, *
-  `:`,
-  `\\?`,
-  `\\[`,
-  `\\\\`,
-  `\\^`,
-  `~`,
-  ` `,
-  `\t`,
-  `\\*`,
-  // Any ASCII control character.
-  `[\x00-\x1f]`,
-  `\x7f`,
-  // Any component starting with a "."
-  `^\\.`,
-  `/\\.`,
-  // Any component ending with ".lock"
-  `\\.lock$`,
-  `\\.lock/`,
-  // An exact name of "" or "-"
-  `^$`,
-  `^-$`,
-  // Any appearance of ".." or "@{"
-  `\\.\\.`,
-  `@{`,
-  // Any empty component; that is, starting or ending with "/" or any appearance of "//"
-  `//`,
-  `^/`,
-  `/$`,
-].join("|");
-
 // Removed ?,^, [, \, * from invalidBranchNamePattern as they are allowed in fnmatch
 const invalidBranchProtectionNamePattern = [
   `:`,
@@ -60,6 +28,10 @@ const invalidBranchProtectionNamePattern = [
   `^/`,
   `/$`,
 ].join("|");
+
+const invalidBranchNamePattern = [`\\?`,`\\^`,`\\[`,  `\\\\`,  `\\*`,invalidBranchProtectionNamePattern].join("|");
+
+
 
 const invertRegexPattern = (p: string) => `^(?!.*(${p}))`;
 const validBranchNamePattern = invertRegexPattern(invalidBranchNamePattern);
