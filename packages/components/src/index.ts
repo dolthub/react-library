@@ -1,4 +1,6 @@
 export {
+  CSSObjectWithLabel,
+  ControlProps,
   MenuProps,
   OptionProps,
   SingleValueProps,
