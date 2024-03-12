@@ -1,3 +1,13 @@
+export {
+  CSSObjectWithLabel,
+  ControlProps,
+  MenuProps,
+  OptionProps,
+  SingleValueProps,
+  StylesConfig,
+  components,
+} from "react-select";
+export { FilterOptionOption } from "react-select/dist/declarations/src/filters";
 export { default as Btn } from "./Btn";
 export { default as Button } from "./Button";
 export { default as ButtonWithPopup } from "./ButtonWithPopup";
@@ -7,6 +17,8 @@ export { default as Checkbox } from "./Checkbox";
 export { default as CodeBlock } from "./CodeBlock";
 export { default as ExternalLink } from "./ExternalLink";
 export { default as FormInput } from "./FormInput";
+export { default as FormSelect } from "./FormSelect";
+export type * as FormSelectTypes from "./FormSelect/types";
 export { default as Loader } from "./Loader";
 export { default as Markdown } from "./Markdown";
 export { default as Popup, PopupProps } from "./Popup";

@@ -13,7 +13,6 @@
     "dbuild:contexts": "yarn workspace @dolthub/react-contexts dbuild",
     "dbuild:resource": "yarn workspace @dolthub/proto-resource-utils dbuild",
     "dbuild:components": "yarn workspace @dolthub/react-components dbuild",
-    "sbuild": "yarn workspace @dolthub/react-components build-storybook",
     "lint": "npm-run-all --parallel 'lint:*'",
     "lint:hooks": "yarn workspace @dolthub/react-hooks lint",
     "lint:contexts": "yarn workspace @dolthub/react-contexts lint",

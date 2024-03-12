@@ -48,7 +48,7 @@ export const White: Story = {
     pill: true,
   },
   parameters: {
-    backgrounds: { default: "dark" },
+    backgrounds: { default: "lightish" },
   },
 };
 
