@@ -40,8 +40,32 @@ const invalidBranchNamePattern = [
   `/$`,
 ].join("|");
 
+// Removed ?,^, [, \, * from invalidBranchNamePattern as they are allowed in fnmatch
+const invalidBranchProtectionNamePattern = [
+  `:`,
+  `~`,
+  ` `,
+  `\t`,
+  `[\x00-\x1f]`,
+  `\x7f`,
+  `^\\.`,
+  `/\\.`,
+  `\\.lock$`,
+  `\\.lock/`,
+  `^$`,
+  `^-$`,
+  `\\.\\.`,
+  `@{`,
+  `//`,
+  `^/`,
+  `/$`,
+].join("|");
+
 const invertRegexPattern = (p: string) => `^(?!.*(${p}))`;
 const validBranchNamePattern = invertRegexPattern(invalidBranchNamePattern);
+const validBranchProtectionNamePattern = invertRegexPattern(
+  invalidBranchProtectionNamePattern,
+);
 
 export {
   validBackupIdPattern,
@@ -53,4 +77,5 @@ export {
   validNumberPattern,
   validResourceSegmentPattern,
   validUuidPattern,
+  validBranchProtectionNamePattern,
 };
