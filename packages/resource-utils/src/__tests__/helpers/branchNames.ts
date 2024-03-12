@@ -6,7 +6,6 @@ export const validBranchNames = [
   "user/{/a.tt/}",
 ];
 
-
 export const invalidBranchProtectionNames = [
   "",
   "this-is-a-@{-test",
@@ -59,7 +58,6 @@ export const invalidBranchProtectionNames = [
   "-",
 ];
 
-
 export const invalidBranchNames = [
   ...invalidBranchProtectionNames,
   "this-is-a-..-test",
@@ -85,4 +83,3 @@ export const validBranchProtectionNames = [
   "*",
   "[\\?]",
 ];
- 
