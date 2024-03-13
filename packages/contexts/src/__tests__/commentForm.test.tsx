@@ -2,7 +2,7 @@ import { act, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import CommentFormProvider, { useCommentFormContext } from "../commentForm";
 
-const MockComponent: React.FC = () => {
+function MockComponent() {
   const {
     comment,
     setComment,
@@ -17,11 +17,13 @@ const MockComponent: React.FC = () => {
         onChange={e => setComment(e.target.value)}
         data-testid="textarea"
       />
-      <button onClick={onSubmit}>Submit</button>
+      <button onClick={onSubmit} type="button">
+        Submit
+      </button>
       {commentFormIsVisible && <div>Form is visible</div>}
     </div>
   );
-};
+}
 
 describe("CommentFormProvider", () => {
   beforeEach(() => {

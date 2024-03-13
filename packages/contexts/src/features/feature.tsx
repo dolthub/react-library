@@ -1,5 +1,5 @@
 import { useContextWithError } from "@dolthub/react-hooks";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useMemo } from "react";
 import { createCustomContext } from "../createCustomContext";
 
 export type FeatureMap = Map<string, boolean>;
@@ -36,12 +36,14 @@ export default function FeatureProvider({
   showAll,
   featureMap,
 }: Props) {
+  const value = useMemo(() => {
+    return {
+      features: getFeatures(featureMap, showAll),
+    };
+  }, [featureMap, showAll]);
+
   return (
-    <FeatureContext.Provider
-      value={{ features: getFeatures(featureMap, showAll) }}
-    >
-      {children}
-    </FeatureContext.Provider>
+    <FeatureContext.Provider value={value}>{children}</FeatureContext.Provider>
   );
 }
 

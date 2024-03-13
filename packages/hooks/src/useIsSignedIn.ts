@@ -6,7 +6,7 @@ export default function useIsSignedIn(tokenKey: string): boolean {
 
   useEffect(() => {
     setIsSignedIn(!!cookie.get(tokenKey));
-  });
+  }, [tokenKey]);
 
   return isSignedIn;
 }

@@ -13,7 +13,7 @@ export default function useBaseUrl(
       setUrl(getUrlFn());
       setSetOnce(true);
     }
-  }, [url, setUrl, getUrlFn]);
+  }, [url, setUrl, getUrlFn, setOnce]);
 
   return url;
 }

@@ -12,7 +12,7 @@ export default function useSetContainerHeight(componentID: string): ReturnType {
   const scrollContainerTop = scrollContainer?.getBoundingClientRect().top;
 
   useEffect(() => {
-    const top = scrollContainerTop || 0;
+    const top = scrollContainerTop ?? 0;
     const height = windowHeight - top;
     setContainerHeight(height);
   }, [windowHeight, scrollContainer, scrollContainerTop]);
