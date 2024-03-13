@@ -7,7 +7,9 @@ import { Option } from "../FormSelect/types";
 import { getValueForOptions, moveSelectedToTop } from "../FormSelect/utils";
 import { setup } from "./testUtils.test";
 
-const optionWithoutIconPath: Option[] = [...Array(5).keys()].map(i => {
+type StringOption = Option<string>;
+
+const optionWithoutIconPath: StringOption[] = [...Array(5).keys()].map(i => {
   return {
     label: `test${i}`,
     value: `test${i}`,
@@ -16,7 +18,7 @@ const optionWithoutIconPath: Option[] = [...Array(5).keys()].map(i => {
 
 const iconPath =
   "https://dolthubapi.awsdev.ld-corp.com/profilePictures/u/m2lcqc5kf5324lc26td2hs0aioat0m2pbk26igfkklf68";
-const optionsWithIconPath: Option[] = optionWithoutIconPath.map(o => {
+const optionsWithIconPath: StringOption[] = optionWithoutIconPath.map(o => {
   return {
     ...o,
     iconPath,
@@ -153,23 +155,24 @@ describe("test FormSelect.Async", () => {
   });
 });
 
-const stringOps: Option[] = [
+const stringOps: StringOption[] = [
   { value: "taylor", label: "Taylor" },
   { value: "katie", label: "Katie" },
   { value: "tim", label: "Tim" },
 ];
 
-const stringOpsWithIcon: Option[] = stringOps.map(s => {
+const stringOpsWithIcon: StringOption[] = stringOps.map(s => {
   return { ...s, iconPath: "http://www.pathtoicon.com" };
 });
 
 type RepoParams = { ownerName: string; repoName: string };
+type RepoOption = Option<RepoParams>;
 
 const repoParams: RepoParams[] = nTimes(3, () => {
   return { ownerName: loremer.word(), repoName: loremer.word() };
 });
 
-const repoParamsOps: Option[] = repoParams.map(r => {
+const repoParamsOps: RepoOption[] = repoParams.map(r => {
   return {
     value: r,
     label: `${r.ownerName}/${r.repoName}`,
@@ -183,23 +186,27 @@ function repoParamsAreEqual(o: RepoParams, v: RepoParams): boolean {
 describe("test FormSelect utils", () => {
   it("test getValueForOptions", () => {
     // Options with string values
-    expect(getValueForOptions<Option>("katie", stringOps)).toEqual(
-      stringOps[1],
-    );
-    expect(getValueForOptions<Option>("taylor", stringOps)).toEqual(
-      stringOps[0],
-    );
-    expect(getValueForOptions<Option>(null, stringOps)).toBeNull();
-    expect(getValueForOptions<Option>("brian", stringOps)).toBeUndefined();
+    expect(
+      getValueForOptions<string, StringOption>("katie", stringOps),
+    ).toEqual(stringOps[1]);
+    expect(
+      getValueForOptions<string, StringOption>("taylor", stringOps),
+    ).toEqual(stringOps[0]);
+    expect(
+      getValueForOptions<string, StringOption>(null, stringOps),
+    ).toBeNull();
+    expect(
+      getValueForOptions<string, StringOption>("brian", stringOps),
+    ).toBeUndefined();
 
     // Options with icon path
-    expect(getValueForOptions<Option>("katie", stringOpsWithIcon)).toEqual(
-      stringOpsWithIcon[1],
-    );
+    expect(
+      getValueForOptions<string, StringOption>("katie", stringOpsWithIcon),
+    ).toEqual(stringOpsWithIcon[1]);
 
     // Options with RepoParam values, which reqiure a getValFunc
     expect(
-      getValueForOptions<Option>(
+      getValueForOptions<RepoParams, RepoOption>(
         repoParams[1],
         repoParamsOps,
         repoParamsAreEqual,
@@ -216,7 +223,7 @@ describe("test FormSelect utils", () => {
   });
 
   it("test moveSelectedToTop, does not modify options if selectedVal is null", () => {
-    const out = moveSelectedToTop(null, stringOps);
+    const out = moveSelectedToTop<string, StringOption>(null, stringOps);
     expect(out).toEqual(stringOps);
   });
 

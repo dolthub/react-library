@@ -1,3 +1,4 @@
+import { Maybe } from "@dolthub/web-utils";
 import { ReactNode } from "react";
 import {
   ActionMeta,
@@ -8,25 +9,30 @@ import {
 } from "react-select";
 import { AsyncProps as AsyncSelectProps } from "react-select/async";
 
-export interface OptionTypeBase {
+export interface OptionTypeBase<T> {
   label: string;
-  value: any;
+  value: T;
 }
 
-export interface Option extends OptionTypeBase {
+export interface Option<T> extends OptionTypeBase<T> {
   isDisabled?: boolean;
   details?: ReactNode;
   icon?: ReactNode;
   iconPath?: string;
 }
 
-export type OnChange<OptionType> = (
-  value: OnChangeValue<OptionType, false>,
+export type OnChange<
+  T,
+  OptionType extends OptionTypeBase<T>,
+  IsMulti extends boolean,
+> = (
+  value: OnChangeValue<OptionType, IsMulti>,
   action: ActionMeta<OptionType>,
 ) => void;
 
 export type CustomStyles<
-  OptionType extends OptionTypeBase,
+  T,
+  OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean,
 > = (
   s: Partial<StylesConfig<OptionType, IsMulti>>,
@@ -41,7 +47,11 @@ export type WrapperProps = {
   ["data-cy"]?: string;
 };
 
-type CommonProps<OptionType extends OptionTypeBase, IsMulti extends boolean> = {
+type CommonProps<
+  T,
+  OptionType extends OptionTypeBase<T>,
+  IsMulti extends boolean,
+> = {
   mono?: boolean;
   light?: boolean;
   small?: boolean;
@@ -50,36 +60,36 @@ type CommonProps<OptionType extends OptionTypeBase, IsMulti extends boolean> = {
   transparentBorder?: boolean;
   rounded?: boolean;
   forMobile?: boolean;
-  customStyles?: CustomStyles<OptionType, IsMulti>;
+  customStyles?: CustomStyles<T, OptionType, IsMulti>;
 } & WrapperProps;
 
 type CustomSelectProps<
-  OptionType extends OptionTypeBase,
+  T,
+  OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean,
-> = CommonProps<OptionType, IsMulti> & {
-  val: any | null;
+> = CommonProps<T, OptionType, IsMulti> & {
+  val: Maybe<T>;
   options: OptionType[];
   // Show the selected option first in the list
   selectedOptionFirst?: boolean;
   useValueAsSingleValue?: boolean;
   // Handles getting value if value is not a string
-  getValFunc?: (o: any, v: any) => boolean;
-  // onChangeValue handles updating the `val` prop (type any).
+  getValFunc?: (o: T, v: T) => boolean;
+  // onChangeValue handles updating the `val` prop (type T).
   // onChange can be used to update `value` (type OptionType).
-  onChangeValue: (val: any) => void;
+  onChangeValue: (val: Maybe<T>) => void;
 };
 
 export type Props<
-  OptionType extends OptionTypeBase,
+  T,
+  OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean = false,
 > = Omit<SelectProps<OptionType, IsMulti>, "styles"> &
-  CustomSelectProps<OptionType, IsMulti>;
+  CustomSelectProps<T, OptionType, IsMulti>;
 
 export type AsyncProps<
-  OptionType extends OptionTypeBase,
+  T,
+  OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean = false,
-> = Omit<
-  AsyncSelectProps<OptionType, IsMulti, GroupBase<OptionType>>,
-  "styles"
-> &
-  CommonProps<OptionType, IsMulti>;
+> = AsyncSelectProps<OptionType, IsMulti, GroupBase<OptionType>> &
+  CommonProps<T, OptionType, IsMulti>;

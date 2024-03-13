@@ -4,7 +4,7 @@ import AsyncSelect from "react-select/async";
 import Wrapper from "./Wrapper";
 import { formatOptionLabel, getComponents } from "./customComponents";
 import customStyles, { mobileStyles } from "./styles";
-import { AsyncProps, Option, Props } from "./types";
+import { AsyncProps, Option, OptionTypeBase, Props } from "./types";
 import { getOnChange, getValue, moveSelectedToTop } from "./utils";
 
 /*
@@ -14,7 +14,8 @@ For example, instead of using the full OptionType as a value (i.e. value={ value
 
 It has also been adjusted to accept values other than strings, like numbers, enums, etc.
 */
-const FormSelect = ({
+
+function FormSelect<T>({
   mono = false,
   light = false,
   small = false,
@@ -25,10 +26,10 @@ const FormSelect = ({
   rounded = false,
   forMobile = false,
   ...props
-}: Props<Option>): JSX.Element => {
+}: Props<T, Option<T>>): JSX.Element {
   const styles = forMobile
-    ? mobileStyles<Option, false>(light)
-    : customStyles<Option, false>(
+    ? mobileStyles<T, Option<T>>(light)
+    : customStyles<T, Option<T>, false>(
         mono,
         light,
         small,
@@ -48,7 +49,7 @@ const FormSelect = ({
       <Select
         {...props}
         options={options}
-        onChange={getOnChange<Option>(props.onChangeValue)}
+        onChange={getOnChange(props.onChangeValue)}
         value={getValue(props, options)}
         styles={props.customStyles ? props.customStyles(styles) : styles}
         components={getComponents(props.components, blue, forMobile && !light)}
@@ -56,9 +57,13 @@ const FormSelect = ({
       />
     </Wrapper>
   );
-};
+}
 
-const FormSelectAsync = <IsMulti extends boolean>({
+function FormSelectAsync<
+  T,
+  OptionType extends OptionTypeBase<T> = Option<T>,
+  IsMulti extends boolean = false,
+>({
   mono = false,
   light = false,
   small = false,
@@ -68,10 +73,10 @@ const FormSelectAsync = <IsMulti extends boolean>({
   rounded = false,
   forMobile = false,
   ...props
-}: AsyncProps<Option, IsMulti>): JSX.Element => {
+}: AsyncProps<T, OptionType, IsMulti>): JSX.Element {
   const styles = forMobile
-    ? mobileStyles<Option, IsMulti>(light)
-    : customStyles<Option, IsMulti>(
+    ? mobileStyles<T, OptionType, IsMulti>(light)
+    : customStyles<T, OptionType, IsMulti>(
         mono,
         light,
         small,
@@ -91,7 +96,7 @@ const FormSelectAsync = <IsMulti extends boolean>({
       />
     </Wrapper>
   );
-};
+}
 
 FormSelect.Async = FormSelectAsync;
 

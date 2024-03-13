@@ -1,3 +1,4 @@
+import { Maybe } from "@dolthub/web-utils";
 import {
   GroupBase,
   OnChangeValue,
@@ -7,10 +8,14 @@ import {
 import { OnChange, Option, OptionTypeBase, Props } from "./types";
 
 // Converts custom onChangeValue function to onChange function for react-select
-export function getOnChange<OptionType extends OptionTypeBase>(
-  onChangeValue: (e: any) => void,
-): OnChange<OptionType> | undefined {
-  return (e: OnChangeValue<OptionType, false>) => {
+export function getOnChange<
+  T,
+  OptionType extends OptionTypeBase<T>,
+  IsMulti extends boolean,
+>(
+  onChangeValue: (e: Maybe<T>) => void,
+): OnChange<T, OptionType, IsMulti> | undefined {
+  return (e: OnChangeValue<OptionType, IsMulti>) => {
     if (!e) {
       onChangeValue(null);
       return;
@@ -22,12 +27,12 @@ export function getOnChange<OptionType extends OptionTypeBase>(
 // Searches options array for OptionType that matches val. If provided, uses
 // `getValFunc` for matching. The default matching function checks for val ===
 // option.value
-export function getValueForOptions<OptionType extends OptionTypeBase>(
-  val: any | null,
+export function getValueForOptions<T, OptionType extends OptionTypeBase<T>>(
+  val: Maybe<T>,
   options: OptionType[],
-  getValFunc?: (o: any, v: any) => boolean,
+  getValFunc?: (o: T, v: T) => boolean,
 ): OptionType | null {
-  const equal = (o: any, v: any): boolean => {
+  const equal = (o: T, v: T): boolean => {
     if (getValFunc) {
       return getValFunc(o, v);
     }
@@ -41,8 +46,8 @@ export function getValueForOptions<OptionType extends OptionTypeBase>(
 
 // Given a value that is currently selected and a list of all options,
 // move the selected option (determined by value) to the top of the list.
-export function moveSelectedToTop<OptionType extends OptionTypeBase>(
-  selectedVal: any | null,
+export function moveSelectedToTop<T, OptionType extends OptionTypeBase<T>>(
+  selectedVal: Maybe<T>,
   options: OptionType[],
 ): OptionType[] {
   if (!selectedVal) {
@@ -61,18 +66,18 @@ export function moveSelectedToTop<OptionType extends OptionTypeBase>(
   return optionsCopy;
 }
 
-export function getValue(
-  props: Props<Option>,
-  options: OptionsOrGroups<Option, GroupBase<Option>> & Option[],
-): PropsValue<Option> | undefined {
-  const valueFromOptions = getValueForOptions<Option>(
+export function getValue<T>(
+  props: Props<T, Option<T>, false>,
+  options: OptionsOrGroups<Option<T>, GroupBase<Option<T>>> & Array<Option<T>>,
+): PropsValue<Option<T>> | undefined {
+  const valueFromOptions = getValueForOptions<T, Option<T>>(
     props.val,
     options,
     props.getValFunc,
   );
 
   if (props.useValueAsSingleValue && props.val) {
-    return { value: props.val, label: props.val };
+    return { value: props.val, label: String(props.val) };
   }
 
   return valueFromOptions;

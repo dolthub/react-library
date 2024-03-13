@@ -3,7 +3,8 @@ import colors from "../tailwind/theme/base/colors";
 import { OptionTypeBase } from "./types";
 
 export default function customStyles<
-  Q extends OptionTypeBase,
+  T,
+  Q extends OptionTypeBase<T>,
   IsMulti extends boolean,
 >(
   mono?: boolean,
@@ -19,7 +20,7 @@ export default function customStyles<
       return {
         ...styles,
         color: blue ? colors["acc-hoverlinkblue"] : colors["ld-darkgrey"],
-        fontSize: getFontSize(small, mono),
+        fontSize: getFontSize(small, mono, rounded),
         fontFamily: getFontFamily(mono),
         fontWeight: 400,
       };
@@ -34,7 +35,7 @@ export default function customStyles<
         boxShadow: "none",
         maxHeight: small ? "30px" : styles.maxHeight,
         minHeight: small ? "30px" : styles.minHeight,
-        fontSize: getFontSize(small, mono),
+        fontSize: getFontSize(small, mono, rounded),
         fontFamily: getFontFamily(mono),
         "&:hover": {
           borderColor: transparentBorder ? "transparent" : getColor(true),
@@ -65,7 +66,7 @@ export default function customStyles<
       return {
         ...styles,
         color: getRGBVar("primary"),
-        fontSize: getFontSize(small, mono),
+        fontSize: getFontSize(small, mono, rounded),
         fontFamily: getFontFamily(mono),
       };
     },
@@ -78,7 +79,7 @@ export default function customStyles<
         backgroundColor:
           isFocused || isSelected ? colors["ld-lightpurple"] : undefined,
         fontFamily: getFontFamily(mono),
-        fontSize: getFontSize(small, mono),
+        fontSize: getFontSize(small, mono, rounded),
       };
     },
     singleValue: styles => {
@@ -86,7 +87,7 @@ export default function customStyles<
         ...styles,
         color: blue ? colors["ld-mediumblue"] : getRGBVar("primary"),
         fontFamily: getFontFamily(mono),
-        fontSize: getFontSize(small, mono),
+        fontSize: getFontSize(small, mono, rounded),
         top: small ? "45%" : styles.top,
       };
     },
@@ -95,7 +96,7 @@ export default function customStyles<
         ...styles,
         color: blue ? colors["ld-mediumblue"] : getRGBVar("primary"),
         fontFamily: getFontFamily(mono),
-        fontSize: getFontSize(small, mono),
+        fontSize: getFontSize(small, mono, rounded),
         top: small ? "45%" : styles.top,
         backgroundColor: light ? colors["ld-lightpurple"] : "white",
         border: "1px solid #D1D5D7",
@@ -106,14 +107,15 @@ export default function customStyles<
         ...styles,
         color: getRGBVar("primary"),
         fontFamily: getFontFamily(mono),
-        fontSize: getFontSize(small, mono),
+        fontSize: getFontSize(small, mono, rounded),
       };
     },
   };
 }
 
 const mobileLightStyles = <
-  Q extends OptionTypeBase,
+  T,
+  Q extends OptionTypeBase<T>,
   IsMulti extends boolean = false,
 >(): Partial<StylesConfig<Q, IsMulti>> => {
   return {
@@ -163,7 +165,8 @@ const mobileLightStyles = <
 };
 
 const mobileDarkStyles = <
-  Q extends OptionTypeBase,
+  T,
+  Q extends OptionTypeBase<T>,
   IsMulti extends boolean = false,
 >(): Partial<StylesConfig<Q, IsMulti>> => {
   return {
@@ -203,7 +206,8 @@ const mobileDarkStyles = <
 };
 
 export const mobileStyles = <
-  Q extends OptionTypeBase,
+  T,
+  Q extends OptionTypeBase<T>,
   IsMulti extends boolean = false,
 >(
   light = false,
@@ -222,8 +226,12 @@ function getBorderRadius(pill?: boolean, rounded?: boolean): string {
   return rounded ? "8px" : "0.25rem";
 }
 
-function getFontSize(small?: boolean, mono?: boolean): string {
-  if (mono) return "11px";
+function getFontSize(
+  small?: boolean,
+  mono?: boolean,
+  rounded?: boolean,
+): string {
+  if (mono) return rounded ? "14px" : "11px";
   return small ? "12px" : "14px";
 }
 

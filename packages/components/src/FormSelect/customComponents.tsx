@@ -12,7 +12,11 @@ import {
 import css from "./index.module.css";
 import { Option, OptionTypeBase } from "./types";
 
-function Dropdown<OptionType extends OptionTypeBase, IsMulti extends boolean>(
+function Dropdown<
+  T,
+  OptionType extends OptionTypeBase<T>,
+  IsMulti extends boolean,
+>(
   props: DropdownIndicatorProps<OptionType, IsMulti> & {
     blue?: boolean;
     light?: boolean;
@@ -30,9 +34,11 @@ function Dropdown<OptionType extends OptionTypeBase, IsMulti extends boolean>(
   );
 }
 
-function Clear<OptionType extends OptionTypeBase, IsMulti extends boolean>(
-  props: ClearIndicatorProps<OptionType, IsMulti> & { blue?: boolean },
-) {
+function Clear<
+  T,
+  OptionType extends OptionTypeBase<T>,
+  IsMulti extends boolean,
+>(props: ClearIndicatorProps<OptionType, IsMulti> & { blue?: boolean }) {
   return (
     <div {...props.innerProps}>
       <AiOutlineClose
@@ -45,7 +51,8 @@ function Clear<OptionType extends OptionTypeBase, IsMulti extends boolean>(
 }
 
 function MultiValueRemove<
-  OptionType extends OptionTypeBase,
+  T,
+  OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean,
 >(props: MultiValueRemoveProps<OptionType, IsMulti> & { blue?: boolean }) {
   return (
@@ -65,7 +72,8 @@ type Components<Option, IsMulti extends boolean> =
   | undefined;
 
 export function getComponents<
-  OptionType extends OptionTypeBase,
+  T,
+  OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean,
 >(
   components?: Components<OptionType, IsMulti>,
@@ -83,7 +91,7 @@ export function getComponents<
   };
 }
 
-export function formatOptionLabel(option: Option): React.ReactNode {
+export function formatOptionLabel<T>(option: Option<T>): React.ReactNode {
   if (!option.icon && !option.details && !option.iconPath) {
     return option.label;
   }

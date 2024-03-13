@@ -2,9 +2,10 @@ export {
   CSSObjectWithLabel,
   ControlProps,
   MenuProps,
+  MultiValue,
   OptionProps,
+  SingleValue,
   SingleValueProps,
-  StylesConfig,
   components,
 } from "react-select";
 export { FilterOptionOption } from "react-select/dist/declarations/src/filters";
