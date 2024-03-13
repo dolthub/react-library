@@ -2,7 +2,7 @@ import { nTimes } from "@dolthub/web-utils";
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import CharCount, { maxChar } from "../CharCount";
-import css from "./index.module.css";
+import css from "../CharCount/index.module.css";
 
 const tilde = () => "~";
 

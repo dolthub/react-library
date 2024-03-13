@@ -86,6 +86,7 @@ describe("test FormSelect", () => {
       if (!menuList) {
         throw Error("MenuList not found");
       }
+      // eslint-disable-next-line testing-library/no-node-access
       expect(menuList.firstElementChild).toHaveTextContent(selected.value);
     });
   });
@@ -150,6 +151,7 @@ describe("test FormSelect.Async", () => {
       if (!menuList) {
         throw Error("MenuList not found");
       }
+      // eslint-disable-next-line testing-library/no-node-access
       expect(menuList.firstElementChild).toHaveTextContent(selected.value);
     });
   });

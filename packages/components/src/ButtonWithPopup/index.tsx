@@ -37,36 +37,52 @@ export default function ButtonWithPopup({
       offsetX={triggerText ? 32 : 0}
       contentStyle={{ width: "10rem" }}
       closeOnDocumentClick
-      trigger={open => (
-        <button
-          type="button"
-          className={cx(
-            css.triggerButton,
-            { [css.withoutText]: !triggerText },
-            props.buttonClassName,
-          )}
-          data-cy={props["data-cy"]}
-        >
-          {triggerText}
-          {open ? (
-            <FaCaretUp
-              className={cx(css.caret, {
-                [css.caretWithoutText]: !triggerText,
-              })}
-            />
-          ) : (
-            <FaCaretDown
-              className={cx(css.caret, {
-                [css.caretWithoutText]: !triggerText,
-              })}
-            />
-          )}
-        </button>
-      )}
+      trigger={open =>
+        getTriggerButton(
+          open,
+          triggerText,
+          props.buttonClassName,
+          props["data-cy"],
+        )
+      }
       // props must come last to override default props above
       {...props}
     >
       {children}
     </Popup>
+  );
+}
+
+function getTriggerButton(
+  open: boolean,
+  triggerText?: string,
+  buttonClassName?: string,
+  dataCy?: string,
+): JSX.Element {
+  return (
+    <button
+      type="button"
+      className={cx(
+        css.triggerButton,
+        { [css.withoutText]: !triggerText },
+        buttonClassName,
+      )}
+      data-cy={dataCy}
+    >
+      {triggerText}
+      {open ? (
+        <FaCaretUp
+          className={cx(css.caret, {
+            [css.caretWithoutText]: !triggerText,
+          })}
+        />
+      ) : (
+        <FaCaretDown
+          className={cx(css.caret, {
+            [css.caretWithoutText]: !triggerText,
+          })}
+        />
+      )}
+    </button>
   );
 }
