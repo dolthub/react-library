@@ -12,18 +12,22 @@ export default function MenuList<
   ...props
 }: MenuListProps<OptionType, IsMulti, CustomGroupBase<OptionType>> &
   CustomGroupedProps) {
-  const filteredChildren = React.Children.toArray(children).filter(
-    (_, index) => index === props.selectedGroupIndex,
-  );
+  const activeGroup =
+    props.options.length - 1 >= props.selectedGroupIndex
+      ? props.options[props.selectedGroupIndex]
+      : undefined;
 
-  const activeGroup = props.options[props.selectedGroupIndex];
+  const filteredChildren = React.Children.toArray(children).filter(group => {
+    if (typeof group === "string" || typeof group === "number") {
+      return false;
+    }
+    if (!("props" in group)) return false;
+    return group.props.data?.label === activeGroup?.label;
+  });
 
   return (
     <components.MenuList {...props} className={css.menuList}>
       {filteredChildren}
-      {"footer" in activeGroup && (
-        <div className={css.footer}>{activeGroup.footer}</div>
-      )}
     </components.MenuList>
   );
 }

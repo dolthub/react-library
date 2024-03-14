@@ -60,7 +60,7 @@
 }
 
 .check {
-  @apply mr-2 text-acc-green;
+  @apply mr-2 text-acc-green min-w-[20px];
 }
 
 .checkInvisible {
@@ -81,4 +81,8 @@
 
 .footer {
   @apply border-t flex justify-center text-sm py-2;
+}
+
+.noOpts {
+  @apply text-center my-2 text-ld-darkgrey;
 }

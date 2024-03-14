@@ -41,8 +41,8 @@ export const Default: Story = {
     label: "Label",
     options,
     value: optionsOne[0],
-    selectedGroupIndex: 0,
-    setSelectedGroupIndex: () => {},
+    // selectedGroupIndex: 0,
+    // setSelectedGroupIndex: () => {},
   },
 };
 
@@ -51,8 +51,8 @@ export const SecondGroupSelected: Story = {
     light: true,
     options,
     value: optionsTwo[1],
-    selectedGroupIndex: 1,
-    setSelectedGroupIndex: () => {},
+    // selectedGroupIndex: 1,
+    // setSelectedGroupIndex: () => {},
     selectedOptionFirst: true,
   },
 };
@@ -73,8 +73,8 @@ export const WithFooter: Story = {
       };
     }),
     value: optionsTwo[1],
-    selectedGroupIndex: 1,
-    setSelectedGroupIndex: () => {},
+    // selectedGroupIndex: 1,
+    // setSelectedGroupIndex: () => {},
     selectedOptionFirst: true,
   },
 };
@@ -82,8 +82,8 @@ export const WithFooter: Story = {
 export const NoValue: Story = {
   args: {
     options,
-    selectedGroupIndex: 0,
-    setSelectedGroupIndex: () => {},
+    // selectedGroupIndex: 0,
+    // setSelectedGroupIndex: () => {},
   },
 };
 
@@ -104,15 +104,30 @@ export const LongerLabels: Story = {
         options: mapLongerLabels(o.options),
       };
     }),
-    selectedGroupIndex: 0,
-    setSelectedGroupIndex: () => {},
+    // selectedGroupIndex: 0,
+    // setSelectedGroupIndex: () => {},
   },
 };
 
 export const NoOptions: Story = {
   args: {
     options: noOptions,
-    selectedGroupIndex: 0,
-    setSelectedGroupIndex: () => {},
+    // selectedGroupIndex: 1,
+    // setSelectedGroupIndex: () => {},
+  },
+};
+
+export const NoOptionsOneTab: Story = {
+  args: {
+    options: [
+      { label: "Group 1", options: [], noOptionsMsg: "No options 1" },
+      {
+        label: "Group 2",
+        options: [{ label: "Two", value: "two" }],
+        noOptionsMsg: "No options 2",
+      },
+    ],
+    // selectedGroupIndex: 0,
+    // setSelectedGroupIndex: () => {},
   },
 };

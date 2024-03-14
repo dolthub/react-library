@@ -116,5 +116,4 @@ export type GroupedProps<
   OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean = false,
 > = SelectProps<OptionType, IsMulti, CustomGroupBase<OptionType>> &
-  CommonProps<T, OptionType, IsMulti> &
-  CustomGroupedProps;
+  CommonProps<T, OptionType, IsMulti>;

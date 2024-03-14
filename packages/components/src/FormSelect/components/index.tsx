@@ -53,11 +53,7 @@ export function getComponents<
     Option: props => <OptionComponent {...props} />,
     SingleValue: props => <SingleValueComponent {...props} />,
     NoOptionsMessage: props => (
-      <NoOptionsMessage
-        {...props}
-        noOptionsMsg={args.noOptionsMsg}
-        selectedGroupIndex={args.selectedGroupIndex}
-      />
+      <NoOptionsMessage {...props} noOptionsMsg={args.noOptionsMsg} />
     ),
   };
 }
@@ -92,5 +88,6 @@ export function getComponentsForGroup<
     ),
     Group: props => <Group {...props} />,
     Option: props => <OptionForGroup {...props} />,
+    NoOptionsMessage: () => null,
   };
 }
