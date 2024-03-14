@@ -39,7 +39,7 @@ describe("test CellDropdown", () => {
     const { user } = setup(
       <div>
         <CellDropdown
-          showDropdown={true}
+          showDropdown
           setShowDropdown={setShowDropdown}
           buttonClassName=""
         >

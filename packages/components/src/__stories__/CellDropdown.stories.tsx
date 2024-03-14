@@ -17,82 +17,92 @@ const cellClassName =
   "align-top relative min-w-[130px] pr-10 pl-2 border-b border-ld-lightgrey  text-primary font-mono leading-8 text-sm";
 const buttonClassName = "absolute bg-white right-2 top-[0.35rem]";
 
-const Cell = (props: { children: React.ReactNode; className?: string }) => (
-  <td className={cx(cellClassName, props.className)}>{props.children}</td>
-);
+function Cell(props: { children: React.ReactNode; className?: string }) {
+  return (
+    <td className={cx(cellClassName, props.className)}>{props.children}</td>
+  );
+}
 
-const HeadCell = (props: { children: React.ReactNode; className?: string }) => (
-  <th className={cx(cellClassName, props.className)}>{props.children}</th>
-);
+function HeadCell(props: { children: React.ReactNode; className?: string }) {
+  return (
+    <th className={cx(cellClassName, props.className)}>{props.children}</th>
+  );
+}
 
-const CellWrapper = ({ children }: { children: React.ReactNode }) => (
-  <table>
-    <thead>
-      <tr>
-        <HeadCell>Header 1</HeadCell>
-        <HeadCell>Header 2</HeadCell>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <Cell className={"bg-ld-lightgrey"}>
-          <span>Cell 1</span>
-          {children}
-        </Cell>
-        <Cell>Cell 2</Cell>
-      </tr>
-      <tr>
-        <Cell>Cell 1</Cell>
-        <Cell>Cell 2</Cell>
-      </tr>
-    </tbody>
-  </table>
-);
+function CellWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <HeadCell>Header 1</HeadCell>
+          <HeadCell>Header 2</HeadCell>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <Cell className="bg-ld-lightgrey">
+            <span>Cell 1</span>
+            {children}
+          </Cell>
+          <Cell>Cell 2</Cell>
+        </tr>
+        <tr>
+          <Cell>Cell 1</Cell>
+          <Cell>Cell 2</Cell>
+        </tr>
+      </tbody>
+    </table>
+  );
+}
 
-const HeadCellWrapper = ({ children }: { children: React.ReactNode }) => (
-  <table>
-    <thead>
-      <tr>
-        <HeadCell className={"bg-ld-lightgrey"}>Header 1{children}</HeadCell>
-        <HeadCell>Header 2</HeadCell>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <Cell>Cell 1</Cell>
-        <Cell>Cell 2</Cell>
-      </tr>
-      <tr>
-        <Cell>Cell 1</Cell>
-        <Cell>Cell 2</Cell>
-      </tr>
-    </tbody>
-  </table>
-);
+function HeadCellWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <HeadCell className="bg-ld-lightgrey">Header 1{children}</HeadCell>
+          <HeadCell>Header 2</HeadCell>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <Cell>Cell 1</Cell>
+          <Cell>Cell 2</Cell>
+        </tr>
+        <tr>
+          <Cell>Cell 1</Cell>
+          <Cell>Cell 2</Cell>
+        </tr>
+      </tbody>
+    </table>
+  );
+}
 
-const RowWrapper = ({ children }: { children: React.ReactNode }) => (
-  <table>
-    <thead>
-      <tr>
-        <th />
-        <HeadCell>Header 1</HeadCell>
-        <HeadCell>Header 2</HeadCell>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td className="relative">{children}</td>
-        <Cell>Cell 1</Cell>
-        <Cell>Cell 2</Cell>
-      </tr>
-      <tr>
-        <td />
-        <Cell>Cell 1</Cell>
-        <Cell>Cell 2</Cell>
-      </tr>
-    </tbody>
-  </table>
-);
+function RowWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th />
+          <HeadCell>Header 1</HeadCell>
+          <HeadCell>Header 2</HeadCell>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="relative">{children}</td>
+          <Cell>Cell 1</Cell>
+          <Cell>Cell 2</Cell>
+        </tr>
+        <tr>
+          <td />
+          <Cell>Cell 1</Cell>
+          <Cell>Cell 2</Cell>
+        </tr>
+      </tbody>
+    </table>
+  );
+}
 
 const children = (
   <ul>

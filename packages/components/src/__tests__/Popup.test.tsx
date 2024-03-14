@@ -4,13 +4,15 @@ import Popup, { PopupProps } from "../Popup";
 
 // Taken from https://github.com/yjose/reactjs-popup/blob/master/__test__/index.test.tsx
 
-const SimplePopup = ({ ...props }: Partial<PopupProps>) => (
-  <Popup trigger={<button> trigger </button>} {...props}>
-    <span> popup Content </span>
-  </Popup>
-);
+function SimplePopup({ ...props }: Partial<PopupProps>) {
+  return (
+    <Popup trigger={<button type="button"> trigger </button>} {...props}>
+      <span> popup Content </span>
+    </Popup>
+  );
+}
 const popupContentShouldntExist = () => {
-  expect(screen.queryByText(/popup Content/)).toBeNull();
+  expect(screen.queryByText(/popup Content/)).not.toBeInTheDocument();
 };
 const popupContentShouldExist = () => {
   expect(screen.getByText(/popup Content/)).toBeInTheDocument();
@@ -32,14 +34,14 @@ describe("Popup Component Render ", () => {
     render(<SimplePopup modal />);
     fireEvent.click(screen.getByText("trigger"));
     expect(screen.getByRole("dialog")).toBeInTheDocument();
-    expect(screen.queryByTestId("arrow")).toBeNull();
+    expect(screen.queryByTestId("arrow")).not.toBeInTheDocument();
   });
 
   test("no Arrow on arrow= false", () => {
     render(<SimplePopup arrow={false} />);
     fireEvent.click(screen.getByText("trigger"));
     expect(screen.getByRole("tooltip")).toBeInTheDocument();
-    expect(screen.queryByTestId("arrow")).toBeNull();
+    expect(screen.queryByTestId("arrow")).not.toBeInTheDocument();
   });
 
   test("should render a Modal on modal=true", () => {
@@ -69,15 +71,17 @@ describe("Popup Component Render ", () => {
     fireEvent.click(screen.getByText("trigger"));
     await waitFor(() => {
       expect(onOpen).toHaveBeenCalled();
-      const [event] = onOpen.mock.calls[0];
-      expect("target" in event).toBe(true);
     });
+
+    const [openEvent] = onOpen.mock.calls[0];
+    expect("target" in openEvent).toBe(true);
+
     fireEvent.click(screen.getByText("trigger"));
     await waitFor(() => {
       expect(onClose).toHaveBeenCalled();
-      const [event] = onClose.mock.calls[0];
-      expect("target" in event).toBe(true);
     });
+    const [closeEvent] = onClose.mock.calls[0];
+    expect("target" in closeEvent).toBe(true);
     // expect(screen.getByRole('tooltip')).toBeInTheDocument();
   });
 
@@ -112,7 +116,7 @@ describe("Popup Component Render ", () => {
   });
 
   test("should lock Document Scroll on lockScroll=true", async () => {
-    render(<SimplePopup lockScroll={true} modal />);
+    render(<SimplePopup lockScroll modal />);
     fireEvent.click(screen.getByText("trigger"));
     popupContentShouldExist();
     expect(document.body).toHaveStyle(`overflow: hidden`);
@@ -160,7 +164,7 @@ describe('Popup Component with "on" Prop ', () => {
     fireEvent.mouseLeave(screen.getByText("trigger"));
 
     await waitFor(
-      () => expect(screen.queryByText(/popup Content/)).toBeNull(),
+      () => expect(screen.queryByText(/popup Content/)).not.toBeInTheDocument(),
       { timeout: 120 },
     );
     // should not show on click
@@ -207,7 +211,7 @@ describe('Popup Component with "on" Prop ', () => {
     fireEvent.mouseLeave(screen.getByText("trigger"));
 
     await waitFor(
-      () => expect(screen.queryByText(/popup Content/)).toBeNull(),
+      () => expect(screen.queryByText(/popup Content/)).not.toBeInTheDocument(),
       { timeout: 120 },
     );
   });

@@ -12,5 +12,6 @@ export default function useEffectAsync(
     return () => {
       data.subscribed = false;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 }

@@ -16,7 +16,7 @@ type Props = {
   HTMLTextAreaElement
 >;
 
-const Textarea = (
+function Textarea(
   {
     label,
     description,
@@ -31,36 +31,38 @@ const Textarea = (
     ...textAreaProps
   }: Props,
   ref: ForwardedRef<HTMLTextAreaElement>,
-) => (
-  <div
-    className={cx(
-      css.container,
-      {
-        [css.horizontal]: horizontal,
-        [css.mobileFriendly]: mobileFriendly,
-      },
-      className,
-    )}
-    aria-label="textarea-container"
-    data-cy="textarea-container"
-  >
-    {label && <div className={css.label}>{label}</div>}
-    {description && <p>{description}</p>}
-    <textarea
-      {...textAreaProps}
-      className={cx(css.textarea, {
-        [css.mobileFriendlyTextarea]: mobileFriendly,
-        [css.error]: hasError,
-        [css.bgwhite]: light,
-      })}
-      placeholder={placeholder}
-      onChange={e =>
-        onChangeString ? onChangeString(e.target.value) : onChange?.(e)
-      }
-      ref={ref}
-      aria-label={textAreaProps["aria-label"] ?? "textarea"}
-    />
-  </div>
-);
+) {
+  return (
+    <div
+      className={cx(
+        css.container,
+        {
+          [css.horizontal]: horizontal,
+          [css.mobileFriendly]: mobileFriendly,
+        },
+        className,
+      )}
+      aria-label="textarea-container"
+      data-cy="textarea-container"
+    >
+      {label && <div className={css.label}>{label}</div>}
+      {description && <p>{description}</p>}
+      <textarea
+        {...textAreaProps}
+        className={cx(css.textarea, {
+          [css.mobileFriendlyTextarea]: mobileFriendly,
+          [css.error]: hasError,
+          [css.bgwhite]: light,
+        })}
+        placeholder={placeholder}
+        onChange={e =>
+          onChangeString ? onChangeString(e.target.value) : onChange?.(e)
+        }
+        ref={ref}
+        aria-label={textAreaProps["aria-label"] ?? "textarea"}
+      />
+    </div>
+  );
+}
 
 export default forwardRef<HTMLTextAreaElement, Props>(Textarea);

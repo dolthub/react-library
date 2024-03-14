@@ -16,7 +16,7 @@ export default function useElementIsVisible(
     return () => {
       observer.disconnect();
     };
-  }, [document, rerender]);
+  }, [rerender, id]);
 
   return isIntersecting;
 }

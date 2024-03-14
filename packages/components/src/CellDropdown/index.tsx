@@ -26,6 +26,7 @@ export default function CellDropdown({
   return (
     <div ref={dropdownRef} className={css.cellDropdown}>
       <button
+        aria-label="cell dropdown"
         type="button"
         onClick={toggle}
         className={cx(

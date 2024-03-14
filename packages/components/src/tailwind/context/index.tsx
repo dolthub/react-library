@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useEffect } from "react";
+import { useEffectOnMount } from "@dolthub/react-hooks";
+import React, { createContext, useCallback, useContext, useMemo } from "react";
 import { baseColorVariableValues } from "../theme/base/colors";
 import { IThemeColors, IThemeRGB } from "../types";
 import applyTheme from "./applyTheme";
@@ -24,17 +25,19 @@ const ThemeContext = createContext<ThemeContextType>({
 // ThemedProvider applies tailwind theme default, potentially with provided
 // overrides. Must wrap your app root in this provider to use this library.
 export default function ThemeProvider(props: Props) {
-  const themeRGB: IThemeRGB = {
-    ...baseColorVariableValues,
-    ...(props.themeRGBOverrides ?? {}),
-  };
+  const themeRGB: IThemeRGB = useMemo(() => {
+    return {
+      ...baseColorVariableValues,
+      ...(props.themeRGBOverrides ?? {}),
+    };
+  }, [props.themeRGBOverrides]);
 
-  useEffect(() => {
+  useEffectOnMount(() => {
     applyTheme(themeRGB);
-  }, []);
+  });
 
   // Converts the theme from RGB to Hex
-  function convertThemeRGBToHex(): IThemeColors {
+  const convertThemeRGBToHex = useCallback((): IThemeColors => {
     const hexThemeRGB: IThemeColors = {};
     Object.keys(themeRGB).forEach(key => {
       const rgb = themeRGB[key as keyof IThemeRGB];
@@ -44,10 +47,14 @@ export default function ThemeProvider(props: Props) {
       }
     });
     return hexThemeRGB;
-  }
+  }, [themeRGB]);
+
+  const value = useMemo(() => {
+    return { themeRGB, convertThemeRGBToHex };
+  }, [themeRGB, convertThemeRGBToHex]);
 
   return (
-    <ThemeContext.Provider value={{ themeRGB, convertThemeRGBToHex }}>
+    <ThemeContext.Provider value={value}>
       {props.children}
     </ThemeContext.Provider>
   );

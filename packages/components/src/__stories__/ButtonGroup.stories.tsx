@@ -17,12 +17,18 @@ type Story = StoryObj<typeof Button.Group>;
 
 export const Basic: Story = {
   args: {
-    children: [<Button>Name</Button>, <Button.Link>cancel</Button.Link>],
+    children: [
+      <Button key="one">Name</Button>,
+      <Button.Link key="two">cancel</Button.Link>,
+    ],
   },
 };
 
 export const Reverse: Story = {
   args: {
-    children: [<Button.Link>cancel</Button.Link>, <Button>Name</Button>],
+    children: [
+      <Button.Link key="one">cancel</Button.Link>,
+      <Button key="two">Name</Button>,
+    ],
   },
 };

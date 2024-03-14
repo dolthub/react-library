@@ -1,6 +1,7 @@
+/* eslint-disable testing-library/no-node-access */
 import { renderHook } from "@testing-library/react-hooks";
-import useSetContainerHeight from "../useSetContainerHeight";
 import { useReactiveHeight } from "../useReactiveSize";
+import useSetContainerHeight from "../useSetContainerHeight";
 
 describe("useSetContainerHeight", () => {
   const componentID = "testComponent";

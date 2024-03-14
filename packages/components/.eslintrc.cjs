@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ["../../.eslintrc.cjs", "plugin:storybook/recommended"],
+  extends: ["../../.eslintrc.react.cjs", "plugin:storybook/recommended"],
 };

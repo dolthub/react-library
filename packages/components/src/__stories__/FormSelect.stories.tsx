@@ -192,12 +192,12 @@ export const WithIcons: Story = {
   args: {
     label: "Label",
     options: [
-      { value: "one", label: "One", icon: <Icon icon={"🍎"} /> },
-      { value: "two", label: "Two", icon: <Icon icon={"🍌"} /> },
+      { value: "one", label: "One", icon: <Icon icon="🍎" /> },
+      { value: "two", label: "Two", icon: <Icon icon="🍌" /> },
       {
         value: "three",
         label: "Three",
-        icon: <Icon icon={"🍊"} />,
+        icon: <Icon icon="🍊" />,
         isDisabled: true,
       },
     ],
@@ -212,19 +212,19 @@ export const WithIconsAndDetails: Story = {
       {
         value: "one",
         label: "One",
-        icon: <Icon icon={"🍎"} />,
+        icon: <Icon icon="🍎" />,
         details: <Details text="info about one" />,
       },
       {
         value: "two",
         label: "Two",
-        icon: <Icon icon={"🍌"} />,
+        icon: <Icon icon="🍌" />,
         details: <Details text="info about two" />,
       },
       {
         value: "three",
         label: "Three",
-        icon: <Icon icon={"🍊"} />,
+        icon: <Icon icon="🍊" />,
         details: <Details text="info about three" />,
         isDisabled: true,
       },

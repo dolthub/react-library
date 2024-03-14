@@ -12,11 +12,13 @@ type Props = {
   disabled?: boolean;
 };
 
-const CodeBlock = ({ children, className, disabled = false }: Props) => (
-  <div className={cx(css.code, { [css.disabled]: disabled }, className)}>
-    {children}
-  </div>
-);
+function CodeBlock({ children, className, disabled = false }: Props) {
+  return (
+    <div className={cx(css.code, { [css.disabled]: disabled }, className)}>
+      {children}
+    </div>
+  );
+}
 
 type CopyProps = {
   textToCopy: string;
@@ -27,7 +29,7 @@ type CopyProps = {
   small?: boolean;
 };
 
-const WithCopyButton = (props: CopyProps) => {
+function WithCopyButton(props: CopyProps) {
   const copySuccess = useDelay();
   return (
     <CodeBlock
@@ -56,7 +58,7 @@ const WithCopyButton = (props: CopyProps) => {
       </div>
     </CodeBlock>
   );
-};
+}
 
 CodeBlock.WithCopyButton = WithCopyButton;
 
