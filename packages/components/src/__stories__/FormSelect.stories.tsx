@@ -35,6 +35,15 @@ export const NoLabel: Story = {
   },
 };
 
+export const SelectedFirst: Story = {
+  args: {
+    label: "Label",
+    options,
+    val: "two",
+    selectedOptionFirst: true,
+  },
+};
+
 export const NoValue: Story = {
   args: {
     label: "Label",

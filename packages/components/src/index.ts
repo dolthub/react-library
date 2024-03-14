@@ -1,10 +1,6 @@
 export {
-  CSSObjectWithLabel,
-  ControlProps,
   MenuProps,
-  MultiValue,
   OptionProps,
-  SingleValue,
   SingleValueProps,
   components,
 } from "react-select";

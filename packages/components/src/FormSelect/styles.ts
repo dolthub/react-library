@@ -1,12 +1,7 @@
-import { StylesConfig } from "react-select";
 import colors from "../tailwind/theme/base/colors";
-import { OptionTypeBase } from "./types";
+import { OptionTypeBase, PartialStylesConfig } from "./types";
 
-export default function customStyles<
-  T,
-  Q extends OptionTypeBase<T>,
-  IsMulti extends boolean,
->(
+const customStyles = <T, Q extends OptionTypeBase<T>, IsMulti extends boolean>(
   mono?: boolean,
   light?: boolean,
   small?: boolean,
@@ -14,7 +9,7 @@ export default function customStyles<
   transparentBorder?: boolean,
   blue?: boolean,
   rounded?: boolean,
-): Partial<StylesConfig<Q, IsMulti>> {
+): PartialStylesConfig<T, Q, IsMulti> => {
   return {
     placeholder: styles => {
       return {
@@ -111,13 +106,13 @@ export default function customStyles<
       };
     },
   };
-}
+};
 
 const mobileLightStyles = <
   T,
   Q extends OptionTypeBase<T>,
   IsMulti extends boolean = false,
->(): Partial<StylesConfig<Q, IsMulti>> => {
+>(): PartialStylesConfig<T, Q, IsMulti> => {
   return {
     container: styles => {
       return {
@@ -168,7 +163,7 @@ const mobileDarkStyles = <
   T,
   Q extends OptionTypeBase<T>,
   IsMulti extends boolean = false,
->(): Partial<StylesConfig<Q, IsMulti>> => {
+>(): PartialStylesConfig<T, Q, IsMulti> => {
   return {
     placeholder: styles => {
       return {
@@ -205,14 +200,33 @@ const mobileDarkStyles = <
   };
 };
 
-export const mobileStyles = <
+export const getCustomStyles = <
   T,
   Q extends OptionTypeBase<T>,
   IsMulti extends boolean = false,
 >(
-  light = false,
-): Partial<StylesConfig<Q, IsMulti>> =>
-  light ? mobileLightStyles() : mobileDarkStyles();
+  mono?: boolean,
+  light?: boolean,
+  small?: boolean,
+  pill?: boolean,
+  transparentBorder?: boolean,
+  blue?: boolean,
+  rounded?: boolean,
+  isMobile?: boolean,
+): PartialStylesConfig<T, Q, IsMulti> => {
+  if (isMobile) {
+    return light ? mobileLightStyles() : mobileDarkStyles();
+  }
+  return customStyles(
+    mono,
+    light,
+    small,
+    pill,
+    transparentBorder,
+    blue,
+    rounded,
+  );
+};
 
 function getColor(isFocused: boolean, blue?: boolean): string {
   if (blue) {

@@ -21,6 +21,11 @@ export interface Option<T> extends OptionTypeBase<T> {
   iconPath?: string;
 }
 
+export interface CustomGroupBase<OptionType> extends GroupBase<OptionType> {
+  footer?: ReactNode;
+  noOptionsMsg?: string;
+}
+
 export type OnChange<
   T,
   OptionType extends OptionTypeBase<T>,
@@ -30,13 +35,19 @@ export type OnChange<
   action: ActionMeta<OptionType>,
 ) => void;
 
+export type PartialStylesConfig<
+  T,
+  OptionType extends OptionTypeBase<T>,
+  IsMulti extends boolean,
+> = Partial<StylesConfig<OptionType, IsMulti, GroupBase<OptionType>>>;
+
 export type CustomStyles<
   T,
   OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean,
 > = (
-  s: Partial<StylesConfig<OptionType, IsMulti>>,
-) => Partial<StylesConfig<OptionType, IsMulti>>;
+  s: PartialStylesConfig<T, OptionType, IsMulti>,
+) => PartialStylesConfig<T, OptionType, IsMulti>;
 
 export type WrapperProps = {
   label?: string;
@@ -61,6 +72,9 @@ type CommonProps<
   rounded?: boolean;
   forMobile?: boolean;
   customStyles?: CustomStyles<T, OptionType, IsMulti>;
+  // Show the selected option first in the list
+  selectedOptionFirst?: boolean;
+  noOptionsMsg?: string;
 } & WrapperProps;
 
 type CustomSelectProps<
@@ -70,8 +84,6 @@ type CustomSelectProps<
 > = CommonProps<T, OptionType, IsMulti> & {
   val: Maybe<T>;
   options: OptionType[];
-  // Show the selected option first in the list
-  selectedOptionFirst?: boolean;
   useValueAsSingleValue?: boolean;
   // Handles getting value if value is not a string
   getValFunc?: (o: T, v: T) => boolean;
@@ -93,3 +105,16 @@ export type AsyncProps<
   IsMulti extends boolean = false,
 > = AsyncSelectProps<OptionType, IsMulti, GroupBase<OptionType>> &
   CommonProps<T, OptionType, IsMulti>;
+
+export type CustomGroupedProps = {
+  selectedGroupIndex: number;
+  setSelectedGroupIndex: (i: number) => void;
+};
+
+export type GroupedProps<
+  T,
+  OptionType extends OptionTypeBase<T>,
+  IsMulti extends boolean = false,
+> = SelectProps<OptionType, IsMulti, CustomGroupBase<OptionType>> &
+  CommonProps<T, OptionType, IsMulti> &
+  CustomGroupedProps;

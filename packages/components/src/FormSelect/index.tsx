@@ -1,10 +1,11 @@
 import React from "react";
 import Select from "react-select";
-import AsyncSelect from "react-select/async";
+import FormSelectAsync from "./Async";
+import FormSelectGrouped from "./Grouped";
 import Wrapper from "./Wrapper";
-import { formatOptionLabel, getComponents } from "./customComponents";
-import customStyles, { mobileStyles } from "./styles";
-import { AsyncProps, Option, OptionTypeBase, Props } from "./types";
+import { getComponents } from "./components";
+import { getCustomStyles } from "./styles";
+import { Option, Props } from "./types";
 import { getOnChange, getValue, moveSelectedToTop } from "./utils";
 
 /*
@@ -19,7 +20,7 @@ function FormSelect<T>({
   mono = false,
   light = false,
   small = false,
-  selectedOptionFirst: selectedFirst = false,
+  selectedOptionFirst = false,
   pill = false,
   transparentBorder = false,
   blue = false,
@@ -27,20 +28,19 @@ function FormSelect<T>({
   forMobile = false,
   ...props
 }: Props<T, Option<T>>): JSX.Element {
-  const styles = forMobile
-    ? mobileStyles<T, Option<T>>(light)
-    : customStyles<T, Option<T>, false>(
-        mono,
-        light,
-        small,
-        pill,
-        transparentBorder,
-        blue,
-        rounded,
-      );
+  const styles = getCustomStyles<T, Option<T>, false>(
+    mono,
+    light,
+    small,
+    pill,
+    transparentBorder,
+    blue,
+    rounded,
+    forMobile,
+  );
 
   const options =
-    selectedFirst && !props.hideSelectedOptions
+    selectedOptionFirst && !props.hideSelectedOptions
       ? moveSelectedToTop(props.val, props.options)
       : props.options;
 
@@ -52,52 +52,17 @@ function FormSelect<T>({
         onChange={getOnChange(props.onChangeValue)}
         value={getValue(props, options)}
         styles={props.customStyles ? props.customStyles(styles) : styles}
-        components={getComponents(props.components, blue, forMobile && !light)}
-        formatOptionLabel={formatOptionLabel}
-      />
-    </Wrapper>
-  );
-}
-
-function FormSelectAsync<
-  T,
-  OptionType extends OptionTypeBase<T> = Option<T>,
-  IsMulti extends boolean = false,
->({
-  mono = false,
-  light = false,
-  small = false,
-  pill = false,
-  transparentBorder = false,
-  blue = false,
-  rounded = false,
-  forMobile = false,
-  ...props
-}: AsyncProps<T, OptionType, IsMulti>): JSX.Element {
-  const styles = forMobile
-    ? mobileStyles<T, OptionType, IsMulti>(light)
-    : customStyles<T, OptionType, IsMulti>(
-        mono,
-        light,
-        small,
-        pill,
-        transparentBorder,
-        blue,
-        rounded,
-      );
-
-  return (
-    <Wrapper {...props} small={small}>
-      <AsyncSelect
-        {...props}
-        styles={props.customStyles ? props.customStyles(styles) : styles}
-        components={getComponents(props.components, blue, forMobile && !light)}
-        formatOptionLabel={formatOptionLabel}
+        components={getComponents({
+          ...props,
+          blue,
+          light: forMobile && !light,
+        })}
       />
     </Wrapper>
   );
 }
 
 FormSelect.Async = FormSelectAsync;
+FormSelect.Grouped = FormSelectGrouped;
 
 export default FormSelect;

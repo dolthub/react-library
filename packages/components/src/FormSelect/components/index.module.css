@@ -1,0 +1,84 @@
+.dropdownIndicator {
+  @apply mr-3;
+
+  &:hover {
+    @apply text-button-2;
+  }
+}
+
+.clearIndicator {
+  @apply text-ld-darkgrey mr-3;
+
+  &:hover {
+    @apply text-ld-darkergrey;
+  }
+}
+
+.multiValueRemove {
+  @apply flex px-1 items-center rounded-sm text-primary;
+
+  &:hover {
+    @apply text-acc-red;
+  }
+}
+
+.blueIndicator {
+  @apply text-link-1;
+
+  &:hover {
+    @apply text-link-2;
+  }
+}
+
+.whiteIndicator {
+  @apply text-white;
+
+  &:hover {
+    @apply text-white;
+  }
+}
+
+.menuWithTabs {
+  @apply border-b;
+}
+
+.tab {
+  @apply border-b-3 ml-4 font-semibold px-2 py-1 text-link-1 border-transparent;
+}
+
+.tab:hover,
+.activeTab {
+  @apply border-acc-1 text-acc-1;
+}
+
+.option {
+  @apply border-t;
+
+  &:first-of-type {
+    @apply border-none;
+  }
+}
+
+.check {
+  @apply mr-2 text-acc-green;
+}
+
+.checkInvisible {
+  @apply invisible;
+}
+
+.withIconPath {
+  @apply flex items-center;
+
+  img {
+    @apply h-7 w-7 rounded-full mr-2;
+  }
+}
+
+.menuList {
+  @apply py-0;
+}
+
+.footer {
+  @apply border-t flex justify-center text-sm py-2;
+}
