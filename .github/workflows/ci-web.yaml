@@ -39,7 +39,7 @@ jobs:
           yarn ci
 
       - name: Publish to Chromatic
-        if: steps.filter.outputs.components == 'true'
+        if: steps.filter.outputs.components == 'true' && github.event.pull_request.draft == false
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
