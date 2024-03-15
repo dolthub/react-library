@@ -3,14 +3,19 @@ import React from "react";
 import { Option } from "../types";
 import css from "./index.module.css";
 
-export default function CustomOption<T, OptionType extends Option<T>>(props: {
+type Props<OptionType> = {
   data: OptionType;
-}) {
+  dataCyPrefix: string;
+};
+
+export default function CustomOption<T, OptionType extends Option<T>>(
+  props: Props<OptionType>,
+) {
   return (
     <span
       className={cx({ [css.withIconPath]: !!props.data.iconPath })}
       aria-label={String(props.data.value)}
-      data-cy={String(props.data.value)}
+      data-cy={`${props.dataCyPrefix}-${props.data.value}`}
     >
       {props.data.iconPath && (
         <img src={props.data.iconPath} alt={props.data.label} />

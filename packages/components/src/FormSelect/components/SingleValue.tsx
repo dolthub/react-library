@@ -10,7 +10,7 @@ export default function SingleValueComponent<
 >(props: SingleValueProps<OptionType, IsMulti>): JSX.Element {
   return (
     <components.SingleValue {...props}>
-      <CustomOption data={props.data} />
+      <CustomOption data={props.data} dataCyPrefix="single-value" />
     </components.SingleValue>
   );
 }
