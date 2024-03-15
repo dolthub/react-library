@@ -28,12 +28,7 @@ export function OptionForGroup<
       <FiCheck
         className={cx(css.check, { [css.checkInvisible]: !props.isSelected })}
       />
-      <span
-        aria-label={String(props.data.value)}
-        data-cy={String(props.data.value)}
-      >
-        {props.label}
-      </span>
+      <CustomOption data={props.data} />
     </components.Option>
   );
 }

@@ -41,8 +41,6 @@ export const Default: Story = {
     label: "Label",
     options,
     value: optionsOne[0],
-    // selectedGroupIndex: 0,
-    // setSelectedGroupIndex: () => {},
   },
 };
 
@@ -51,8 +49,6 @@ export const SecondGroupSelected: Story = {
     light: true,
     options,
     value: optionsTwo[1],
-    // selectedGroupIndex: 1,
-    // setSelectedGroupIndex: () => {},
     selectedOptionFirst: true,
   },
 };
@@ -73,8 +69,6 @@ export const WithFooter: Story = {
       };
     }),
     value: optionsTwo[1],
-    // selectedGroupIndex: 1,
-    // setSelectedGroupIndex: () => {},
     selectedOptionFirst: true,
   },
 };
@@ -82,8 +76,6 @@ export const WithFooter: Story = {
 export const NoValue: Story = {
   args: {
     options,
-    // selectedGroupIndex: 0,
-    // setSelectedGroupIndex: () => {},
   },
 };
 
@@ -104,16 +96,12 @@ export const LongerLabels: Story = {
         options: mapLongerLabels(o.options),
       };
     }),
-    // selectedGroupIndex: 0,
-    // setSelectedGroupIndex: () => {},
   },
 };
 
 export const NoOptions: Story = {
   args: {
     options: noOptions,
-    // selectedGroupIndex: 1,
-    // setSelectedGroupIndex: () => {},
   },
 };
 
@@ -127,7 +115,28 @@ export const NoOptionsOneTab: Story = {
         noOptionsMsg: "No options 2",
       },
     ],
-    // selectedGroupIndex: 0,
-    // setSelectedGroupIndex: () => {},
+  },
+};
+
+const optionsWithDetails = options.map(o => {
+  return {
+    ...o,
+    options: o.options.map(option => {
+      return {
+        ...option,
+        details: (
+          <div className="text-gray-500 text-xs mt-1 mb-1">
+            Details about option {option.label}
+          </div>
+        ),
+      };
+    }),
+  };
+});
+
+export const WithDetails: Story = {
+  args: {
+    value: optionsWithDetails[0].options[0],
+    options: optionsWithDetails,
   },
 };
