@@ -1,6 +1,6 @@
 import React from "react";
 import { MenuListProps, components } from "react-select";
-import { CustomGroupBase, CustomGroupedProps, OptionTypeBase } from "../types";
+import { CustomGroupBase, OptionTypeBase } from "../types";
 import css from "./index.module.css";
 
 export default function MenuList<
@@ -10,8 +10,9 @@ export default function MenuList<
 >({
   children,
   ...props
-}: MenuListProps<OptionType, IsMulti, CustomGroupBase<OptionType>> &
-  CustomGroupedProps) {
+}: MenuListProps<OptionType, IsMulti, CustomGroupBase<OptionType>> & {
+  selectedGroupIndex: number;
+}) {
   const activeGroup =
     props.options.length - 1 >= props.selectedGroupIndex
       ? props.options[props.selectedGroupIndex]

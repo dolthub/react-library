@@ -84,7 +84,6 @@ type CustomSelectProps<
 > = CommonProps<T, OptionType, IsMulti> & {
   val: Maybe<T>;
   options: OptionType[];
-  useValueAsSingleValue?: boolean;
   // Handles getting value if value is not a string
   getValFunc?: (o: T, v: T) => boolean;
   // onChangeValue handles updating the `val` prop (type T).
@@ -105,11 +104,6 @@ export type AsyncProps<
   IsMulti extends boolean = false,
 > = AsyncSelectProps<OptionType, IsMulti, GroupBase<OptionType>> &
   CommonProps<T, OptionType, IsMulti>;
-
-export type CustomGroupedProps = {
-  selectedGroupIndex: number;
-  setSelectedGroupIndex: (i: number) => void;
-};
 
 export type GroupedProps<
   T,

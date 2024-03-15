@@ -1,10 +1,10 @@
 import React from "react";
 import { GroupBase, SelectComponentsConfig } from "react-select";
-import { CustomGroupedProps, OptionTypeBase } from "../types";
+import { OptionTypeBase } from "../types";
 import Clear from "./Clear";
 import Dropdown from "./Dropdown";
 import Group from "./Group";
-import Menu from "./Menu";
+import Menu, { GroupIndexProps } from "./Menu";
 import MenuList from "./MenuList";
 import MultiValueRemove from "./MultiValueRemove";
 import NoOptionsMessage from "./NoOptionsMessage";
@@ -31,7 +31,7 @@ type ComponentGroupArgs<
   T,
   OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean,
-> = ComponentArgs<T, OptionType, IsMulti> & CustomGroupedProps;
+> = ComponentArgs<T, OptionType, IsMulti> & GroupIndexProps;
 
 export function getComponents<
   T,
@@ -80,11 +80,7 @@ export function getComponentsForGroup<
       />
     ),
     MenuList: props => (
-      <MenuList
-        {...props}
-        selectedGroupIndex={selectedGroupIndex}
-        setSelectedGroupIndex={setSelectedGroupIndex}
-      />
+      <MenuList {...props} selectedGroupIndex={selectedGroupIndex} />
     ),
     Group: props => <Group {...props} />,
     Option: props => <OptionForGroup {...props} />,

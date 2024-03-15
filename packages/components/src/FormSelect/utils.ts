@@ -107,9 +107,39 @@ export function getValue<T>(
     props.getValFunc,
   );
 
-  if (props.useValueAsSingleValue && props.val) {
-    return { value: props.val, label: String(props.val) };
-  }
-
   return valueFromOptions;
+}
+
+export function findTabIndexForValue<
+  T,
+  OptionType extends OptionTypeBase<T> = Option<T>,
+>(
+  options: OptionsOrGroups<OptionType, GroupBase<OptionType>> | undefined,
+  value?: PropsValue<OptionType> | undefined,
+): number {
+  if (!options || !value) return 0;
+
+  return options.findIndex(o => {
+    if ("value" in o) {
+      return o.value === value;
+    }
+    if ("options" in o) {
+      return o.options.some(oo => {
+        if ("value" in value) {
+          return oo.value === value.value;
+        }
+        if (Array.isArray(value)) {
+          return value.some(v => {
+            if ("value" in v) {
+              return oo.value === v.value;
+            }
+            return false;
+          });
+        }
+
+        return false;
+      });
+    }
+    return false;
+  });
 }

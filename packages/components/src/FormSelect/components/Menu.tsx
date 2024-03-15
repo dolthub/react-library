@@ -7,13 +7,18 @@ import {
   components,
 } from "react-select";
 import Btn from "../../Btn";
-import { CustomGroupBase, CustomGroupedProps, OptionTypeBase } from "../types";
+import { CustomGroupBase, OptionTypeBase } from "../types";
 import css from "./index.module.css";
+
+export type GroupIndexProps = {
+  selectedGroupIndex: number;
+  setSelectedGroupIndex: (i: number) => void;
+};
 
 function Tabs<T, OptionType extends OptionTypeBase<T>>(
   props: {
     options: OptionsOrGroups<OptionType, GroupBase<OptionType>>;
-  } & CustomGroupedProps,
+  } & GroupIndexProps,
 ) {
   return (
     <div className={css.menuWithTabs}>
@@ -35,7 +40,7 @@ function Tabs<T, OptionType extends OptionTypeBase<T>>(
 function GroupNoOptions<T, OptionType extends OptionTypeBase<T>>(
   props: {
     options: OptionsOrGroups<OptionType, CustomGroupBase<OptionType>>;
-  } & CustomGroupedProps,
+  } & { selectedGroupIndex: number },
 ) {
   if (props.options.length > 0) {
     const activeGroup = props.options[props.selectedGroupIndex];
@@ -56,7 +61,7 @@ function GroupNoOptions<T, OptionType extends OptionTypeBase<T>>(
 function Footer<T, OptionType extends OptionTypeBase<T>>(
   props: {
     options: OptionsOrGroups<OptionType, CustomGroupBase<OptionType>>;
-  } & CustomGroupedProps,
+  } & { selectedGroupIndex: number },
 ) {
   const activeGroup = props.options[props.selectedGroupIndex];
   if (!("footer" in activeGroup)) return null;
@@ -71,7 +76,7 @@ export default function Menu<
   children,
   ...props
 }: MenuProps<OptionType, IsMulti, CustomGroupBase<OptionType>> &
-  CustomGroupedProps) {
+  GroupIndexProps) {
   return (
     <components.Menu {...props}>
       <Tabs {...props} options={props.selectProps.options} />
