@@ -16,6 +16,7 @@ export default function MultiValueRemove<
       className={cx(css.multiValueRemove, {
         [css.blueIndicator]: !!props.blue,
       })}
+      aria-label={`remove ${props.data.label}`}
     >
       <AiOutlineClose />
     </div>

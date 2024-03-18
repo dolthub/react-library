@@ -103,7 +103,7 @@ export type AsyncProps<
   OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean = false,
 > = AsyncSelectProps<OptionType, IsMulti, GroupBase<OptionType>> &
-  CommonProps<T, OptionType, IsMulti>;
+  Omit<CommonProps<T, OptionType, IsMulti>, "selectedOptionFirst">;
 
 export type GroupedProps<
   T,
