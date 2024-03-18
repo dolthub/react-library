@@ -5,7 +5,7 @@ import css from "./index.module.css";
 
 type Props<OptionType> = {
   data: OptionType;
-  dataCyPrefix: string;
+  labelPrefix: string;
 };
 
 export default function CustomOption<T, OptionType extends Option<T>>(
@@ -14,8 +14,8 @@ export default function CustomOption<T, OptionType extends Option<T>>(
   return (
     <div
       className={cx({ [css.optionWithIconPath]: !!props.data.iconPath })}
-      aria-label={String(props.data.value)}
-      data-cy={`${props.dataCyPrefix}-${props.data.value}`}
+      aria-label={`${props.labelPrefix}-${props.data.value}`}
+      data-cy={`${props.labelPrefix}-${props.data.value}`}
     >
       {props.data.iconPath && (
         <img src={props.data.iconPath} alt={props.data.label} />

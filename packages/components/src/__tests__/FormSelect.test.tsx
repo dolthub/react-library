@@ -4,7 +4,7 @@ import { UserEvent } from "@testing-library/user-event";
 import React from "react";
 import selectEvent from "react-select-event";
 import FormSelect from "../FormSelect/index";
-import { Option } from "../FormSelect/types";
+import { CustomGroupBase, Option } from "../FormSelect/types";
 import {
   getValueForOptions,
   moveSelectedToTop,
@@ -191,9 +191,10 @@ describe("test FormSelect.Async", () => {
   });
 });
 
-const groupOptions = mocks.map(mock => {
-  return { label: mock.desc, options: mock.options };
-});
+const groupOptions: Array<CustomGroupBase<StringOption> & { label: string }> = [
+  { options: optionsWithIconPath, label: "Group 1" },
+  { options: optionWithoutIconPath, label: "Group 2" },
+];
 
 const emptyGroupOptions = [{ label: "Group 1", options: [] }, groupOptions[1]];
 
@@ -210,7 +211,7 @@ describe("test FormSelect.Grouped", () => {
       />,
     );
 
-    await runRenderTests(groupOptions[0].options, user, onChange);
+    await runRenderTests([...groupOptions[0].options], user, onChange);
 
     // Click on second tab
     await user.click(screen.getByRole("combobox"));
@@ -219,11 +220,11 @@ describe("test FormSelect.Grouped", () => {
     });
     await user.click(screen.getByText(groupOptions[1].label));
 
-    await runRenderTests(groupOptions[1].options, user, onChange);
+    await runRenderTests([...groupOptions[1].options], user, onChange);
   });
 
   it(`handles selectedOptionFirst for group`, async () => {
-    const selected = randomArrayItem(groupOptions[0].options);
+    const selected = randomArrayItem([...groupOptions[0].options]);
     const { container, user } = setup(
       <FormSelect.Grouped
         options={groupOptions}
@@ -268,21 +269,42 @@ describe("test FormSelect.Grouped", () => {
   });
 
   it("handles footer", async () => {
-    const selected = randomArrayItem(groupOptions[1].options);
-    const { user } = setup(
+    const options: Array<CustomGroupBase<StringOption>> = [
+      { label: groupOptions[0].label, options: [] },
+      { label: groupOptions[1].label, options: [] },
+    ];
+
+    const { user, rerender } = setup(
       <FormSelect.Grouped
-        options={[
-          { ...groupOptions[0], footer: <span>Footer 1</span> },
-          { ...groupOptions[1], footer: <span>Footer 2</span> },
-        ]}
+        options={options}
+        value={null}
+        onChange={() => {}}
+        label="Label"
+      />,
+    );
+
+    await user.click(screen.getByRole("combobox"));
+    expect(screen.getByText("No options")).toBeVisible();
+
+    const optionsWithFooter = [
+      { ...groupOptions[0], footer: <span>Footer 1</span> },
+      { ...groupOptions[1], footer: <span>Footer 2</span> },
+    ];
+    const selected = randomArrayItem([...optionsWithFooter[1].options]);
+    rerender(
+      <FormSelect.Grouped
+        options={optionsWithFooter}
         value={selected}
         onChange={() => {}}
         label="Label"
       />,
     );
 
-    expect(screen.getByText(selected.label)).toBeVisible();
+    expect(
+      screen.getByLabelText(`single-value-${selected.label}`),
+    ).toBeVisible();
     await user.click(screen.getByRole("combobox"));
+    expect(screen.queryByText("No options")).not.toBeInTheDocument();
     expect(screen.getByText("Footer 2")).toBeVisible();
     expect(screen.queryByText("Footer 1")).not.toBeInTheDocument();
 

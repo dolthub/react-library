@@ -117,7 +117,7 @@ export function findTabIndexForValue<
   options: OptionsOrGroups<OptionType, GroupBase<OptionType>> | undefined,
   value?: PropsValue<OptionType> | undefined,
 ): number {
-  if (!options || !value) return 0;
+  if (!options || !value) return -1;
 
   return options.findIndex(o => {
     if ("value" in o) {

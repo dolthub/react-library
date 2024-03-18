@@ -1,5 +1,4 @@
-import { useEffectOnMount } from "@dolthub/react-hooks";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import Wrapper from "./Wrapper";
 import { getComponentsForGroup } from "./components";
@@ -41,12 +40,11 @@ export default function FormSelectGrouped<
       ? moveSelectedToTopForGroup(props.value, props.options)
       : props.options;
 
-  // Select active group based on value
-  useEffectOnMount(() => {
+  useEffect(() => {
     const activeTabIdx = findTabIndexForValue(options, props.value);
     if (activeTabIdx < 0) return;
     setSelectedGroupIndex(activeTabIdx);
-  });
+  }, [props.value]);
 
   return (
     <Wrapper {...props} small={small}>

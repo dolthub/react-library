@@ -13,7 +13,7 @@ export default function OptionComponent<
 >(props: OptionProps<OptionType, IsMulti>): JSX.Element {
   return (
     <components.Option {...props}>
-      <CustomOption data={props.data} dataCyPrefix="select-option" />
+      <CustomOption data={props.data} labelPrefix="select-option" />
     </components.Option>
   );
 }
@@ -28,7 +28,7 @@ export function OptionForGroup<
       <FiCheck
         className={cx(css.check, { [css.checkInvisible]: !props.isSelected })}
       />
-      <CustomOption data={props.data} dataCyPrefix="select-option" />
+      <CustomOption data={props.data} labelPrefix="select-option" />
     </components.Option>
   );
 }
