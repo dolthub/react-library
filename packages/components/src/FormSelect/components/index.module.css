@@ -67,12 +67,16 @@
   @apply invisible;
 }
 
-.withIconPath {
+.optionWithIconPath {
   @apply flex items-center;
 
   img {
     @apply h-7 w-7 rounded-full mr-2;
   }
+}
+
+.optionDetails {
+  @apply text-acc-darkgrey text-xs mt-1 mb-1;
 }
 
 .menuList {

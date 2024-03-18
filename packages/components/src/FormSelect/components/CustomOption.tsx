@@ -12,8 +12,8 @@ export default function CustomOption<T, OptionType extends Option<T>>(
   props: Props<OptionType>,
 ) {
   return (
-    <span
-      className={cx({ [css.withIconPath]: !!props.data.iconPath })}
+    <div
+      className={cx({ [css.optionWithIconPath]: !!props.data.iconPath })}
       aria-label={String(props.data.value)}
       data-cy={`${props.dataCyPrefix}-${props.data.value}`}
     >
@@ -22,7 +22,9 @@ export default function CustomOption<T, OptionType extends Option<T>>(
       )}
       {props.data.icon}
       <span>{props.data.label}</span>
-      {props.data.details}
-    </span>
+      {props.data.details && (
+        <div className={css.optionDetails}>{props.data.details}</div>
+      )}
+    </div>
   );
 }

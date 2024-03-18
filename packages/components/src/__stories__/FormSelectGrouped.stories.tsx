@@ -124,11 +124,7 @@ const optionsWithDetails = options.map(o => {
     options: o.options.map(option => {
       return {
         ...option,
-        details: (
-          <div className="text-gray-500 text-xs mt-1 mb-1">
-            Details about option {option.label}
-          </div>
-        ),
+        details: <div>Details about option {option.label}</div>,
       };
     }),
   };
