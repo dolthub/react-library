@@ -17,6 +17,8 @@ function getPlural(s: string): string {
       return "databases";
     case "database updated today":
       return "databases updated today";
+    case "branch":
+      return "branches";
     default:
       return `${s}s`;
   }

@@ -1,48 +1,89 @@
-import cx from "classnames";
 import React from "react";
 import { GroupBase, SelectComponentsConfig } from "react-select";
-import { Option, OptionTypeBase } from "../types";
+import { OptionTypeBase } from "../types";
 import Clear from "./Clear";
 import Dropdown from "./Dropdown";
+import Group from "./Group";
+import Menu, { GroupIndexProps } from "./Menu";
+import MenuList from "./MenuList";
 import MultiValueRemove from "./MultiValueRemove";
-import css from "./index.module.css";
+import NoOptionsMessage from "./NoOptionsMessage";
+import OptionComponent, { OptionForGroup } from "./Option";
+import SingleValueComponent from "./SingleValue";
 
 type Components<Option, IsMulti extends boolean> =
   | Partial<SelectComponentsConfig<Option, IsMulti, GroupBase<Option>>>
   | undefined;
 
+type ComponentArgs<
+  T,
+  OptionType extends OptionTypeBase<T>,
+  IsMulti extends boolean,
+> = {
+  components?: Components<OptionType, IsMulti>;
+  blue?: boolean;
+  light?: boolean;
+  noOptionsMsg?: string;
+  selectedGroupIndex?: number;
+};
+
+type ComponentGroupArgs<
+  T,
+  OptionType extends OptionTypeBase<T>,
+  IsMulti extends boolean,
+> = ComponentArgs<T, OptionType, IsMulti> & GroupIndexProps;
+
 export function getComponents<
   T,
   OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean,
->(
-  components?: Components<OptionType, IsMulti>,
-  blue?: boolean,
-  light?: boolean,
-): Components<OptionType, IsMulti> {
+>({
+  blue,
+  light,
+  ...args
+}: ComponentArgs<T, OptionType, IsMulti>): Components<OptionType, IsMulti> {
   return {
-    ...components,
+    ...args.components,
     IndicatorSeparator: () => null,
     DropdownIndicator: props => (
       <Dropdown {...props} blue={blue} light={light} />
     ),
     ClearIndicator: props => <Clear {...props} blue={blue} />,
     MultiValueRemove: props => <MultiValueRemove {...props} blue={blue} />,
+    Option: props => <OptionComponent {...props} />,
+    SingleValue: props => <SingleValueComponent {...props} />,
+    NoOptionsMessage: props => (
+      <NoOptionsMessage {...props} noOptionsMsg={args.noOptionsMsg} />
+    ),
   };
 }
 
-export function formatOptionLabel<T>(option: Option<T>): React.ReactNode {
-  if (!option.icon && !option.details && !option.iconPath) {
-    return option.label;
-  }
-  return React.createElement(
-    "div",
-    {},
-    <span className={cx({ [css.withIconPath]: !!option.iconPath })}>
-      {option.iconPath && <img src={option.iconPath} alt={option.label} />}
-      {option.icon}
-      <span>{option.label}</span>
-      {option.details}
-    </span>,
-  );
+export function getComponentsForGroup<
+  T,
+  OptionType extends OptionTypeBase<T>,
+  IsMulti extends boolean,
+>({
+  selectedGroupIndex,
+  setSelectedGroupIndex,
+  ...args
+}: ComponentGroupArgs<T, OptionType, IsMulti>): Components<
+  OptionType,
+  IsMulti
+> {
+  return {
+    ...getComponents({ ...args, selectedGroupIndex }),
+    Menu: props => (
+      <Menu
+        {...props}
+        selectedGroupIndex={selectedGroupIndex}
+        setSelectedGroupIndex={setSelectedGroupIndex}
+      />
+    ),
+    MenuList: props => (
+      <MenuList {...props} selectedGroupIndex={selectedGroupIndex} />
+    ),
+    Group: props => <Group {...props} />,
+    Option: props => <OptionForGroup {...props} />,
+    NoOptionsMessage: () => null, // Uses per-group no options message, see Menu
+  };
 }

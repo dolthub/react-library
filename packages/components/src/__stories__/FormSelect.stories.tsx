@@ -35,6 +35,15 @@ export const NoLabel: Story = {
   },
 };
 
+export const SelectedFirst: Story = {
+  args: {
+    label: "Label",
+    options,
+    val: "two",
+    selectedOptionFirst: true,
+  },
+};
+
 export const NoValue: Story = {
   args: {
     label: "Label",
@@ -151,14 +160,6 @@ export const ForMobileDark: Story = {
   },
 };
 
-function Details({ text }: { text: string }) {
-  return (
-    <div className="text-gray-500 text-xs mt-1 mb-1">
-      <span>{text}</span>
-    </div>
-  );
-}
-
 export const WithDetails: Story = {
   args: {
     label: "Label",
@@ -166,18 +167,18 @@ export const WithDetails: Story = {
       {
         value: "one",
         label: "One",
-        details: <Details text="info about one" />,
+        details: <span>info about one</span>,
       },
       {
         value: "two",
         label: "Two",
-        details: <Details text="info about two" />,
+        details: <span>info about two</span>,
       },
       {
         value: "three",
         label: "Three",
         isDisabled: true,
-        details: <Details text="info about three but it's disabled" />,
+        details: <span>info about three but it is disabled</span>,
       },
     ],
     val: "one",
@@ -213,19 +214,19 @@ export const WithIconsAndDetails: Story = {
         value: "one",
         label: "One",
         icon: <Icon icon="🍎" />,
-        details: <Details text="info about one" />,
+        details: <span>info about one</span>,
       },
       {
         value: "two",
         label: "Two",
         icon: <Icon icon="🍌" />,
-        details: <Details text="info about two" />,
+        details: <span>info about two</span>,
       },
       {
         value: "three",
         label: "Three",
         icon: <Icon icon="🍊" />,
-        details: <Details text="info about three" />,
+        details: <span>info about three</span>,
         isDisabled: true,
       },
     ],

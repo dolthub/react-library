@@ -1,9 +1,10 @@
 import React from "react";
 import Select from "react-select";
 import FormSelectAsync from "./Async";
+import FormSelectGrouped from "./Grouped";
 import Wrapper from "./Wrapper";
-import { formatOptionLabel, getComponents } from "./components";
-import customStyles, { mobileStyles } from "./styles";
+import { getComponents } from "./components";
+import { getCustomStyles } from "./styles";
 import { Option, Props } from "./types";
 import { getOnChange, getValue, moveSelectedToTop } from "./utils";
 
@@ -19,7 +20,7 @@ function FormSelect<T>({
   mono = false,
   light = false,
   small = false,
-  selectedOptionFirst: selectedFirst = false,
+  selectedOptionFirst = false,
   pill = false,
   transparentBorder = false,
   blue = false,
@@ -27,20 +28,19 @@ function FormSelect<T>({
   forMobile = false,
   ...props
 }: Props<T, Option<T>>): JSX.Element {
-  const styles = forMobile
-    ? mobileStyles<T, Option<T>>(light)
-    : customStyles<T, Option<T>, false>(
-        mono,
-        light,
-        small,
-        pill,
-        transparentBorder,
-        blue,
-        rounded,
-      );
+  const styles = getCustomStyles<T, Option<T>, false>(
+    mono,
+    light,
+    small,
+    pill,
+    transparentBorder,
+    blue,
+    rounded,
+    forMobile,
+  );
 
   const options =
-    selectedFirst && !props.hideSelectedOptions
+    selectedOptionFirst && !props.hideSelectedOptions
       ? moveSelectedToTop(props.val, props.options)
       : props.options;
 
@@ -52,13 +52,17 @@ function FormSelect<T>({
         onChange={getOnChange(props.onChangeValue)}
         value={getValue(props, options)}
         styles={props.customStyles ? props.customStyles(styles) : styles}
-        components={getComponents(props.components, blue, forMobile && !light)}
-        formatOptionLabel={formatOptionLabel}
+        components={getComponents({
+          ...props,
+          blue,
+          light: forMobile && !light,
+        })}
       />
     </Wrapper>
   );
 }
 
 FormSelect.Async = FormSelectAsync;
+FormSelect.Grouped = FormSelectGrouped;
 
 export default FormSelect;

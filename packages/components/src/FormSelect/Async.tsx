@@ -1,8 +1,8 @@
 import React from "react";
 import AsyncSelect from "react-select/async";
 import Wrapper from "./Wrapper";
-import { formatOptionLabel, getComponents } from "./components";
-import customStyles, { mobileStyles } from "./styles";
+import { getComponents } from "./components";
+import { getCustomStyles } from "./styles";
 import { AsyncProps, Option, OptionTypeBase } from "./types";
 
 export default function FormSelectAsync<
@@ -20,25 +20,27 @@ export default function FormSelectAsync<
   forMobile = false,
   ...props
 }: AsyncProps<T, OptionType, IsMulti>): JSX.Element {
-  const styles = forMobile
-    ? mobileStyles<T, OptionType, IsMulti>(light)
-    : customStyles<T, OptionType, IsMulti>(
-        mono,
-        light,
-        small,
-        pill,
-        transparentBorder,
-        blue,
-        rounded,
-      );
+  const styles = getCustomStyles<T, OptionType, IsMulti>(
+    mono,
+    light,
+    small,
+    pill,
+    transparentBorder,
+    blue,
+    rounded,
+    forMobile,
+  );
 
   return (
     <Wrapper {...props} small={small}>
       <AsyncSelect
         {...props}
         styles={props.customStyles ? props.customStyles(styles) : styles}
-        components={getComponents(props.components, blue, forMobile && !light)}
-        formatOptionLabel={formatOptionLabel}
+        components={getComponents({
+          ...props,
+          blue,
+          light: forMobile && !light,
+        })}
       />
     </Wrapper>
   );

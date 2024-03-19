@@ -46,24 +46,55 @@ export function getValueForOptions<T, OptionType extends OptionTypeBase<T>>(
 
 // Given a value that is currently selected and a list of all options,
 // move the selected option (determined by value) to the top of the list.
-export function moveSelectedToTop<T, OptionType extends OptionTypeBase<T>>(
+export function moveSelectedToTop<T, OptionType extends Option<T>>(
   selectedVal: Maybe<T>,
-  options: OptionType[],
+  options?: OptionType[],
 ): OptionType[] {
-  if (!selectedVal) {
-    return options;
+  if (!selectedVal || !options) {
+    return options ?? [];
   }
 
-  const i = options.findIndex(({ value }) => value === selectedVal);
-  // If no value was found for the given selected value, return the original array.
-  if (i < 0) {
-    return options;
+  return [...options].sort(a => {
+    if (a.value === selectedVal) {
+      return -1;
+    }
+    return 0;
+  });
+}
+
+// Given a value that is currently selected and a list of all options,
+// move the selected option (determined by value) to the top of the list.
+export function moveSelectedToTopForGroup<
+  T,
+  OptionType extends OptionTypeBase<T>,
+>(
+  selectedVal: PropsValue<OptionType> | undefined,
+  options?: OptionsOrGroups<OptionType, GroupBase<OptionType>> | undefined,
+): OptionsOrGroups<OptionType, GroupBase<OptionType>> | undefined {
+  if (!selectedVal || !options) {
+    return options ?? [];
   }
-  const selectedOption = options[i];
-  const optionsCopy = [...options];
-  optionsCopy.splice(i, 1);
-  optionsCopy.unshift(selectedOption);
-  return optionsCopy;
+
+  return options.map(o => {
+    if ("options" in o) {
+      return {
+        ...o,
+        options: [...o.options].sort(a => {
+          if (Array.isArray(selectedVal)) {
+            if (selectedVal.some(v => a.value === v.value)) {
+              return -1;
+            }
+          }
+          if ("value" in selectedVal && a.value === selectedVal.value) {
+            return -1;
+          }
+
+          return 0;
+        }),
+      };
+    }
+    return o;
+  });
 }
 
 export function getValue<T>(
@@ -76,9 +107,39 @@ export function getValue<T>(
     props.getValFunc,
   );
 
-  if (props.useValueAsSingleValue && props.val) {
-    return { value: props.val, label: String(props.val) };
-  }
-
   return valueFromOptions;
+}
+
+export function findTabIndexForValue<
+  T,
+  OptionType extends OptionTypeBase<T> = Option<T>,
+>(
+  options: OptionsOrGroups<OptionType, GroupBase<OptionType>> | undefined,
+  value?: PropsValue<OptionType> | undefined,
+): number {
+  if (!options || !value) return -1;
+
+  return options.findIndex(o => {
+    if ("value" in o) {
+      return o.value === value;
+    }
+    if ("options" in o) {
+      return o.options.some(oo => {
+        if ("value" in value) {
+          return oo.value === value.value;
+        }
+        if (Array.isArray(value)) {
+          return value.some(v => {
+            if ("value" in v) {
+              return oo.value === v.value;
+            }
+            return false;
+          });
+        }
+
+        return false;
+      });
+    }
+    return false;
+  });
 }

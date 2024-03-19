@@ -38,10 +38,55 @@
   }
 }
 
-.withIconPath {
+.menuWithTabs {
+  @apply border-b;
+}
+
+.tab {
+  @apply border-b-3 ml-4 font-semibold px-2 py-1 text-link-1 border-transparent;
+}
+
+.tab:hover,
+.activeTab {
+  @apply border-acc-1 text-acc-1;
+}
+
+.option {
+  @apply border-t;
+
+  &:first-of-type {
+    @apply border-none;
+  }
+}
+
+.check {
+  @apply mr-2 text-acc-green min-w-[20px];
+}
+
+.checkInvisible {
+  @apply invisible;
+}
+
+.optionWithIconPath {
   @apply flex items-center;
 
   img {
     @apply h-7 w-7 rounded-full mr-2;
   }
+}
+
+.optionDetails {
+  @apply text-acc-darkgrey text-xs mt-1 mb-1;
+}
+
+.menuList {
+  @apply py-0;
+}
+
+.footer {
+  @apply border-t flex justify-center text-sm py-2;
+}
+
+.noOpts {
+  @apply text-center my-2 text-ld-darkgrey;
 }
