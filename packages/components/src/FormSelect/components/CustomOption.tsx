@@ -11,11 +11,12 @@ type Props<OptionType> = {
 export default function CustomOption<T, OptionType extends Option<T>>(
   props: Props<OptionType>,
 ) {
+  const label = `${props.labelPrefix}-${props.data.value}`;
   return (
     <div
       className={cx({ [css.optionWithIconPath]: !!props.data.iconPath })}
-      aria-label={`${props.labelPrefix}-${props.data.value}`}
-      data-cy={`${props.labelPrefix}-${props.data.value}`}
+      aria-label={label}
+      data-cy={label}
     >
       {props.data.iconPath && (
         <img src={props.data.iconPath} alt={props.data.label} />

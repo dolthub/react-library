@@ -136,3 +136,10 @@ export const WithDetails: Story = {
     options: optionsWithDetails,
   },
 };
+
+export const Loading: Story = {
+  args: {
+    options: [],
+    isLoading: true,
+  },
+};

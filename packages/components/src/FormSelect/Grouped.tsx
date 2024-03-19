@@ -41,10 +41,11 @@ export default function FormSelectGrouped<
       : props.options;
 
   useEffect(() => {
+    if (props.isLoading) return;
     const activeTabIdx = findTabIndexForValue(options, props.value);
     if (activeTabIdx < 0) return;
     setSelectedGroupIndex(activeTabIdx);
-  }, [props.value]);
+  }, [props.value, props.isLoading]);
 
   return (
     <Wrapper {...props} small={small}>

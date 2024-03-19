@@ -63,6 +63,7 @@ function Footer<T, OptionType extends OptionTypeBase<T>>(
     options: OptionsOrGroups<OptionType, CustomGroupBase<OptionType>>;
   } & { selectedGroupIndex: number },
 ) {
+  if (props.options.length < props.selectedGroupIndex + 1) return null;
   const activeGroup = props.options[props.selectedGroupIndex];
   if (!("footer" in activeGroup)) return null;
   return <div className={css.footer}>{activeGroup.footer}</div>;

@@ -84,6 +84,6 @@ export function getComponentsForGroup<
     ),
     Group: props => <Group {...props} />,
     Option: props => <OptionForGroup {...props} />,
-    NoOptionsMessage: () => null,
+    NoOptionsMessage: () => null, // Uses per-group no options message, see Menu
   };
 }
