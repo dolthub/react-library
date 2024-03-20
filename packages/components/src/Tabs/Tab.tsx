@@ -11,6 +11,8 @@ type Props = {
   name?: string;
   renderOnlyChild?: boolean;
   hide?: boolean;
+  dark?: boolean;
+  small?: boolean;
 };
 
 export default function Tab(props: Props) {
@@ -27,6 +29,8 @@ export default function Tab(props: Props) {
       aria-label={label}
       className={cx(css.tab, props.className, {
         [css.activeTab]: isActive,
+        [css.smallTab]: !!props.small,
+        [css.darkTab]: !!props.dark,
       })}
     >
       {props.renderOnlyChild ? (

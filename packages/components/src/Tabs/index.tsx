@@ -7,7 +7,7 @@ import { TabsProvider } from "./context";
 import css from "./index.module.css";
 
 type Props = {
-  children: ReactNode[];
+  children: ReactNode;
   initialActiveIndex?: number;
   className?: string;
 };

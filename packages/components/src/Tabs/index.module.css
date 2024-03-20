@@ -21,12 +21,25 @@
   }
 }
 
+.smallTab {
+  @apply px-1 mx-6;
+}
+
 .activeTab,
 .tab:hover {
   @apply text-acc-1 border-b-3 border-acc-1;
 
   a {
     @apply text-acc-1;
+  }
+}
+
+.activeTab.darkTab,
+.darkTab:hover {
+  @apply text-primary border-primary;
+
+  a {
+    @apply text-primary;
   }
 }
 
