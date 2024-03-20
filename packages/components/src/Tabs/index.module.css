@@ -21,8 +21,8 @@
   }
 }
 
-.tab:hover,
-.activeTab {
+.activeTab,
+.tab:hover {
   @apply text-acc-1 border-b-3 border-acc-1;
 
   a {
