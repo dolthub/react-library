@@ -1,5 +1,10 @@
-import { useEffectOnMount } from "@dolthub/react-hooks";
-import React, { createContext, useCallback, useContext, useMemo } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+} from "react";
 import { baseColorVariableValues } from "../theme/base/colors";
 import { IThemeColors, IThemeRGB } from "../types";
 import applyTheme from "./applyTheme";
@@ -8,6 +13,7 @@ import { rgbToHex } from "./utils";
 type Props = {
   children: React.ReactNode;
   themeRGBOverrides?: IThemeRGB;
+  updateRGBOnChange?: boolean;
 };
 
 type ThemeContextType = {
@@ -32,9 +38,14 @@ export default function ThemeProvider(props: Props) {
     };
   }, [props.themeRGBOverrides]);
 
-  useEffectOnMount(() => {
-    applyTheme(themeRGB);
-  });
+  useEffect(
+    () => {
+      applyTheme(themeRGB);
+    },
+    // Must include `themeRGB` in the dependencies array for the storybook theme
+    // toggle to work
+    props.updateRGBOnChange ? [themeRGB] : [],
+  );
 
   // Converts the theme from RGB to Hex
   const convertThemeRGBToHex = useCallback((): IThemeColors => {
