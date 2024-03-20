@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "@storybook/test";
 import React from "react";
 import FormSelect from "../FormSelect";
 import { Option } from "../FormSelect/types";
@@ -41,6 +42,29 @@ export const Default: Story = {
     label: "Label",
     options,
     value: optionsOne[0],
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const select = canvas.getByRole("combobox");
+    await userEvent.click(select);
+
+    options[0].options.forEach(async option => {
+      const optionLabel = await canvas.findByLabelText(
+        `select-option-${option.value}`,
+      );
+      await expect(optionLabel).toHaveTextContent(option.label);
+    });
+
+    const secondTab = canvas.getByText(options[1].label);
+    await userEvent.click(secondTab);
+
+    options[1].options.forEach(async option => {
+      const optionLabel = await canvas.findByLabelText(
+        `select-option-${option.value}`,
+      );
+      await expect(optionLabel).toHaveTextContent(option.label);
+    });
   },
 };
 

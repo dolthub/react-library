@@ -1,0 +1,47 @@
+name: Run Chromatic after merge to main
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: chromatic-main-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            components:
+              - 'packages/components/**'  
+
+      - name: Enable Corepack before setting up Node
+        run: corepack enable
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install and run build
+        working-directory: ./
+        run: |
+          yarn install --immutable
+          yarn dbuild
+
+      - name: Publish to Chromatic
+        if: steps.filter.outputs.components == 'true'
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: packages/components
+          onlyChanged: true
