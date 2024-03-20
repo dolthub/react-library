@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { expect, userEvent, within } from "@storybook/test";
 import FormInput from "../FormInput";
 
 const meta: Meta<typeof FormInput> = {
@@ -17,7 +18,15 @@ type Story = StoryObj<typeof FormInput>;
 export const Basic: Story = {
   args: {
     label: "Label",
-    value: "test",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const input = canvas.getByRole("textbox");
+    await userEvent.type(input, "test");
+
+    const availableOptions = await canvas.findByDisplayValue("test");
+    await expect(availableOptions).toBeVisible();
   },
 };
 

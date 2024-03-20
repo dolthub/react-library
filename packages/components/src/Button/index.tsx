@@ -40,6 +40,7 @@ function Button({
         className,
       )}
       type="button"
+      data-testid="default-button"
       // These props need to come last
       {...props}
     >

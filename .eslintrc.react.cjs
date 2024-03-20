@@ -46,6 +46,10 @@ module.exports = {
     "react/require-default-props": "off",
     "react/no-unused-prop-types": "error",
     "react/prop-types": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      { devDependencies: ["**/__tests__/**", "**/__stories__/**"] },
+    ],
   },
   overrides: [
     {
