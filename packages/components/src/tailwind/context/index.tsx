@@ -13,6 +13,7 @@ import { rgbToHex } from "./utils";
 type Props = {
   children: React.ReactNode;
   themeRGBOverrides?: IThemeRGB;
+  updateRGBOnChange?: boolean;
 };
 
 type ThemeContextType = {
@@ -37,9 +38,14 @@ export default function ThemeProvider(props: Props) {
     };
   }, [props.themeRGBOverrides]);
 
-  useEffect(() => {
-    applyTheme(themeRGB);
-  }, [themeRGB]);
+  useEffect(
+    () => {
+      applyTheme(themeRGB);
+    },
+    // Must include `themeRGB` in the dependencies array for the storybook theme
+    // toggle to work
+    props.updateRGBOnChange ? [themeRGB] : [],
+  );
 
   // Converts the theme from RGB to Hex
   const convertThemeRGBToHex = useCallback((): IThemeColors => {

@@ -53,7 +53,7 @@ const preview: Preview = {
     (Story, context) => {
       const theme = context.args.theme ?? context.globals.theme;
       return (
-        <ThemeProvider themeRGBOverrides={getTheme(theme)}>
+        <ThemeProvider themeRGBOverrides={getTheme(theme)} updateRGBOnChange>
           <Story />
         </ThemeProvider>
       );
