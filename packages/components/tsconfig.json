@@ -22,6 +22,7 @@
     "types": ["node", "jsdom", "@testing-library/jest-dom"]
   },
   "references": [
+    { "path": "../contexts"},
     { "path": "../hooks"},
     { "path": "../utils" }
   ]

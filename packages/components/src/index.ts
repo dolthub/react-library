@@ -16,6 +16,8 @@ export { default as Popup, PopupProps } from "./Popup";
 export { default as Radio } from "./Radio";
 export { default as SmallLoader } from "./SmallLoader";
 export { default as SuccessMsg } from "./SuccessMsg";
+export * from "./Tabs";
+export { useTabsContext } from "./Tabs/context";
 export { default as Textarea } from "./Textarea";
 export { default as ThemeProvider, useThemeContext } from "./tailwind/context";
 export { mergeConfig } from "./tailwind/mergeConfig";
