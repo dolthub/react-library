@@ -1,5 +1,10 @@
-import { useEffectOnMount } from "@dolthub/react-hooks";
-import React, { createContext, useCallback, useContext, useMemo } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+} from "react";
 import { baseColorVariableValues } from "../theme/base/colors";
 import { IThemeColors, IThemeRGB } from "../types";
 import applyTheme from "./applyTheme";
@@ -32,9 +37,9 @@ export default function ThemeProvider(props: Props) {
     };
   }, [props.themeRGBOverrides]);
 
-  useEffectOnMount(() => {
+  useEffect(() => {
     applyTheme(themeRGB);
-  });
+  }, [themeRGB]);
 
   // Converts the theme from RGB to Hex
   const convertThemeRGBToHex = useCallback((): IThemeColors => {
