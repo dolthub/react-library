@@ -65,6 +65,7 @@ export const AllBlue: Story = {
     checked: true,
     blue: true,
   },
+  name: "All Blue (Hosted)",
 };
 
 export const UncheckedBlue: Story = {

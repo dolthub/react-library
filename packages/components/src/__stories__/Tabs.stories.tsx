@@ -42,22 +42,6 @@ export const Basic: Story = {
   },
 };
 
-export const SmallDark: Story = {
-  args: {
-    initialActiveIndex: 0,
-    children: [
-      <TabList key="tabList">
-        {tabs.map((tab, index) => (
-          <Tab key={tab} index={index} small dark renderOnlyChild>
-            <a className="text-link-1">{tab}</a>
-          </Tab>
-        ))}
-      </TabList>,
-      ...panels,
-    ],
-  },
-};
-
 export const SecondActive: Story = {
   args: {
     initialActiveIndex: 1,
@@ -106,4 +90,21 @@ export const TabWithLink: Story = {
       ...panels,
     ],
   },
+};
+
+export const SmallDark: Story = {
+  args: {
+    initialActiveIndex: 0,
+    children: [
+      <TabList key="tabList">
+        {tabs.map((tab, index) => (
+          <Tab key={tab} index={index} small dark renderOnlyChild>
+            <a className="text-link-1">{tab}</a>
+          </Tab>
+        ))}
+      </TabList>,
+      ...panels,
+    ],
+  },
+  name: "Small Dark (Hosted, Workbench)",
 };

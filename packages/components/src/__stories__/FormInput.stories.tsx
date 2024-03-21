@@ -103,6 +103,7 @@ export const BlueText: Story = {
     value: "test",
     blueText: true,
   },
+  name: "Blue Text (Hosted)",
 };
 
 export const Pill: Story = {
@@ -111,4 +112,5 @@ export const Pill: Story = {
     value: "test",
     pill: true,
   },
+  name: "Pill (Hosted)",
 };

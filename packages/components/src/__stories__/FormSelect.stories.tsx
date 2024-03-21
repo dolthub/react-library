@@ -92,6 +92,7 @@ export const BlueRounded: Story = {
     rounded: true,
     isClearable: true,
   },
+  name: "Blue Rounded (Hosted)",
 };
 
 export const Pill: Story = {
@@ -101,6 +102,7 @@ export const Pill: Story = {
     val: "one",
     pill: true,
   },
+  name: "Pill (Hosted)",
 };
 
 export const Mono: Story = {
@@ -121,7 +123,7 @@ export const Small: Story = {
   },
 };
 
-export const TransparentBorder: Story = {
+export const TransparentBorderPill: Story = {
   args: {
     options,
     val: "one",
@@ -131,6 +133,7 @@ export const TransparentBorder: Story = {
   parameters: {
     backgrounds: { default: "blue" },
   },
+  name: "Transparent Border Pill (Hosted)",
 };
 
 export const Horizontal: Story = {

@@ -22,7 +22,7 @@
   @apply text-sm pt-2.5 bg-ld-lightpurple;
 }
 
-.atextarea {
+.textarea {
   @apply mb-0 max-w-none;
 
   textarea {

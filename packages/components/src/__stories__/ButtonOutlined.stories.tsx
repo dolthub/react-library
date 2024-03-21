@@ -25,6 +25,7 @@ export const Pill: Story = {
     children: "Button name",
     pill: true,
   },
+  name: "Pill (Hosted)",
 };
 
 export const Disabled: Story = {

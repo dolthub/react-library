@@ -63,7 +63,7 @@ export default function TextareaWithMarkdown({
               <Textarea
                 {...props}
                 onChangeString={onChange}
-                className={cx(css.atextarea, {
+                className={cx(css.textarea, {
                   [css.textareaMaxHeight]: hasMaxHeight,
                   [css.textareaMinHeight]: hasMinHeight,
                   [css.textareaSeparate]: separateTabs,
