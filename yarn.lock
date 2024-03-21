@@ -2278,6 +2278,7 @@ __metadata:
     classnames: "npm:^2.5.1"
     cssnano: "npm:^6.0.5"
     deepmerge: "npm:^4.3.1"
+    display-element-css: cfpb/storybook-addon-display-element-css
     eslint: "npm:^8.57.0"
     eslint-plugin-storybook: "npm:^0.8.0"
     github-markdown-css: "npm:^5.5.1"
@@ -2305,6 +2306,7 @@ __metadata:
     rollup-plugin-postcss: "npm:^4.0.2"
     rollup-plugin-terser: "npm:^7.0.2"
     storybook: "npm:^7.6.17"
+    storybook-css-modules: "npm:^1.0.8"
     stylelint: "npm:^16.2.1"
     stylelint-config-recommended: "npm:^14.0.0"
     tailwindcss: "npm:^3.4.1"
@@ -8554,6 +8556,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+display-element-css@cfpb/storybook-addon-display-element-css:
+  version: 0.0.7
+  resolution: "display-element-css@https://github.com/cfpb/storybook-addon-display-element-css.git#commit=bd5f817f2de41cf0f84adadef32d4673c3fe6f58"
+  dependencies:
+    react-highlight: "npm:^0.15.0"
+  peerDependencies:
+    "@storybook/addons": ^6.5.8
+    "@storybook/api": ^6.5.8
+    "@storybook/components": ^6.5.8
+    "@storybook/core-events": ^6.5.8
+    "@storybook/theming": ^6.5.8
+    react: ^16.8.0 || ^17.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 45c9bb9077cef820f3dbc9cd6ca2b54df9b132527562c304f131eb7be39973a378107c3cefcfea3fb393bdef9a002bd8733c859d44cd2a165d6194e73b0cdaff
+  languageName: node
+  linkType: hard
+
 "dlv@npm:^1.1.3":
   version: 1.1.3
   resolution: "dlv@npm:1.1.3"
@@ -10650,6 +10674,13 @@ __metadata:
   bin:
     he: bin/he
   checksum: a27d478befe3c8192f006cdd0639a66798979dfa6e2125c6ac582a19a5ebfec62ad83e8382e6036170d873f46e4536a7e795bf8b95bf7c247f4cc0825ccc8c17
+  languageName: node
+  linkType: hard
+
+"highlight.js@npm:^10.5.0":
+  version: 10.7.3
+  resolution: "highlight.js@npm:10.7.3"
+  checksum: 073837eaf816922427a9005c56c42ad8786473dc042332dfe7901aa065e92bc3d94ebf704975257526482066abb2c8677cc0326559bb8621e046c21c5991c434
   languageName: node
   linkType: hard
 
@@ -16125,6 +16156,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-highlight@npm:^0.15.0":
+  version: 0.15.0
+  resolution: "react-highlight@npm:0.15.0"
+  dependencies:
+    highlight.js: "npm:^10.5.0"
+  checksum: edb618c04fb44af03cea128ec26b4aaecd690982f8bafb3e47040c1706b0721184ea029b8365c4a937ea60ae1d75b3c214863ca8fa5a46477093209ad63f89ab
+  languageName: node
+  linkType: hard
+
 "react-hotkeys@npm:^2.0.0":
   version: 2.0.0
   resolution: "react-hotkeys@npm:2.0.0"
@@ -17450,6 +17490,13 @@ __metadata:
   version: 2.14.3
   resolution: "store2@npm:2.14.3"
   checksum: 22e1096e6d69590672ca0b7f891d82b060837ef4c3e5df0d4563e6cbed14c52ddf2589fa94b79f4311b6ec41d95d6142e5d01d194539e0175c3fb4090cca8244
+  languageName: node
+  linkType: hard
+
+"storybook-css-modules@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "storybook-css-modules@npm:1.0.8"
+  checksum: d98c7166b5c32ba2d85a99821eefb23e2bf97c37ddd3a197e71187582d9da9a2093c3c97a166348f347d1e6fa696bd92996d444b3ee1d151bd52e06e23535d44
   languageName: node
   linkType: hard
 
