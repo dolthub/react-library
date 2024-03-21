@@ -9,12 +9,12 @@ type Props = {
   className?: string;
   value: string;
   ["data-cy"]?: string;
-  forModal?: boolean;
+  hasMaxHeight?: boolean;
   baseTextSize?: boolean;
 };
 
 export default function Markdown({
-  forModal = false,
+  hasMaxHeight = false,
   baseTextSize = false,
   ...props
 }: Props) {
@@ -25,8 +25,8 @@ export default function Markdown({
           "markdown-body",
           css.preview,
           {
-            [css.forModal]: forModal,
-            [css.baseText]: baseTextSize,
+            [css.previewMaxHeight]: hasMaxHeight,
+            [css.previewBaseText]: baseTextSize,
           },
           props.className,
         )}
