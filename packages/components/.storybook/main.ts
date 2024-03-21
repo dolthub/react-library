@@ -16,6 +16,18 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@storybook/addon-interactions"),
     getAbsolutePath("@storybook/addon-styling-webpack"),
+    getAbsolutePath("display-element-css"),
+    {
+      name: getAbsolutePath("storybook-css-modules"),
+      options: {
+        cssModulesLoaderOptions: {
+          importLoaders: 1,
+          modules: {
+            localIdentName: "[folder]_[local]__[hash:base64:5]",
+          },
+        },
+      },
+    },
   ],
   framework: {
     name: "@storybook/react-webpack5",
@@ -33,7 +45,13 @@ const config: StorybookConfig = {
           loader: "postcss-loader",
           options: {
             postcssOptions: {
-              plugins: { tailwindcss: {}, autoprefixer: {} },
+              plugins: {
+                "tailwindcss/nesting": {},
+                tailwindcss: {},
+                "postcss-preset-env": {},
+                cssnano: {},
+                autoprefixer: {},
+              },
             },
           },
         },
