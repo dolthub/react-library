@@ -6,7 +6,7 @@ module.exports = {
   transform: {
     "^.+\\.tsx?$": "babel-jest",
   },
-  testPathIgnorePatterns: ["types", "node_modules", ".rollup.cache", "dist"],
+  testPathIgnorePatterns: ["types", "node_modules", "rollup.cache", "dist"],
   moduleFileExtensions: ["ts", "js", "tsx"],
   moduleNameMapper: {
     "\\.(css|less)$": "identity-obj-proxy",

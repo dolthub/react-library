@@ -54,6 +54,7 @@ export const MinHeight: Story = {
     rows: 6,
     hasMinHeight: true,
   },
+  parameters: { backgrounds: { default: "lightish" } },
 };
 
 export const SeparateTabs: Story = {

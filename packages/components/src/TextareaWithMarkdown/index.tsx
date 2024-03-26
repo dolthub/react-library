@@ -70,6 +70,7 @@ export default function TextareaWithMarkdown({
                 })}
                 dir="auto"
                 light
+                noMaxWidth
               />
             </div>
           </TabPanel>

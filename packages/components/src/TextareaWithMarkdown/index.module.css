@@ -14,17 +14,20 @@
   @apply rounded-b-none;
 }
 
-.outerUnroundedTop {
-  @apply rounded-t-none;
+.tabList {
+  @apply text-sm pt-2.5 bg-ld-lightpurple rounded-t-md;
 }
 
-.tabList {
-  @apply text-sm pt-2.5 bg-ld-lightpurple;
+.outerUnroundedTop {
+  @apply rounded-t-none;
+
+  .tabList {
+    @apply rounded-t-none;
+  }
 }
 
 .textarea {
-  @apply mb-0 max-w-none;
-
+  @apply bg-white rounded-b-md;
   textarea {
     @apply p-6 mb-0 w-full outline-none max-w-full resize-y border-none break-words min-h-[9.25rem];
   }
@@ -39,7 +42,7 @@
 }
 
 .textareaSeparate {
-  @apply mt-4 border rounded bg-white;
+  @apply mt-4 border rounded;
 
   textarea {
     @apply w-full py-3 px-4;

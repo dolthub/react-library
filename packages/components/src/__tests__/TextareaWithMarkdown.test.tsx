@@ -5,12 +5,20 @@ import TextareaWithMarkdown from "../TextareaWithMarkdown";
 describe("test TextareaWithMarkdown", () => {
   it("renders textarea", () => {
     const onChange = jest.fn();
-    render(<TextareaWithMarkdown value="Hello" rows={4} onChange={onChange} />);
+    render(
+      <TextareaWithMarkdown
+        value="Hello"
+        rows={4}
+        onChange={onChange}
+        label="Label"
+      />,
+    );
 
     const input = screen.getByRole("textbox");
     expect(input).toBeVisible();
     expect(input).toHaveClass(/textarea/);
     expect(input).toHaveTextContent("Hello");
+    expect(screen.getByText("Label")).toBeVisible();
 
     fireEvent.change(input, { target: { value: "Test" } });
     expect(onChange).toHaveBeenCalledWith("Test");

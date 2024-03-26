@@ -2,6 +2,10 @@
   @apply max-w-xl w-full text-primary mb-4;
 }
 
+.noMaxWidth {
+  @apply max-w-none mb-0;
+}
+
 .mobileFriendly {
   @media (max-width: 640px) {
     @apply border-t border-ld-lightgrey px-4 pt-3 mb-0 pb-4 bg-white;
