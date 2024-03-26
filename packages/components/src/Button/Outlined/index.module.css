@@ -1,0 +1,83 @@
+.buttonOutlined {
+  @apply outline-none font-semibold leading-relaxed border button-shadow bg-transparent;
+
+  &:focus {
+    @apply outline-none widget-shadow-lightblue;
+  }
+
+  &:disabled {
+    @apply cursor-default border-acc-light-text text-acc-light-text;
+
+    &:hover {
+      @apply border-acc-light-text text-acc-light-text;
+    }
+  }
+}
+
+/* COLOR VARIANTS */
+
+.color-default {
+  @apply border-button-1 text-button-1;
+
+  &:hover {
+    @apply border-button-2 text-button-2;
+  }
+}
+
+.color-dark {
+  @apply border-primary text-primary;
+
+  &:hover {
+    @apply border-acc-hoverblue text-acc-hoverblue;
+  }
+}
+
+.color-red {
+  @apply border-acc-red text-acc-red;
+
+  &:hover {
+    @apply border-acc-hoverred text-acc-hoverred;
+  }
+}
+
+.color-green {
+  @apply border-acc-green text-acc-green;
+
+  &:hover {
+    @apply border-acc-hovergreen text-acc-hovergreen;
+  }
+}
+
+/* SHAPE VARIANTS */
+
+.shape-default {
+  @apply rounded;
+}
+
+.shape-pill {
+  @apply rounded-full;
+}
+
+/* SIZE VARIANTS */
+
+.size-small {
+  @apply px-3 py-0.5 text-sm;
+}
+
+.size-medium {
+  @apply px-6 py-1.5 text-base;
+}
+
+.size-large {
+  @apply px-8 py-2 text-base;
+}
+
+/* ICON */
+
+.withIcon {
+  @apply flex items-center justify-center;
+
+  svg {
+    @apply mr-2;
+  }
+}

@@ -1,0 +1,61 @@
+.buttonLink {
+  @apply font-semibold text-sm leading-relaxed bg-transparent;
+
+  &:focus {
+    @apply outline-none widget-shadow-lightblue;
+  }
+
+  &:disabled {
+    @apply text-ld-darkgrey;
+
+    &:hover {
+      @apply text-ld-darkgrey;
+    }
+  }
+}
+
+.underlined {
+  @apply underline px-2;
+}
+
+/* COLOR VARIANTS */
+
+.color-default {
+  @apply text-link-1 hover:text-link-2;
+}
+
+.color-dark {
+  @apply text-primary hover:text-acc-hoverblue;
+}
+
+.color-red {
+  @apply text-acc-red hover:text-acc-hoverred;
+}
+
+.color-green {
+  @apply text-acc-green hover:text-acc-hovergreen;
+}
+
+/* SIZE VARIANTS */
+
+.size-small {
+  @apply text-sm;
+}
+
+.size-medium {
+  @apply text-base;
+}
+
+.size-large {
+  @apply text-lg;
+}
+
+/* ICON */
+
+.withIcon {
+  @apply flex items-center justify-center;
+
+  svg {
+    @apply mr-2;
+  }
+}

@@ -16,6 +16,7 @@
   ],
   "packageManager": "yarn@4.0.2",
   "scripts": {
+    "clean": "rm -rf dist && rm -rf .rollup.cache && rm -rf types && rm -rf tsconfig.tsbuildinfo && rm -rf .eslintcache",
     "compile": "tsc -b",
     "build": "rollup -c --bundleConfigAsCjs",
     "dbuild": "yarn compile && yarn build",
