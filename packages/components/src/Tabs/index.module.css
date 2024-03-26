@@ -1,0 +1,52 @@
+.tabList {
+  @apply w-full overflow-x-auto flex border-b border-ld-lightgrey;
+
+  @media (max-width: 756px) {
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      @apply hidden;
+    }
+  }
+}
+
+.tab {
+  @apply px-4 mx-3;
+
+  button,
+  a {
+    @apply flex justify-center items-center mt-1 min-w-full px-0 font-semibold pb-2;
+  }
+}
+
+.smallTab {
+  @apply px-1 mx-6;
+}
+
+.activeTab,
+.tab:hover {
+  @apply text-acc-1 border-b-3 border-acc-1;
+
+  a {
+    @apply text-acc-1;
+  }
+}
+
+.activeTab.darkTab,
+.darkTab:hover {
+  @apply text-primary border-primary;
+
+  a {
+    @apply text-primary;
+  }
+}
+
+.tabs {
+  @apply w-full;
+
+  @screen md {
+    @apply w-auto;
+  }
+}

@@ -11,6 +11,7 @@ type Props = {
   inputref?: React.RefObject<HTMLTextAreaElement>;
   horizontal?: boolean;
   mobileFriendly?: boolean;
+  noMaxWidth?: boolean;
 } & React.DetailedHTMLProps<
   React.TextareaHTMLAttributes<HTMLTextAreaElement>,
   HTMLTextAreaElement
@@ -28,6 +29,7 @@ function Textarea(
     light = false,
     horizontal = false,
     mobileFriendly = false,
+    noMaxWidth = false,
     ...textAreaProps
   }: Props,
   ref: ForwardedRef<HTMLTextAreaElement>,
@@ -39,6 +41,7 @@ function Textarea(
         {
           [css.horizontal]: horizontal,
           [css.mobileFriendly]: mobileFriendly,
+          [css.noMaxWidth]: noMaxWidth,
         },
         className,
       )}

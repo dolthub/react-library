@@ -1,6 +1,6 @@
 {
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["./types", "./esm", "./cjs", "node_modules", "./dist"],
+  "exclude": ["./types", "./esm", "./cjs", "node_modules", "./dist", "./src/__mocks__"],
   "compilerOptions": {
     "rootDir": "src",
     "baseUrl": ".",
@@ -22,6 +22,7 @@
     "types": ["node", "jsdom", "@testing-library/jest-dom"]
   },
   "references": [
+    { "path": "../contexts"},
     { "path": "../hooks"},
     { "path": "../utils" }
   ]

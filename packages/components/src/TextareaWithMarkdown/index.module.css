@@ -1,0 +1,58 @@
+.label {
+  @apply font-semibold pb-2;
+}
+
+.outerContainer {
+  @apply rounded-t-md rounded-b-md border border-ld-lightgrey;
+}
+
+.outerSeparate {
+  @apply m-auto w-full mr-10 border-0;
+}
+
+.outerUnroundedBottom {
+  @apply rounded-b-none;
+}
+
+.tabList {
+  @apply text-sm pt-2.5 bg-ld-lightpurple rounded-t-md;
+}
+
+.outerUnroundedTop {
+  @apply rounded-t-none;
+
+  .tabList {
+    @apply rounded-t-none;
+  }
+}
+
+.textarea {
+  @apply bg-white rounded-b-md;
+  textarea {
+    @apply p-6 mb-0 w-full outline-none max-w-full resize-y border-none break-words min-h-[9.25rem];
+  }
+}
+
+.textareaMaxHeight textarea {
+  @apply max-h-[30vh];
+}
+
+.textareaMinHeight textarea {
+  @apply min-h-[15rem];
+}
+
+.textareaSeparate {
+  @apply mt-4 border rounded;
+
+  textarea {
+    @apply w-full py-3 px-4;
+
+    &:focus {
+      @apply outline-none;
+    }
+  }
+}
+
+.markdown {
+  @apply pb-10 min-h-[9.65rem];
+}

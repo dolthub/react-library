@@ -32,10 +32,10 @@ export const Basic: Story = {
   },
 };
 
-export const ForModal: Story = {
+export const MaxHeight: Story = {
   args: {
     value: markdown,
-    forModal: true,
+    hasMaxHeight: true,
   },
 };
 

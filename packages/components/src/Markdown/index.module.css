@@ -31,13 +31,13 @@
   }
 }
 
-.baseText {
+.previewBaseText {
   p,
   li {
     @apply text-base;
   }
 }
 
-.forModal {
+.previewMaxHeight {
   @apply overflow-y-scroll max-h-[12.5rem];
 }

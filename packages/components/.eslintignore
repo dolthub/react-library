@@ -4,3 +4,4 @@ node_modules
 ./*.js
 storybook-static
 coverage
+__mocks__
