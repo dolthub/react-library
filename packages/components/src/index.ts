@@ -6,6 +6,7 @@ export { default as CellDropdown } from "./CellDropdown";
 export { default as CharCount } from "./CharCount";
 export { default as Checkbox } from "./Checkbox";
 export { default as CodeBlock } from "./CodeBlock";
+export { default as CommentForm } from "./CommentForm";
 export { default as ExternalLink } from "./ExternalLink";
 export { default as FormInput } from "./FormInput";
 export { default as FormSelect } from "./FormSelect";

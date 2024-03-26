@@ -1,0 +1,26 @@
+.form {
+  @apply flex mx-auto;
+
+  form {
+    @apply w-full;
+  }
+}
+
+.formLeft {
+  @apply flex;
+}
+
+.imgMarginWrapper {
+  @apply mr-4 mb-1 mt-3 w-7 h-7;
+}
+
+.textarea {
+  @apply m-auto w-[92%] mr-5 flex-shrink-0;
+
+  textarea {
+    @apply text-primary rounded-b-xl rounded-tl-none text-sm border-t-0;
+    &:focus {
+      @apply outline-none;
+    }
+  }
+}
