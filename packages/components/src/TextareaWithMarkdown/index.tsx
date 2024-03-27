@@ -81,6 +81,7 @@ export default function TextareaWithMarkdown({
                 [css.textareaSeparate]: separateTabs,
               })}
               hasMaxHeight={hasMaxHeight}
+              spaceAbove={separateTabs}
             />
           </TabPanel>
         </Tabs>

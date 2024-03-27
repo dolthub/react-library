@@ -41,3 +41,7 @@
 .previewMaxHeight {
   @apply overflow-y-scroll max-h-[12.5rem];
 }
+
+.spaceAbove {
+  @apply mt-4;
+}
