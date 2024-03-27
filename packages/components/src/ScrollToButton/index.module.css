@@ -1,8 +1,8 @@
 .button {
-  @apply fixed border px-1.5 hidden bottom-10 right-24;
+  @apply hidden;
 
   @media (min-width: 1185px) {
-    @apply block;
+    @apply block fixed border bottom-10 right-24;
   }
 }
 

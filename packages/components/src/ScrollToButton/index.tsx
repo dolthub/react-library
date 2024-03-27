@@ -4,7 +4,7 @@ import Button from "../Button";
 import css from "./index.module.css";
 
 type Props = {
-  ref: React.RefObject<HTMLDivElement>;
+  refToScroll: React.RefObject<HTMLDivElement>;
   isVisible: boolean;
   text: string;
 };
@@ -14,7 +14,11 @@ export default function ScrollToButton(props: Props) {
   return (
     <Button
       className={css.button}
-      onClick={() => props.ref.current?.scrollIntoView()}
+      onClick={() => {
+        if (!props.refToScroll.current) return;
+        props.refToScroll.current.scrollIntoView();
+      }}
+      size="small"
     >
       <FaChevronDown className={css.icon} /> {props.text}
     </Button>
