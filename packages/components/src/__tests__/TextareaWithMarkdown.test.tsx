@@ -50,6 +50,7 @@ describe("test TextareaWithMarkdown", () => {
         }
         rows={4}
         onChange={onChange}
+        hasMaxHeight
       />,
     );
 
