@@ -6,16 +6,24 @@
   }
 }
 
+.mobileForm {
+  @apply rounded-b-lg relative w-full pt-2 pb-12 px-5 bg-ld-lightpurple;
+}
+
 .formLeft {
-  @apply flex;
+  @apply md:flex;
 }
 
 .imgMarginWrapper {
-  @apply mr-4 mb-1 mt-3 w-7 h-7;
+  @apply mr-4 mb-1 mt-3;
+
+  img {
+    @apply w-7 h-7;
+  }
 }
 
 .textarea {
-  @apply m-auto w-[92%] mr-5 flex-shrink-0;
+  @apply m-auto w-full mr-5 flex-shrink-0 relative;
 
   textarea {
     @apply text-primary rounded-b-xl rounded-tl-none text-sm border-t-0;
@@ -23,4 +31,18 @@
       @apply outline-none;
     }
   }
+}
+
+.textareaWithImage {
+  @screen md {
+    @apply w-[92%];
+  }
+}
+
+.charCount {
+  @apply absolute right-4 top-4 text-sm text-acc-darkgrey;
+}
+
+.charCountWithLabel {
+  @apply top-12;
 }

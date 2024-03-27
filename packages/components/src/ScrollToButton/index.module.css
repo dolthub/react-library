@@ -1,0 +1,11 @@
+.button {
+  @apply fixed border px-1.5 hidden bottom-10 right-24;
+
+  @media (min-width: 1185px) {
+    @apply block;
+  }
+}
+
+.icon {
+  @apply inline-block mr-1;
+}

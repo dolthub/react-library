@@ -45,3 +45,20 @@ export const WithChildren: Story = {
     ),
   },
 };
+
+function ProfPicWithText() {
+  return <div className="flex">{ProfPic} Add comment as user</div>;
+}
+
+export const ForMobile: Story = {
+  args: {
+    comment: "Comment",
+    profPic: <ProfPicWithText />,
+    children: <Button className="w-full my-2">Child 1</Button>,
+    maxCharCount: 1000,
+  },
+  parameters: {
+    viewport: { defaultViewport: "iphonex" },
+    backgrounds: { default: "lightish" },
+  },
+};
