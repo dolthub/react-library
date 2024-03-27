@@ -20,9 +20,9 @@ type Props = {
   className?: string;
   name?: string;
 
-  hasMaxHeight?: boolean; // forModal
-  hasMinHeight?: boolean; // tallForm
-  separateTabs?: boolean; // mobileComment
+  hasMaxHeight?: boolean;
+  hasMinHeight?: boolean;
+  separateTabs?: boolean;
   unroundBottom?: boolean;
   unroundTop?: boolean;
 };
@@ -81,6 +81,7 @@ export default function TextareaWithMarkdown({
                 [css.textareaSeparate]: separateTabs,
               })}
               hasMaxHeight={hasMaxHeight}
+              spaceAbove={separateTabs}
             />
           </TabPanel>
         </Tabs>

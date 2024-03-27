@@ -11,15 +11,22 @@ type Props = {
   ["data-cy"]?: string;
   hasMaxHeight?: boolean;
   baseTextSize?: boolean;
+  spaceAbove?: boolean;
 };
 
 export default function Markdown({
   hasMaxHeight = false,
   baseTextSize = false,
+  spaceAbove = false,
   ...props
 }: Props) {
   return (
-    <div data-cy={props["data-cy"]} aria-label="markdown" dir="auto">
+    <div
+      data-cy={props["data-cy"]}
+      aria-label="markdown"
+      dir="auto"
+      className={cx({ [css.spaceAbove]: spaceAbove })}
+    >
       <ReactMarkdown
         className={cx(
           "markdown-body",

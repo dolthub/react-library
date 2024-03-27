@@ -45,7 +45,7 @@
   @apply mt-4 border rounded;
 
   textarea {
-    @apply w-full py-3 px-4;
+    @apply w-full py-3 px-4 rounded;
 
     &:focus {
       @apply outline-none;

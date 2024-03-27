@@ -18,6 +18,10 @@
   }
 }
 
+.small {
+  @apply px-3;
+}
+
 .outlined {
   @apply rounded px-12 py-1 outline-none font-semibold leading-relaxed border button-shadow bg-transparent text-button-1 border-button-1;
 

@@ -1,0 +1,19 @@
+.container {
+  @apply fixed bg-ld-lightpurple w-full top-0 left-0 right-0 bottom-0 z-100;
+}
+
+.top {
+  @apply pt-5 px-5;
+
+  h2 {
+    @apply my-5;
+  }
+}
+
+.goback {
+  @apply my-4 flex items-center text-base;
+
+  svg {
+    @apply mr-1.5;
+  }
+}

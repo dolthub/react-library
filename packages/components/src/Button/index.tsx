@@ -9,6 +9,7 @@ type VariantProps = {
   pill?: boolean;
   white?: boolean;
   gradient?: boolean;
+  size?: "small" | "medium" | "large";
 };
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -36,6 +37,7 @@ function Button({
           [css.pill]: pill,
           [css.white]: white,
           [css.gradient]: gradient,
+          [css.small]: props.size === "small",
         },
         className,
       )}
