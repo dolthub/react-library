@@ -14,6 +14,7 @@ export type * as FormSelectTypes from "./FormSelect/types";
 export { default as Loader } from "./Loader";
 export { default as Markdown } from "./Markdown";
 export { default as MobileFormModal } from "./MobileFormModal";
+export { default as Navbar } from "./Navbar";
 export { default as Popup, PopupProps } from "./Popup";
 export { default as Radio } from "./Radio";
 export { default as ScrollToButton } from "./ScrollToButton";
