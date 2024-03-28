@@ -11,19 +11,6 @@
   }
 }
 
-.dark {
-  @apply text-background-acc-1;
-
-  a,
-  button {
-    @apply text-background-acc-1 font-semibold;
-
-    &:hover {
-      @apply text-primary text-opacity-80;
-    }
-  }
-}
-
 .large {
   @apply h-16 px-8;
 
@@ -52,6 +39,19 @@
 
   a {
     @apply mr-2 ml-10;
+  }
+}
+
+.dark {
+  @apply text-background-acc-1;
+
+  a,
+  button {
+    @apply text-background-acc-1 font-semibold;
+
+    &:hover {
+      @apply text-primary text-opacity-80;
+    }
   }
 }
 
