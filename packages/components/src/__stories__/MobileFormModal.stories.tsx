@@ -5,7 +5,7 @@ import React from "react";
 import Button from "../Button";
 import ForMobile from "../CommentForm/ForMobile";
 import MobileFormModal from "../MobileFormModal";
-import Navbar from "../Navbar";
+import MobileNavbar from "../Navbar/ForMobile";
 
 const meta: Meta<typeof MobileFormModal> = {
   title: "MobileFormModal",
@@ -22,7 +22,7 @@ export default meta;
 type Story = StoryObj<typeof MobileFormModal>;
 
 const Nav = (
-  <Navbar
+  <MobileNavbar
     logo={
       <img
         src="https://dolthub.awsdev.ld-corp.com/blog/static/bd834a2859f2246200c1692940ff1409/222b7/dolt-logo-1.png"
@@ -44,7 +44,7 @@ const Nav = (
     <a>Blog</a>
     <a>Documentation</a>
     <Button.Outlined>Sign out</Button.Outlined>
-  </Navbar>
+  </MobileNavbar>
 );
 
 const Form = (

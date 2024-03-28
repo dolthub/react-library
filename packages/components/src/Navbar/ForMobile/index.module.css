@@ -1,9 +1,5 @@
 .container {
   @apply w-full text-white px-5 py-2 h-14;
-
-  @screen lg {
-    @apply hidden;
-  }
 }
 
 .top {
