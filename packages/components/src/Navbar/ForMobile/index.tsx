@@ -69,7 +69,9 @@ function NavMenu(props: NavProps) {
           </Btn>
         }
       />
-      <div className={css.links}>{props.children}</div>
+      <div className={css.links} data-cy="mobile-navbar-links">
+        {props.children}
+      </div>
       {props.mobileBottomLinks && (
         <div className={css.bottomLinks} data-cy="mobile-navbar-social-links">
           {props.mobileBottomLinks}
