@@ -1,4 +1,8 @@
 .container {
+  @apply lg:hidden;
+}
+
+.topContainer {
   @apply w-full text-white px-5 py-2 h-14;
 }
 
@@ -7,6 +11,12 @@
 
   button {
     @apply text-xl p-2.5 text-white hover:text-white/70;
+  }
+}
+
+.darkTop {
+  button {
+    @apply text-background-acc-1 hover:text-primary;
   }
 }
 
@@ -29,7 +39,14 @@
 
   a,
   button {
-    @apply text-xl my-4 mx-0 font-semibold text-white/90 hover:text-blue-200 tracking-widest;
+    @apply text-xl my-4 mx-0 font-semibold tracking-widest text-white/90 hover:text-blue-200;
+  }
+
+  a {
+    @apply flex items-center;
+    > svg {
+      @apply mr-3;
+    }
   }
 }
 

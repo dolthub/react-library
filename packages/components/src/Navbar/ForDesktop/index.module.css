@@ -1,5 +1,5 @@
 .container {
-  @apply block w-full text-white pt-2 h-12 z-50 mx-auto pb-2;
+  @apply hidden lg:block w-full text-white pt-2 h-12 z-50 mx-auto pb-2;
 }
 
 .inner {
@@ -7,7 +7,14 @@
 
   a,
   button {
-    @apply text-sm font-normal text-white/90 hover:text-blue-200 tracking-wide;
+    @apply text-sm font-normal tracking-wide text-white/90 hover:text-blue-200;
+  }
+
+  a {
+    @apply flex items-center;
+    > svg {
+      @apply mr-3;
+    }
   }
 }
 
@@ -21,7 +28,7 @@
 }
 
 .left {
-  @apply flex w-1/3 ml-6 order-first;
+  @apply flex w-1/3 ml-2 order-first;
 
   a {
     @apply ml-2 mr-10;
@@ -35,7 +42,7 @@
 }
 
 .right {
-  @apply flex justify-end mr-6 w-1/3;
+  @apply flex justify-end mr-2 w-1/3;
 
   a {
     @apply mr-2 ml-10;
@@ -59,7 +66,7 @@
   @apply justify-start relative;
 
   .left {
-    @apply order-2 w-auto;
+    @apply order-2 w-auto ml-6;
   }
 
   .logo {

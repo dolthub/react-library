@@ -1,16 +1,18 @@
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import DesktopNavbar from "../Navbar/ForDesktop";
+import Navbar from "../Navbar";
 
-const meta: Meta<typeof DesktopNavbar> = {
-  title: "DesktopNavbar",
-  component: DesktopNavbar,
+const meta: Meta<typeof Navbar> = {
+  title: "Navbar",
+  component: Navbar,
   tags: ["autodocs"],
+  parameters: { layout: "fullscreen" },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof DesktopNavbar>;
+type Story = StoryObj<typeof Navbar>;
 
 export const Basic: Story = {
   args: {
@@ -29,7 +31,9 @@ export const Basic: Story = {
     ),
     rightLinks: (
       <>
-        <a>Profile</a>
+        <a>
+          <FaGithub /> GitHub
+        </a>
         <a>Another</a>
       </>
     ),
@@ -43,7 +47,7 @@ export const Large: Story = {
   },
 };
 
-export const Dark: Story = {
+export const TransparentDark: Story = {
   args: {
     ...Basic.args,
     dark: true,
@@ -58,5 +62,20 @@ export const LogoLeft: Story = {
   args: {
     ...Basic.args,
     logoLeft: true,
+  },
+};
+
+export const Mobile: Story = {
+  args: Basic.args,
+
+  parameters: {
+    viewport: { defaultViewport: "iphonex" },
+  },
+};
+
+export const MobileTransparentDark: Story = {
+  args: TransparentDark.args,
+  parameters: {
+    viewport: { defaultViewport: "iphonex" },
   },
 };

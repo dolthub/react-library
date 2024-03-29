@@ -11,6 +11,7 @@ type CommonProps = {
 };
 
 type Props = CommonProps & {
+  dark?: boolean;
   children: ReactNode;
   mobileBottomLinks?: ReactNode;
   className?: string;
@@ -20,9 +21,12 @@ export default function ForMobile(props: Props) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={props.className}>
+    <div className={cx(css.container, props.className)}>
       <Top
         {...props}
+        className={cx({
+          [css.darkTop]: props.dark,
+        })}
         icon={
           <Btn
             onClick={() => setOpen(true)}
@@ -50,7 +54,7 @@ type NavProps = CommonProps & {
 
 function NavMenu(props: NavProps) {
   return (
-    <div className={cx(css.openMenu, props.bgColor ?? "bg-background-acc-1")}>
+    <div className={cx(css.openMenu, getBgColor(props.bgColor, true))}>
       <Top
         {...props}
         icon={
@@ -75,11 +79,18 @@ function NavMenu(props: NavProps) {
 
 type TopProps = CommonProps & {
   icon: ReactNode;
+  className?: string;
 };
 
 function Top(props: TopProps) {
   return (
-    <div className={cx(css.container, props.bgColor ?? "bg-background-acc-1")}>
+    <div
+      className={cx(
+        css.topContainer,
+        getBgColor(props.bgColor),
+        props.className,
+      )}
+    >
       <div className={css.top}>
         {props.icon}
         <div className={css.logo}>{props.logo}</div>
@@ -87,4 +98,14 @@ function Top(props: TopProps) {
       </div>
     </div>
   );
+}
+
+function getBgColor(bgColor?: string, forMenu = false): string {
+  if (bgColor) {
+    if (bgColor === "bg-transparent" && forMenu) {
+      return "bg-background-acc-1";
+    }
+    return bgColor;
+  }
+  return "bg-background-acc-1";
 }
