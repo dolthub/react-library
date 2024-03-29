@@ -14,14 +14,13 @@ type Props = CommonProps & {
   dark?: boolean;
   children: ReactNode;
   mobileBottomLinks?: ReactNode;
-  className?: string;
 };
 
 export default function ForMobile(props: Props) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className={cx(css.container, props.className)}>
+    <header className={css.container}>
       <Top
         {...props}
         className={cx({
@@ -42,7 +41,7 @@ export default function ForMobile(props: Props) {
           {props.children}
         </NavMenu>
       )}
-    </div>
+    </header>
   );
 }
 
@@ -54,7 +53,10 @@ type NavProps = CommonProps & {
 
 function NavMenu(props: NavProps) {
   return (
-    <div className={cx(css.openMenu, getBgColor(props.bgColor, true))}>
+    <div
+      className={cx(css.openMenu, getBgColor(props.bgColor, true))}
+      aria-label="mobile nav menu"
+    >
       <Top
         {...props}
         icon={
@@ -90,6 +92,7 @@ function Top(props: TopProps) {
         getBgColor(props.bgColor),
         props.className,
       )}
+      aria-label="mobile navbar top"
     >
       <div className={css.top}>
         {props.icon}

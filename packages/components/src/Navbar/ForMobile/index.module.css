@@ -41,13 +41,6 @@
   button {
     @apply text-xl my-4 mx-0 font-semibold tracking-widest text-white/90 hover:text-blue-200;
   }
-
-  a {
-    @apply flex items-center;
-    > svg {
-      @apply mr-3;
-    }
-  }
 }
 
 .bottomLinks {
@@ -56,5 +49,12 @@
   img,
   svg {
     @apply text-white h-9 w-9;
+  }
+}
+
+.links a {
+  @apply flex items-center;
+  > svg {
+    @apply mr-3;
   }
 }

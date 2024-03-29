@@ -6,7 +6,6 @@ type Props = {
   leftLinks: ReactNode;
   logo: ReactNode;
   rightLinks: ReactNode;
-  className?: string;
   bgColor?: string;
   large?: boolean;
   dark?: boolean;
@@ -15,13 +14,11 @@ type Props = {
 
 export default function DesktopNavbar(props: Props) {
   return (
-    <div
-      className={cx(
-        css.container,
-        props.bgColor ?? "bg-background-acc-1",
-        { [css.large]: props.large, [css.dark]: props.dark },
-        props.className,
-      )}
+    <header
+      className={cx(css.container, props.bgColor ?? "bg-background-acc-1", {
+        [css.large]: props.large,
+        [css.dark]: props.dark,
+      })}
     >
       <div
         className={cx(css.inner, {
@@ -33,6 +30,6 @@ export default function DesktopNavbar(props: Props) {
         <div className={css.logo}>{props.logo}</div>
         <div className={css.right}>{props.rightLinks}</div>
       </div>
-    </div>
+    </header>
   );
 }
