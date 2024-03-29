@@ -1,0 +1,60 @@
+.container {
+  @apply lg:hidden;
+}
+
+.topContainer {
+  @apply w-full text-white px-5 py-2 h-14;
+}
+
+.top {
+  @apply flex justify-between items-center;
+
+  button {
+    @apply text-xl p-2.5 text-white hover:text-white/70;
+  }
+}
+
+.darkTop {
+  button {
+    @apply text-background-acc-1 hover:text-primary;
+  }
+}
+
+.emptyTop {
+  @apply w-10;
+}
+
+.logo {
+  img {
+    @apply max-h-7 max-w-56;
+  }
+}
+
+.openMenu {
+  @apply fixed top-0 bottom-0 left-0 right-0 z-100;
+}
+
+.links {
+  @apply flex flex-col items-center mx-0 mt-10;
+
+  a,
+  button {
+    @apply text-xl my-4 mx-0 font-semibold tracking-widest text-white/90 hover:text-blue-200;
+  }
+}
+
+.bottomLinks {
+  @apply absolute left-0 right-0 bottom-8 flex justify-between mx-auto px-8 max-w-xs;
+
+  img,
+  svg {
+    @apply text-white h-9 w-9;
+  }
+}
+
+.links a {
+  @apply flex items-center;
+  > svg {
+    @apply mr-3;
+  }
+}

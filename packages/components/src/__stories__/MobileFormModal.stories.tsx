@@ -1,8 +1,11 @@
+import { FaDiscord } from "@react-icons/all-files/fa/FaDiscord";
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import Button from "../Button";
 import ForMobile from "../CommentForm/ForMobile";
 import MobileFormModal from "../MobileFormModal";
+import MobileNavbar from "../Navbar/ForMobile";
 
 const meta: Meta<typeof MobileFormModal> = {
   title: "MobileFormModal",
@@ -19,7 +22,29 @@ export default meta;
 type Story = StoryObj<typeof MobileFormModal>;
 
 const Nav = (
-  <div className="w-full bg-ld-darkerblue text-white py-1 text-center">Nav</div>
+  <MobileNavbar
+    logo={
+      <img
+        src="https://dolthub.awsdev.ld-corp.com/blog/static/bd834a2859f2246200c1692940ff1409/222b7/dolt-logo-1.png"
+        alt="LOGO"
+      />
+    }
+    mobileBottomLinks={
+      <>
+        <a>
+          <FaGithub />
+        </a>
+        <a>
+          <FaDiscord />
+        </a>
+      </>
+    }
+  >
+    <a>Pricing</a>
+    <a>Blog</a>
+    <a>Documentation</a>
+    <Button.Outlined>Sign out</Button.Outlined>
+  </MobileNavbar>
 );
 
 const Form = (
