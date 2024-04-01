@@ -2251,7 +2251,7 @@ __metadata:
     "@storybook/addon-interactions": "npm:^7.6.17"
     "@storybook/addon-links": "npm:^7.6.17"
     "@storybook/addon-styling-webpack": "npm:^0.0.6"
-    "@storybook/addon-viewport": "npm:^7.6.17"
+    "@storybook/addon-viewport": "npm:^8.0.5"
     "@storybook/blocks": "npm:^7.6.17"
     "@storybook/react": "npm:^7.6.17"
     "@storybook/react-webpack5": "npm:^7.6.17"
@@ -4219,12 +4219,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-viewport@npm:7.6.17, @storybook/addon-viewport@npm:^7.6.17":
+"@storybook/addon-viewport@npm:7.6.17":
   version: 7.6.17
   resolution: "@storybook/addon-viewport@npm:7.6.17"
   dependencies:
     memoizerific: "npm:^1.11.3"
   checksum: d888954f45ab358189cf0172e1c9b8a1bd2b68aa99d5d6518abe7fc355bbfeb91cc1c21c64e461994f5987652d05944aaa270366e22475eaeccadc701419b0d7
+  languageName: node
+  linkType: hard
+
+"@storybook/addon-viewport@npm:^8.0.5":
+  version: 8.0.5
+  resolution: "@storybook/addon-viewport@npm:8.0.5"
+  dependencies:
+    memoizerific: "npm:^1.11.3"
+  checksum: 4b833e7cff2bb699316f6830996bfb3a77c2e68b2ff52004559cb684ee2ed692fe144a57751f81f32dc4056a14a905f49433623b5b78c0ccaa4212df353dac27
   languageName: node
   linkType: hard
 

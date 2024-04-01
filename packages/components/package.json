@@ -77,7 +77,7 @@
     "@storybook/addon-interactions": "^7.6.17",
     "@storybook/addon-links": "^7.6.17",
     "@storybook/addon-styling-webpack": "^0.0.6",
-    "@storybook/addon-viewport": "^7.6.17",
+    "@storybook/addon-viewport": "^8.0.5",
     "@storybook/blocks": "^7.6.17",
     "@storybook/react": "^7.6.17",
     "@storybook/react-webpack5": "^7.6.17",
