@@ -2430,7 +2430,7 @@ __metadata:
     babel-jest: "npm:^29.7.0"
     eslint: "npm:^8.57.0"
     jest: "npm:^29.7.0"
-    node-sql-parser: "npm:^4.18.0"
+    node-sql-parser: "npm:^5.0.0"
     prettier: "npm:^3.2.4"
     rollup: "npm:^4.12.0"
     rollup-plugin-dts: "npm:^6.1.0"
@@ -5601,6 +5601,13 @@ __metadata:
   version: 4.0.2
   resolution: "@types/parse-json@npm:4.0.2"
   checksum: b1b863ac34a2c2172fbe0807a1ec4d5cb684e48d422d15ec95980b81475fac4fdb3768a8b13eef39130203a7c04340fc167bae057c7ebcafd7dec9fe6c36aeb1
+  languageName: node
+  linkType: hard
+
+"@types/pegjs@npm:^0.10.0":
+  version: 0.10.6
+  resolution: "@types/pegjs@npm:0.10.6"
+  checksum: ee4a31cf07679ae5422fec95e499ad059483a9ab2815af1ada0ee858a00af6c7e6579a8e172810c1c9db04005941bef96d0dd2c28648769211f57df330f9c30f
   languageName: node
   linkType: hard
 
@@ -13791,12 +13798,13 @@ display-element-css@cfpb/storybook-addon-display-element-css:
   languageName: node
   linkType: hard
 
-"node-sql-parser@npm:^4.18.0":
-  version: 4.18.0
-  resolution: "node-sql-parser@npm:4.18.0"
+"node-sql-parser@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "node-sql-parser@npm:5.0.0"
   dependencies:
+    "@types/pegjs": "npm:^0.10.0"
     big-integer: "npm:^1.6.48"
-  checksum: 0dd428f579326c802219acfc2fbbde2bbf775b302f02601861c8ec0df0df433a332e5d022eee882523475f81ce9681692eca982751577d452e1105551f2aa734
+  checksum: 78a3dd61e796a1cd15cd73a5a071e4d6ee6140197909ab26c1a78bad86d06a1a1ab34e75459c04abeda928475d1de70e91f7ce5be85f9dfcff97e11c4bfb4e52
   languageName: node
   linkType: hard
 
