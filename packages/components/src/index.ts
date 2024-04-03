@@ -2,6 +2,7 @@ export { FilterOptionOption } from "react-select/dist/declarations/src/filters";
 export { default as Btn } from "./Btn";
 export { default as Button } from "./Button";
 export { default as ButtonWithPopup } from "./ButtonWithPopup";
+export { default as ButtonsWithError } from "./ButtonsWithError";
 export { default as CellDropdown } from "./CellDropdown";
 export { default as CharCount } from "./CharCount";
 export { default as Checkbox } from "./Checkbox";
