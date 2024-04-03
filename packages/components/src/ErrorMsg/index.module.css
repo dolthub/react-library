@@ -1,0 +1,3 @@
+.errorMsg {
+  @apply text-acc-red font-semibold mx-auto mt-6;
+}
