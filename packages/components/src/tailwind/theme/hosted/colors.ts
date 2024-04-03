@@ -4,7 +4,6 @@ export const colors = {
   "ld-bluegrey": "#284f94",
   "ld-brightgreen": "#29e3c1",
   "ld-darkblue": "#183362",
-  "ld-grey": "#f2f5fb",
   "ld-orange": "#ff820f",
 };
 

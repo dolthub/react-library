@@ -5,10 +5,8 @@ export const colors = {
   "ld-brightgreen": "#29e3c1",
   "ld-darkblue": "#183362",
   "ld-darkerblue": "#192E3D",
-  "ld-grey": "#f2f5fb",
   "ld-mediumblue": "#2E4459",
   "ld-orange": "#FF7042",
-
   "acc-hoverlinkblue": "#1f6dc6",
   "acc-linkblue": "#3d91f0",
 };
