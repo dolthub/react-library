@@ -19,6 +19,7 @@ export { default as ExternalLink } from "./ExternalLink";
 export { default as FormInput } from "./FormInput";
 export { default as FormSelect } from "./FormSelect";
 export type * as FormSelectTypes from "./FormSelect/types";
+export { default as HelpPopup } from "./HelpPopup";
 export { default as Loader } from "./Loader";
 export { default as Markdown } from "./Markdown";
 export { default as MobileFormModal } from "./MobileFormModal";

@@ -1,0 +1,15 @@
+.question {
+  @apply mt-1 opacity-30;
+}
+
+.popup {
+  @apply p-3 text-sm;
+}
+
+.blue {
+  @apply opacity-100 text-[#CEE3FB] bg-background-acc-1 rounded-full;
+
+  svg {
+    @apply text-lg;
+  }
+}
