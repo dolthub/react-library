@@ -44,5 +44,15 @@ p {
   @apply text-sm text-primary leading-normal;
 }
 
+/* Overrides react-tooltip variant background colors */
+body {
+  --rt-color-white: #fff;
+  --rt-color-dark: #1e2842;
+  --rt-color-success: #5ac58d;
+  --rt-color-error: #ff9a99;
+  --rt-color-warning: #ed8936;
+  --rt-color-info: #3d91f0;
+}
+
 @tailwind components;
 @tailwind utilities;

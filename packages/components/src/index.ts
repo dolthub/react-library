@@ -43,6 +43,7 @@ export * from "./Tabs";
 export { useTabsContext } from "./Tabs/context";
 export { default as Textarea } from "./Textarea";
 export { default as TextareaWithMarkdown } from "./TextareaWithMarkdown";
+export { default as Tooltip } from "./Tooltip";
 export { default as ThemeProvider, useThemeContext } from "./tailwind/context";
 export { mergeConfig } from "./tailwind/mergeConfig";
 export { colors as dolthubColors } from "./tailwind/theme/dolthub/colors";
