@@ -13,6 +13,7 @@ type Props = {
   stackedButton?: boolean;
   right?: boolean;
   ["data-cy"]?: string;
+  cancelText?: string;
 };
 
 export default function ButtonsWithError({
@@ -42,7 +43,7 @@ export default function ButtonsWithError({
             data-cy="cancel-button"
             className={css.cancel}
           >
-            cancel
+            {props.cancelText ?? "cancel"}
           </Button.Link>
         )}
       </Button.Group>

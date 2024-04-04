@@ -13,7 +13,7 @@ type ButtonProps = {
   err?: Error;
 };
 
-type OuterProps = {
+export type OuterProps = {
   onRequestClose: () => void | Promise<void>;
   children: ReactNode;
   title: string;

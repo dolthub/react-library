@@ -26,6 +26,7 @@ export {
   ModalInner,
   ModalOuter,
 } from "./Modal";
+export { default as FormModal } from "./Modal/ForForm";
 export { default as Navbar } from "./Navbar";
 export { default as DesktopNavbar } from "./Navbar/ForDesktop";
 export { default as MobileNavbar } from "./Navbar/ForMobile";
