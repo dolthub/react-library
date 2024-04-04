@@ -1,14 +1,9 @@
 .copy {
-  @apply px-3 py-0 ml-4 h-6 w-20 border;
+  @apply py-0 ml-4 h-6 w-20;
 }
 
 .light {
-  @apply bg-white text-link-1 flex items-center justify-center;
-
-  &:focus,
-  &:hover {
-    @apply bg-ld-lightblue;
-  }
+  @apply flex items-center justify-center;
 
   svg {
     @apply mr-3;

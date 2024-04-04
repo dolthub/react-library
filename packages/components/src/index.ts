@@ -33,6 +33,7 @@ export { default as FormModal } from "./Modal/ForForm";
 export { default as Navbar } from "./Navbar";
 export { default as DesktopNavbar } from "./Navbar/ForDesktop";
 export { default as MobileNavbar } from "./Navbar/ForMobile";
+export { default as NoneFoundMsg } from "./NoneFoundMsg";
 export { default as Popup, PopupProps } from "./Popup";
 export { default as QueryHandler } from "./QueryHandler";
 export { default as Radio } from "./Radio";

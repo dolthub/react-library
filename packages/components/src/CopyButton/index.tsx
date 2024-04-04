@@ -15,7 +15,11 @@ export default function CopyButton({ text, light }: Props) {
   const success = useDelay(3000);
   return (
     <CopyToClipboard text={text} onCopy={success.start}>
-      <Button className={cx(css.copy, { [css.light]: light })}>
+      <Button
+        className={cx(css.copy, { [css.light]: light })}
+        white={light}
+        size="small"
+      >
         {light && <IoCopyOutline />}
         {success.active ? "Copied" : "Copy"}
       </Button>
