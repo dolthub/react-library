@@ -2,11 +2,17 @@ export { FilterOptionOption } from "react-select/dist/declarations/src/filters";
 export { default as Btn } from "./Btn";
 export { default as Button } from "./Button";
 export { default as ButtonWithPopup } from "./ButtonWithPopup";
+export { default as ButtonsWithError } from "./ButtonsWithError";
 export { default as CellDropdown } from "./CellDropdown";
 export { default as CharCount } from "./CharCount";
 export { default as Checkbox } from "./Checkbox";
 export { default as CodeBlock } from "./CodeBlock";
 export { default as CommentForm } from "./CommentForm";
+export { default as ErrorMsg } from "./ErrorMsg";
+export {
+  default as ErrorMsgProvider,
+  isTimeoutError,
+} from "./ErrorMsg/context";
 export { default as ExternalLink } from "./ExternalLink";
 export { default as FormInput } from "./FormInput";
 export { default as FormSelect } from "./FormSelect";
@@ -14,6 +20,13 @@ export type * as FormSelectTypes from "./FormSelect/types";
 export { default as Loader } from "./Loader";
 export { default as Markdown } from "./Markdown";
 export { default as MobileFormModal } from "./MobileFormModal";
+export {
+  default as Modal,
+  ModalButtons,
+  ModalInner,
+  ModalOuter,
+} from "./Modal";
+export { default as FormModal } from "./Modal/ForForm";
 export { default as Navbar } from "./Navbar";
 export { default as DesktopNavbar } from "./Navbar/ForDesktop";
 export { default as MobileNavbar } from "./Navbar/ForMobile";

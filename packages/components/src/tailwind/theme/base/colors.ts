@@ -8,6 +8,7 @@ const staticColors = {
   "ld-darkestblue": "#182134",
   "ld-darkgrey": "#95a3a7",
   "ld-green": "#5deda2",
+  "ld-grey": "#f2f5fb",
   "ld-lightblue": "#f6f8f9",
   "ld-lightgrey": "#e1e5e7",
   "ld-lightpurple": "#f1f3f8",

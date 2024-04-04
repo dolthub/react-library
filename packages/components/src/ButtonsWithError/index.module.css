@@ -1,0 +1,26 @@
+.stackedButton {
+  @apply flex flex-col;
+  button {
+    @apply mb-4 h-10;
+  }
+}
+
+.error {
+  @apply max-w-lg text-center;
+}
+
+.group {
+  @apply text-center mt-4;
+}
+
+.cancel {
+  @apply px-2;
+}
+
+.left {
+  @apply text-left ml-0;
+}
+
+.right {
+  @apply text-right mr-0;
+}
