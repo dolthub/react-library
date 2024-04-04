@@ -1,0 +1,3 @@
+.container {
+  @apply bg-background-light rounded px-6 py-4 max-w-2xl text-base;
+}
