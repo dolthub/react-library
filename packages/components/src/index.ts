@@ -20,6 +20,12 @@ export type * as FormSelectTypes from "./FormSelect/types";
 export { default as Loader } from "./Loader";
 export { default as Markdown } from "./Markdown";
 export { default as MobileFormModal } from "./MobileFormModal";
+export {
+  default as Modal,
+  ModalButtons,
+  ModalInner,
+  ModalOuter,
+} from "./Modal";
 export { default as Navbar } from "./Navbar";
 export { default as DesktopNavbar } from "./Navbar/ForDesktop";
 export { default as MobileNavbar } from "./Navbar/ForMobile";
