@@ -35,17 +35,3 @@ export default function ErrorMsg({ err, errString, className }: Props) {
     </div>
   );
 }
-
-// function ConnectionLostMessage(props: {
-//   className?: string;
-//   errString: string;
-// }) {
-//   return (
-//     <div>
-//       <div className={cx(css.errorMsg, props.className)} aria-label="error-msg">
-//         {props.errString}
-//       </div>
-//       <div>This error is often caused by a Dolt issue.</div>
-//     </div>
-//   );
-// }

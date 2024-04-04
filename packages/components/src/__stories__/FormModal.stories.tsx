@@ -19,9 +19,9 @@ export const Basic: Story = {
     isOpen: true,
     onRequestClose: () => {},
     children: (
-      <p>
+      <div>
         <FormInput light label="Input" placeholder="placeholder" />
-      </p>
+      </div>
     ),
     btnText: "Submit",
   },
