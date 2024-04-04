@@ -22,7 +22,7 @@ const staticColors = {
   "acc-hoverblue": "#1d2c7f",
   "acc-hovergreen": "#6fdda4",
   "acc-hoverlinkblue": "#3d91f0",
-  "acc-hoverred": "#fca8a7",
+  "acc-hoverred": "#EF4341",
   "acc-lightgreen": "#d4f5e4",
   "acc-lightgrey": "#c6cdd0",
   "acc-light-text": "#999db3",
@@ -30,7 +30,7 @@ const staticColors = {
   "acc-orange": "#ed8936",
   "acc-pink": "#d588d5",
   "acc-purple": "#805EDD",
-  "acc-red": "#ff9a99",
+  "acc-red": "#FF6967",
 };
 
 const configurableColors: IThemeColors = {
