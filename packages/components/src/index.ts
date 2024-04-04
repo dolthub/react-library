@@ -8,6 +8,7 @@ export { default as CharCount } from "./CharCount";
 export { default as Checkbox } from "./Checkbox";
 export { default as CodeBlock } from "./CodeBlock";
 export { default as CommentForm } from "./CommentForm";
+export { default as CopyButton } from "./CopyButton";
 export { default as CopyableField } from "./CopyableField";
 export { default as ErrorMsg } from "./ErrorMsg";
 export {

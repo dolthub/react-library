@@ -1,0 +1,16 @@
+.copy {
+  @apply px-3 py-0 ml-4 h-6 w-20 border;
+}
+
+.light {
+  @apply bg-white text-link-1 flex items-center justify-center;
+
+  &:focus,
+  &:hover {
+    @apply bg-ld-lightblue;
+  }
+
+  svg {
+    @apply mr-3;
+  }
+}
