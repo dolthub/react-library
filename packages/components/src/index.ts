@@ -8,6 +8,7 @@ export { default as CharCount } from "./CharCount";
 export { default as Checkbox } from "./Checkbox";
 export { default as CodeBlock } from "./CodeBlock";
 export { default as CommentForm } from "./CommentForm";
+export { default as CopyableField } from "./CopyableField";
 export { default as ErrorMsg } from "./ErrorMsg";
 export {
   default as ErrorMsgProvider,
@@ -31,6 +32,7 @@ export { default as Navbar } from "./Navbar";
 export { default as DesktopNavbar } from "./Navbar/ForDesktop";
 export { default as MobileNavbar } from "./Navbar/ForMobile";
 export { default as Popup, PopupProps } from "./Popup";
+export { default as QueryHandler } from "./QueryHandler";
 export { default as Radio } from "./Radio";
 export { default as ScrollToButton } from "./ScrollToButton";
 export { default as SmallLoader } from "./SmallLoader";

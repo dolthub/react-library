@@ -28,7 +28,11 @@ export default function ErrorMsg({ err, errString, className }: Props) {
 
   const splitMsg = msg.split("\n").filter(Boolean);
   return (
-    <div className={cx(css.errorMsg, className)} aria-label="error-msg">
+    <div
+      className={cx(css.errorMsg, className)}
+      aria-label="error-msg"
+      data-cy="error-msg"
+    >
       {splitMsg.map(m => (
         <div key={m}>{m}</div>
       ))}
