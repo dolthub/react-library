@@ -1,0 +1,11 @@
+.copy {
+  @apply py-0 ml-4 h-6 w-20;
+}
+
+.light {
+  @apply flex items-center justify-center;
+
+  svg {
+    @apply mr-3;
+  }
+}

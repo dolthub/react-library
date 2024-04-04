@@ -45,3 +45,4 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           workingDir: packages/components
           onlyChanged: true
+          skip: "dependabot/**"
