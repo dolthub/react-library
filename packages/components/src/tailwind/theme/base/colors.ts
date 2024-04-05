@@ -1,36 +1,48 @@
 import { IThemeColors, IThemeRGB, IThemeVariables } from "../../types";
 
-// TODO: Improve these names
-const staticColors = {
-  "ld-blue": "#6db0fc",
-  "ld-darkerblue": "#1e2842",
-  "ld-darkergrey": "#384B52",
-  "ld-darkestblue": "#182134",
-  "ld-darkgrey": "#95a3a7",
-  "ld-green": "#5deda2",
-  "ld-grey": "#f2f5fb",
+const greys = {
   "ld-lightblue": "#f6f8f9",
-  "ld-lightgrey": "#e1e5e7",
   "ld-lightpurple": "#f1f3f8",
-  "ld-mediumblue": "#2b5db6",
-
-  "acc-bright-green": "#29e3c1",
-  "acc-code": "#575662",
-  "acc-darkgrey": "#5d6280",
-  "acc-green": "#5ac58d",
-  "acc-grey": "#b2c0c4",
-  "acc-hoverblue": "#1d2c7f",
-  "acc-hovergreen": "#6fdda4",
-  "acc-hoverlinkblue": "#3d91f0",
-  "acc-hoverred": "#fca8a7",
-  "acc-lightgreen": "#d4f5e4",
+  "ld-grey": "#f2f5fb",
+  "ld-lightgrey": "#e1e5e7",
   "acc-lightgrey": "#c6cdd0",
+  "acc-grey": "#b2c0c4",
+  "ld-darkgrey": "#95a3a7",
   "acc-light-text": "#999db3",
+  "acc-darkgrey": "#5d6280",
+  "acc-code": "#575662",
+  "ld-darkergrey": "#384B52",
+};
+
+const blues = {
+  "ld-blue": "#6db0fc",
+  "acc-hoverlinkblue": "#3d91f0",
   "acc-linkblue": "#1f6dc6",
+  "ld-mediumblue": "#2b5db6",
+  "acc-hoverblue": "#1d2c7f",
+  "ld-darkerblue": "#1e2842",
+  "ld-darkestblue": "#182134",
+};
+
+const accents = {
+  "acc-lightgreen": "#d4f5e4",
+  "ld-green": "#5deda2",
+  "acc-bright-green": "#29e3c1",
+  "acc-hovergreen": "#6fdda4",
+  "acc-green": "#5ac58d",
+
+  "acc-hoverred": "#EF4341",
+  "acc-red": "#FF6967",
   "acc-orange": "#ed8936",
   "acc-pink": "#d588d5",
   "acc-purple": "#805EDD",
-  "acc-red": "#ff9a99",
+};
+
+// TODO: Improve these names
+export const staticColors = {
+  ...greys,
+  ...blues,
+  ...accents,
 };
 
 const configurableColors: IThemeColors = {

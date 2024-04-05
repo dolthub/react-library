@@ -1,0 +1,71 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
+import { staticColors, baseColorVariableValues } from "../tailwind/theme/base/colors"
+import { colors as dolthubColors } from "../tailwind/theme/dolthub/colors"
+import { tailwindColorTheme as hostedTailwindColorTheme, colors as hostedColors } from "../tailwind/theme/hosted/colors"
+import { tailwindColorTheme as workbenchTailwindColorTheme, colors as workbenchColors } from "../tailwind/theme/workbench/colors"
+
+<Meta title="Colors" />
+
+# Colors
+
+Colors we use in our design system.
+
+## Base Colors
+
+<ColorPalette>
+  {Object.entries(staticColors).map(([k, v], i) => {
+    return (
+      <ColorItem key={i} title={k} colors={[v]} />
+    )
+  })}
+</ColorPalette>
+
+## Theme Colors
+
+Colors with <code>(c)</code> share a name among all themes but have different values.
+
+### DoltHub
+
+<ColorPalette>
+  {Object.entries(baseColorVariableValues).map(([k, v], i) => {
+    return (
+      <ColorItem key={i} title={`${k.replace("rgb-", "")} (c)`} colors={[`rgba(${v})`]} />
+    )
+  })}
+  {Object.entries(dolthubColors).map(([k, v], i) => {
+    return (
+      <ColorItem key={i} title={k} colors={[v]} />
+    )
+  })}
+</ColorPalette>
+
+### Hosted
+
+<ColorPalette>
+  {Object.entries(hostedTailwindColorTheme).map(([k, v], i) => {
+    return (
+      <ColorItem key={i} title={`${k.replace("rgb-", "")} (c)`} colors={[`rgba(${v})`]} />
+    )
+  })}
+   {Object.entries(hostedColors).map(([k, v], i) => {
+    return (
+      <ColorItem key={i} title={k} colors={[v]} />
+    )
+  })}
+</ColorPalette>
+
+### Workbench
+
+<ColorPalette>
+  {Object.entries(workbenchTailwindColorTheme).map(([k, v], i) => {
+    return (
+      <ColorItem key={i} title={`${k.replace("rgb-", "")} (c)`} colors={[`rgba(${v})`]} />
+    )
+  })}
+   {Object.entries(workbenchColors).map(([k, v], i) => {
+    return (
+      <ColorItem key={i} title={k} colors={[v]} />
+    )
+  })}
+</ColorPalette>
+
