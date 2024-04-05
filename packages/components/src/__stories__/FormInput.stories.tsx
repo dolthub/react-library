@@ -22,7 +22,7 @@ export const Basic: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const input = canvas.getByRole("textbox");
+    const input = canvas.getByRole("input");
     await userEvent.type(input, "test");
 
     const availableOptions = await canvas.findByDisplayValue("test");
