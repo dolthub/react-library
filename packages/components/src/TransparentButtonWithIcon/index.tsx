@@ -20,7 +20,10 @@ export default function TransparentButtonWithIcon({
 }: Props) {
   return (
     <ExternalLink {...props}>
-      <span className={cx(css.button, { [css.darkButton]: dark })}>
+      <span
+        className={cx(css.button, { [css.darkButton]: dark })}
+        aria-label="inner transparent button"
+      >
         {icon}
         <span className={cx(css.inner, { [css.darkInner]: dark })}>
           {children}
