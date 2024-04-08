@@ -8,20 +8,23 @@ type Props = {
   githubStarCount: number;
   href: string;
   dark?: boolean;
+  className?: string;
+  numeralFormat?: string;
 };
 
 export default function ForGithub(props: Props) {
   return (
     <TransparentButtonWithIcon
+      {...props}
       aria-label="github-link"
       data-cy="github-link"
-      href={props.href}
       icon={<FaGithub />}
-      dark={props.dark}
     >
       <>
         <RiStarLine />
-        <span>{numeral(props.githubStarCount).format("0.0a")}</span>
+        <span>
+          {numeral(props.githubStarCount).format(props.numeralFormat ?? "0.0a")}
+        </span>
       </>
     </TransparentButtonWithIcon>
   );

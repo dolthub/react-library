@@ -5,16 +5,16 @@ import TransparentButtonWithIcon from ".";
 type Props = {
   href: string;
   dark?: boolean;
+  className?: string;
 };
 
 export default function ForDiscord(props: Props) {
   return (
     <TransparentButtonWithIcon
+      {...props}
       aria-label="discord-link"
       data-cy="discord-link"
-      href={props.href}
       icon={<FaDiscord />}
-      dark={props.dark}
     >
       Discord
     </TransparentButtonWithIcon>

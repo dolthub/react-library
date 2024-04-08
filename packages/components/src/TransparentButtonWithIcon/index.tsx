@@ -10,6 +10,7 @@ type Props = {
   ["aria-label"]: string;
   icon?: ReactNode;
   dark?: boolean;
+  className?: string;
 };
 
 export default function TransparentButtonWithIcon({
@@ -21,7 +22,7 @@ export default function TransparentButtonWithIcon({
   return (
     <ExternalLink {...props}>
       <span
-        className={cx(css.button, { [css.darkButton]: dark })}
+        className={cx(css.button, { [css.darkButton]: dark }, props.className)}
         aria-label="inner transparent button"
       >
         {icon}
