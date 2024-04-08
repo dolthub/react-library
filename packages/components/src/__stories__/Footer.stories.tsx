@@ -73,9 +73,6 @@ export const WithPoweredByAndVersion: Story = {
     ),
     poweredBy: "DoltLab doltlab-v2.1.0",
   },
-  parameters: {
-    backgrounds: { default: "lightish" },
-  },
 };
 
 export const WithBottomButton: Story = {
