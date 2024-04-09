@@ -16,6 +16,7 @@ export {
   isTimeoutError,
 } from "./ErrorMsg/context";
 export { default as ExternalLink } from "./ExternalLink";
+export { default as Footer } from "./Footer";
 export { default as FormInput } from "./FormInput";
 export { default as FormSelect } from "./FormSelect";
 export type * as FormSelectTypes from "./FormSelect/types";
@@ -45,6 +46,8 @@ export { useTabsContext } from "./Tabs/context";
 export { default as Textarea } from "./Textarea";
 export { default as TextareaWithMarkdown } from "./TextareaWithMarkdown";
 export { default as Tooltip } from "./Tooltip";
+export { default as DiscordButton } from "./TransparentButtonWithIcon/ForDiscord";
+export { default as GithubButton } from "./TransparentButtonWithIcon/ForGithub";
 export { default as ThemeProvider, useThemeContext } from "./tailwind/context";
 export { mergeConfig } from "./tailwind/mergeConfig";
 export { colors as dolthubColors } from "./tailwind/theme/dolthub/colors";

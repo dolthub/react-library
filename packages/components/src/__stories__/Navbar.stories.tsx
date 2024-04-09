@@ -1,7 +1,8 @@
-import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import Navbar from "../Navbar";
+import DiscordButton from "../TransparentButtonWithIcon/ForDiscord";
+import GithubButton from "../TransparentButtonWithIcon/ForGithub";
 
 const meta: Meta<typeof Navbar> = {
   title: "Navbar",
@@ -13,6 +14,13 @@ const meta: Meta<typeof Navbar> = {
 export default meta;
 
 type Story = StoryObj<typeof Navbar>;
+
+const rightLinks = (dark = false) => (
+  <>
+    <GithubButton href="github.com" githubStarCount={10900} dark={dark} />
+    <DiscordButton href="discord.com" dark={dark} />
+  </>
+);
 
 export const Basic: Story = {
   args: {
@@ -29,14 +37,7 @@ export const Basic: Story = {
         <a>Documentation</a>
       </>
     ),
-    rightLinks: (
-      <>
-        <a>
-          <FaGithub /> GitHub
-        </a>
-        <a>Another</a>
-      </>
-    ),
+    rightLinks: rightLinks(),
   },
 };
 
@@ -52,6 +53,7 @@ export const TransparentDark: Story = {
     ...Basic.args,
     dark: true,
     bgColor: "bg-transparent",
+    rightLinks: rightLinks(true),
   },
   parameters: {
     backgrounds: { default: "lightish" },

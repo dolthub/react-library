@@ -2062,6 +2062,7 @@ __metadata:
     "@types/eslint": "npm:^8"
     "@types/identity-obj-proxy": "npm:^3"
     "@types/jest": "npm:^29.5.11"
+    "@types/numeral": "npm:^2"
     "@types/prop-types": "npm:^15"
     "@types/react": "npm:^18"
     "@types/react-copy-to-clipboard": "npm:^5"
@@ -2082,6 +2083,7 @@ __metadata:
     identity-obj-proxy: "npm:^3.0.0"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
+    numeral: "npm:^2.0.6"
     postcss: "npm:^8.4.38"
     postcss-loader: "npm:^8.1.1"
     postcss-modules: "npm:^6.0.0"
@@ -4739,6 +4741,13 @@ __metadata:
   version: 2.4.4
   resolution: "@types/normalize-package-data@npm:2.4.4"
   checksum: aef7bb9b015883d6f4119c423dd28c4bdc17b0e8a0ccf112c78b4fe0e91fbc4af7c6204b04bba0e199a57d2f3fbbd5b4a14bf8739bf9d2a39b2a0aad545e0f86
+  languageName: node
+  linkType: hard
+
+"@types/numeral@npm:^2":
+  version: 2.0.5
+  resolution: "@types/numeral@npm:2.0.5"
+  checksum: b18766cc97e79b5c59130ce1d5d5ad8b9287e1efd5ecac402e8a64e45c50aea8c8940c9974358983036d1abbed365a08f7f4d11b8af16874a5d4d0edce9aa4d4
   languageName: node
   linkType: hard
 
@@ -12909,6 +12918,13 @@ __metadata:
   dependencies:
     boolbase: "npm:^1.0.0"
   checksum: 5fee7ff309727763689cfad844d979aedd2204a817fbaaf0e1603794a7c20db28548d7b024692f953557df6ce4a0ee4ae46cd8ebd9b36cfb300b9226b567c479
+  languageName: node
+  linkType: hard
+
+"numeral@npm:^2.0.6":
+  version: 2.0.6
+  resolution: "numeral@npm:2.0.6"
+  checksum: 5ed008d3fae05cfa4986b77a85ca10bff29ae6e1fa41a04cce05ea21f08a8a104226f88868930e2a94e3239708d6985d111b5d1291e8b9a3049ffc5365c332d4
   languageName: node
   linkType: hard
 
