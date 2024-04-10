@@ -1,8 +1,8 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
-type Color = "default" | "red" | "green" | "dark" | "white" | "gradient";
+export type Color = "default" | "red" | "green" | "dark" | "white" | "gradient";
 type Size = "small" | "medium" | "large";
-type Shape = "default" | "pill";
+export type Shape = "default" | "pill";
 
 type VariantProps = {
   color?: Color;
