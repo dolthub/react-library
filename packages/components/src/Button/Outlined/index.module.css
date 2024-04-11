@@ -1,15 +1,19 @@
 .buttonOutlined {
-  @apply outline-none font-semibold leading-relaxed border button-shadow bg-transparent;
+  @apply outline-none font-semibold leading-relaxed border-[1.5px] bg-white;
 
   &:focus {
-    @apply outline-none widget-shadow-lightblue;
+    @apply outline outline-button-2;
+  }
+
+  &:active {
+    box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.25);
   }
 
   &:disabled {
-    @apply cursor-default border-acc-light-text text-acc-light-text;
+    @apply cursor-default bg-[#C1C3D0] text-acc-darkgrey border-transparent;
 
     &:hover {
-      @apply border-acc-light-text text-acc-light-text;
+      @apply bg-[#C1C3D0];
     }
   }
 }
@@ -20,7 +24,7 @@
   @apply border-button-1 text-button-1;
 
   &:hover {
-    @apply border-button-2 text-button-2;
+    @apply bg-button-1/10;
   }
 }
 
@@ -28,7 +32,7 @@
   @apply border-primary text-primary;
 
   &:hover {
-    @apply border-acc-hoverblue text-acc-hoverblue;
+    @apply bg-primary/10;
   }
 }
 
@@ -36,7 +40,7 @@
   @apply border-acc-red text-acc-red;
 
   &:hover {
-    @apply border-acc-hoverred text-acc-hoverred;
+    @apply bg-acc-red/10;
   }
 }
 
@@ -44,7 +48,15 @@
   @apply border-acc-green text-acc-green;
 
   &:hover {
-    @apply border-acc-hovergreen text-acc-hovergreen;
+    @apply bg-acc-green/10;
+  }
+}
+
+.color-white {
+  @apply bg-transparent text-white border-white/30;
+
+  &:hover {
+    @apply border-white bg-white/10;
   }
 }
 
@@ -61,15 +73,15 @@
 /* SIZE VARIANTS */
 
 .size-small {
-  @apply px-3 py-0.5 text-sm;
+  @apply border px-4 py-2 text-sm;
 }
 
 .size-medium {
-  @apply px-6 py-1.5 text-base;
+  @apply px-6 py-2 text-base;
 }
 
 .size-large {
-  @apply px-8 py-2 text-base;
+  @apply px-8 py-2 text-lg;
 }
 
 /* ICON */
@@ -80,4 +92,14 @@
   svg {
     @apply mr-2;
   }
+}
+
+/* LOADING */
+
+.loader {
+  @apply flex items-center;
+}
+
+.invis {
+  @apply invisible;
 }

@@ -28,8 +28,8 @@ const accents = {
   "acc-lightgreen": "#d4f5e4",
   "ld-green": "#5deda2",
   "acc-bright-green": "#29e3c1",
-  "acc-hovergreen": "#6fdda4",
-  "acc-green": "#5ac58d",
+  "acc-hovergreen": "#0A9664",
+  "acc-green": "#19BA80",
 
   "acc-hoverred": "#EF4341",
   "acc-red": "#FF6967",
@@ -39,7 +39,7 @@ const accents = {
 };
 
 // TODO: Improve these names
-export const staticColors = {
+export const staticColors: Record<string, string> = {
   ...greys,
   ...blues,
   ...accents,

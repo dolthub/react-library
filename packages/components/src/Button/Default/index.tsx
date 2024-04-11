@@ -1,5 +1,6 @@
 import cx from "classnames";
 import React from "react";
+import ButtonLoader from "../Loader";
 import { Props } from "../types";
 import css from "./index.module.css";
 
@@ -10,6 +11,7 @@ function Button({
   color = "default",
   size = "medium",
   shape = "default",
+  loading = false,
   ...props
 }: Props) {
   return (
@@ -27,8 +29,17 @@ function Button({
       // These props need to come last
       {...props}
     >
-      {icon}
-      {children}
+      {loading ? (
+        <div className={css.loader}>
+          <ButtonLoader loaded={false} />
+          <div className={css.invis}>{children}</div>
+        </div>
+      ) : (
+        <>
+          {icon}
+          {children}
+        </>
+      )}
     </button>
   );
 }

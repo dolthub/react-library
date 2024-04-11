@@ -9,6 +9,7 @@ type VariantProps = {
   size?: Size;
   shape?: Shape;
   icon?: ReactNode;
+  loading?: boolean;
 };
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;

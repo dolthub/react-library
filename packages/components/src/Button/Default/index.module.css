@@ -1,19 +1,19 @@
 .button {
-  @apply outline-none text-white font-semibold leading-relaxed button-shadow;
-
-  &:hover {
-    @apply button-shadow-hover;
-  }
+  @apply outline-none text-white font-semibold leading-relaxed;
 
   &:focus {
-    @apply outline-none widget-shadow-lightblue;
+    @apply outline outline-button-2;
+  }
+
+  &:active {
+    box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.25);
   }
 
   &:disabled {
-    @apply cursor-default bg-acc-light-text text-white;
+    @apply cursor-default bg-[#C1C3D0] text-acc-darkgrey;
 
     &:hover {
-      @apply button-shadow bg-acc-light-text;
+      @apply bg-[#C1C3D0];
     }
   }
 }
@@ -25,7 +25,7 @@
 }
 
 .color-dark {
-  @apply bg-primary hover:bg-acc-hoverblue;
+  @apply bg-primary hover:bg-ld-darkestblue;
 }
 
 .color-red {
@@ -47,6 +47,10 @@
 .color-gradient {
   background: linear-gradient(92.21deg, #6db0fc 11.79%, #5deda2 113.81%);
 
+  &:hover {
+    background: linear-gradient(92.21deg, #6db0fc 30.79%, #5deda2 113.81%);
+  }
+
   &:disabled {
     background: linear-gradient(92.21deg, #6db0fc 11.79%, #5deda2 113.81%);
   }
@@ -65,15 +69,15 @@
 /* SIZE VARIANTS */
 
 .size-small {
-  @apply px-3 py-0.5 text-sm;
+  @apply px-4 py-2 text-sm;
 }
 
 .size-medium {
-  @apply px-6 py-1.5 text-base;
+  @apply px-6 py-2 text-base;
 }
 
 .size-large {
-  @apply px-8 py-2 text-base;
+  @apply px-8 py-2 text-lg;
 }
 
 /* ICON */
@@ -84,4 +88,14 @@
   svg {
     @apply mr-2;
   }
+}
+
+/* LOADING */
+
+.loader {
+  @apply flex items-center;
+}
+
+.invis {
+  @apply invisible;
 }

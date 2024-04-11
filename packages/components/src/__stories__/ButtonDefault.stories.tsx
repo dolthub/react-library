@@ -39,6 +39,13 @@ export const Disabled: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    children: "Button name",
+    loading: true,
+  },
+};
+
 // Shape
 
 export const Pill: Story = {

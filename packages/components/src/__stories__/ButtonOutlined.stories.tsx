@@ -39,6 +39,13 @@ export const Disabled: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    children: "Button name",
+    loading: true,
+  },
+};
+
 // Shape
 
 export const Pill: Story = {
@@ -94,5 +101,15 @@ export const Dark: Story = {
   args: {
     children: "Button name",
     color: "dark",
+  },
+};
+
+export const White: Story = {
+  args: {
+    children: "Button name",
+    color: "white",
+  },
+  parameters: {
+    backgrounds: { default: "dark" },
   },
 };
