@@ -59,7 +59,10 @@ const configurableColors: IThemeColors = {
   "code-background": withOpacity("--color-code-background"),
 };
 
-const colors = { ...staticColors, ...configurableColors };
+const colors: Record<string, string> = {
+  ...staticColors,
+  ...configurableColors,
+};
 
 export default colors;
 
