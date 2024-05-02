@@ -76,7 +76,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@storybook/addon-essentials": "^8.0.9",
-    "@storybook/addon-interactions": "^8.0.6",
+    "@storybook/addon-interactions": "^8.0.9",
     "@storybook/addon-links": "^8.0.9",
     "@storybook/addon-styling-webpack": "^1.0.0",
     "@storybook/addon-viewport": "^8.0.6",
