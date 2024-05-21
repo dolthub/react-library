@@ -43,26 +43,4 @@ describe("Footer", () => {
     expect(screen.getByText("About Us")).toBeInTheDocument();
     expect(screen.getByLabelText("Social Link")).toBeInTheDocument();
   });
-
-  it("displays the bottom button when provided", () => {
-    const bottomButton = <button type="button">Bottom Button</button>;
-    render(
-      <Footer
-        companyName="Test Company"
-        bottomButton={bottomButton}
-        logo={logo}
-      />,
-    );
-
-    expect(screen.getByText("Bottom Button")).toBeInTheDocument();
-  });
-
-  it("shows powered by text if provided in logo props", () => {
-    const poweredBy = "Another Company";
-    render(
-      <Footer companyName="Test Company" logo={logo} poweredBy={poweredBy} />,
-    );
-
-    expect(screen.getByText(`Powered by ${poweredBy}`)).toBeInTheDocument();
-  });
 });

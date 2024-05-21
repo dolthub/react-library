@@ -37,7 +37,7 @@
 
 .logo {
   img {
-    @apply max-h-6 max-w-60;
+    @apply max-h-8 max-w-60;
   }
 }
 
