@@ -16,7 +16,7 @@ type SocialLink = {
 
 type LogoProps = {
   logo: ReactNode;
-  poweredBy?: string;
+  version?: string;
 };
 
 type Props = LogoProps & {
@@ -24,8 +24,6 @@ type Props = LogoProps & {
   socialLinks?: SocialLink[];
   companyName: string;
   className?: string;
-  version?: string;
-  bottomButton?: ReactNode;
 };
 
 export default function Footer(props: Props) {
@@ -35,40 +33,35 @@ export default function Footer(props: Props) {
       data-cy="site-footer"
       aria-label="site-footer"
     >
-      <div className={css.container}>
+      <div className={cx(css.container)}>
         <div className={css.top}>
-          <Logo {...props} />
+          <Logo {...props} hasTopLinks={!!props.topLinks?.length} />
           {props.topLinks && <TopLinks topLinks={props.topLinks} />}
         </div>
         {props.socialLinks && <SocialLinks socialLinks={props.socialLinks} />}
       </div>
-      {props.version && (
-        <div className={css.version} aria-label="version">
-          {props.version}
-        </div>
-      )}
+
       <div className={css.copyright} aria-label="copyright">
         © {new Date().getFullYear()} {props.companyName}. All rights reserved.
       </div>
-      {props.bottomButton && (
-        <div className={css.bottomButton}>{props.bottomButton}</div>
-      )}
     </footer>
   );
 }
 
-function Logo(props: LogoProps) {
+function Logo(props: LogoProps & { hasTopLinks: boolean }) {
   return (
     <div className={css.logoContainer}>
       <div className={css.logo}>
         <div
           className={cx(css.logoInner, {
-            [css.altLogoInner]: !!props.poweredBy,
+            [css.altLogoInner]: !props.hasTopLinks,
           })}
         >
           {props.logo}
-          {props.poweredBy && (
-            <div className={css.poweredBy}>Powered by {props.poweredBy}</div>
+          {props.version && (
+            <div className={css.version} aria-label="version">
+              {props.version}
+            </div>
           )}
         </div>
       </div>
