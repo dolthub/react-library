@@ -37,7 +37,7 @@
 
 .logo {
   img {
-    @apply max-h-8 max-w-60;
+    @apply max-h-6 max-w-60;
   }
 }
 
@@ -71,6 +71,10 @@
 
   .logo {
     @apply order-first ml-3 mr-3;
+
+    img {
+      @apply max-h-8;
+    }
   }
 
   .right {
