@@ -1,11 +1,10 @@
 // Half-width characters have a width of 1, while full-width characters, like those in Japanese and Chinese, have a width of 2.
 function getWidth(char: string): number {
-
   return char.match(/[ -~]/) ? 1 : 2;
 }
 
 function truncate(str: string, len: number): string {
-  let truncated = '';
+  let truncated = "";
   let width = 0;
 
   for (let char of str) {
