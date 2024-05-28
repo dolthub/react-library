@@ -2038,7 +2038,7 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.23.3"
     "@dolthub/react-contexts": "npm:^0.1.0"
     "@dolthub/react-hooks": "npm:^0.1.7"
-    "@dolthub/web-utils": "npm:^0.1.3"
+    "@dolthub/web-utils": "npm:^0.1.5"
     "@react-icons/all-files": "npm:^4.1.0"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
@@ -2171,7 +2171,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.24.3"
     "@babel/preset-react": "npm:^7.23.3"
     "@babel/preset-typescript": "npm:^7.23.3"
-    "@dolthub/web-utils": "npm:^0.1.2"
+    "@dolthub/web-utils": "npm:^0.1.5"
     "@rollup/plugin-commonjs": "npm:^25.0.7"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.5"
@@ -2211,7 +2211,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dolthub/web-utils@npm:^0.1.2, @dolthub/web-utils@npm:^0.1.3, @dolthub/web-utils@workspace:packages/utils":
+"@dolthub/web-utils@npm:^0.1.5, @dolthub/web-utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@dolthub/web-utils@workspace:packages/utils"
   dependencies:
