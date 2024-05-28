@@ -79,21 +79,21 @@ describe("test Button", () => {
   });
 
   it("renders a red button", () => {
-    render(<Button red>Button Name</Button>);
+    render(<Button color="red">Button Name</Button>);
 
     const button = screen.getByText("Button Name");
     expect(button).toHaveTextContent("Button Name");
     expect(button).toHaveAttribute("type", "button");
-    expect(button).toHaveClass(/red/);
+    expect(button).toHaveClass(/color-red/);
   });
 
   it("renders a solid green button", () => {
-    render(<Button green>Button Name</Button>);
+    render(<Button color="green">Button Name</Button>);
 
     const button = screen.getByText("Button Name");
     expect(button).toHaveTextContent("Button Name");
     expect(button).toHaveAttribute("type", "button");
-    expect(button).toHaveClass(/green/);
+    expect(button).toHaveClass(/color-green/);
     expect(button).toHaveClass(/button/);
   });
 
@@ -103,7 +103,7 @@ describe("test Button", () => {
     const button = screen.getByText("Button Name");
     expect(button).toHaveTextContent("Button Name");
     expect(button).toHaveAttribute("type", "button");
-    expect(button).toHaveClass(/link/);
+    expect(button).toHaveClass(/buttonLink/);
   });
 
   it("renders an underlined button", () => {
@@ -112,7 +112,7 @@ describe("test Button", () => {
     const button = screen.getByText("Button Name");
     expect(button).toHaveTextContent("Button Name");
     expect(button).toHaveAttribute("type", "button");
-    expect(button).toHaveClass(/link/);
+    expect(button).toHaveClass(/buttonLink/);
     expect(button).toHaveClass(/underlined/);
   });
 
@@ -122,7 +122,7 @@ describe("test Button", () => {
     const button = screen.getByText("Button Name");
     expect(button).toHaveTextContent("Button Name");
     expect(button).toHaveAttribute("type", "button");
-    expect(button).toHaveClass(/outlined/);
+    expect(button).toHaveClass(/buttonOutlined/);
   });
 
   it("renders a Button Group", () => {

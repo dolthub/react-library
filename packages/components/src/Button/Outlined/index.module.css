@@ -1,0 +1,105 @@
+.buttonOutlined {
+  @apply outline-none font-semibold leading-relaxed border-[1.5px] bg-white;
+
+  &:focus {
+    @apply outline outline-button-2;
+  }
+
+  &:active {
+    box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.25);
+  }
+
+  &:disabled {
+    @apply cursor-default bg-[#C1C3D0] text-acc-darkgrey border-transparent;
+
+    &:hover {
+      @apply bg-[#C1C3D0];
+    }
+  }
+}
+
+/* COLOR VARIANTS */
+
+.color-default {
+  @apply border-button-1 text-button-1;
+
+  &:hover {
+    @apply bg-button-1/10;
+  }
+}
+
+.color-dark {
+  @apply border-primary text-primary;
+
+  &:hover {
+    @apply bg-primary/10;
+  }
+}
+
+.color-red {
+  @apply border-acc-red text-acc-red;
+
+  &:hover {
+    @apply bg-acc-red/10;
+  }
+}
+
+.color-green {
+  @apply border-acc-green text-acc-green;
+
+  &:hover {
+    @apply bg-acc-green/10;
+  }
+}
+
+.color-white {
+  @apply bg-transparent text-white border-white/30;
+
+  &:hover {
+    @apply border-white bg-white/10;
+  }
+}
+
+/* SHAPE VARIANTS */
+
+.shape-default {
+  @apply rounded;
+}
+
+.shape-pill {
+  @apply rounded-full;
+}
+
+/* SIZE VARIANTS */
+
+.size-small {
+  @apply border px-4 py-2 text-sm;
+}
+
+.size-medium {
+  @apply px-6 py-2 text-base;
+}
+
+.size-large {
+  @apply px-8 py-2 text-lg;
+}
+
+/* ICON */
+
+.withIcon {
+  @apply flex items-center justify-center;
+
+  svg {
+    @apply mr-2;
+  }
+}
+
+/* LOADING */
+
+.loader {
+  @apply flex items-center;
+}
+
+.invis {
+  @apply invisible;
+}

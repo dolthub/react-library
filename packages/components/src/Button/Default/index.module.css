@@ -1,0 +1,101 @@
+.button {
+  @apply outline-none text-white font-semibold leading-relaxed;
+
+  &:focus {
+    @apply outline outline-button-2;
+  }
+
+  &:active {
+    box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.25);
+  }
+
+  &:disabled {
+    @apply cursor-default bg-[#C1C3D0] text-acc-darkgrey;
+
+    &:hover {
+      @apply bg-[#C1C3D0];
+    }
+  }
+}
+
+/* COLOR VARIANTS */
+
+.color-default {
+  @apply bg-button-1 hover:bg-button-2;
+}
+
+.color-dark {
+  @apply bg-primary hover:bg-ld-darkestblue;
+}
+
+.color-red {
+  @apply bg-acc-red hover:bg-acc-hoverred;
+}
+
+.color-green {
+  @apply bg-acc-green hover:bg-acc-hovergreen;
+}
+
+.color-white {
+  @apply bg-white text-link-1 shadow-none;
+
+  &:hover {
+    @apply bg-white/70;
+  }
+}
+
+.color-gradient {
+  background: linear-gradient(92.21deg, #6db0fc 11.79%, #5deda2 113.81%);
+
+  &:hover {
+    background: linear-gradient(92.21deg, #6db0fc 30.79%, #5deda2 113.81%);
+  }
+
+  &:disabled {
+    background: linear-gradient(92.21deg, #6db0fc 11.79%, #5deda2 113.81%);
+  }
+}
+
+/* SHAPE VARIANTS */
+
+.shape-default {
+  @apply rounded;
+}
+
+.shape-pill {
+  @apply rounded-full;
+}
+
+/* SIZE VARIANTS */
+
+.size-small {
+  @apply px-4 py-2 text-sm;
+}
+
+.size-medium {
+  @apply px-6 py-2 text-base;
+}
+
+.size-large {
+  @apply px-8 py-2 text-lg;
+}
+
+/* ICON */
+
+.withIcon {
+  @apply flex items-center justify-center;
+
+  svg {
+    @apply mr-2;
+  }
+}
+
+/* LOADING */
+
+.loader {
+  @apply flex items-center;
+}
+
+.invis {
+  @apply invisible;
+}

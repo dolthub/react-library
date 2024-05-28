@@ -1,5 +1,7 @@
+import { AiOutlinePlus } from "@react-icons/all-files/ai/AiOutlinePlus";
 import type { Meta, StoryObj } from "@storybook/react";
 import { userEvent, within } from "@storybook/test";
+import React from "react";
 import Button from "../Button";
 
 const meta: Meta<typeof Button> = {
@@ -28,32 +30,85 @@ export const Default: Story = {
   },
 };
 
+// State
+
+export const Disabled: Story = {
+  args: {
+    children: "Button name",
+    disabled: true,
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    children: "Button name",
+    loading: true,
+  },
+};
+
+// Shape
+
+export const Pill: Story = {
+  args: {
+    children: "Button name",
+    shape: "pill",
+  },
+  name: "Pill (Hosted)",
+};
+
+// Size
+
+export const Small: Story = {
+  args: {
+    children: "Button name",
+    size: "small",
+  },
+};
+
+export const Large: Story = {
+  args: {
+    children: "Button name",
+    size: "large",
+  },
+};
+
+// Icon
+
+export const WithIcon: Story = {
+  args: {
+    children: "Button name",
+    icon: <AiOutlinePlus />,
+  },
+};
+
+// Color
+
 export const Green: Story = {
   args: {
     children: "Button name",
-    green: true,
+    color: "green",
   },
 };
 
 export const Red: Story = {
   args: {
     children: "Button name",
-    red: true,
+    color: "red",
   },
 };
 
 export const Dark: Story = {
   args: {
     children: "Button name",
-    dark: true,
+    color: "dark",
   },
 };
 
 export const WhitePill: Story = {
   args: {
     children: "Button name",
-    white: true,
-    pill: true,
+    color: "white",
+    shape: "pill",
   },
   parameters: {
     backgrounds: { default: "lightish" },
@@ -64,55 +119,8 @@ export const WhitePill: Story = {
 export const GradientPill: Story = {
   args: {
     children: "Button name",
-    gradient: true,
-    pill: true,
+    color: "gradient",
+    shape: "pill",
   },
   name: "Gradient Pill (Hosted)",
-};
-
-export const Pill: Story = {
-  args: {
-    children: "Button name",
-    pill: true,
-  },
-  name: "Pill (Hosted)",
-};
-
-export const Disabled: Story = {
-  args: {
-    children: "Button name",
-    disabled: true,
-  },
-};
-
-export const DisabledRed: Story = {
-  args: {
-    children: "Button name",
-    disabled: true,
-    red: true,
-  },
-};
-
-export const DisabledGreen: Story = {
-  args: {
-    children: "Button name",
-    disabled: true,
-    green: true,
-  },
-};
-
-export const DisabledDark: Story = {
-  args: {
-    children: "Button name",
-    disabled: true,
-    dark: true,
-  },
-};
-
-export const DisabledWhite: Story = {
-  args: {
-    children: "Button name",
-    disabled: true,
-    white: true,
-  },
 };

@@ -1,6 +1,7 @@
 import React, { SyntheticEvent } from "react";
 import { ModalButtons, ModalInner, ModalOuter, OuterProps } from ".";
 import Button from "../Button";
+import { Color, Shape } from "../Button/types";
 
 type Props = OuterProps & {
   onSubmit: (e: SyntheticEvent) => void | Promise<void>;
@@ -9,10 +10,11 @@ type Props = OuterProps & {
   // Button props
   btnText: string;
   buttonDataCy?: string;
-  pill?: boolean;
-  red?: boolean;
+  shape?: Shape;
+  color?: Color;
+  // red?: boolean;
   disabled?: boolean;
-  gradient?: boolean;
+  // gradient?: boolean;
 };
 
 export default function FormModal({ children, ...props }: Props) {
@@ -23,9 +25,10 @@ export default function FormModal({ children, ...props }: Props) {
         <ModalButtons onRequestClose={props.onRequestClose} err={props.err}>
           <Button
             type="submit"
-            pill={props.pill}
-            red={props.red}
-            gradient={props.gradient}
+            shape={props.shape}
+            color={props.color}
+            // red={props.red}
+            // gradient={props.gradient}
             disabled={props.disabled}
             data-cy={props.buttonDataCy}
           >

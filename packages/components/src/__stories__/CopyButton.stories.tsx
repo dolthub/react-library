@@ -20,6 +20,6 @@ export const Default: Story = {
 export const Light: Story = {
   args: {
     ...Default.args,
-    light: true,
+    color: "white",
   },
 };
