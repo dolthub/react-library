@@ -52,7 +52,7 @@
   "dependencies": {
     "@dolthub/react-contexts": "^0.1.0",
     "@dolthub/react-hooks": "^0.1.7",
-    "@dolthub/web-utils": "^0.1.3",
+    "@dolthub/web-utils": "^0.1.5",
     "@react-icons/all-files": "^4.1.0",
     "classnames": "^2.5.1",
     "deepmerge": "^4.3.1",
