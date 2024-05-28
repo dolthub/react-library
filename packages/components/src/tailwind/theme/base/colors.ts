@@ -14,15 +14,15 @@ import { IThemeColors, IThemeRGB, IThemeVariables } from "../../types";
 // "ld-darkergrey": "#384B52", // storm-500
 // };
 
-const blues = {
-  "ld-blue": "#6db0fc",
-  "acc-hoverlinkblue": "#3d91f0",
-  "acc-linkblue": "#1f6dc6",
-  "ld-mediumblue": "#2b5db6",
-  "acc-hoverblue": "#1d2c7f",
-  // "ld-darkerblue": "#1e2842", // space-600
-  "ld-darkestblue": "#182134",
-};
+// const blues = {
+// "ld-blue": "#6db0fc", // sky-300
+// "acc-hoverlinkblue": "#3d91f0", // sky-400
+// "acc-linkblue": "#1f6dc6", // sky-600
+// "ld-mediumblue": "#2b5db6", // sky-600
+// "acc-hoverblue": "#1d2c7f", // sky-900
+// "ld-darkerblue": "#1e2842", // space-600
+// "ld-darkestblue": "#182134", // space-700
+// };
 
 // const accents = {
 // "acc-lightgreen": "#d4f5e4", // mint-50
@@ -41,7 +41,7 @@ const blues = {
 // TODO: Improve these names
 export const staticColors = {
   // ...greys,
-  ...blues,
+  // ...blues,
   // ...accents,
   "ld-green": "#5deda2", // TODO
   coral: {
@@ -142,15 +142,15 @@ export default colors;
 // Can override these values by passing this object with different values to
 // `applyTheme`
 export const baseColorVariableValues: IThemeRGB = {
-  "rgb-primary": "1, 10, 64", // ld-darkblue
-  "rgb-acc-1": "252, 66, 201", // ld-pink
-  "rgb-background-acc-1": "24, 33, 52", // ld-darkestblue
-  "rgb-background-acc-start": "31, 41, 66",
-  "rgb-button-1": "61, 145, 240", // acc-hoverlinkblue
-  "rgb-link-1": "31, 109, 198", // acc-linkblue
-  "rgb-button-2": "31, 109, 198", // acc-linkblue
-  "rgb-link-2": "61, 145, 240", // acc-hoverlinkblue
-  "rgb-link-light": "109, 176, 252", // ld-blue
+  "rgb-primary": "1, 10, 64", // ocean-800
+  "rgb-acc-1": "252, 66, 201", // pink-400
+  "rgb-background-acc-1": "24, 33, 52", // space-700
+  "rgb-background-acc-start": "31, 41, 66", // space-600
+  "rgb-button-1": "61, 145, 240", // sky-400
+  "rgb-link-1": "31, 109, 198", // sky-600
+  "rgb-button-2": "31, 109, 198", // sky-600
+  "rgb-link-2": "61, 145, 240", // sky-400
+  "rgb-link-light": "109, 176, 252", // sky-300
   "rgb-code-background": "30, 40, 66", // space-600
 };
 

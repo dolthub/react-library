@@ -76,7 +76,7 @@
 }
 
 .blueText {
-  @apply text-ld-mediumblue rounded-lg;
+  @apply text-sky-600 rounded-lg;
 }
 
 .error,

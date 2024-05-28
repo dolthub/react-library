@@ -14,7 +14,7 @@ const customStyles = <T, Q extends OptionTypeBase<T>, IsMulti extends boolean>(
     placeholder: styles => {
       return {
         ...styles,
-        color: blue ? colors["acc-hoverlinkblue"] : colors.storm["200"],
+        color: blue ? colors.sky["400"] : colors.storm["200"],
         fontSize: getFontSize(small, mono, rounded),
         fontFamily: getFontFamily(mono),
         fontWeight: 400,
@@ -40,7 +40,7 @@ const customStyles = <T, Q extends OptionTypeBase<T>, IsMulti extends boolean>(
     dropdownIndicator: styles => {
       return {
         ...styles,
-        color: blue ? colors["ld-mediumblue"] : getRGBVar("primary"),
+        color: blue ? colors.sky["600"] : getRGBVar("primary"),
         paddingTop: small ? "3px" : styles.paddingTop,
       };
     },
@@ -80,7 +80,7 @@ const customStyles = <T, Q extends OptionTypeBase<T>, IsMulti extends boolean>(
     singleValue: styles => {
       return {
         ...styles,
-        color: blue ? colors["ld-mediumblue"] : getRGBVar("primary"),
+        color: blue ? colors.sky["600"] : getRGBVar("primary"),
         fontFamily: getFontFamily(mono),
         fontSize: getFontSize(small, mono, rounded),
         top: small ? "45%" : styles.top,
@@ -89,7 +89,7 @@ const customStyles = <T, Q extends OptionTypeBase<T>, IsMulti extends boolean>(
     multiValue: styles => {
       return {
         ...styles,
-        color: blue ? colors["ld-mediumblue"] : getRGBVar("primary"),
+        color: blue ? colors.sky["600"] : getRGBVar("primary"),
         fontFamily: getFontFamily(mono),
         fontSize: getFontSize(small, mono, rounded),
         top: small ? "45%" : styles.top,
@@ -230,7 +230,7 @@ export const getCustomStyles = <
 
 function getColor(isFocused: boolean, blue?: boolean): string {
   if (blue) {
-    return isFocused ? colors["ld-mediumblue"] : colors["acc-hoverlinkblue"];
+    return isFocused ? colors.sky["600"] : colors.sky["400"];
   }
   return isFocused ? colors.storm["200"] : colors.stone["100"];
 }

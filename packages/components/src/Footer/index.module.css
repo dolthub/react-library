@@ -78,7 +78,7 @@
     @apply text-white text-opacity-80 font-normal text-sm;
 
     &:hover {
-      @apply text-ld-blue;
+      @apply text-sky-300;
     }
   }
 

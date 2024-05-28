@@ -66,7 +66,7 @@
   @apply bg-primary;
 
   &:hover {
-    @apply bg-acc-hoverblue;
+    @apply bg-sky-900;
   }
 }
 
@@ -126,7 +126,7 @@
   @apply text-primary;
 
   &:hover {
-    @apply text-acc-hoverblue;
+    @apply text-sky-900;
   }
 }
 
