@@ -13,10 +13,8 @@ Colors we use in our design system.
 ## Base Colors
 
 <ColorPalette>
-  {Object.entries(staticColors).map(([k, v], i) => {
-    return (
-      <ColorItem key={i} title={k} colors={[v]} />
-    )
+  {Object.entries(staticColors).map(([colorName, colorObj], i) => {
+    return <ColorItem key={i} title={colorName} colors={Object.values(colorObj)} />
   })}
 </ColorPalette>
 
