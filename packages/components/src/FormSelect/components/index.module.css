@@ -7,10 +7,10 @@
 }
 
 .clearIndicator {
-  @apply text-ld-darkgrey mr-3;
+  @apply text-storm-200 mr-3;
 
   &:hover {
-    @apply text-ld-darkergrey;
+    @apply text-storm-500;
   }
 }
 
@@ -76,7 +76,7 @@
 }
 
 .optionDetails {
-  @apply text-acc-darkgrey text-xs mt-1 mb-1;
+  @apply text-stone-500 text-xs mt-1 mb-1;
 }
 
 .menuList {
@@ -88,5 +88,5 @@
 }
 
 .noOpts {
-  @apply text-center my-2 text-ld-darkgrey;
+  @apply text-center my-2 text-storm-200;
 }

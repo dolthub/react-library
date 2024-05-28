@@ -38,7 +38,7 @@ export const WithChildren: Story = {
     comment: "Comment",
     profPic: ProfPic,
     children: (
-      <Button.Group className="w-full py-2 px-6 bg-ld-lightblue border-x border-b rounded-b-md flex justify-end">
+      <Button.Group className="w-full py-2 px-6 bg-stone-50 border-x border-b rounded-b-md flex justify-end">
         <Button>Child 1</Button>
         <Button.Link>Child 2</Button.Link>
       </Button.Group>

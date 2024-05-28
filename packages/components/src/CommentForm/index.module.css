@@ -7,7 +7,7 @@
 }
 
 .mobileForm {
-  @apply rounded-b-lg relative w-full pt-2 pb-12 px-5 bg-ld-lightpurple;
+  @apply rounded-b-lg relative w-full pt-2 pb-12 px-5 bg-stone-50;
 }
 
 .formLeft {
@@ -40,7 +40,7 @@
 }
 
 .charCount {
-  @apply absolute right-4 top-4 text-sm text-acc-darkgrey;
+  @apply absolute right-4 top-4 text-sm text-stone-500;
 }
 
 .charCountWithLabel {

@@ -3,7 +3,7 @@
 }
 
 .overlay {
-  @apply fixed top-0 left-0 w-full h-full bg-acc-darkgrey/70;
+  @apply fixed top-0 left-0 w-full h-full bg-stone-500/70;
   z-index: 1000;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .inner {
-  @apply p-6 bg-ld-grey;
+  @apply p-6 bg-stone-50;
   p {
     @apply mb-6;
   }

@@ -10,10 +10,10 @@
   }
 
   &:disabled {
-    @apply cursor-default bg-acc-light-text;
+    @apply cursor-default bg-stone-300;
 
     &:hover {
-      @apply button-shadow bg-acc-light-text;
+      @apply button-shadow bg-stone-300;
     }
   }
 }
@@ -34,10 +34,10 @@
   }
 
   &:disabled {
-    @apply cursor-default border-acc-light-text text-acc-light-text;
+    @apply cursor-default border-stone-300 text-stone-300;
 
     &:hover {
-      @apply border-acc-light-text text-acc-light-text;
+      @apply border-stone-300 text-stone-300;
     }
   }
 }
@@ -54,10 +54,10 @@
   }
 
   &:disabled {
-    @apply text-ld-darkgrey;
+    @apply text-storm-200;
 
     &:hover {
-      @apply text-ld-darkgrey;
+      @apply text-storm-200;
     }
   }
 }

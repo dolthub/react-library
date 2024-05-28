@@ -8,10 +8,10 @@
 
 .mobileFriendly {
   @media (max-width: 640px) {
-    @apply border-t border-ld-lightgrey px-4 pt-3 mb-0 pb-4 bg-white;
+    @apply border-t border-stone-100 px-4 pt-3 mb-0 pb-4 bg-white;
 
     &:focus-within {
-      @apply bg-ld-lightpurple;
+      @apply bg-stone-50;
     }
   }
 }
@@ -26,19 +26,19 @@
 }
 
 .textarea {
-  @apply font-sans text-primary text-sm rounded py-2 px-3 bg-ld-lightblue border border-acc-lightgrey w-full;
+  @apply font-sans text-primary text-sm rounded py-2 px-3 bg-stone-50 border border-stone-100 w-full;
 
   &:focus {
     @apply outline-none bg-white;
   }
 
   &:disabled {
-    @apply text-ld-darkgrey;
+    @apply text-storm-200;
   }
 }
 
 .textarea::placeholder {
-  @apply text-ld-darkgrey;
+  @apply text-storm-200;
 }
 
 .mobileFriendlyTextarea {
@@ -46,11 +46,11 @@
     @apply px-0 py-1 bg-white text-primary border-none;
 
     &:focus {
-      @apply bg-ld-lightpurple;
+      @apply bg-stone-50;
     }
 
     &:disabled {
-      @apply text-ld-darkgrey;
+      @apply text-storm-200;
     }
   }
 }

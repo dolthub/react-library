@@ -14,7 +14,7 @@ const customStyles = <T, Q extends OptionTypeBase<T>, IsMulti extends boolean>(
     placeholder: styles => {
       return {
         ...styles,
-        color: blue ? colors["acc-hoverlinkblue"] : colors["ld-darkgrey"],
+        color: blue ? colors["acc-hoverlinkblue"] : colors.storm["200"],
         fontSize: getFontSize(small, mono, rounded),
         fontFamily: getFontFamily(mono),
         fontWeight: 400,
@@ -23,7 +23,7 @@ const customStyles = <T, Q extends OptionTypeBase<T>, IsMulti extends boolean>(
     control: (styles, { isFocused }) => {
       return {
         ...styles,
-        backgroundColor: isFocused || light ? "white" : colors["ld-lightblue"],
+        backgroundColor: isFocused || light ? "white" : colors.stone["50"],
         borderRadius: getBorderRadius(pill, rounded),
         width: transparentBorder && !small ? "10rem" : "",
         borderColor: getBorderColor(isFocused, blue, transparentBorder),
@@ -70,9 +70,9 @@ const customStyles = <T, Q extends OptionTypeBase<T>, IsMulti extends boolean>(
         ...styles,
         display: "flex",
         alignItems: "center",
-        color: isDisabled ? colors["ld-darkgrey"] : getRGBVar("primary"),
+        color: isDisabled ? colors.storm["200"] : getRGBVar("primary"),
         backgroundColor:
-          isFocused || isSelected ? colors["ld-lightpurple"] : undefined,
+          isFocused || isSelected ? colors.stone["50"] : undefined,
         fontFamily: getFontFamily(mono),
         fontSize: getFontSize(small, mono, rounded),
       };
@@ -93,7 +93,7 @@ const customStyles = <T, Q extends OptionTypeBase<T>, IsMulti extends boolean>(
         fontFamily: getFontFamily(mono),
         fontSize: getFontSize(small, mono, rounded),
         top: small ? "45%" : styles.top,
-        backgroundColor: light ? colors["ld-lightpurple"] : "white",
+        backgroundColor: light ? colors.stone["50"] : "white",
         border: "1px solid #D1D5D7",
       };
     },
@@ -182,7 +182,7 @@ const mobileDarkStyles = <
     menu: styles => {
       return {
         ...styles,
-        color: colors["ld-darkergrey"],
+        color: colors.storm["500"],
       };
     },
     singleValue: styles => {
@@ -232,7 +232,7 @@ function getColor(isFocused: boolean, blue?: boolean): string {
   if (blue) {
     return isFocused ? colors["ld-mediumblue"] : colors["acc-hoverlinkblue"];
   }
-  return isFocused ? colors["ld-darkgrey"] : colors["ld-lightgrey"];
+  return isFocused ? colors.storm["200"] : colors.stone["100"];
 }
 
 function getBorderRadius(pill?: boolean, rounded?: boolean): string {
@@ -264,7 +264,7 @@ function getBorderColor(
   if (blue) {
     return isFocused ? getRGBVar("link-1") : getRGBVar("link-2");
   }
-  return isFocused ? colors["ld-darkgrey"] : colors["acc-lightgrey"];
+  return isFocused ? colors.storm["200"] : colors.stone["100"];
 }
 
 function getRGBVar(colorName: string): string {
