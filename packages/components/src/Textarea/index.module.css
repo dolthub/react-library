@@ -65,5 +65,5 @@
 
 .error,
 .error:focus {
-  @apply border border-acc-red bg-white text-acc-red;
+  @apply border border-red-400 bg-white text-red-400;
 }

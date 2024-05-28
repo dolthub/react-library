@@ -1,18 +1,18 @@
 import { IThemeColors, IThemeRGB, IThemeVariables } from "../../types";
 
-const greys = {
-  // "ld-lightblue": "#f6f8f9", // stone-50
-  // "ld-lightpurple": "#f1f3f8", // stone-50
-  // "ld-grey": "#f2f5fb", // stone-50
-  // "ld-lightgrey": "#e1e5e7", // stone-100
-  // "acc-lightgrey": "#c6cdd0", // stone-100
-  // "acc-grey": "#b2c0c4", // stone-300
-  // "ld-darkgrey": "#95a3a7", // storm-200
-  // "acc-light-text": "#999db3", // stone-300
-  // "acc-darkgrey": "#5d6280", // stone-500
-  // "acc-code": "#575662", // space-600
-  // "ld-darkergrey": "#384B52", // storm-500
-};
+// const greys = {
+// "ld-lightblue": "#f6f8f9", // stone-50
+// "ld-lightpurple": "#f1f3f8", // stone-50
+// "ld-grey": "#f2f5fb", // stone-50
+// "ld-lightgrey": "#e1e5e7", // stone-100
+// "acc-lightgrey": "#c6cdd0", // stone-100
+// "acc-grey": "#b2c0c4", // stone-300
+// "ld-darkgrey": "#95a3a7", // storm-200
+// "acc-light-text": "#999db3", // stone-300
+// "acc-darkgrey": "#5d6280", // stone-500
+// "acc-code": "#575662", // space-600
+// "ld-darkergrey": "#384B52", // storm-500
+// };
 
 const blues = {
   "ld-blue": "#6db0fc",
@@ -24,25 +24,26 @@ const blues = {
   "ld-darkestblue": "#182134",
 };
 
-const accents = {
-  "acc-lightgreen": "#d4f5e4",
-  "ld-green": "#5deda2", // TODO
-  "acc-bright-green": "#29e3c1",
-  "acc-hovergreen": "#6fdda4",
-  "acc-green": "#5ac58d",
+// const accents = {
+// "acc-lightgreen": "#d4f5e4", // mint-50
 
-  "acc-hoverred": "#EF4341",
-  "acc-red": "#FF6967",
-  "acc-orange": "#ed8936",
-  "acc-pink": "#d588d5",
-  "acc-purple": "#805EDD",
-};
+// "acc-bright-green": "#29e3c1", // mint-200
+// "acc-hovergreen": "#6fdda4", // green-600
+// "acc-green": "#5ac58d", // green-500
+
+// "acc-hoverred": "#EF4341", // red-500
+// "acc-red": "#FF6967", // red-400
+// "acc-orange": "#ed8936", // orange-400
+// "acc-pink": "#d588d5", // pink-200
+// "acc-purple": "#805EDD", // purple-400
+// };
 
 // TODO: Improve these names
 export const staticColors = {
-  ...greys,
+  // ...greys,
   ...blues,
-  ...accents,
+  // ...accents,
+  "ld-green": "#5deda2", // TODO
   coral: {
     50: "#FFE2D9",
     400: "#FF7042",

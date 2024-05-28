@@ -1,10 +1,10 @@
 import { IThemeRGB } from "../../types";
 
 export const colors = {
-  "ld-bluegrey": "#284f94",
-  "ld-brightgreen": "#29e3c1",
-  "ld-darkblue": "#183362",
-  "ld-orange": "#ff820f",
+  "ld-bluegrey": "#284f94", // ocean-500
+  // "ld-brightgreen": "#29e3c1", // mint-200
+  "ld-darkblue": "#183362", // ocean-700
+  "ld-orange": "#ff820f", // orange-400
 };
 
 export const tailwindColorTheme: IThemeRGB = {

@@ -1,3 +1,3 @@
 .successMsg {
-  @apply text-acc-green font-semibold;
+  @apply text-green-500 font-semibold;
 }

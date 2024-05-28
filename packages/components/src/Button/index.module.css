@@ -71,18 +71,18 @@
 }
 
 .red {
-  @apply bg-acc-red;
+  @apply bg-red-400;
 
   &:hover {
-    @apply bg-acc-hoverred;
+    @apply bg-red-500;
   }
 }
 
 .green {
-  @apply bg-acc-green;
+  @apply bg-green-500;
 
   &:hover {
-    @apply bg-acc-hovergreen;
+    @apply bg-green-600;
   }
 }
 
@@ -107,18 +107,18 @@
 }
 
 .redText {
-  @apply text-acc-red;
+  @apply text-red-400;
 
   &:hover {
-    @apply text-acc-hoverred;
+    @apply text-red-500;
   }
 }
 
 .greenText {
-  @apply text-acc-green;
+  @apply text-green-500;
 
   &:hover {
-    @apply text-acc-hovergreen;
+    @apply text-green-600;
   }
 }
 

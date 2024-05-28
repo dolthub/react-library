@@ -18,7 +18,7 @@
   @apply flex px-1 items-center rounded-sm text-primary;
 
   &:hover {
-    @apply text-acc-red;
+    @apply text-red-400;
   }
 }
 
@@ -60,7 +60,7 @@
 }
 
 .check {
-  @apply mr-2 text-acc-green min-w-[20px];
+  @apply mr-2 text-green-500 min-w-[20px];
 }
 
 .checkInvisible {

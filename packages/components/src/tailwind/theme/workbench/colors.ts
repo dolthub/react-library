@@ -1,12 +1,12 @@
 import { IThemeRGB } from "../../types";
 
 export const colors = {
-  "ld-bluegrey": "#284f94",
-  "ld-brightgreen": "#29e3c1",
-  "ld-darkblue": "#183362",
+  "ld-bluegrey": "#284f94", // ocean-500
+  // "ld-brightgreen": "#29e3c1", // mint-200
+  "ld-darkblue": "#183362", // ocean-700
   // "ld-darkerblue": "#192E3D", // storm-600
   "ld-mediumblue": "#2E4459",
-  "ld-orange": "#FF7042",
+  "ld-orange": "#FF7042", // coral-400
   "acc-hoverlinkblue": "#1f6dc6",
   "acc-linkblue": "#3d91f0",
 };
