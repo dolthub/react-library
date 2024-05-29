@@ -1,6 +1,6 @@
 import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
-import { staticColors, baseColorVariableValues } from "../tailwind/theme/base/colors"
-import { colors as dolthubColors } from "../tailwind/theme/dolthub/colors"
+import { staticColors } from "../tailwind/theme/base/colors"
+import { tailwindColorTheme as dolthubTailwindColorTheme } from "../tailwind/theme/dolthub/colors"
 import { tailwindColorTheme as hostedTailwindColorTheme, colors as hostedColors } from "../tailwind/theme/hosted/colors"
 import { tailwindColorTheme as workbenchTailwindColorTheme, colors as workbenchColors } from "../tailwind/theme/workbench/colors"
 
@@ -14,9 +14,6 @@ Colors we use in our design system.
 
 <ColorPalette>
   {Object.entries(staticColors)
-    .filter(
-      ([colorName]) => colorName !== "white" && colorName !== "transparent",
-    )
     .map(([colorName, colorObj], i) => (
       <ColorItem key={i} title={colorName} colors={Object.values(colorObj)} />
     ))}
@@ -29,14 +26,9 @@ Colors with <code>(c)</code> share a name among all themes but have different va
 ### DoltHub
 
 <ColorPalette>
-  {Object.entries(baseColorVariableValues).map(([k, v], i) => {
+  {Object.entries(dolthubTailwindColorTheme).map(([k, v], i) => {
     return (
       <ColorItem key={i} title={`${k.replace("rgb-", "")} (c)`} colors={[`rgba(${v})`]} />
-    )
-  })}
-  {Object.entries(dolthubColors).map(([k, v], i) => {
-    return (
-      <ColorItem key={i} title={k} colors={[v]} />
     )
   })}
 </ColorPalette>
@@ -49,11 +41,6 @@ Colors with <code>(c)</code> share a name among all themes but have different va
       <ColorItem key={i} title={`${k.replace("rgb-", "")} (c)`} colors={[`rgba(${v})`]} />
     )
   })}
-   {Object.entries(hostedColors).map(([k, v], i) => {
-    return (
-      <ColorItem key={i} title={k} colors={[v]} />
-    )
-  })}
 </ColorPalette>
 
 ### Workbench
@@ -62,11 +49,6 @@ Colors with <code>(c)</code> share a name among all themes but have different va
   {Object.entries(workbenchTailwindColorTheme).map(([k, v], i) => {
     return (
       <ColorItem key={i} title={`${k.replace("rgb-", "")} (c)`} colors={[`rgba(${v})`]} />
-    )
-  })}
-   {Object.entries(workbenchColors).map(([k, v], i) => {
-    return (
-      <ColorItem key={i} title={k} colors={[v]} />
     )
   })}
 </ColorPalette>

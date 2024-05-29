@@ -1,52 +1,20 @@
 import tailwindColors from "tailwindcss/colors";
-import { IThemeColors, IThemeRGB, IThemeVariables } from "../../types";
+import { IThemeColors, IThemeVariables } from "../../types";
 
-// const greys = {
-// "ld-lightblue": "#f6f8f9", // stone-50
-// "ld-lightpurple": "#f1f3f8", // stone-50
-// "ld-grey": "#f2f5fb", // stone-50
-// "ld-lightgrey": "#e1e5e7", // stone-100
-// "acc-lightgrey": "#c6cdd0", // stone-100
-// "acc-grey": "#b2c0c4", // stone-300
-// "ld-darkgrey": "#95a3a7", // storm-200
-// "acc-light-text": "#999db3", // stone-300
-// "acc-darkgrey": "#5d6280", // stone-500
-// "acc-code": "#575662", // space-600
-// "ld-darkergrey": "#384B52", // storm-500
-// };
-
-// const blues = {
-// "ld-blue": "#6db0fc", // sky-300
-// "acc-hoverlinkblue": "#3d91f0", // sky-400
-// "acc-linkblue": "#1f6dc6", // sky-600
-// "ld-mediumblue": "#2b5db6", // sky-600
-// "acc-hoverblue": "#1d2c7f", // sky-900
-// "ld-darkerblue": "#1e2842", // space-600
-// "ld-darkestblue": "#182134", // space-700
-// };
-
-// const accents = {
-// "acc-lightgreen": "#d4f5e4", // mint-50
-
-// "acc-bright-green": "#29e3c1", // mint-200
-// "acc-hovergreen": "#6fdda4", // green-600
-// "acc-green": "#5ac58d", // green-500
-
-// "acc-hoverred": "#EF4341", // red-500
-// "acc-red": "#FF6967", // red-400
-// "acc-orange": "#ed8936", // orange-400
-// "acc-pink": "#d588d5", // pink-200
-// "acc-purple": "#805EDD", // purple-400
-// };
+const extendedTailwindColors = {
+  amber: tailwindColors.amber,
+  current: "currentColor",
+  indigo: tailwindColors.indigo,
+  transparent: "transparent",
+  white: "#ffffff",
+  yellow: tailwindColors.yellow,
+};
 
 export const staticColors = {
-  // "ld-green": "#5deda2", // TODO
-  amber: tailwindColors.amber,
   coral: {
     50: "#FFE2D9",
     400: "#FF7042",
   },
-  current: "currentColor",
   green: {
     50: "#DEFBEC",
     100: "#BEF8D9",
@@ -54,7 +22,6 @@ export const staticColors = {
     500: "#149566",
     600: "#0F704D",
   },
-  indigo: tailwindColors.indigo,
   mint: {
     50: "#B9F6EB",
     200: "#29E3C1",
@@ -120,9 +87,6 @@ export const staticColors = {
     600: "#192E3D",
     800: "#101D27",
   },
-  transparent: "transparent",
-  white: "#ffffff",
-  yellow: tailwindColors.yellow,
 };
 
 const configurableColors: IThemeColors = {
@@ -139,24 +103,13 @@ const configurableColors: IThemeColors = {
   "code-background": withOpacity("--color-code-background"),
 };
 
-const colors = { ...staticColors, ...configurableColors };
+const colors = {
+  ...staticColors,
+  ...extendedTailwindColors,
+  ...configurableColors,
+};
 
 export default colors;
-
-// Can override these values by passing this object with different values to
-// `applyTheme`
-export const baseColorVariableValues: IThemeRGB = {
-  "rgb-primary": "12, 26, 50", // ocean-800
-  "rgb-acc-1": "252, 66, 201", // pink-400
-  "rgb-background-acc-1": "24, 33, 52", // space-700
-  "rgb-background-acc-start": "31, 41, 66", // space-600
-  "rgb-button-1": "61, 145, 240", // sky-400
-  "rgb-link-1": "39, 105, 180", // sky-600
-  "rgb-button-2": "39, 105, 180", // sky-600
-  "rgb-link-2": "61, 145, 240", // sky-400
-  "rgb-link-light": "109, 176, 252", // sky-300
-  "rgb-code-background": "30, 40, 66", // space-600
-};
 
 // Reference for using CSS variables in Tailwind:
 // https://tailwindcss.com/docs/customizing-colors#using-css-variables

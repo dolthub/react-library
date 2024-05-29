@@ -3,7 +3,7 @@ import { Preview } from "@storybook/react";
 import React from "react";
 import "../src/styles/global.css";
 import ThemeProvider from "../src/tailwind/context";
-import { baseColorVariableValues } from "../src/tailwind/theme/base/colors";
+import { tailwindColorTheme as dolthubTheme } from "../src/tailwind/theme/dolthub/colors";
 import { tailwindColorTheme as hostedTheme } from "../src/tailwind/theme/hosted/colors";
 import { tailwindColorTheme as workbenchTheme } from "../src/tailwind/theme/workbench/colors";
 import { IThemeRGB } from "../src/tailwind/types";
@@ -68,7 +68,7 @@ function getTheme(theme: string): IThemeRGB {
     case "workbench":
       return workbenchTheme;
     default:
-      return baseColorVariableValues;
+      return dolthubTheme;
   }
 }
 
