@@ -7,7 +7,7 @@
 }
 
 .blue {
-  @apply opacity-100 text-[#CEE3FB] bg-background-acc-1 rounded-full;
+  @apply opacity-100 text-sky-50 bg-background-acc-1 rounded-full;
 
   svg {
     @apply text-lg;
