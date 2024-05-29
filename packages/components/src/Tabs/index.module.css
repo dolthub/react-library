@@ -1,5 +1,5 @@
 .tabList {
-  @apply w-full overflow-x-auto flex border-b border-ld-lightgrey;
+  @apply w-full overflow-x-auto flex border-b border-stone-100;
 
   @media (max-width: 756px) {
     /* Hide scrollbar for IE, Edge, and Firefox */

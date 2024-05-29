@@ -3,7 +3,7 @@
 }
 
 .outerContainer {
-  @apply rounded-t-md rounded-b-md border border-ld-lightgrey;
+  @apply rounded-t-md rounded-b-md border border-stone-100;
 }
 
 .outerSeparate {
@@ -15,7 +15,7 @@
 }
 
 .tabList {
-  @apply text-sm pt-2.5 bg-ld-lightpurple rounded-t-md;
+  @apply text-sm pt-2.5 bg-stone-50 rounded-t-md;
 }
 
 .outerUnroundedTop {

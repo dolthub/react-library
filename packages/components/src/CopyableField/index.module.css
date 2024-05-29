@@ -51,6 +51,6 @@
   @apply p-1 rounded ml-4 text-button-1;
 
   &:hover {
-    @apply bg-ld-lightblue text-button-1;
+    @apply bg-stone-50 text-button-1;
   }
 }

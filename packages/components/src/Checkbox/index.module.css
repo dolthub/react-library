@@ -7,7 +7,7 @@
 }
 
 .disabledContainer {
-  @apply text-ld-darkgrey;
+  @apply text-storm-200;
 
   &:hover {
     @apply cursor-default;
@@ -57,14 +57,14 @@
 .container input:disabled ~ .checkbox {
   @apply border-primary/20;
   > svg {
-    @apply text-ld-darkgrey;
+    @apply text-storm-200;
   }
 }
 
 .description {
-  @apply ml-10 mb-6 text-acc-darkgrey;
+  @apply ml-10 mb-6 text-stone-500;
 }
 
 .disabledDescription {
-  @apply text-ld-darkgrey;
+  @apply text-storm-200;
 }

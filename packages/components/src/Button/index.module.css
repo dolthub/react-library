@@ -10,10 +10,10 @@
   }
 
   &:disabled {
-    @apply cursor-default bg-acc-light-text;
+    @apply cursor-default bg-stone-300;
 
     &:hover {
-      @apply button-shadow bg-acc-light-text;
+      @apply button-shadow bg-stone-300;
     }
   }
 }
@@ -34,10 +34,10 @@
   }
 
   &:disabled {
-    @apply cursor-default border-acc-light-text text-acc-light-text;
+    @apply cursor-default border-stone-300 text-stone-300;
 
     &:hover {
-      @apply border-acc-light-text text-acc-light-text;
+      @apply border-stone-300 text-stone-300;
     }
   }
 }
@@ -54,10 +54,10 @@
   }
 
   &:disabled {
-    @apply text-ld-darkgrey;
+    @apply text-storm-200;
 
     &:hover {
-      @apply text-ld-darkgrey;
+      @apply text-storm-200;
     }
   }
 }
@@ -66,23 +66,23 @@
   @apply bg-primary;
 
   &:hover {
-    @apply bg-acc-hoverblue;
+    @apply bg-sky-900;
   }
 }
 
 .red {
-  @apply bg-acc-red;
+  @apply bg-red-400;
 
   &:hover {
-    @apply bg-acc-hoverred;
+    @apply bg-red-500;
   }
 }
 
 .green {
-  @apply bg-acc-green;
+  @apply bg-green-500;
 
   &:hover {
-    @apply bg-acc-hovergreen;
+    @apply bg-green-600;
   }
 }
 
@@ -107,18 +107,18 @@
 }
 
 .redText {
-  @apply text-acc-red;
+  @apply text-red-400;
 
   &:hover {
-    @apply text-acc-hoverred;
+    @apply text-red-500;
   }
 }
 
 .greenText {
-  @apply text-acc-green;
+  @apply text-green-500;
 
   &:hover {
-    @apply text-acc-hovergreen;
+    @apply text-green-600;
   }
 }
 
@@ -126,7 +126,7 @@
   @apply text-primary;
 
   &:hover {
-    @apply text-acc-hoverblue;
+    @apply text-sky-900;
   }
 }
 

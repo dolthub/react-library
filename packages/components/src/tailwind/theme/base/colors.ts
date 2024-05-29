@@ -1,48 +1,92 @@
-import { IThemeColors, IThemeRGB, IThemeVariables } from "../../types";
+import tailwindColors from "tailwindcss/colors";
+import { IThemeColors, IThemeVariables } from "../../types";
 
-const greys = {
-  "ld-lightblue": "#f6f8f9",
-  "ld-lightpurple": "#f1f3f8",
-  "ld-grey": "#f2f5fb",
-  "ld-lightgrey": "#e1e5e7",
-  "acc-lightgrey": "#c6cdd0",
-  "acc-grey": "#b2c0c4",
-  "ld-darkgrey": "#95a3a7",
-  "acc-light-text": "#999db3",
-  "acc-darkgrey": "#5d6280",
-  "acc-code": "#575662",
-  "ld-darkergrey": "#384B52",
+const extendedTailwindColors = {
+  amber: tailwindColors.amber,
+  current: "currentColor",
+  indigo: tailwindColors.indigo,
+  transparent: "transparent",
+  white: "#ffffff",
+  yellow: tailwindColors.yellow,
 };
 
-const blues = {
-  "ld-blue": "#6db0fc",
-  "acc-hoverlinkblue": "#3d91f0",
-  "acc-linkblue": "#1f6dc6",
-  "ld-mediumblue": "#2b5db6",
-  "acc-hoverblue": "#1d2c7f",
-  "ld-darkerblue": "#1e2842",
-  "ld-darkestblue": "#182134",
-};
-
-const accents = {
-  "acc-lightgreen": "#d4f5e4",
-  "ld-green": "#5deda2",
-  "acc-bright-green": "#29e3c1",
-  "acc-hovergreen": "#6fdda4",
-  "acc-green": "#5ac58d",
-
-  "acc-hoverred": "#EF4341",
-  "acc-red": "#FF6967",
-  "acc-orange": "#ed8936",
-  "acc-pink": "#d588d5",
-  "acc-purple": "#805EDD",
-};
-
-// TODO: Improve these names
 export const staticColors = {
-  ...greys,
-  ...blues,
-  ...accents,
+  coral: {
+    50: "#FFE2D9",
+    400: "#FF7042",
+  },
+  green: {
+    50: "#DEFBEC",
+    100: "#BEF8D9",
+    300: "#46C899",
+    500: "#149566",
+    600: "#0F704D",
+  },
+  mint: {
+    50: "#B9F6EB",
+    200: "#29E3C1",
+  },
+  ocean: {
+    50: "#D1DCF0",
+    100: "#A8BCE1",
+    500: "#234C95",
+    700: "#183362",
+    800: "#0C1A32",
+  },
+  orange: {
+    50: "#FBE5D4",
+    200: "#F4B785",
+    400: "#ED8936",
+    500: "#CC752C",
+  },
+  pink: {
+    50: "#FED7F3",
+    100: "#FEB2E9",
+    200: "#FD8CDE",
+    400: "#FC42C9",
+  },
+  purple: {
+    50: "#E2DBF7",
+    100: "#CABCF1",
+    200: "#B19CEA",
+    400: "#805EDD",
+  },
+  red: {
+    50: "#FCD3D3",
+    100: "#FAADAD",
+    300: "#F56260",
+    400: "#F23C3A",
+    500: "#D43130",
+    600: "#B52725",
+  },
+  sky: {
+    50: "#D4E7FC",
+    100: "#AED1F9",
+    300: "#6DB0FC",
+    400: "#3D91F0",
+    600: "#2769B4",
+    700: "#1D5696",
+    900: "#072E5A",
+  },
+  space: {
+    300: "#4D5D8A",
+    600: "#1F2942",
+    700: "#182134",
+  },
+  stone: {
+    50: "#F1F3F8",
+    100: "#D7D8DF",
+    300: "#9C9FB1",
+    400: "#7C8099",
+    500: "#5D6280",
+  },
+  storm: {
+    50: "#A4C3DA",
+    200: "#7A96AB",
+    500: "#354C5C",
+    600: "#192E3D",
+    800: "#101D27",
+  },
 };
 
 const configurableColors: IThemeColors = {
@@ -59,24 +103,13 @@ const configurableColors: IThemeColors = {
   "code-background": withOpacity("--color-code-background"),
 };
 
-const colors = { ...staticColors, ...configurableColors };
+const colors = {
+  ...staticColors,
+  ...extendedTailwindColors,
+  ...configurableColors,
+};
 
 export default colors;
-
-// Can override these values by passing this object with different values to
-// `applyTheme`
-export const baseColorVariableValues: IThemeRGB = {
-  "rgb-primary": "1, 10, 64", // ld-darkblue
-  "rgb-acc-1": "252, 66, 201", // ld-pink
-  "rgb-background-acc-1": "24, 33, 52", // ld-darkestblue
-  "rgb-background-acc-start": "31, 41, 66",
-  "rgb-button-1": "61, 145, 240", // acc-hoverlinkblue
-  "rgb-link-1": "31, 109, 198", // acc-linkblue
-  "rgb-button-2": "31, 109, 198", // acc-linkblue
-  "rgb-link-2": "61, 145, 240", // acc-hoverlinkblue
-  "rgb-link-light": "109, 176, 252", // ld-blue
-  "rgb-code-background": "30, 40, 66", // ld-darkerblue
-};
 
 // Reference for using CSS variables in Tailwind:
 // https://tailwindcss.com/docs/customizing-colors#using-css-variables

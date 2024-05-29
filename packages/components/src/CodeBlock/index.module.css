@@ -7,14 +7,14 @@
 }
 
 .disabled {
-  @apply bg-ld-darkgrey;
+  @apply bg-storm-200;
 }
 
 .clipboard {
   @apply p-2 mx-2 rounded h-10 min-w-[37px] text-white flex items-center justify-center;
 
   &:hover {
-    @apply bg-ld-darkgrey;
+    @apply bg-storm-200;
   }
 }
 

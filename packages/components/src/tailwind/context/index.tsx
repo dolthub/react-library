@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useMemo,
 } from "react";
-import { baseColorVariableValues } from "../theme/base/colors";
+import { tailwindColorTheme } from "../theme/dolthub/colors";
 import { IThemeColors, IThemeRGB } from "../types";
 import applyTheme from "./applyTheme";
 import { rgbToHex } from "./utils";
@@ -22,7 +22,7 @@ type ThemeContextType = {
 };
 
 const ThemeContext = createContext<ThemeContextType>({
-  themeRGB: baseColorVariableValues,
+  themeRGB: tailwindColorTheme,
   convertThemeRGBToHex: () => {
     return {};
   },
@@ -33,7 +33,7 @@ const ThemeContext = createContext<ThemeContextType>({
 export default function ThemeProvider(props: Props) {
   const themeRGB: IThemeRGB = useMemo(() => {
     return {
-      ...baseColorVariableValues,
+      ...tailwindColorTheme,
       ...(props.themeRGBOverrides ?? {}),
     };
   }, [props.themeRGBOverrides]);

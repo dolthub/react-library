@@ -15,11 +15,11 @@
 }
 
 .rowButton {
-  @apply bg-ld-lightgrey;
+  @apply bg-stone-100;
 }
 
 .icon {
-  @apply p-1 w-5 h-5 text-ld-darkgrey;
+  @apply p-1 w-5 h-5 text-storm-200;
 
   &:hover {
     @apply text-primary;
@@ -27,11 +27,11 @@
 }
 
 .rowIcon {
-  @apply text-ld-darkergrey;
+  @apply text-storm-500;
 }
 
 .dropdown {
-  @apply absolute bg-white widget-shadow-hover z-100 rounded-b top-8 px-3 py-1 border-b border-x border-ld-lightgrey max-w-36 right-0 flex flex-col;
+  @apply absolute bg-white widget-shadow-hover z-100 rounded-b top-8 px-3 py-1 border-b border-x border-stone-100 max-w-36 right-0 flex flex-col;
 }
 
 .rowDropdown {

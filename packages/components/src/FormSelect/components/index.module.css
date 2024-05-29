@@ -7,10 +7,10 @@
 }
 
 .clearIndicator {
-  @apply text-ld-darkgrey mr-3;
+  @apply text-storm-200 mr-3;
 
   &:hover {
-    @apply text-ld-darkergrey;
+    @apply text-storm-500;
   }
 }
 
@@ -18,7 +18,7 @@
   @apply flex px-1 items-center rounded-sm text-primary;
 
   &:hover {
-    @apply text-acc-red;
+    @apply text-red-400;
   }
 }
 
@@ -60,7 +60,7 @@
 }
 
 .check {
-  @apply mr-2 text-acc-green min-w-[20px];
+  @apply mr-2 text-green-500 min-w-[20px];
 }
 
 .checkInvisible {
@@ -76,7 +76,7 @@
 }
 
 .optionDetails {
-  @apply text-acc-darkgrey text-xs mt-1 mb-1;
+  @apply text-stone-500 text-xs mt-1 mb-1;
 }
 
 .menuList {
@@ -84,9 +84,9 @@
 }
 
 .footer {
-  @apply border-t flex justify-center text-sm py-2;
+  @apply border-t  flex justify-center text-sm py-2;
 }
 
 .noOpts {
-  @apply text-center my-2 text-ld-darkgrey;
+  @apply text-center my-2 text-storm-200;
 }

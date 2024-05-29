@@ -7,7 +7,7 @@
 
   a,
   button {
-    @apply text-sm font-normal tracking-wide text-white/90 hover:text-blue-200;
+    @apply text-sm font-normal tracking-wide text-white/90 hover:text-sky-100;
   }
 
   a {

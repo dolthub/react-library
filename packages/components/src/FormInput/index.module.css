@@ -8,10 +8,10 @@
 
 .mobileFriendly {
   @media (max-width: 640px) {
-    @apply border-t border-ld-lightgrey mb-0 px-4 pt-3 pb-4 bg-white;
+    @apply border-t border-stone-100 mb-0 px-4 pt-3 pb-4 bg-white;
 
     &:focus-within {
-      @apply bg-ld-lightpurple;
+      @apply bg-stone-50;
     }
   }
 }
@@ -29,10 +29,10 @@
 }
 
 .input {
-  @apply py-2 pl-3 w-full text-sm rounded bg-ld-lightblue border border-acc-lightgrey;
+  @apply py-2 pl-3 w-full text-sm rounded bg-stone-50 border border-stone-100;
 
   &::placeholder {
-    @apply text-ld-darkgrey;
+    @apply text-storm-200;
   }
 
   &:focus {
@@ -44,7 +44,7 @@
   @apply rounded-[20px] border-transparent;
 
   &:focus {
-    @apply border border-ld-darkgrey;
+    @apply border border-storm-200;
   }
 }
 
@@ -53,11 +53,11 @@
     @apply bg-white text-primary border-none px-0;
 
     &:focus {
-      @apply bg-ld-lightpurple;
+      @apply bg-stone-50;
     }
 
     &:disabled {
-      @apply text-ld-darkgrey;
+      @apply text-storm-200;
     }
   }
 }
@@ -76,14 +76,14 @@
 }
 
 .blueText {
-  @apply text-ld-mediumblue rounded-lg;
+  @apply text-sky-600 rounded-lg;
 }
 
 .error,
 .error:focus {
-  @apply border border-acc-red bg-white text-acc-red;
+  @apply border border-red-400 bg-white text-red-400;
 }
 
 .description {
-  @apply text-ld-darkgrey mb-4;
+  @apply text-storm-200 mb-4;
 }

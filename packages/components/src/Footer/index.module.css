@@ -78,7 +78,7 @@
     @apply text-white text-opacity-80 font-normal text-sm;
 
     &:hover {
-      @apply text-ld-blue;
+      @apply text-sky-300;
     }
   }
 
@@ -106,7 +106,7 @@
 }
 
 .copyright {
-  @apply text-xs mt-10 mb-1 text-center text-ld-darkgrey tracking-wider;
+  @apply text-xs mt-10 mb-1 text-center text-storm-200 tracking-wider;
 
   @screen md {
     @apply w-full;

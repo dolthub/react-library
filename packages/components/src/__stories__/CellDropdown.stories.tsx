@@ -14,7 +14,7 @@ export default meta;
 type Story = StoryObj<typeof CellDropdown>;
 
 const cellClassName =
-  "align-top relative min-w-[130px] pr-10 pl-2 border-b border-ld-lightgrey  text-primary font-mono leading-8 text-sm";
+  "align-top relative min-w-[130px] pr-10 pl-2 border-b text-primary font-mono leading-8 text-sm";
 const buttonClassName = "absolute bg-white right-2 top-[0.35rem]";
 
 function Cell(props: { children: React.ReactNode; className?: string }) {
@@ -40,7 +40,7 @@ function CellWrapper({ children }: { children: React.ReactNode }) {
       </thead>
       <tbody>
         <tr>
-          <Cell className="bg-ld-lightgrey">
+          <Cell className="bg-stone-100">
             <span>Cell 1</span>
             {children}
           </Cell>
@@ -60,7 +60,7 @@ function HeadCellWrapper({ children }: { children: React.ReactNode }) {
     <table>
       <thead>
         <tr>
-          <HeadCell className="bg-ld-lightgrey">Header 1{children}</HeadCell>
+          <HeadCell className="bg-stone-100">Header 1{children}</HeadCell>
           <HeadCell>Header 2</HeadCell>
         </tr>
       </thead>
@@ -147,7 +147,7 @@ export const ShowRow: Story = {
     showDropdown: true,
     setShowDropdown: () => {},
     forRow: true,
-    buttonClassName: "text-ld-darkergrey mx-2 text-xl flex",
+    buttonClassName: "text-storm-500 mx-2 text-xl flex",
   },
   decorators: [story => <RowWrapper>{story()}</RowWrapper>],
 };

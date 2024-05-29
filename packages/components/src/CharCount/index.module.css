@@ -1,7 +1,7 @@
 .charCount {
-  @apply text-acc-grey;
+  @apply text-stone-300;
 }
 
 .charCountOver {
-  @apply text-acc-red;
+  @apply text-red-400;
 }
