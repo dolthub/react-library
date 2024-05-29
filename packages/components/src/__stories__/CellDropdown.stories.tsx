@@ -14,7 +14,7 @@ export default meta;
 type Story = StoryObj<typeof CellDropdown>;
 
 const cellClassName =
-  "align-top relative min-w-[130px] pr-10 pl-2 border-b border-stone-100  text-primary font-mono leading-8 text-sm";
+  "align-top relative min-w-[130px] pr-10 pl-2 border-b text-primary font-mono leading-8 text-sm";
 const buttonClassName = "absolute bg-white right-2 top-[0.35rem]";
 
 function Cell(props: { children: React.ReactNode; className?: string }) {

@@ -84,7 +84,7 @@
 }
 
 .footer {
-  @apply border-t flex justify-center text-sm py-2;
+  @apply border-t  flex justify-center text-sm py-2;
 }
 
 .noOpts {

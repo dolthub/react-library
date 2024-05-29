@@ -55,8 +55,5 @@ export {
   colors as hostedColors,
   tailwindColorTheme as hostedTailwindColorTheme,
 } from "./tailwind/theme/hosted/colors";
-export {
-  colors as workbenchColors,
-  tailwindColorTheme as workbenchTailwindColorTheme,
-} from "./tailwind/theme/workbench/colors";
+export { tailwindColorTheme as workbenchTailwindColorTheme } from "./tailwind/theme/workbench/colors";
 export { IThemeColors, IThemeRGB } from "./tailwind/types";

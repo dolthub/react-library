@@ -1,3 +1,4 @@
+import tailwindColors from "tailwindcss/colors";
 import { IThemeColors, IThemeRGB, IThemeVariables } from "../../types";
 
 // const greys = {
@@ -38,16 +39,14 @@ import { IThemeColors, IThemeRGB, IThemeVariables } from "../../types";
 // "acc-purple": "#805EDD", // purple-400
 // };
 
-// TODO: Improve these names
 export const staticColors = {
-  // ...greys,
-  // ...blues,
-  // ...accents,
   // "ld-green": "#5deda2", // TODO
+  amber: tailwindColors.amber,
   coral: {
     50: "#FFE2D9",
     400: "#FF7042",
   },
+  current: "currentColor",
   green: {
     50: "#DEFBEC",
     100: "#BEF8D9",
@@ -55,6 +54,7 @@ export const staticColors = {
     500: "#149566",
     600: "#0F704D",
   },
+  indigo: tailwindColors.indigo,
   mint: {
     50: "#B9F6EB",
     200: "#29E3C1",
@@ -68,13 +68,14 @@ export const staticColors = {
   },
   orange: {
     50: "#FBE5D4",
+    200: "#F4B785",
     400: "#ED8936",
     500: "#CC752C",
   },
   pink: {
     50: "#FED7F3",
     100: "#FEB2E9",
-    300: "#FD8CDE",
+    200: "#FD8CDE",
     400: "#FC42C9",
   },
   purple: {
@@ -119,6 +120,9 @@ export const staticColors = {
     600: "#192E3D",
     800: "#101D27",
   },
+  transparent: "transparent",
+  white: "#ffffff",
+  yellow: tailwindColors.yellow,
 };
 
 const configurableColors: IThemeColors = {

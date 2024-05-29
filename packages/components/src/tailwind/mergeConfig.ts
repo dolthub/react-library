@@ -11,12 +11,15 @@ const reactComponentsTailwindConfig: Config = {
   ],
   plugins,
   theme: {
+    gradientColorStops: colors,
+    colors,
     extend: {
       transitionProperty: { width: "width" },
-      gradientColorStops: colors,
-      colors,
       fontFamily: typography,
       screens: breakpoints,
+      borderColor: {
+        DEFAULT: colors.stone["100"],
+      },
     },
   },
 };

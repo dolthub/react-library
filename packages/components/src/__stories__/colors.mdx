@@ -13,9 +13,13 @@ Colors we use in our design system.
 ## Base Colors
 
 <ColorPalette>
-  {Object.entries(staticColors).map(([colorName, colorObj], i) => {
-    return <ColorItem key={i} title={colorName} colors={Object.values(colorObj)} />
-  })}
+  {Object.entries(staticColors)
+    .filter(
+      ([colorName]) => colorName !== "white" && colorName !== "transparent",
+    )
+    .map(([colorName, colorObj], i) => (
+      <ColorItem key={i} title={colorName} colors={Object.values(colorObj)} />
+    ))}
 </ColorPalette>
 
 ## Theme Colors
