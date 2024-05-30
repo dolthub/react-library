@@ -94,6 +94,7 @@ const customStyles = <T, Q extends OptionTypeBase<T>, IsMulti extends boolean>(
         fontSize: getFontSize(small, mono, rounded),
         top: small ? "45%" : styles.top,
         backgroundColor: light ? colors.stone["50"] : "white",
+        borderWidth: "1px",
         borderColor: colors.stone["100"],
       };
     },
