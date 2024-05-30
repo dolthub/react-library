@@ -2,7 +2,7 @@ import { IThemeRGB } from "../../types";
 
 export const tailwindColorTheme: IThemeRGB = {
   "rgb-primary": "24, 51, 98", // ocean-700
-  "rgb-acc-1": "237, 137, 54", // orange-400
+  "rgb-acc-1": "255, 130, 15", // orange-400
   "rgb-background-acc-1": "43, 93, 182", // sky-600
   "rgb-background-acc-start": "43, 93, 182", // sky-600
   "rgb-button-1": "61, 145, 240", // sky-400
