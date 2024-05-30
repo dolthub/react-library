@@ -3,6 +3,7 @@ import { Preview } from "@storybook/react";
 import React from "react";
 import "../src/styles/global.css";
 import ThemeProvider from "../src/tailwind/context";
+import { staticColors } from "../src/tailwind/theme/base/colors";
 import { tailwindColorTheme as dolthubTheme } from "../src/tailwind/theme/dolthub/colors";
 import { tailwindColorTheme as hostedTheme } from "../src/tailwind/theme/hosted/colors";
 import { tailwindColorTheme as workbenchTheme } from "../src/tailwind/theme/workbench/colors";
@@ -40,9 +41,9 @@ const preview: Preview = {
       default: "light",
       values: [
         { name: "light", value: "white" },
-        { name: "lightish", value: "#f1f3f8" },
-        { name: "dark", value: "#182134" },
-        { name: "blue", value: "#2b5db6" },
+        { name: "lightish", value: staticColors.stone["50"] },
+        { name: "dark", value: staticColors.space["700"] },
+        { name: "blue", value: staticColors.ocean["400"] },
       ],
     },
     viewport: {
