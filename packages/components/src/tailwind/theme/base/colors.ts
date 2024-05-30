@@ -38,7 +38,7 @@ export const staticColors = {
   orange: {
     50: "#FBE5D4",
     200: "#F4B785",
-    400: "#ED8936",
+    400: "#FF820F",
     500: "#CC752C",
   },
   pink: {
