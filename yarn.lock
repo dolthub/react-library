@@ -2005,7 +2005,7 @@ __metadata:
     "@babel/core": "npm:^7.24.0"
     "@babel/preset-env": "npm:^7.24.3"
     "@babel/preset-typescript": "npm:^7.23.3"
-    "@rollup/plugin-commonjs": "npm:^25.0.7"
+    "@rollup/plugin-commonjs": "npm:^25.0.8"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.5"
     "@types/eslint": "npm:^8"
@@ -2040,7 +2040,7 @@ __metadata:
     "@dolthub/react-hooks": "npm:^0.1.7"
     "@dolthub/web-utils": "npm:^0.1.5"
     "@react-icons/all-files": "npm:^4.1.0"
-    "@rollup/plugin-commonjs": "npm:^25.0.7"
+    "@rollup/plugin-commonjs": "npm:^25.0.8"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.5"
     "@storybook/addon-essentials": "npm:^8.0.9"
@@ -2128,7 +2128,7 @@ __metadata:
     "@babel/preset-react": "npm:^7.23.3"
     "@babel/preset-typescript": "npm:^7.23.3"
     "@dolthub/react-hooks": "npm:^0.1.7"
-    "@rollup/plugin-commonjs": "npm:^25.0.7"
+    "@rollup/plugin-commonjs": "npm:^25.0.8"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.5"
     "@testing-library/jest-dom": "npm:^6.4.5"
@@ -2172,7 +2172,7 @@ __metadata:
     "@babel/preset-react": "npm:^7.23.3"
     "@babel/preset-typescript": "npm:^7.23.3"
     "@dolthub/web-utils": "npm:^0.1.5"
-    "@rollup/plugin-commonjs": "npm:^25.0.7"
+    "@rollup/plugin-commonjs": "npm:^25.0.8"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.5"
     "@testing-library/jest-dom": "npm:^6.4.5"
@@ -2218,7 +2218,7 @@ __metadata:
     "@babel/core": "npm:^7.24.0"
     "@babel/preset-env": "npm:^7.24.3"
     "@babel/preset-typescript": "npm:^7.23.3"
-    "@rollup/plugin-commonjs": "npm:^25.0.7"
+    "@rollup/plugin-commonjs": "npm:^25.0.8"
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.5"
     "@types/eslint": "npm:^8"
@@ -3061,9 +3061,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:^25.0.7":
-  version: 25.0.7
-  resolution: "@rollup/plugin-commonjs@npm:25.0.7"
+"@rollup/plugin-commonjs@npm:^25.0.8":
+  version: 25.0.8
+  resolution: "@rollup/plugin-commonjs@npm:25.0.8"
   dependencies:
     "@rollup/pluginutils": "npm:^5.0.1"
     commondir: "npm:^1.0.1"
@@ -3076,7 +3076,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: d096af5aedd55c19ac528daa84a4cacdf21a69c9c9b20c23e04f27a64966cb383f5e2b01b9c903d40318e35dcaa74dc7b5292a844c6cbc66c252f5447eac05b4
+  checksum: 00d6fe41c33476dcb4b4ac3068f869b8537153646ea18f1fb9d0dfd5592792148567dd735d58ac15e2fdd4ed6c98453d20fe5343105f8cfa93d291198c9a90f5
   languageName: node
   linkType: hard
 
