@@ -2090,7 +2090,7 @@ __metadata:
     postcss-preset-env: "npm:^9.4.0"
     prettier: "npm:^3.2.4"
     prop-types: "npm:^15.8.1"
-    react: "npm:^18.2.0"
+    react: "npm:^18.3.1"
     react-copy-to-clipboard: "npm:^5.1.0"
     react-dom: "npm:^18.2.0"
     react-loader: "npm:^2.4.7"
@@ -2148,7 +2148,7 @@ __metadata:
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
     prettier: "npm:^3.2.4"
-    react: "npm:^18.2.0"
+    react: "npm:^18.3.1"
     react-dom: "npm:^18.2.0"
     rollup: "npm:^4.17.2"
     rollup-plugin-dts: "npm:^6.1.1"
@@ -2158,7 +2158,7 @@ __metadata:
     typescript: "npm:^5.4.5"
     yalc: "npm:^1.0.0-pre.53"
   peerDependencies:
-    react: ^18.2.0
+    react: ^18.3.1
     react-dom: ^18.2.0
   languageName: unknown
   linkType: soft
@@ -2195,7 +2195,7 @@ __metadata:
     js-cookie: "npm:^3.0.5"
     prettier: "npm:^3.2.4"
     raf-stub: "npm:^3.0.0"
-    react: "npm:^18.2.0"
+    react: "npm:^18.3.1"
     react-dom: "npm:^18.2.0"
     react-hotkeys: "npm:^2.0.0"
     rollup: "npm:^4.17.2"
@@ -2206,7 +2206,7 @@ __metadata:
     typescript: "npm:^5.4.5"
     yalc: "npm:^1.0.0-pre.53"
   peerDependencies:
-    react: ^18.2.0
+    react: ^18.3.1
     react-dom: ^18.2.0
   languageName: unknown
   linkType: soft
@@ -16312,12 +16312,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0, react@npm:^18.2.0":
+"react@npm:^16.8.0 || ^17.0.0 || ^18.0.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
     loose-envify: "npm:^1.1.0"
   checksum: b562d9b569b0cb315e44b48099f7712283d93df36b19a39a67c254c6686479d3980b7f013dc931f4a5a3ae7645eae6386b4aa5eea933baa54ecd0f9acb0902b8
+  languageName: node
+  linkType: hard
+
+"react@npm:^18.3.1":
+  version: 18.3.1
+  resolution: "react@npm:18.3.1"
+  dependencies:
+    loose-envify: "npm:^1.1.0"
+  checksum: 283e8c5efcf37802c9d1ce767f302dd569dd97a70d9bb8c7be79a789b9902451e0d16334b05d73299b20f048cbc3c7d288bbbde10b701fa194e2089c237dbea3
   languageName: node
   linkType: hard
 
