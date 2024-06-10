@@ -16,6 +16,7 @@ export {
   isTimeoutError,
 } from "./ErrorMsg/context";
 export { default as ExternalLink } from "./ExternalLink";
+export { default as FieldWithButton } from "./FieldWithButton";
 export { default as Footer } from "./Footer";
 export { default as FormInput } from "./FormInput";
 export { default as FormSelect } from "./FormSelect";
