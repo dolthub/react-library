@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { ReactNode } from "react";
 import css from "./index.module.css";
 
-type Props = {
+export type CommonProps = {
   label?: string;
   value: string;
   hideValue?: boolean;
@@ -15,6 +15,9 @@ type Props = {
   smallValue?: boolean;
   vertical?: boolean;
   valueForHidden?: string;
+};
+
+type Props = CommonProps & {
   buttonActive?: boolean;
   button?: ReactNode;
 };

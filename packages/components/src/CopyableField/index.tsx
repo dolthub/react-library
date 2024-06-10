@@ -1,27 +1,12 @@
 import { useDelay } from "@dolthub/react-hooks";
 import { FaRegClone } from "@react-icons/all-files/fa/FaRegClone";
-import React, { ReactNode } from "react";
+import React from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import Btn from "../Btn";
-import FieldWithButton from "../FieldWithButton";
+import FieldWithButton, { CommonProps } from "../FieldWithButton";
 import css from "./index.module.css";
 
-type Props = {
-  label?: string;
-  value: string;
-  hideValue?: boolean;
-  children?: ReactNode;
-  blue?: boolean;
-  help?: ReactNode;
-  blur?: boolean;
-  labelClassName?: string;
-  className?: string;
-  smallValue?: boolean;
-  vertical?: boolean;
-  valueForHidden?: string;
-};
-
-export default function CopyableField(props: Props) {
+export default function CopyableField(props: CommonProps) {
   const copySuccess = useDelay();
 
   return (
