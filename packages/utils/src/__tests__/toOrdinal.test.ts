@@ -1,4 +1,4 @@
-import toOrdinal from "src/toOrdinal";
+import toOrdinal from "../toOrdinal";
 
 describe("toOrdinal", () => {
   test.each([
