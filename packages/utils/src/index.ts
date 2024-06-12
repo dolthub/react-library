@@ -50,6 +50,7 @@ export { default as prettyJSON, prettyJSONText } from "./prettyJSON";
 export { default as randomArrayItem } from "./randomArrayItem";
 export { default as randomNum } from "./randomNum";
 export { default as safeJSONParse } from "./safeJSONParse";
+export { default as toOrdinal } from "./toOrdinal";
 export { default as tuplify } from "./tuplify";
 export { Route } from "./urlUtils";
 export { emailValidator, usernameValidator } from "./validators";
