@@ -37,7 +37,7 @@ export default function Navbar(props: Props) {
         mobileBottomLinks={props.mobileBottomLinks}
         dark={props.dark}
       >
-        {props.leftLinksMobile ? props.leftLinksMobile : props.leftLinks}
+        {props.leftLinksMobile ?? props.leftLinks}
         {props.rightLinksMobile ?? props.rightLinks}
       </MobileNavbar>
     </>
