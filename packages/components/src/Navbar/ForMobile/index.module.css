@@ -44,7 +44,7 @@
 }
 
 .bottomLinks {
-  @apply absolute left-0 right-0 bottom-8 flex justify-between mx-auto px-8 max-w-xs;
+  @apply absolute left-0 right-0 bottom-8 flex justify-between mx-auto px-4 max-w-xs;
 
   img,
   svg {
