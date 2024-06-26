@@ -16,6 +16,7 @@ type Props = {
   // Mobile-only
   mobileBottomLinks?: ReactNode;
   rightLinksMobile?: ReactNode; // Overrides `rightLinks` for mobile
+  leftLinksMobile?: ReactNode; // Overrides `leftLinks` for mobile
 };
 
 export default function Navbar(props: Props) {
@@ -36,7 +37,7 @@ export default function Navbar(props: Props) {
         mobileBottomLinks={props.mobileBottomLinks}
         dark={props.dark}
       >
-        {props.leftLinks}
+        {props.leftLinksMobile?props.leftLinksMobile:props.leftLinks}
         {props.rightLinksMobile ?? props.rightLinks}
       </MobileNavbar>
     </>
