@@ -22,6 +22,13 @@ const rightLinks = (dark = false) => (
   </>
 );
 
+const leftLinks = (
+  <>
+    <a>Blog</a>
+    <a>Documentation</a>
+  </>
+);
+
 export const Basic: Story = {
   args: {
     logo: (
@@ -69,6 +76,14 @@ export const LogoLeft: Story = {
 
 export const Mobile: Story = {
   args: Basic.args,
+
+  parameters: {
+    viewport: { defaultViewport: "iphonex" },
+  },
+};
+
+export const MobileWithLeftLinks: Story = {
+  args: { ...Basic.args, leftLinksMobile: leftLinks },
 
   parameters: {
     viewport: { defaultViewport: "iphonex" },

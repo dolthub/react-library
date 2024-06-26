@@ -73,6 +73,8 @@ describe("test DesktopNavar", () => {
 describe("test MobileNavbar", () => {
   const logo = <div>Logo</div>;
   const children = <div>Children Content</div>;
+  const leftLinks = <div>Mobile Left Links</div>;
+
   const mobileBottomLinks = <div>Mobile Bottom Links</div>;
 
   it("does not show the navigation menu initially", () => {
@@ -83,6 +85,15 @@ describe("test MobileNavbar", () => {
     );
     expect(screen.queryByText("Children Content")).not.toBeInTheDocument();
     expect(screen.queryByText("Mobile Bottom Links")).not.toBeInTheDocument();
+  });
+
+  it("renders a navigation menu with provided left links", () => {
+    render(
+      <MobileNavbar logo={logo} mobileBottomLinks={mobileBottomLinks}>
+        {leftLinks}
+      </MobileNavbar>,
+    );
+    expect(screen.queryByText("Mobile Left Links")).not.toBeInTheDocument();
   });
 
   it("opens the navigation menu when the menu button is clicked", async () => {
