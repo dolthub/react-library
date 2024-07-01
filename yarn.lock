@@ -3139,7 +3139,7 @@ __metadata:
     "@rollup/plugin-typescript": "npm:^11.1.5"
     "@storybook/addon-essentials": "npm:^8.1.6"
     "@storybook/addon-interactions": "npm:^8.1.6"
-    "@storybook/addon-links": "npm:^8.1.6"
+    "@storybook/addon-links": "npm:^8.1.11"
     "@storybook/addon-styling-webpack": "npm:^1.0.0"
     "@storybook/addon-viewport": "npm:^8.1.6"
     "@storybook/addon-webpack5-compiler-swc": "npm:^1.0.3"
@@ -4739,9 +4739,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:^8.1.6":
-  version: 8.1.6
-  resolution: "@storybook/addon-links@npm:8.1.6"
+"@storybook/addon-links@npm:^8.1.11":
+  version: 8.1.11
+  resolution: "@storybook/addon-links@npm:8.1.11"
   dependencies:
     "@storybook/csf": "npm:^0.1.7"
     "@storybook/global": "npm:^5.0.0"
@@ -4751,7 +4751,7 @@ __metadata:
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: 3f687e5f3baabf3d0a316721ae96fde35b52b99ec69b69095bbbc62b0398e755640682d683b89154866882275b2c4ffba9514660bee49e95a718631fc322375a
+  checksum: d6a6ed95ecacd0bf7b13b0247c99e75bceec03d314cd8e2f4b9115efb49e5d3f4e12bfa50aa3d8d2ab4e48a11fd6249335c6965d3faa8cd36caca0a523613e31
   languageName: node
   linkType: hard
 
