@@ -130,7 +130,7 @@
     "storybook-css-modules": "^1.0.8",
     "stylelint": "^16.2.1",
     "stylelint-config-recommended": "^14.0.0",
-    "tslib": "^2.6.2",
+    "tslib": "^2.6.3",
     "typescript": "^5.4.5",
     "yalc": "^1.0.0-pre.53"
   }
