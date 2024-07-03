@@ -25,7 +25,7 @@ export default function CustomOption<T, OptionType extends Option<T>>(
         <img src={props.data.iconPath} alt={props.data.label} />
       )}
       {props.data.icon}
-      <span className={cx({})}>{props.data.label}</span>
+      <span>{props.data.label}</span>
       {props.data.details && (
         <div className={css.optionDetails}>{props.data.details}</div>
       )}
