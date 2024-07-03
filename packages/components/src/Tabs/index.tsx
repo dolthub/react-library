@@ -10,12 +10,13 @@ type Props = {
   children: ReactNode;
   initialActiveIndex?: number;
   className?: string;
+  afterSetTabIndex?: (i: number) => void;
 };
 
-function Tabs({ children, ...props }: Props) {
+function Tabs({ children, className, ...props }: Props) {
   return (
     <TabsProvider {...props}>
-      <div className={cx(css.tabs, props.className)}>{children}</div>
+      <div className={cx(css.tabs, className)}>{children}</div>
     </TabsProvider>
   );
 }
