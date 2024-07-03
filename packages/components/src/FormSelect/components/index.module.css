@@ -75,8 +75,12 @@
   }
 }
 
+.optionWithDetails {
+  @apply mt-1;
+}
+
 .optionDetails {
-  @apply text-stone-500 text-xs mt-1 mb-1;
+  @apply text-stone-500 text-xs my-1.5;
 }
 
 .menuList {
@@ -84,7 +88,7 @@
 }
 
 .footer {
-  @apply border-t  flex justify-center text-sm py-2;
+  @apply border-t flex justify-center text-sm py-2;
 }
 
 .noOpts {

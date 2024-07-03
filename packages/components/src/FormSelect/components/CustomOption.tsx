@@ -14,7 +14,10 @@ export default function CustomOption<T, OptionType extends Option<T>>(
   const label = `${props.labelPrefix}-${props.data.value}`;
   return (
     <div
-      className={cx({ [css.optionWithIconPath]: !!props.data.iconPath })}
+      className={cx({
+        [css.optionWithIconPath]: !!props.data.iconPath,
+        [css.optionWithDetails]: !!props.data.details,
+      })}
       aria-label={label}
       data-cy={label}
     >

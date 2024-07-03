@@ -26,8 +26,9 @@ const testingActiveTab = (
 
 describe("test Tabs", () => {
   it(`renders active tabs and panels correctly`, () => {
+    const afterSetTabIndex = jest.fn();
     render(
-      <Tabs>
+      <Tabs afterSetTabIndex={afterSetTabIndex}>
         <TabList>
           {mocks.map((mock, i) => (
             <Tab
@@ -58,6 +59,7 @@ describe("test Tabs", () => {
       } else {
         if (i !== 0) {
           fireEvent.click(buttons[i]);
+          expect(afterSetTabIndex).toHaveBeenCalledWith(i);
         }
 
         testingActiveTab(listItems, i);
@@ -76,6 +78,7 @@ describe("test Tabs", () => {
       }
     }
   });
+
   it(`renders initialActiveIndex correctly`, () => {
     render(
       <Tabs initialActiveIndex={2}>
