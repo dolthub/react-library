@@ -28,7 +28,7 @@ const plugins= [
   }),
   terser(),
 ] 
- 
+
 export default [
   {
     input: "src/index.ts",

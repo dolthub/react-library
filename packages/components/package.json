@@ -28,11 +28,11 @@
   ],
   "packageManager": "yarn@4.0.2",
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "NODE_OPTIONS='--max-old-space-size=8192' rollup -c --bundleConfigAsCjs",
     "build-storybook": "storybook build",
     "chromatic": "chromatic --exit-zero-on-changes",
     "clean": "rm -rf dist && rm -rf .rollup.cache && rm -rf types && rm -rf tsconfig.tsbuildinfo && rm -rf .eslintcache",
-    "compile": "tsc -b",
+    "compile": "NODE_OPTIONS='--max-old-space-size=8192' tsc -b",
     "dbuild": "yarn compile && yarn build",
     "lint": "yarn lint-js && yarn lint-css",
     "lint-css": "stylelint \"**/*.css\"",
