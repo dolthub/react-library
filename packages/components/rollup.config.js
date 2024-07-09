@@ -5,6 +5,7 @@ import { terser } from "rollup-plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import { dts } from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
+import execute from 'rollup-plugin-execute';
 
 const packageJson = require("./package.json");
 
@@ -42,7 +43,8 @@ export default [
         },
       }),
       terser(),
-    ],
+      execute('yalc publish')
+    ] 
   },
   {
     input: "./types/index.d.ts",

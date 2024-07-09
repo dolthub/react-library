@@ -43,7 +43,8 @@
     "storybook": "storybook dev -p 6006",
     "test": "jest --env=jest-environment-jsdom",
     "yalc:publish": "yarn dbuild && yalc publish",
-    "yalc:push": "yarn dbuild && yalc push"
+    "yalc:push": "yarn dbuild && yalc push",
+    "watch": "yarn compile && yarn build --watch"
   },
   "peerDependencies": {
     "react": "^18",
@@ -65,6 +66,7 @@
     "react-tooltip": "^5.27.0",
     "reactjs-popup": "^2.0.6",
     "remark-gfm": "^4.0.0",
+    "rollup-plugin-execute": "^1.1.1",
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {

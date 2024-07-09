@@ -2498,6 +2498,7 @@ __metadata:
     remark-gfm: "npm:^4.0.0"
     rollup: "npm:^4.17.2"
     rollup-plugin-dts: "npm:^6.1.1"
+    rollup-plugin-execute: "npm:^1.1.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-postcss: "npm:^4.0.2"
     rollup-plugin-terser: "npm:^7.0.2"
@@ -16834,6 +16835,13 @@ __metadata:
     "@babel/code-frame":
       optional: true
   checksum: 2b042198ff00fb10c9c70087bbac9013f748dc34be0dbfcca82c6353884ead1467b4a8a37bafe9a8b9356479d43715c7cbc591eeb8e4112c583452431c1cb0a0
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-execute@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "rollup-plugin-execute@npm:1.1.1"
+  checksum: 1ea8486698eda449459182043531098ef3837a134fe1b6e854efb6adccddef8d2f6b0756cf5cbfd240913f3055ab761b4ca6fb45a95f8ecc1e302f5d5a1bd0ac
   languageName: node
   linkType: hard
 
