@@ -28,10 +28,7 @@ const plugins= [
   }),
   terser(),
 ] 
-if(isWatchMode){
-  plugins.push(execute('yalc publish'));
-}
-
+ 
 export default [
   {
     input: "src/index.ts",
@@ -48,7 +45,7 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: plugins
+    plugins: isWatchMode ? [...plugins,execute('yalc publish')]:plugins,
   },
   {
     input: "./types/index.d.ts",
