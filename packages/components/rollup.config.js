@@ -8,6 +8,29 @@ import postcss from "rollup-plugin-postcss";
 import execute from 'rollup-plugin-execute';
 
 const packageJson = require("./package.json");
+const isWatchMode = process.env.ROLLUP_WATCH === 'true';
+const plugins= [
+  external(),
+  resolve(),
+  commonjs(),
+  typescript({ tsconfig: "./tsconfig.json" }),
+  postcss({
+    config: {
+      path: "./postcss.config.js",
+    },
+    modules: {
+      generateScopedName: "[folder]_[local]__[hash:base64:5]",
+    },
+    minimize: true,
+    inject: {
+      insertAt: "top",
+    },
+  }),
+  terser(),
+] 
+if(isWatchMode){
+  plugins.push(execute('yalc publish'));
+}
 
 export default [
   {
@@ -25,26 +48,7 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: [
-      external(),
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
-      postcss({
-        config: {
-          path: "./postcss.config.js",
-        },
-        modules: {
-          generateScopedName: "[folder]_[local]__[hash:base64:5]",
-        },
-        minimize: true,
-        inject: {
-          insertAt: "top",
-        },
-      }),
-      terser(),
-      execute('yalc publish')
-    ] 
+    plugins: plugins
   },
   {
     input: "./types/index.d.ts",
