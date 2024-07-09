@@ -11,3 +11,8 @@ updates:
   - tbantle22
   labels:
   - dependencies
+  ignore:
+  # Storybook functions best when dependencies are upgraded together. 
+  # We bump Storybook dependencies manually once a month.
+  - dependency-name: "storybook*"
+  - dependency-name: "@storybook/*"   
