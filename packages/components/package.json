@@ -43,7 +43,8 @@
     "storybook": "storybook dev -p 6006",
     "test": "jest --env=jest-environment-jsdom",
     "yalc:publish": "yarn dbuild && yalc publish",
-    "yalc:push": "yarn dbuild && yalc push"
+    "yalc:push": "yarn dbuild && yalc push",
+    "watch": "node rollup.watch.js"
   },
   "peerDependencies": {
     "react": "^18",
