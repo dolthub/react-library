@@ -29,6 +29,23 @@ const plugins= [
   terser(),
 ] 
 
+const executeAfterBuild = () => ({
+  name: 'execute-after-build',
+  writeBundle: () => {
+    execute('yalc publish', (err, stdout, stderr) => {
+      if (err) {
+        console.error(`Execution error: ${err}`);
+        return;
+      }
+      if (stderr) {
+        console.error(`Execution stderr: ${stderr}`);
+      }
+      console.log(`Execution stdout: ${stdout}`);
+    });
+  }
+});
+
+
 export default [
   {
     input: "src/index.ts",
@@ -45,12 +62,12 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: isWatchMode ? [...plugins,execute('yalc publish')]:plugins,
+    plugins:  isWatchMode ? [...plugins,executeAfterBuild( )]:plugins,
   },
   {
     input: "./types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
+    plugins: isWatchMode ? [dts(),executeAfterBuild( )]:[dts()],
     external: [/\.css$/],
   },
 ];
