@@ -1,0 +1,44 @@
+name: Bump Storybook Dependencies
+
+on:
+  schedule:
+    - cron: '0 10 1 * *' # Runs every first of the month
+  workflow_dispatch:
+
+jobs:
+  open-bump-pr:
+    name: "Open Bump PR"
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'   
+      - name: Enable Corepack
+        run: corepack enable    
+      - name: Install yarn
+        working-directory: .
+        run: yarn
+      - name: Bump Storybook Dependencies
+        working-directory: ./packages/components
+        run: yarn bump-storybook
+      - name: Create and Push new branch
+        run: |
+          git config --global --add user.name "tbantle22"
+          git config --global --add user.email "taylor@dolthub.com"
+          git checkout -b "bump-storybook-deps"
+          git add .
+          git commit -m "Bump Storybook dependencies"
+          git push origin "bump-storybook-deps"
+      - name: Create pull request
+        uses: repo-sync/pull-request@v2
+        id: latest-pr
+        with:
+          source_branch: "bump-storybook-deps"
+          destination_branch: "main"
+          github_token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          pr_title: "Bump Storybook dependencies"
+          pr_reviewer: tbantle22
+          pr_label: "dependencies"

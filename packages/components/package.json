@@ -30,6 +30,7 @@
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
     "build-storybook": "storybook build",
+    "bump-storybook": "yarn up 'storybook*' && yarn up '@storybook/*'",
     "chromatic": "chromatic --exit-zero-on-changes",
     "clean": "rm -rf dist && rm -rf .rollup.cache && rm -rf types && rm -rf tsconfig.tsbuildinfo && rm -rf .eslintcache",
     "compile": "tsc -b",
