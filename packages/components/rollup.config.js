@@ -5,7 +5,30 @@ import { terser } from "rollup-plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import { dts } from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
-import execute from 'rollup-plugin-execute';
+// import execute from 'rollup-plugin-execute';
+import { exec } from 'child_process';
+
+// execute `yalc publish` after build in watch mode
+const executeAfterBuild = () => ({
+  name: 'execute-after-build',
+  writeBundle: {
+    sequential: true,
+    order: 'post',
+    async handler() {
+      exec('yalc publish', (err, stdout, stderr) => {
+        if (err) {
+          console.error(`Execution error: ${err}`);
+          return;
+        }
+        if (stderr) {
+          console.error(`Execution stderr: ${stderr}`);
+        }
+        console.log(`Execution stdout: ${stdout}`);
+      });
+    }
+  } 
+ 
+});
 
 const packageJson = require("./package.json");
 const isWatchMode = process.env.ROLLUP_WATCH === 'true';
@@ -28,22 +51,7 @@ const plugins= [
   }),
   terser(),
 ] 
-
-const executeAfterBuild = () => ({
-  name: 'execute-after-build',
-  writeBundle: () => {
-    execute('yalc publish', (err, stdout, stderr) => {
-      if (err) {
-        console.error(`Execution error: ${err}`);
-        return;
-      }
-      if (stderr) {
-        console.error(`Execution stderr: ${stderr}`);
-      }
-      console.log(`Execution stdout: ${stdout}`);
-    });
-  }
-});
+ 
 
 
 export default [
@@ -62,12 +70,12 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins:  isWatchMode ? [...plugins,executeAfterBuild( )]:plugins,
+    plugins:  isWatchMode ? [...plugins,executeAfterBuild()]:plugins,
   },
   {
     input: "./types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: isWatchMode ? [dts(),executeAfterBuild( )]:[dts()],
+    plugins: isWatchMode ? [dts(),executeAfterBuild()]:[dts()],
     external: [/\.css$/],
   },
 ];
