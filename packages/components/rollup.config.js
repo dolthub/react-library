@@ -11,7 +11,7 @@ import { exec } from 'child_process';
 // execute `yalc publish` after build in watch mode
 const executeAfterBuild = () => ({
   name: 'execute-after-build',
-  buildStart: {
+  writeBundle: {
     sequential: true,
     order: 'post',
     async handler() {
@@ -52,8 +52,8 @@ const plugins= [
   external(),
   resolve(),
   commonjs(),
-  executeBeforeBuild(),
   typescript({tsconfig: './tsconfig.json'}),
+  executeBeforeBuild(),
   postcss({
     config: {
       path: "./postcss.config.js",
@@ -65,8 +65,7 @@ const plugins= [
     inject: {
       insertAt: "top",
     },
-  }),
-  terser(),
+  })
 ] 
  
 export default [
@@ -85,7 +84,7 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins:  plugins,
+    plugins: isWatchMode?[ ...plugins]: [...plugins, terser(),]
   },
   {
     input: "./types/index.d.ts",
