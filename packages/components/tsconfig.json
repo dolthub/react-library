@@ -17,9 +17,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-    "composite": true,
     "noImplicitAny": true,
-    "types": ["node", "jsdom", "@testing-library/jest-dom"]
+    "types": ["node", "jsdom", "@testing-library/jest-dom"],
+    "incremental": false
   },
   "references": [
     { "path": "../contexts"},

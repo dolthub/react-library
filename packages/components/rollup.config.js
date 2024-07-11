@@ -1,33 +1,49 @@
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import { terser } from "rollup-plugin-terser";
+ import { terser } from "rollup-plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import { dts } from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
-// import execute from 'rollup-plugin-execute';
-import { exec } from 'child_process';
+import { exec } from 'child_process'; 
+
 
 // execute `yalc publish` after build in watch mode
 const executeAfterBuild = () => ({
   name: 'execute-after-build',
-  writeBundle: {
+  buildStart: {
     sequential: true,
     order: 'post',
     async handler() {
       exec('yalc publish', (err, stdout, stderr) => {
         if (err) {
-          console.error(`Execution error: ${err}`);
+          console.error(`Publish error: ${err}`);
           return;
         }
         if (stderr) {
-          console.error(`Execution stderr: ${stderr}`);
+          console.error(`Publish stderr: ${stderr}`);
         }
-        console.log(`Execution stdout: ${stdout}`);
+        console.log(`Publish completed: ${stdout}`);
       });
     }
   } 
- 
+}); 
+
+//execute `yarn compile` before build
+const executeBeforeBuild = () => ({
+  name: 'execute-before-build',
+  buildStart() {
+    exec('yarn compile', (err, stdout, stderr) => {
+      if (err) {
+        console.error(`compile error: ${err}`);
+        return;
+      }
+      if (stderr) {
+        console.error(`compile stderr: ${stderr}`);
+      }
+      console.log(`compile completed: ${stdout}`);
+    });
+  }
 });
 
 const packageJson = require("./package.json");
@@ -36,7 +52,8 @@ const plugins= [
   external(),
   resolve(),
   commonjs(),
-  typescript({ tsconfig: "./tsconfig.json" }),
+  executeBeforeBuild(),
+  typescript({tsconfig: './tsconfig.json'}),
   postcss({
     config: {
       path: "./postcss.config.js",
@@ -52,8 +69,6 @@ const plugins= [
   terser(),
 ] 
  
-
-
 export default [
   {
     input: "src/index.ts",
@@ -70,7 +85,7 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins:  isWatchMode ? [...plugins,executeAfterBuild()]:plugins,
+    plugins:  plugins,
   },
   {
     input: "./types/index.d.ts",

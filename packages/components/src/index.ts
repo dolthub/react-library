@@ -20,7 +20,7 @@ export { default as FieldWithButton } from "./FieldWithButton";
 export { default as Footer } from "./Footer";
 export { default as FormInput } from "./FormInput";
 export { default as FormSelect } from "./FormSelect";
-export type * as FormSelectTypes from "./FormSelect/types";
+export * as FormSelectTypes from "./FormSelect/types";
 export { default as HelpPopup } from "./HelpPopup";
 export { default as Loader } from "./Loader";
 export { default as Markdown } from "./Markdown";
