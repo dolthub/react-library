@@ -47,6 +47,7 @@ const watchOptions = [
     watch: {
       include: "src/**",
     },
+    cache:true,
   },
   {
     input: "./types/index.d.ts",
