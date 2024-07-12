@@ -57,6 +57,7 @@ const watchOptions = [
     watch: {
       include: "types/**",
     },
+    cache:true,
   },
 ];
 
