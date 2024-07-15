@@ -47,7 +47,7 @@ const watchOptions = [
     watch: {
       include: "src/**",
     },
-    cache:true,
+    cache: true,
   },
   {
     input: "./types/index.d.ts",
@@ -57,7 +57,7 @@ const watchOptions = [
     watch: {
       include: "types/**",
     },
-    cache:true,
+    cache: true,
   },
 ];
 
@@ -89,17 +89,17 @@ watcher.on("event", event => {
     console.log(green, "Build completed successfully for one bundle");
 
     if (pendingBundles === 0) {
-      console.log(yellow, "All bundles built. Publishing...");
+      console.log(yellow, "All bundles built. Pushing...");
 
-      exec("yalc publish", (err, stdout, stderr) => {
+      exec("yalc push", (err, stdout, stderr) => {
         if (err) {
-          console.error(red, `Publish error: ${err}`);
+          console.error(red, `Push error: ${err}`);
           return;
         }
         if (stderr) {
-          console.error(red, `Publish stderr: ${stderr}`);
+          console.error(red, `Push stderr: ${stderr}`);
         }
-        console.log(green, `Publish completed: ${stdout}`);
+        console.log(green, `Push completed: ${stdout}`);
         pendingBundles = watchOptions.length;
       });
     }
