@@ -8,22 +8,22 @@ import postcss from "rollup-plugin-postcss";
 import { exec } from 'child_process'; 
 
 
-// execute `yalc publish` after build in watch mode
+// execute `yalc push` after build in watch mode
 const executeAfterBuild = () => ({
   name: 'execute-after-build',
   writeBundle: {
     sequential: true,
     order: 'post',
     async handler() {
-      exec('yalc publish', (err, stdout, stderr) => {
+      exec('yalc push', (err, stdout, stderr) => {
         if (err) {
-          console.error(`Publish error: ${err}`);
+          console.error(`Push error: ${err}`);
           return;
         }
         if (stderr) {
-          console.error(`Publish stderr: ${stderr}`);
+          console.error(`Push stderr: ${stderr}`);
         }
-        console.log(`Publish completed: ${stdout}`);
+        console.log(`Push completed: ${stdout}`);
       });
     }
   } 
