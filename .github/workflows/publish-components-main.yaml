@@ -1,13 +1,10 @@
 name: Publish Components Package
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 concurrency:
-  group: npm-publish-${{ github.event.pull_request.number || github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -26,6 +23,7 @@ jobs:
           configurationJson: |
             {
               "template": "#{{CHANGELOG}}",
+              "pr_template": "- ${{TITLE}}\n   - PR: #${{NUMBER}}",
               "categories": [
                 {
                     "title": "## Components",
@@ -57,6 +55,11 @@ jobs:
           yarn install --immutable
           yarn dbuild
 
+      - name: Create Release
+        uses: softprops/action-gh-release
+        with:
+          body: ${{steps.changelog.outputs.changelog}}
+      
       - name: Publish to npm
         if: steps.filter.outputs.components == 'true'
         run: npm publish
