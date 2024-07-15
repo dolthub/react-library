@@ -16,23 +16,23 @@ jobs:
         with:
           fetch-depth: 0
     
-      # - name: Generate Changelog
-      #   id: changelog
-      #   uses: mikepenz/release-changelog-builder-action@v4
-      #   with:
-      #     configurationJson: |
-      #       {
-      #         "template": "#{{CHANGELOG}}",
-      #         "pr_template": "- ${{TITLE}}\n   - PR: #${{NUMBER}}",
-      #         "categories": [
-      #           {
-      #               "title": "## Components",
-      #               "labels": ["components"]
-      #           }
-      #         ]
-      #       }
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Generate Changelog
+        id: changelog
+        uses: mikepenz/release-changelog-builder-action@v4
+        with:
+          configurationJson: |
+            {
+              "template": "#{{CHANGELOG}}",
+              "pr_template": "- ${{TITLE}}\n   - PR: #${{NUMBER}}",
+              "categories": [
+                {
+                    "title": "## Components",
+                    "labels": ["components"]
+                }
+              ]
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: dorny/paths-filter@v2
         id: filter
@@ -56,7 +56,7 @@ jobs:
           yarn dbuild
 
       - name: Create Release
-        uses: softprops/action-gh-release
+        uses: softprops/action-gh-release@v2
         with:
           body: ${{steps.changelog.outputs.changelog}}
       
