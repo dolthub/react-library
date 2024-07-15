@@ -1,7 +1,19 @@
-name: Publish Components Package
+name: Publish Package
 
 on:
   workflow_dispatch:
+    inputs:
+        package:
+          description: 'Name of package to publish'
+          required: true
+          default: 'components'
+          type: choice
+          options:
+          - components
+          - contexts
+          - hooks
+          - resource-utils
+          - utils
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -23,23 +35,16 @@ jobs:
           configurationJson: |
             {
               "template": "#{{CHANGELOG}}",
-              "pr_template": "- ${{TITLE}}\n   - PR: #${{NUMBER}}",
+              "pr_template": "- ${{TITLE}}\n - PR: #${{NUMBER}}",
               "categories": [
                 {
-                    "title": "## Components",
-                    "labels": ["components"]
+                    "title": "## ${{ github.event.inputs.package }}",
+                    "labels": ["${{ github.event.inputs.package }}"]
                 }
               ]
             }
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            components:
-              - 'packages/components/**'  
 
       - name: Enable Corepack before setting up Node
         run: corepack enable
@@ -50,7 +55,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install and run build
-        working-directory: packages/components
+        working-directory: packages/${{ github.event.inputs.package }} 
         run: |
           yarn install --immutable
           yarn dbuild
@@ -61,8 +66,8 @@ jobs:
           body: ${{steps.changelog.outputs.changelog}}
       
       - name: Publish to npm
-        if: steps.filter.outputs.components == 'true'
+        if: ${{ github.event.inputs.package == 'components' || github.event.inputs.package == 'contexts' || github.event.inputs.package == 'hooks' || github.event.inputs.package == 'resource-utils' || github.event.inputs.package == 'utils' }}
         run: npm publish
-        working-directory: packages/components
+        working-directory: packages/${{ github.event.inputs.package }} 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
