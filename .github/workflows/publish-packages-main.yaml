@@ -19,7 +19,7 @@ on:
           required: true
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.inputs.package }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -99,7 +99,6 @@ jobs:
           release_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
  
       - name: Publish to npm
-        if: ${{ github.event.inputs.package == 'components' || github.event.inputs.package == 'contexts' || github.event.inputs.package == 'hooks' || github.event.inputs.package == 'resource-utils' || github.event.inputs.package == 'utils' }}
         run: npm publish
         working-directory: packages/${{ github.event.inputs.package }} 
         env:
