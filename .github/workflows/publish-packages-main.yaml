@@ -52,7 +52,7 @@ jobs:
 
       - name: Update version command
         run: |
-          sed -i -e 's/"version": "[^"]*"/"version": "'"$NEW_VERSION"'"/' "$FILE"
+          sed -i -e 's/"version"\s*:\s*".*"/"version" : "'"$NEW_VERSION"'"/' "$FILE"
         env:
           FILE: ${{ github.workspace }}/packages/${{ github.event.inputs.package }}/package.json
           NEW_VERSION: ${{ github.event.inputs.version }}
