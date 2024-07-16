@@ -63,14 +63,18 @@ jobs:
             message: "Update ${{ github.event.inputs.package }} package version to ${{ needs.format-version.outputs.version }}"
             add: "${{ github.workspace }}/packages/${{ github.event.inputs.package }}/package.json"
             cwd: "."
-            new_branch: package-release
+            new_branch: ${{ github.event.inputs.package }}-package-release
 
-      - name: Create and Auto-Merge Pull Request
-        run: |
-          gh pr create --base main --head "package-release" --title "Release ${{ github.event.inputs.package }} ${{ needs.format-version.outputs.version }}" --body "Created by the Release workflow to update ${{ github.event.inputs.package }} version"
-          gh pr merge "package-release" --auto --merge
+      - name: Create Pull Request
+        run: gh pr create --base main --head "${{ github.event.inputs.package }}-package-release" --title "Release ${{ github.event.inputs.package }} ${{ needs.format-version.outputs.version }}" --body "Created by the Release workflow to update ${{ github.event.inputs.package }} version"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable Pull Request Auto-Merge
+        run:  gh pr merge --merge --auto "${{ github.event.inputs.package }}-package-release"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: Enable Corepack before setting up Node
         run: corepack enable
