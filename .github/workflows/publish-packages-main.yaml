@@ -96,27 +96,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          body: ${{steps.changelog.outputs.changelog}}
           tag_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
           release_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
  
-      # - name: Generate Changelog
-      #   id: changelog
-      #   uses: mikepenz/release-changelog-builder-action@v4
-      #   with:
-      #     configurationJson: |
-      #       {
-      #         "template": "#{{CHANGELOG}}",
-      #         "pr_template": "- ${{TITLE}}\n - PR: #${{NUMBER}}",
-      #          "categories": [
-      #           {
-      #             "labels": ["${{ github.event.inputs.package }}"]
-      #           }
-      #         ]
-      #       }
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Publish to npm
         if: ${{ github.event.inputs.package == 'components' || github.event.inputs.package == 'contexts' || github.event.inputs.package == 'hooks' || github.event.inputs.package == 'resource-utils' || github.event.inputs.package == 'utils' }}
         run: npm publish
