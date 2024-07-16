@@ -23,8 +23,27 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  publish:
+  format-version:
+      runs-on: ubuntu-22.04
+      outputs:
+        version: ${{ steps.format_version.outputs.version }}
+      steps:
+        - name: Format Input
+          id: format_version
+          run: |
+            version="${{ github.event.inputs.version }}"
+            if [[ $version == v* ]];
+            then
+              version="${version:1}"
+            fi
+            echo "version=$version" >> $GITHUB_OUTPUT
+
+  build-and-release:
+    needs: format-version
+    name: Create release
     runs-on: ubuntu-22.04
+    outputs:
+      release_id: ${{ steps.create_release.outputs.id }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -38,6 +57,45 @@ jobs:
           FILE: ${{ github.workspace }}/packages/${{ github.event.inputs.package }}/package.json
           NEW_VERSION: ${{ github.event.inputs.version }}
 
+      - name: Add and Commit Changes
+        uses: EndBug/add-and-commit@v9.1.1
+        with:
+            message: "Update ${{ github.event.inputs.package }} package version to ${{ needs.format-version.outputs.version }}"
+            add: "${{ github.workspace }}/packages/${{ github.event.inputs.package }}/package.json"
+            cwd: "."
+            new_branch: package-release
+
+      - name: Create and Auto-Merge Pull Request
+        run: |
+          gh pr create --base main --head "package-release" --title "Release ${{ github.event.inputs.package }} ${{ needs.format-version.outputs.version }}" --body "Created by the Release workflow to update ${{ github.event.inputs.package }} version"
+          gh pr merge "package-release" --auto --merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable Corepack before setting up Node
+        run: corepack enable
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install and run build
+        working-directory: ./
+        run: |
+          yarn install --immutable
+          yarn dbuild
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          body: ${{steps.changelog.outputs.changelog}}
+          tag_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
+          release_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
+ 
       # - name: Generate Changelog
       #   id: changelog
       #   uses: mikepenz/release-changelog-builder-action@v4
@@ -55,26 +113,6 @@ jobs:
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Enable Corepack before setting up Node
-        run: corepack enable
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Install and run build
-        working-directory: ./
-        run: |
-          yarn install --immutable
-          yarn dbuild
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
-        with:
-          body: ${{steps.changelog.outputs.changelog}}
-          tag_name: ${{ github.event.inputs.package }}-v${{ github.event.inputs.version }}
-      
       - name: Publish to npm
         if: ${{ github.event.inputs.package == 'components' || github.event.inputs.package == 'contexts' || github.event.inputs.package == 'hooks' || github.event.inputs.package == 'resource-utils' || github.event.inputs.package == 'utils' }}
         run: npm publish
