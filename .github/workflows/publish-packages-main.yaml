@@ -14,13 +14,16 @@ on:
           - hooks
           - resource-utils
           - utils
+        version:
+          description: 'SemVer format release tag, i.e. 0.2.4'
+          required: true
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
@@ -28,29 +31,29 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get package version
-        id: get_version
+      - name: Update version command
         run: |
-          VERSION=$(cat packages/${{ github.event.inputs.package }}/package.json | jq -r .version)
-          echo "::set-output name=package_version::$VERSION"
-        shell: bash
-
-      - name: Generate Changelog
-        id: changelog
-        uses: mikepenz/release-changelog-builder-action@v4
-        with:
-          configurationJson: |
-            {
-              "template": "#{{CHANGELOG}}",
-              "pr_template": "- ${{TITLE}}\n - PR: #${{NUMBER}}",
-               "categories": [
-                {
-                  "labels": ["${{ github.event.inputs.package }}"]
-                }
-              ]
-            }
+          sed -i -e 's/"version": "[^"]*"/"version": "'"$NEW_VERSION"'"/' "$FILE"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FILE: ${{ github.workspace }}/packages/${{ github.event.inputs.package }}/package.json
+          NEW_VERSION: ${{ github.event.inputs.version }}
+
+      # - name: Generate Changelog
+      #   id: changelog
+      #   uses: mikepenz/release-changelog-builder-action@v4
+      #   with:
+      #     configurationJson: |
+      #       {
+      #         "template": "#{{CHANGELOG}}",
+      #         "pr_template": "- ${{TITLE}}\n - PR: #${{NUMBER}}",
+      #          "categories": [
+      #           {
+      #             "labels": ["${{ github.event.inputs.package }}"]
+      #           }
+      #         ]
+      #       }
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Enable Corepack before setting up Node
         run: corepack enable
@@ -61,7 +64,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install and run build
-        working-directory: packages/${{ github.event.inputs.package }} 
+        working-directory: ./
         run: |
           yarn install --immutable
           yarn dbuild
@@ -70,7 +73,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           body: ${{steps.changelog.outputs.changelog}}
-          tag_name: ${{ github.event.inputs.package }}-v${{ steps.get_version.outputs.package_version}}
+          tag_name: ${{ github.event.inputs.package }}-v${{ github.event.inputs.version }}
       
       - name: Publish to npm
         if: ${{ github.event.inputs.package == 'components' || github.event.inputs.package == 'contexts' || github.event.inputs.package == 'hooks' || github.event.inputs.package == 'resource-utils' || github.event.inputs.package == 'utils' }}
