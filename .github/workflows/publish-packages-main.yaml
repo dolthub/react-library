@@ -62,7 +62,6 @@ jobs:
           # Find the last two tags that match the package pattern, sort them to get the latest
           TAGS=$(git tag | grep "^${{ github.event.inputs.package }}-v" | sort -rV | head -n 1)
           LAST_TAG=$(echo "$TAGS" | sed -n '1p')
-          echo "LAST_TAG=${LAST_TAG}"
           echo "LAST_TAG=${LAST_TAG}" >> $GITHUB_ENV
       
       - name: Generate Changelog
@@ -97,7 +96,7 @@ jobs:
                   "on_property": "mergedAt"
               },
               "template": "#{{CHANGELOG}}\n",
-              "pr_template": "- [#{{TITLE}}](#{{URL}})\n",
+              "pr_template": "* [#{{NUMBER}}](#{{URL}}): #{{TITLE}}\n    #{{BODY}}",
               "empty_template": "- no changes",
               "max_tags_to_fetch": 200,
               "max_back_track_time_days": 365,
