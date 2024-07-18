@@ -57,6 +57,58 @@ jobs:
           FILE: ${{ github.workspace }}/packages/${{ github.event.inputs.package }}/package.json
           NEW_VERSION: ${{ github.event.inputs.version }}
 
+      - name: Determine and Set Tags
+        run: |
+          # Find the last two tags that match the package pattern, sort them to get the latest
+          TAGS=$(git tag | grep "^${{ github.event.inputs.package }}-v" | sort -rV | head -n 1)
+          LAST_TAG=$(echo "$TAGS" | sed -n '1p')
+          echo "LAST_TAG=${LAST_TAG}" >> $GITHUB_ENV
+      
+      - name: Generate Changelog
+        id: changelog
+        uses: mikepenz/release-changelog-builder-action@v4
+        with:
+          configurationJson: |
+            {
+              "categories": [
+                  {
+                      "title": "## ${{ github.event.inputs.package }}",
+                      "labels": [
+                          "${{ github.event.inputs.package }}"
+                      ],
+                      "exhaustive": true,
+                      "exhaustive_rules": "false",
+                      "empty_content": "- no matching PRs",
+                      "rules": [
+                          {
+                              "pattern": "${{ github.event.inputs.package }}",
+                              "on_property": "labels"
+                          },
+                          {
+                              "pattern": "merged",
+                              "on_property": "status"
+                          }
+                      ]
+                  }
+              ],
+              "sort": {
+                  "order": "ASC",
+                  "on_property": "mergedAt"
+              },
+              "template": "#{{CHANGELOG}}\n",
+              "pr_template": "* [#{{NUMBER}}](#{{URL}}): #{{TITLE}}\n    #{{BODY}}",
+              "empty_template": "- no changes",
+              "max_tags_to_fetch": 200,
+              "max_back_track_time_days": 365,
+              "base_branches": [
+                  "main"
+              ]
+            }
+          fromTag: "${{ env.LAST_TAG }}"
+          toTag: "main"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ 
       - name: Add and Commit Changes
         uses: EndBug/add-and-commit@v9.1.1
         with:
