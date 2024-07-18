@@ -1,7 +1,6 @@
 name: Run CI
 on:
   pull_request:
-    types: [opened, synchronize, reopened, labeled, unlabeled]
     paths:
       - '**'
   workflow_dispatch:
@@ -39,12 +38,6 @@ jobs:
           yarn install --immutable
           yarn ci
       
-      - name: Check if PR is labeled
-        if: github.event.pull_request.draft == false && github.event.pull_request.user.login != 'dependabot' && github.event.pull_request.user.login != 'github-actions' && github.event.pull_request.labels[0] == null
-        run: |
-          echo "PR does not have any labels. Failing the job."
-          exit 1
-
       - name: Publish to Chromatic
         if: steps.filter.outputs.components == 'true' && github.event.pull_request.draft == false && !startsWith(github.event.pull_request.head.ref, 'dependabot/')
         uses: chromaui/action@latest
