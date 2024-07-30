@@ -1,6 +1,6 @@
 import { terser } from "rollup-plugin-terser";
 import { dts } from "rollup-plugin-dts";
-import watchPlugins from "./rollup.watch.mjs";
+import {watchPlugins} from "./rollup.watch.mjs";
 
 const packageJson = require("./package.json");
 
