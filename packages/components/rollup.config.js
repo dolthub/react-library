@@ -1,6 +1,10 @@
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
+import external from "rollup-plugin-peer-deps-external";
 import { dts } from "rollup-plugin-dts";
-import {watchPlugins} from "./rollup.watch.mjs";
+import postcss from "rollup-plugin-postcss";
 
 const packageJson = require("./package.json");
 
@@ -21,7 +25,22 @@ export default [
       },
     ],
     plugins: [
-      ...watchPlugins,
+      external(),
+      resolve(),
+      commonjs(),
+      typescript({ tsconfig: "./tsconfig.json" }),
+      postcss({
+        config: {
+          path: "./postcss.config.js",
+        },
+        modules: {
+          generateScopedName: "[folder]_[local]__[hash:base64:5]",
+        },
+        minimize: true,
+        inject: {
+          insertAt: "top",
+        },
+      }),
       terser(),
     ],
   },

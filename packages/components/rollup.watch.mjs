@@ -70,7 +70,7 @@ watcher.on("event", event => {
   if (event.code === "ERROR") {
     console.error(event.error);
   }
-  if (event.code === "START"  ) {
+  if (event.code === "START") {
     console.log(yellow, "Build started...");
     exec("yarn compile", (err, stderr) => {
       if (err) {
@@ -84,19 +84,18 @@ watcher.on("event", event => {
     });
   }
   if (event.code === "BUNDLE_END") {
-      console.log(yellow, "All bundles built. Pushing...");
+    console.log(yellow, "All bundles built. Pushing...");
 
-      exec("yalc push", (err, stdout, stderr) => {
-        if (err) {
-          console.error(red, `Push error: ${err}`);
-          return;
-        }else if (stderr) {
-          console.error(red, `Push stderr: ${stderr}`);
-        }else
-        {
+    exec("yalc push", (err, stdout, stderr) => {
+      if (err) {
+        console.error(red, `Push error: ${err}`);
+        return;
+      } else if (stderr) {
+        console.error(red, `Push stderr: ${stderr}`);
+      } else {
         console.log(green, `Push completed: ${stdout}`);
-        }
-       });
+      }
+    });
   }
 });
 
