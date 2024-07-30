@@ -65,6 +65,8 @@ const watcher = watch(watchOptions);
 const green = `\x1b[32m%s\x1b[0m`;
 const yellow = `\x1b[33m%s\x1b[0m`;
 const red = `\x1b[31m%s\x1b[0m`;
+const debounceTime = 500; // milliseconds
+let timeout;
 
 watcher.on("event", event => {
   if (event.code === "ERROR") {
@@ -84,18 +86,21 @@ watcher.on("event", event => {
     });
   }
   if (event.code === "BUNDLE_END") {
-    console.log(yellow, "All bundles built. Pushing...");
-
-    exec("yalc push", (err, stdout, stderr) => {
-      if (err) {
-        console.error(red, `Push error: ${err}`);
-        return;
-      } else if (stderr) {
-        console.error(red, `Push stderr: ${stderr}`);
-      } else {
-        console.log(green, `Push completed: ${stdout}`);
-      }
-    });
+    console.log(`Finished bundle: ${event.input}`);
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      console.log("All bundles finished. Running yalc push...");
+      exec("yalc push", (err, stdout, stderr) => {
+        if (err) {
+          console.error(red, `Push error: ${err}`);
+          return;
+        } else if (stderr) {
+          console.error(red, `Push stderr: ${stderr}`);
+        } else {
+          console.log(green, `Push completed: ${stdout}`);
+        }
+      });
+    }, debounceTime);
   }
 });
 
