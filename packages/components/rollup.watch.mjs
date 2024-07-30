@@ -8,7 +8,7 @@ import { watch } from "rollup";
 import { dts } from "rollup-plugin-dts";
 import packageJson from "./package.json" assert { type: "json" };
 
-const plugins = [
+export const watchPlugins = [
   external(),
   resolve(),
   commonjs(),
@@ -62,7 +62,6 @@ const watchOptions = [
 ];
 
 const watcher = watch(watchOptions);
-let pendingBundles = watchOptions.length;
 const green = `\x1b[32m%s\x1b[0m`;
 const yellow = `\x1b[33m%s\x1b[0m`;
 const red = `\x1b[31m%s\x1b[0m`;
@@ -71,7 +70,7 @@ watcher.on("event", event => {
   if (event.code === "ERROR") {
     console.error(event.error);
   }
-  if (event.code === "START" && pendingBundles === watchOptions.length) {
+  if (event.code === "START"  ) {
     console.log(yellow, "Build started...");
     exec("yarn compile", (err, stderr) => {
       if (err) {
@@ -85,24 +84,19 @@ watcher.on("event", event => {
     });
   }
   if (event.code === "BUNDLE_END") {
-    pendingBundles--;
-    console.log(green, "Build completed successfully for one bundle");
-
-    if (pendingBundles === 0) {
       console.log(yellow, "All bundles built. Pushing...");
 
       exec("yalc push", (err, stdout, stderr) => {
         if (err) {
           console.error(red, `Push error: ${err}`);
           return;
-        }
-        if (stderr) {
+        }else if (stderr) {
           console.error(red, `Push stderr: ${stderr}`);
-        }
+        }else
+        {
         console.log(green, `Push completed: ${stdout}`);
-        pendingBundles = watchOptions.length;
-      });
-    }
+        }
+       });
   }
 });
 
