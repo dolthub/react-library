@@ -43,7 +43,7 @@ const watchOptions = [
         sourcemap: false,
       },
     ],
-    plugins: plugins,
+    plugins: watchPlugins,
     watch: {
       include: "src/**",
     },
