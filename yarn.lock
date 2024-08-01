@@ -2577,7 +2577,7 @@ __metadata:
     react-markdown: "npm:^9.0.1"
     react-select: "npm:^5.8.0"
     react-select-event: "npm:^5.5.1"
-    react-tooltip: "npm:^5.27.0"
+    react-tooltip: "npm:^5.27.1"
     reactjs-popup: "npm:^2.0.6"
     remark-gfm: "npm:^4.0.0"
     rollup: "npm:^4.17.2"
@@ -16299,16 +16299,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-tooltip@npm:^5.27.0":
-  version: 5.27.0
-  resolution: "react-tooltip@npm:5.27.0"
+"react-tooltip@npm:^5.27.1":
+  version: 5.27.1
+  resolution: "react-tooltip@npm:5.27.1"
   dependencies:
     "@floating-ui/dom": "npm:^1.6.1"
     classnames: "npm:^2.3.0"
   peerDependencies:
     react: ">=16.14.0"
     react-dom: ">=16.14.0"
-  checksum: 4b105dcef7b3d166e359b97fdbbef9c622de3c91e3c9387f959495c66d4caefb25e38cd75e0258dac104c3814c0ae74b97807382d36f45dfae6200645bafd3a3
+  checksum: 5ffba1bb0e9cf4f0b1576657a4500c911a1a18efc452f0d73e5696ac761968df712ea504d4ac9520159c9f32516305c48830b9767eb93528edd400d64f48c5c4
   languageName: node
   linkType: hard
 
