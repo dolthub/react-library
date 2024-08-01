@@ -28,12 +28,12 @@
   ],
   "packageManager": "yarn@4.0.2",
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "NODE_OPTIONS='--max-old-space-size=8192' rollup -c --bundleConfigAsCjs",
     "build-storybook": "storybook build",
     "bump-storybook": "yarn up 'storybook*' && yarn up '@storybook/*'",
     "chromatic": "chromatic --exit-zero-on-changes",
     "clean": "rm -rf dist && rm -rf .rollup.cache && rm -rf types && rm -rf tsconfig.tsbuildinfo && rm -rf .eslintcache",
-    "compile": "tsc -b",
+    "compile": "NODE_OPTIONS='--max-old-space-size=8192' tsc -b",
     "dbuild": "yarn compile && yarn build",
     "lint": "yarn lint-js && yarn lint-css",
     "lint-css": "stylelint \"**/*.css\"",
@@ -44,7 +44,8 @@
     "storybook": "storybook dev -p 6006",
     "test": "jest --env=jest-environment-jsdom",
     "yalc:publish": "yarn dbuild && yalc publish",
-    "yalc:push": "yarn dbuild && yalc push"
+    "yalc:push": "yarn dbuild && yalc push",
+    "watch": "yarn compile && yarn build --watch"
   },
   "peerDependencies": {
     "react": "^18",
@@ -75,7 +76,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.5",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-essentials": "^8.1.11",
     "@storybook/addon-interactions": "^8.1.11",
     "@storybook/addon-links": "^8.1.11",
@@ -124,6 +125,7 @@
     "react-select-event": "^5.5.1",
     "rollup": "^4.17.2",
     "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-execute": "^1.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
