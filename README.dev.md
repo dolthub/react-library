@@ -32,4 +32,31 @@ see it automatically reflected in your app.
 
 To remove the yalc package in your app, run `yalc remove --all`.
 
-**Coming soon**: using `yalc` to watch for changes and automatically push.
+## Watch mode
+
+Using `yalc` to watch for changes and automatically push.
+
+1. In the root of `react-library`: 
+```bash
+yarn clean
+yarn && yarn dbuild
+```
+
+2. Publish the `components` package, in `packages/components`:
+```bash
+yarn yalc:publish
+```
+
+3. Link the local package in your app:
+```bash
+yarn yalc @dolthub/react-components
+```
+
+4. Start watch mode in `packages/components`: 
+```bash
+yarn dbuild:watch
+```
+
+5. Make the changes, wait for the watch to finish building and pushing.
+
+6. refresh the page to see the change.
