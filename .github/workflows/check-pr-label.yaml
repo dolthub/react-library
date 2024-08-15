@@ -1,0 +1,34 @@
+name: Check PR Label
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+    paths:
+      - '**'
+  workflow_dispatch:
+
+concurrency:
+  group: check-pr-label-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            packages:
+              - 'packages/**'  
+
+      - name: Check if PR is labeled
+        if: steps.filter.outputs.packages == 'true' && github.event.pull_request.draft == false && github.event.pull_request.user.login != 'dependabot' && github.event.pull_request.user.login != 'github-actions' && github.event.pull_request.labels[0] == null
+        run: |
+          echo "PR does not have any labels. Failing the job."
+          exit 1
+ 

@@ -37,7 +37,7 @@ jobs:
         run: |
           yarn install --immutable
           yarn ci
-
+      
       - name: Publish to Chromatic
         if: steps.filter.outputs.components == 'true' && github.event.pull_request.draft == false && !startsWith(github.event.pull_request.head.ref, 'dependabot/')
         uses: chromaui/action@latest
