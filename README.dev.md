@@ -34,11 +34,10 @@ To remove the yalc package in your app, run `yalc remove --all`.
 
 ## Watch mode
 
-Using `yalc` to watch for changes and automatically push.
+You can use `yalc` to watch for changes in the `components` package and automatically push.
 
 1. In the root of `react-library`: 
 ```bash
-yarn clean
 yarn && yarn dbuild
 ```
 
@@ -59,4 +58,4 @@ yarn dbuild:watch
 
 5. Make the changes, wait for the watch to finish building and pushing.
 
-6. refresh the page to see the change.
+6. Refresh the page in your browser to see the change.
