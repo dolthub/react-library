@@ -54,5 +54,5 @@
 }
 
 .markdown {
-  @apply pb-10 min-h-[9.65rem];
+  @apply pb-10 min-h-[9.65rem] rounded-b-md;
 }

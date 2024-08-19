@@ -18,7 +18,7 @@ export const staticColors = {
   green: {
     50: "#DEFBEC",
     100: "#BEF8D9",
-    300: "#5DEDA2",
+    300: "#22C1A4",
     400: "#19BA80",
     500: "#149566",
     600: "#0F704D",
