@@ -11,6 +11,7 @@ type ButtonProps = {
   onRequestClose: () => void | Promise<void>;
   children?: ReactNode;
   err?: Error;
+  pill?: boolean;
 };
 
 export type OuterProps = {
@@ -24,6 +25,7 @@ export type OuterProps = {
 
 type Props = OuterProps & {
   button?: ReactNode;
+  buttonPill?: boolean;
   err?: Error;
 };
 
@@ -73,7 +75,11 @@ export function ModalButtons(props: ButtonProps) {
         <Button.Link className={css.cancel} onClick={props.onRequestClose}>
           Cancel
         </Button.Link>
-        {props.children ?? <Button onClick={props.onRequestClose}>OK</Button>}
+        {props.children ?? (
+          <Button onClick={props.onRequestClose} pill={props.pill}>
+            OK
+          </Button>
+        )}
       </Button.Group>
     </div>
   );
@@ -84,7 +90,9 @@ export default function Modal({ children, ...props }: Props) {
   return (
     <ModalOuter {...props}>
       <ModalInner>{children}</ModalInner>
-      <ModalButtons {...props}>{props.button}</ModalButtons>
+      <ModalButtons {...props} pill={props.buttonPill}>
+        {props.button}
+      </ModalButtons>
     </ModalOuter>
   );
 }

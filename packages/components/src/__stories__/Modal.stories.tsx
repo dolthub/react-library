@@ -45,3 +45,11 @@ export const NoButton: Story = {
     button: undefined,
   },
 };
+
+export const NoButtonPill: Story = {
+  args: {
+    ...Basic.args,
+    button: undefined,
+    buttonPill: true,
+  },
+};
