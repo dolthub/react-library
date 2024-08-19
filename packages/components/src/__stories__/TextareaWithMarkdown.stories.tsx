@@ -28,6 +28,9 @@ export const Basic: Story = {
     placeholder: "Placeholder",
     rows: 10,
   },
+  parameters: {
+    backgrounds: { default: "lightish" },
+  },
 };
 
 export const WithValue: Story = {
