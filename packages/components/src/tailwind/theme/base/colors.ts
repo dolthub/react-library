@@ -18,7 +18,7 @@ export const staticColors = {
   green: {
     50: "#DEFBEC",
     100: "#BEF8D9",
-    300: "#22C1A4",
+    300: "#5DEDA2",
     400: "#19BA80",
     500: "#149566",
     600: "#0F704D",
@@ -26,7 +26,7 @@ export const staticColors = {
   mint: {
     50: "#B9F6EB",
     200: "#29E3C1",
-    300: "#5DEDA2",
+    300: "#22C1A4",
   },
   ocean: {
     50: "#D1DCF0",
