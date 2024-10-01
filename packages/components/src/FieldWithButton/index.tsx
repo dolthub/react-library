@@ -40,7 +40,7 @@ export default function FieldWithButton(props: Props) {
       </div>
       <div className={css.valueWrapper}>
         {props.hideValue || !props.value ? (
-          props.valueForHidden ?? ""
+          (props.valueForHidden ?? "")
         ) : (
           <div className={css.valContainer}>
             {props.help}
