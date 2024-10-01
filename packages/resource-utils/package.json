@@ -36,7 +36,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.5",
+    "@rollup/plugin-typescript": "^12.1.0",
     "@types/eslint": "^8",
     "@types/jest": "^29.5.11",
     "@types/lodash": "^4",
