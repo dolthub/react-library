@@ -45,7 +45,7 @@ function WithCopyButton(props: CopyProps) {
           <code>
             {copySuccess.active
               ? "Copied to clipboard"
-              : props.children ?? props.textToCopy}
+              : (props.children ?? props.textToCopy)}
           </code>
         </pre>
         {!props.disabled && (
