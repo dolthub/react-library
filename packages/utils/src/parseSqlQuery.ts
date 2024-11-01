@@ -1,4 +1,11 @@
-import { AST, ColumnRef, Expr, OrderBy, Parser, Select } from "node-sql-parser";
+import {
+  AST,
+  Binary,
+  ColumnRef,
+  OrderBy,
+  Parser,
+  Select,
+} from "node-sql-parser";
 import Maybe from "./Maybe";
 import { isNullValue } from "./null";
 
@@ -217,7 +224,7 @@ export function queryHasOrderBy(
 function getWhereObj(column: string, value: string, parsed: Select) {
   const valIsNull = isNullValue(value);
   const escapedVal = escapeSingleQuotes(value);
-  const newCondition: Expr = {
+  const newCondition: Binary = {
     type: "binary_expr",
     operator: valIsNull ? "IS" : "=",
     left: {
@@ -234,7 +241,7 @@ function getWhereObj(column: string, value: string, parsed: Select) {
   if (!parsed.where) {
     return newCondition;
   }
-  const condition: Expr = {
+  const condition: Binary = {
     type: "binary_expr",
     operator: "AND",
     left: { ...escapeSingleQuotesInWhereObj(parsed.where) },
