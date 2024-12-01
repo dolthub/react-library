@@ -2688,7 +2688,7 @@ __metadata:
     babel-jest: "npm:^29.7.0"
     eslint: "npm:^8.57.0"
     jest: "npm:^29.7.0"
-    node-sql-parser: "npm:^5.3.3"
+    node-sql-parser: "npm:^5.3.4"
     prettier: "npm:^3.3.3"
     rollup: "npm:^4.22.4"
     rollup-plugin-dts: "npm:^6.1.1"
@@ -11860,13 +11860,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-sql-parser@npm:^5.3.3":
-  version: 5.3.3
-  resolution: "node-sql-parser@npm:5.3.3"
+"node-sql-parser@npm:^5.3.4":
+  version: 5.3.4
+  resolution: "node-sql-parser@npm:5.3.4"
   dependencies:
     "@types/pegjs": "npm:^0.10.0"
     big-integer: "npm:^1.6.48"
-  checksum: bdaf5f52054f25215e0d5caf778c107ba8de9e073b2361281fc47cf1e8d7a4656178272909c7064d210aa6dfb267da702177e3dc5ffef5d638524094edc5c746
+  checksum: 0a3096a86596df1313df995e570749921482774bd8e8cc8cde7d592a430ae84f098325cc2cdb46a2b12dca2b71954bdf47f06e112cabad6d905b4d67bec4c712
   languageName: node
   linkType: hard
 
