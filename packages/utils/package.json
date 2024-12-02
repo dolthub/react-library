@@ -34,7 +34,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-typescript": "^11.1.5",
+    "@rollup/plugin-typescript": "^12.1.1",
     "@types/eslint": "^8",
     "@types/jest": "^29.5.11",
     "@types/rollup-plugin-peer-deps-external": "^2",
