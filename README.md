@@ -10,3 +10,6 @@
 
 - [Contributing guide](./CONTRIBUTING.md)
 - [Developer guide](./README.dev.md)
+- [Custom Tailwind themes](./packages/components/src/tailwind/theme)
+- [Custom Tailwind colors](./packages/components/src/tailwind/theme/base/colors.ts)
+- [React components Storybook](https://main--65ea532d4d49e58efd6b1662.chromatic.com)
