@@ -38,7 +38,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/eslint": "^8",
-    "@types/jest": "^29.5.11",
+    "@types/jest": "^29.5.14",
     "@types/lodash": "^4",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@typescript-eslint/eslint-plugin": "^7.1.0",

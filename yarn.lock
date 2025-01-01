@@ -2338,7 +2338,7 @@ __metadata:
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.5"
     "@types/eslint": "npm:^8"
-    "@types/jest": "npm:^29.5.11"
+    "@types/jest": "npm:^29.5.14"
     "@types/lodash": "npm:^4"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
     "@typescript-eslint/eslint-plugin": "npm:^7.1.0"
@@ -2390,7 +2390,7 @@ __metadata:
     "@types/babel__preset-env": "npm:^7"
     "@types/eslint": "npm:^8"
     "@types/identity-obj-proxy": "npm:^3"
-    "@types/jest": "npm:^29.5.11"
+    "@types/jest": "npm:^29.5.14"
     "@types/numeral": "npm:^2"
     "@types/prop-types": "npm:^15"
     "@types/react": "npm:^18"
@@ -2466,7 +2466,7 @@ __metadata:
     "@types/babel__core": "npm:^7"
     "@types/babel__preset-env": "npm:^7"
     "@types/eslint": "npm:^8"
-    "@types/jest": "npm:^29.5.11"
+    "@types/jest": "npm:^29.5.14"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
@@ -2510,7 +2510,7 @@ __metadata:
     "@types/babel__core": "npm:^7"
     "@types/babel__preset-env": "npm:^7"
     "@types/eslint": "npm:^8"
-    "@types/jest": "npm:^29.5.11"
+    "@types/jest": "npm:^29.5.14"
     "@types/js-cookie": "npm:^3"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
@@ -2551,7 +2551,7 @@ __metadata:
     "@rollup/plugin-node-resolve": "npm:^15.2.3"
     "@rollup/plugin-typescript": "npm:^11.1.5"
     "@types/eslint": "npm:^8"
-    "@types/jest": "npm:^29.5.11"
+    "@types/jest": "npm:^29.5.14"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
     "@typescript-eslint/eslint-plugin": "npm:^7.1.0"
     "@typescript-eslint/parser": "npm:^7.16.0"
@@ -4492,13 +4492,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.5.11":
-  version: 29.5.12
-  resolution: "@types/jest@npm:29.5.12"
+"@types/jest@npm:^29.5.14":
+  version: 29.5.14
+  resolution: "@types/jest@npm:29.5.14"
   dependencies:
     expect: "npm:^29.0.0"
     pretty-format: "npm:^29.0.0"
-  checksum: 25fc8e4c611fa6c4421e631432e9f0a6865a8cb07c9815ec9ac90d630271cad773b2ee5fe08066f7b95bebd18bb967f8ce05d018ee9ab0430f9dfd1d84665b6f
+  checksum: 18e0712d818890db8a8dab3d91e9ea9f7f19e3f83c2e50b312f557017dc81466207a71f3ed79cf4428e813ba939954fa26ffa0a9a7f153181ba174581b1c2aed
   languageName: node
   linkType: hard
 
