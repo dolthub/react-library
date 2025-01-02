@@ -2408,7 +2408,7 @@ __metadata:
     deepmerge: "npm:^4.3.1"
     eslint: "npm:^8.57.0"
     eslint-plugin-storybook: "npm:^0.8.0"
-    github-markdown-css: "npm:^5.6.1"
+    github-markdown-css: "npm:^5.8.1"
     identity-obj-proxy: "npm:^3.0.0"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
@@ -8764,10 +8764,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"github-markdown-css@npm:^5.6.1":
-  version: 5.6.1
-  resolution: "github-markdown-css@npm:5.6.1"
-  checksum: d4a68fea5a0e5ac7feaa369f2c525ebd8476a8ede4f209370208bbeda141be0d418c9324ee122e7b69b8858e52b3631e8e747e9b772d97d41c613829792d7b1b
+"github-markdown-css@npm:^5.8.1":
+  version: 5.8.1
+  resolution: "github-markdown-css@npm:5.8.1"
+  checksum: 67d3540731f9f1fc3b903362ef270e6db0ffe252fd4998a1a8777fc63b288b1904e5e57703e74a2ee04f1d613a4732b1949cb472b66a3c2e9e2b7a1750d1f0a6
   languageName: node
   linkType: hard
 
