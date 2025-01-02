@@ -52,7 +52,7 @@
     "@types/babel__core": "^7",
     "@types/babel__preset-env": "^7",
     "@types/eslint": "^8",
-    "@types/jest": "^29.5.11",
+    "@types/jest": "^29.5.14",
     "@types/js-cookie": "^3",
     "@types/react": "^18",
     "@types/react-dom": "^18",
