@@ -7,6 +7,7 @@ import css from "./index.module.css";
 type Props = {
   children: ReactNode;
   className?: string;
+  activeTabClassName?: string;
   index: number;
   name?: string;
   renderOnlyChild?: boolean;
@@ -22,16 +23,20 @@ export default function Tab(props: Props) {
   const label = `${isActive ? "active-" : ""}${tabLabel}`;
 
   if (props.hide) return null;
-
   return (
     <li
       data-cy={label}
       aria-label={label}
-      className={cx(css.tab, props.className, {
-        [css.activeTab]: isActive,
-        [css.smallTab]: !!props.small,
-        [css.darkTab]: !!props.dark,
-      })}
+      className={cx(
+        css.tab,
+        props.className,
+        {
+          [css.activeTab]: isActive,
+          [css.smallTab]: !!props.small,
+          [css.darkTab]: !!props.dark,
+        },
+        isActive ? props.activeTabClassName : null,
+      )}
     >
       {props.renderOnlyChild ? (
         props.children
