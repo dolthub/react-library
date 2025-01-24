@@ -13,6 +13,7 @@ type Props = {
   hide?: boolean;
   dark?: boolean;
   small?: boolean;
+  disabled?: boolean;
 };
 
 export default function Tab(props: Props) {
@@ -36,7 +37,10 @@ export default function Tab(props: Props) {
       {props.renderOnlyChild ? (
         props.children
       ) : (
-        <Btn onClick={() => setActiveTabIndex(props.index)}>
+        <Btn
+          onClick={() => setActiveTabIndex(props.index)}
+          disabled={props.disabled}
+        >
           {props.children}
         </Btn>
       )}

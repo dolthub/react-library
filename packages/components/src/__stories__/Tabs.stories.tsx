@@ -77,6 +77,25 @@ export const HideLastTab: Story = {
   },
 };
 
+export const DisableLastTab: Story = {
+  args: {
+    initialActiveIndex: 0,
+    children: [
+      <TabList key="tabList">
+        {tabs.map((tab, index) => (
+          <Tab key={tab} index={index}>
+            {tab}
+          </Tab>
+        ))}
+        <Tab index={2} disabled>
+          Tab 3
+        </Tab>
+      </TabList>,
+      ...panels,
+    ],
+  },
+};
+
 export const TabWithLink: Story = {
   args: {
     children: [

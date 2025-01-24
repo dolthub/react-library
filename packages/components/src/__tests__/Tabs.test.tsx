@@ -5,7 +5,7 @@ import { Tab, TabList, TabPanel, Tabs } from "../Tabs";
 const mocks = [
   { tabWord: "zero", panelWord: "Cero" },
   { tabWord: "one", panelWord: "Uno" },
-  { tabWord: "two", panelWord: "Dos" },
+  { tabWord: "two", panelWord: "Dos", disabled: true },
   { tabWord: "three", panelWord: "Tres", hide: true },
 ];
 
@@ -37,6 +37,7 @@ describe("test Tabs", () => {
               key={`tab-${mock.tabWord}`}
               aria-label="tab"
               hide={mock.hide}
+              disabled={mock.disabled}
             >
               {mock.tabWord}
             </Tab>
@@ -56,6 +57,8 @@ describe("test Tabs", () => {
       if (mocks[i].hide) {
         expect(screen.queryByText(mocks[i].panelWord)).not.toBeInTheDocument();
         expect(screen.queryByText(mocks[i].tabWord)).not.toBeInTheDocument();
+      } else if (mocks[i].disabled) {
+        expect(buttons[i]).toBeDisabled();
       } else {
         if (i !== 0) {
           fireEvent.click(buttons[i]);
