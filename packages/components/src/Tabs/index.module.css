@@ -34,6 +34,11 @@
   }
 }
 
+.disabledTab,
+.disabledTab:hover{
+  @apply text-storm-200 border-storm-200;
+}
+
 .activeTab.darkTab,
 .darkTab:hover {
   @apply text-primary border-primary;

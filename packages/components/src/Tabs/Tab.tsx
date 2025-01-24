@@ -32,6 +32,7 @@ export default function Tab(props: Props) {
         [css.activeTab]: isActive,
         [css.smallTab]: !!props.small,
         [css.darkTab]: !!props.dark,
+        [css.disabledTab]: props.disabled,
       })}
     >
       {props.renderOnlyChild ? (
