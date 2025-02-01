@@ -108,7 +108,7 @@
     "autoprefixer": "^10.4.20",
     "babel-jest": "^29.7.0",
     "chromatic": "^11.10.2",
-    "cssnano": "^7.0.5",
+    "cssnano": "^7.0.6",
     "eslint": "^8.57.0",
     "eslint-plugin-storybook": "^0.8.0",
     "identity-obj-proxy": "^3.0.0",
