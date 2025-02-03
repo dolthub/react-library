@@ -2375,7 +2375,7 @@ __metadata:
     "@types/prop-types": "npm:^15"
     "@types/react": "npm:^18"
     "@types/react-copy-to-clipboard": "npm:^5"
-    "@types/react-dom": "npm:^18"
+    "@types/react-dom": "npm:^19"
     "@types/react-loader": "npm:^2"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
     "@typescript-eslint/eslint-plugin": "npm:^7.1.0"
@@ -2401,7 +2401,7 @@ __metadata:
     prop-types: "npm:^15.8.1"
     react: "npm:^18.3.1"
     react-copy-to-clipboard: "npm:^5.1.0"
-    react-dom: "npm:^18.3.1"
+    react-dom: "npm:^19.0.0"
     react-loader: "npm:^2.4.7"
     react-markdown: "npm:^10.0.0"
     react-select: "npm:^5.8.3"
@@ -2448,7 +2448,7 @@ __metadata:
     "@types/eslint": "npm:^8"
     "@types/jest": "npm:^29.5.14"
     "@types/react": "npm:^18"
-    "@types/react-dom": "npm:^18"
+    "@types/react-dom": "npm:^19"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
     "@typescript-eslint/eslint-plugin": "npm:^7.1.0"
     "@typescript-eslint/parser": "npm:^7.16.0"
@@ -2458,7 +2458,7 @@ __metadata:
     jest-environment-jsdom: "npm:^29.7.0"
     prettier: "npm:^3.3.3"
     react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
+    react-dom: "npm:^19.0.0"
     rollup: "npm:^4.28.0"
     rollup-plugin-dts: "npm:^6.1.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
@@ -2468,7 +2468,7 @@ __metadata:
     yalc: "npm:^1.0.0-pre.53"
   peerDependencies:
     react: ^18.3.1
-    react-dom: ^18.3.1
+    react-dom: ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -2493,7 +2493,7 @@ __metadata:
     "@types/jest": "npm:^29.5.14"
     "@types/js-cookie": "npm:^3"
     "@types/react": "npm:^18"
-    "@types/react-dom": "npm:^18"
+    "@types/react-dom": "npm:^19"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
     "@typescript-eslint/eslint-plugin": "npm:^7.1.0"
     "@typescript-eslint/parser": "npm:^7.16.0"
@@ -2505,7 +2505,7 @@ __metadata:
     prettier: "npm:^3.3.3"
     raf-stub: "npm:^3.0.0"
     react: "npm:^18.3.1"
-    react-dom: "npm:^18.3.1"
+    react-dom: "npm:^19.0.0"
     react-hotkeys: "npm:^2.0.0"
     rollup: "npm:^4.28.0"
     rollup-plugin-dts: "npm:^6.1.1"
@@ -2516,7 +2516,7 @@ __metadata:
     yalc: "npm:^1.0.0-pre.53"
   peerDependencies:
     react: ^18.3.1
-    react-dom: ^18.3.1
+    react-dom: ^19.0.0
   languageName: unknown
   linkType: soft
 
@@ -4602,12 +4602,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18":
-  version: 18.2.19
-  resolution: "@types/react-dom@npm:18.2.19"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: 88d7c6daa4659f661d0c97985d9fca492f24b421a34bb614dcd94c343aed7bea121463149e97fb01ecaa693be17b7d1542cf71ddb1705f3889a81eb2639a88aa
+"@types/react-dom@npm:^19":
+  version: 19.0.3
+  resolution: "@types/react-dom@npm:19.0.3"
+  peerDependencies:
+    "@types/react": ^19.0.0
+  checksum: 3867427b333cbe8cbba496d7cc20ec9676d32c25ae44f4d1263a4129d42e57cf4adf0039ad263432f1215b88075c27d326e7eb4ed646128235d01a76e661d48f
   languageName: node
   linkType: hard
 
@@ -14290,7 +14290,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
+"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react-dom@npm:^19.0.0":
   version: 19.0.0
   resolution: "react-dom@npm:19.0.0"
   dependencies:
@@ -14298,18 +14298,6 @@ __metadata:
   peerDependencies:
     react: ^19.0.0
   checksum: a36ce7ab507b237ae2759c984cdaad4af4096d8199fb65b3815c16825e5cfeb7293da790a3fc2184b52bfba7ba3ff31c058c01947aff6fd1a3701632aabaa6a9
-  languageName: node
-  linkType: hard
-
-"react-dom@npm:^18.3.1":
-  version: 18.3.1
-  resolution: "react-dom@npm:18.3.1"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-    scheduler: "npm:^0.23.2"
-  peerDependencies:
-    react: ^18.3.1
-  checksum: a752496c1941f958f2e8ac56239172296fcddce1365ce45222d04a1947e0cc5547df3e8447f855a81d6d39f008d7c32eab43db3712077f09e3f67c4874973e85
   languageName: node
   linkType: hard
 
@@ -15154,15 +15142,6 @@ __metadata:
   dependencies:
     xmlchars: "npm:^2.2.0"
   checksum: 3847b839f060ef3476eb8623d099aa502ad658f5c40fd60c105ebce86d244389b0d76fcae30f4d0c728d7705ceb2f7e9b34bb54717b6a7dbedaf5dad2d9a4b74
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.23.2":
-  version: 0.23.2
-  resolution: "scheduler@npm:0.23.2"
-  dependencies:
-    loose-envify: "npm:^1.1.0"
-  checksum: 26383305e249651d4c58e6705d5f8425f153211aef95f15161c151f7b8de885f24751b377e4a0b3dd42cce09aad3f87a61dab7636859c0d89b7daf1a1e2a5c78
   languageName: node
   linkType: hard
 
