@@ -62,7 +62,7 @@
     "numeral": "^2.0.6",
     "react-copy-to-clipboard": "^5.1.0",
     "react-loader": "^2.4.7",
-    "react-markdown": "^9.0.1",
+    "react-markdown": "^9.0.3",
     "react-select": "^5.8.3",
     "react-tooltip": "^5.28.0",
     "reactjs-popup": "^2.0.6",
