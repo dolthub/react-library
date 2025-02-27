@@ -1,22 +1,30 @@
-name: Publish Package
+name: Publish Package - Dry Run
 
 on:
   workflow_dispatch:
     inputs:
-        package:
-          description: 'Name of package to publish'
-          required: true
-          default: 'components'
-          type: choice
-          options:
-          - components
-          - contexts
-          - hooks
-          - resource-utils
-          - utils
-        version:
-          description: 'SemVer format release tag, i.e. 0.2.4'
-          required: true
+      package:
+        description: 'Name of package to publish'
+        required: true
+        default: 'components'
+        type: choice
+        options:
+        - components
+        - contexts
+        - hooks
+        - resource-utils
+        - utils
+      version:
+        description: 'SemVer format release tag, i.e. 0.2.4'
+        required: true
+      dry_run:
+        description: 'Simulate publishing (no real changes)'
+        required: true
+        default: true
+        type: boolean
+  push:
+    branches:
+      - liuliu/debug-publish  
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.inputs.package }}-${{ github.ref }}
@@ -149,9 +157,15 @@ jobs:
         with:
           tag_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
           release_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
- 
+      
       - name: Publish to npm
+        if: ${{ !github.event.inputs.dry_run }}  
         run: npm publish
-        working-directory: packages/${{ github.event.inputs.package }} 
+        working-directory: packages/${{ github.event.inputs.package }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Simulate Publish (Dry Run)
+        if: ${{ github.event.inputs.dry_run }} 
+        run: npm publish --dry-run
+        working-directory: packages/${{ github.event.inputs.package }}
