@@ -22,6 +22,9 @@ on:
         required: true
         default: true
         type: boolean
+  push:
+    branches:
+      - liuliu/debug-publish  
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.inputs.package }}-${{ github.ref }}
