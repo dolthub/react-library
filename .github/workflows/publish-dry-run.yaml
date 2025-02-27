@@ -1,4 +1,4 @@
-name: Publish Package
+name: Publish Package - Dry Run
 
 on:
   workflow_dispatch:
