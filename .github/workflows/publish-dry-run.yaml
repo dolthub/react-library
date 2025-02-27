@@ -154,15 +154,15 @@ jobs:
         with:
           tag_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
           release_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
- 
+      
       - name: Publish to npm
-        if: ${{ !inputs.dry_run }}  # Only run if dry_run is FALSE
+        if: ${{ !github.event.inputs.dry_run }}  
         run: npm publish
         working-directory: packages/${{ github.event.inputs.package }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Simulate Publish (Dry Run)
-        if: ${{ inputs.dry_run }}
-        run: npm publish --dry-run  # Simulate publishing
+        if: ${{ github.event.inputs.dry_run }} 
+        run: npm publish --dry-run
         working-directory: packages/${{ github.event.inputs.package }}
