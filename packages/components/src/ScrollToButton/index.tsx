@@ -15,7 +15,6 @@ export default function ScrollToButton(props: Props) {
     <Button
       className={css.button}
       onClick={() => {
-        if (!props.refToScroll.current) return;
         props.refToScroll.current.scrollIntoView();
       }}
       size="small"
