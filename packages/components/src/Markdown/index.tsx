@@ -25,22 +25,18 @@ export default function Markdown({
       data-cy={props["data-cy"]}
       aria-label="markdown"
       dir="auto"
-      className={cx({ [css.spaceAbove]: spaceAbove })}
+      className={cx(
+        "markdown-body",
+        css.preview,
+        {
+          [css.previewMaxHeight]: hasMaxHeight,
+          [css.previewBaseText]: baseTextSize,
+          [css.spaceAbove]: spaceAbove,
+        },
+        props.className,
+      )}
     >
-      <ReactMarkdown
-        className={cx(
-          "markdown-body",
-          css.preview,
-          {
-            [css.previewMaxHeight]: hasMaxHeight,
-            [css.previewBaseText]: baseTextSize,
-          },
-          props.className,
-        )}
-        remarkPlugins={[remarkGfm]}
-      >
-        {props.value}
-      </ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkGfm]}>{props.value}</ReactMarkdown>
     </div>
   );
 }
