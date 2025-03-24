@@ -39,6 +39,7 @@ export {
   getTableName,
   isMultipleQueries,
   isMutation,
+  isReadQuery,
   makeQueryExecutable,
   parseSelectQuery,
   queryHasOrderBy,
