@@ -346,6 +346,22 @@ export function isMutation(q?: string): boolean {
   return !!type && type !== "select" && type !== "desc" && type !== "show";
 }
 
+export function isReadQuery(q?: string): boolean {
+  if (!q) return false;
+  const type = getQueryType(q);
+  if (!type) {
+    const lower = q.toLowerCase();
+    if (
+      lower.startsWith("select") ||
+      lower.startsWith("desc") ||
+      lower.startsWith("show")
+    ) {
+      return true;
+    }
+  }
+  return !!type && (type === "select" || type === "desc" || type === "show");
+}
+
 // Removes a column from a select query
 export function removeColumnFromQuery(
   q: string,
