@@ -105,7 +105,7 @@
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.16.0",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
     "babel-jest": "^29.7.0",
     "chromatic": "^11.10.2",
     "cssnano": "^7.0.6",
