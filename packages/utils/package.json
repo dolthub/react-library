@@ -2,7 +2,7 @@
   "name": "@dolthub/web-utils",
   "author": "DoltHub",
   "description": "A collection of utilities for building web applications",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
