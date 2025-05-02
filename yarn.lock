@@ -2539,7 +2539,7 @@ __metadata:
     storybook: "npm:^8.6.12"
     storybook-css-modules: "npm:^1.0.8"
     stylelint: "npm:^16.19.1"
-    stylelint-config-recommended: "npm:^14.0.1"
+    stylelint-config-recommended: "npm:^16.0.0"
     tailwindcss: "npm:^3.4.1"
     tslib: "npm:^2.8.1"
     typescript: "npm:^5.6.3"
@@ -16090,12 +16090,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-recommended@npm:^14.0.1":
-  version: 14.0.1
-  resolution: "stylelint-config-recommended@npm:14.0.1"
+"stylelint-config-recommended@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "stylelint-config-recommended@npm:16.0.0"
   peerDependencies:
-    stylelint: ^16.1.0
-  checksum: a0a0ecd91f4d193bbe2cc3408228f8a2d8fcb2b2578d77233f86780c9247c796a04e16aad7a91d97cb918e2de34b6a8062bab66ee017c3835d855081d94f4828
+    stylelint: ^16.16.0
+  checksum: b2b4ea2633a606a0f686521aa5e8908810c9dd21fd4525c86b34213de1e362b445fd5472b6e5ff251d46f999e2ca2c6c704f2efc1c08d5a532084427f4e1c9d8
   languageName: node
   linkType: hard
 
