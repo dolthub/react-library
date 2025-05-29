@@ -17,9 +17,9 @@ import { createCustomContext } from "./createCustomContext";
 // This context handles the comment box on the pull details and issue details page
 export type CommentFormContextType = {
   getFormPositionOnPage: () => void;
-  commentFormRef: React.RefObject<HTMLDivElement>;
+  commentFormRef: React.RefObject<HTMLDivElement | null>;
   commentFormIsVisible: boolean;
-  inputRef: React.RefObject<HTMLTextAreaElement>;
+  inputRef: React.RefObject<HTMLTextAreaElement | null>;
   loading: boolean;
   comment: string;
   setComment: (c: string) => void;
@@ -39,7 +39,7 @@ type Props = {
   error?: Error;
 };
 
-export default function CommentFormProvider(props: Props): JSX.Element {
+export default function CommentFormProvider(props: Props): React.JSX.Element {
   const [comment, setComment] = useStateWithSessionStorage(
     `comment-${props.commentId}`,
   );

@@ -4,7 +4,7 @@ import Button from "../Button";
 import css from "./index.module.css";
 
 type Props = {
-  refToScroll: React.RefObject<HTMLDivElement>;
+  refToScroll: React.RefObject<HTMLDivElement | null>;
   isVisible: boolean;
   text: string;
 };
@@ -15,8 +15,7 @@ export default function ScrollToButton(props: Props) {
     <Button
       className={css.button}
       onClick={() => {
-        if (!props.refToScroll.current) return;
-        props.refToScroll.current.scrollIntoView();
+        props.refToScroll.current?.scrollIntoView();
       }}
       size="small"
     >

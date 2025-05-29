@@ -12,7 +12,7 @@ const getFeatures = (isDev = false): FeatureMap =>
 
 function renderProvider(props: {
   name: string;
-  notFound?: JSX.Element;
+  notFound?: React.JSX.Element;
   isDev?: boolean;
   showAll?: boolean;
   show?: boolean;

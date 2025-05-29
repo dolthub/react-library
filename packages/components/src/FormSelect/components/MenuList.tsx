@@ -19,11 +19,15 @@ export default function MenuList<
       : undefined;
 
   const filteredChildren = React.Children.toArray(children).filter(group => {
-    if (typeof group === "string" || typeof group === "number") {
+    if (
+      typeof group === "string" ||
+      typeof group === "number" ||
+      typeof group === "bigint"
+    ) {
       return false;
     }
-    if (!("props" in group)) return false;
-    return group.props.data?.label === activeGroup?.label;
+    if (!React.isValidElement(group)) return false;
+    return (group.props as any).data?.label === activeGroup?.label;
   });
 
   return (
