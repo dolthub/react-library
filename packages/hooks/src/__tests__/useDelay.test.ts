@@ -35,7 +35,7 @@ describe("useDelay", () => {
     const { result, rerender } = renderHook(() => useDelay());
 
     expect(result.current.active).toBe(false);
-    
+
     act(() => {
       result.current.start();
     });
@@ -56,7 +56,7 @@ describe("useDelay", () => {
     const { result, rerender } = renderHook(() => useDelay(delayMs));
 
     expect(result.current.active).toBe(false);
-    
+
     act(() => {
       result.current.start();
     });
@@ -79,7 +79,7 @@ describe("useDelay", () => {
     const { result, rerender } = renderHook(() => useDelay(1000, ["error"]));
 
     expect(result.current.active).toBe(false);
-    
+
     act(() => {
       result.current.start();
     });
