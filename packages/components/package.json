@@ -48,8 +48,8 @@
     "dbuild:watch": "node rollup.watch.mjs"
   },
   "peerDependencies": {
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "^19",
+    "react-dom": "^19"
   },
   "dependencies": {
     "@dolthub/react-contexts": "^0.1.0",
@@ -98,9 +98,9 @@
     "@types/jest": "^29.5.14",
     "@types/numeral": "^2",
     "@types/prop-types": "^15",
-    "@types/react": "^18",
+    "@types/react": "^19",
     "@types/react-copy-to-clipboard": "^5",
-    "@types/react-dom": "^18",
+    "@types/react-dom": "^19",
     "@types/react-loader": "^2",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
@@ -120,8 +120,8 @@
     "postcss-preset-env": "^10.1.6",
     "prettier": "^3.3.3",
     "prop-types": "^15.8.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-select-event": "^5.5.1",
     "rollup": "^4.40.1",
     "rollup-plugin-dts": "^6.2.1",

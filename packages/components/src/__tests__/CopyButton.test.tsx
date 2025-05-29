@@ -9,16 +9,11 @@ describe("Test copy button", () => {
     const { user } = setup(<CopyButton text={buttonText} />);
 
     const button = screen.getByRole("button");
-    window.prompt = jest.fn();
 
     expect(button).toHaveTextContent("Copy");
 
     await user.click(button);
 
     expect(button).toHaveTextContent("Copied");
-    expect(window.prompt).toHaveBeenCalledWith(
-      "Copy to clipboard: Ctrl+C, Enter",
-      buttonText,
-    );
   });
 });

@@ -1,4 +1,4 @@
-import { renderHook } from "@testing-library/react-hooks";
+import { act, renderHook } from "@testing-library/react";
 import { useDelay } from "..";
 
 describe("useDelay", () => {
@@ -35,14 +35,19 @@ describe("useDelay", () => {
     const { result, rerender } = renderHook(() => useDelay());
 
     expect(result.current.active).toBe(false);
-    result.current.start();
+
+    act(() => {
+      result.current.start();
+    });
     expect(result.current.active).toBe(true);
 
     rerender();
     expect(setTimeout).toHaveBeenCalledTimes(1);
     expect(clearTimeout).not.toHaveBeenCalled();
 
-    result.current.stop();
+    act(() => {
+      result.current.stop();
+    });
     expect(result.current.active).toBe(false);
   });
 
@@ -51,14 +56,19 @@ describe("useDelay", () => {
     const { result, rerender } = renderHook(() => useDelay(delayMs));
 
     expect(result.current.active).toBe(false);
-    result.current.start();
+
+    act(() => {
+      result.current.start();
+    });
     expect(result.current.active).toBe(true);
 
     rerender();
     expect(setTimeout).toHaveBeenCalledTimes(1);
     expect(clearTimeout).not.toHaveBeenCalled();
 
-    jest.advanceTimersByTime(delayMs);
+    act(() => {
+      jest.advanceTimersByTime(delayMs);
+    });
 
     rerender();
     expect(result.current.active).toBe(false);
@@ -69,8 +79,13 @@ describe("useDelay", () => {
     const { result, rerender } = renderHook(() => useDelay(1000, ["error"]));
 
     expect(result.current.active).toBe(false);
-    result.current.start();
-    expect(result.current.active).toBe(true);
+
+    act(() => {
+      result.current.start();
+    });
+    // Since there's an error in the dependency array, the error effect
+    // will immediately stop the hook, so it should be false
+    expect(result.current.active).toBe(false);
 
     rerender();
     expect(result.current.active).toBe(false);

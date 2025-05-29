@@ -32,7 +32,9 @@ describe("test ScrollToButton", () => {
   });
 
   it("does not attempt to call scrollIntoView if ref current is null", () => {
-    const ref = { current: null };
+    const ref = {
+      current: null,
+    } as unknown as React.RefObject<HTMLDivElement | null>;
     // Spy on console to check for errors
     const consoleSpy = jest
       .spyOn(console, "error")
