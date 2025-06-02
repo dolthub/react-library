@@ -15,7 +15,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'   
+          node-version: '20'   
       - name: Enable Corepack
         run: corepack enable    
       - name: Install yarn
