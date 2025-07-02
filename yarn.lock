@@ -2374,7 +2374,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^7.16.0"
     autoprefixer: "npm:^10.4.21"
     babel-jest: "npm:^30.0.2"
-    chromatic: "npm:^12.0.0"
+    chromatic: "npm:^13.0.1"
     classnames: "npm:^2.5.1"
     cssnano: "npm:^7.0.7"
     deepmerge: "npm:^4.3.1"
@@ -6630,9 +6630,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^12.0.0":
-  version: 12.0.0
-  resolution: "chromatic@npm:12.0.0"
+"chromatic@npm:^13.0.1":
+  version: 13.0.1
+  resolution: "chromatic@npm:13.0.1"
   peerDependencies:
     "@chromatic-com/cypress": ^0.*.* || ^1.0.0
     "@chromatic-com/playwright": ^0.*.* || ^1.0.0
@@ -6645,7 +6645,7 @@ __metadata:
     chroma: dist/bin.js
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
-  checksum: fb6022581f9d04b29b731a0696178f027cf7b37b90d34bcb6c493f158c7b66f5047b2702d06b4c5246d5ac8ae5712ff5996959b32061726f862c0ec9396adfdb
+  checksum: 0f0a59964a5ec8b1550247e196ab3f85e84470e2275e44c2d4200e2c0a6f1734e4538d563fff788b126f44e868c16a6af6ebe1f5aefe781ff77b777b6bcb8b47
   languageName: node
   linkType: hard
 
