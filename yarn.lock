@@ -2406,7 +2406,7 @@ __metadata:
     prop-types: "npm:^15.8.1"
     react: "npm:^19.1.0"
     react-copy-to-clipboard: "npm:^5.1.0"
-    react-dom: "npm:^19.1.0"
+    react-dom: "npm:^19.1.1"
     react-loader: "npm:^2.4.7"
     react-markdown: "npm:^10.0.0"
     react-select: "npm:^5.10.2"
@@ -2463,7 +2463,7 @@ __metadata:
     jest-environment-jsdom: "npm:^30.0.2"
     prettier: "npm:^3.6.2"
     react: "npm:^19.1.0"
-    react-dom: "npm:^19.1.0"
+    react-dom: "npm:^19.1.1"
     rollup: "npm:^4.46.2"
     rollup-plugin-dts: "npm:^6.2.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
@@ -2473,7 +2473,7 @@ __metadata:
     yalc: "npm:^1.0.0-pre.53"
   peerDependencies:
     react: ^19.1.0
-    react-dom: ^19.1.0
+    react-dom: ^19.1.1
   languageName: unknown
   linkType: soft
 
@@ -2510,7 +2510,7 @@ __metadata:
     prettier: "npm:^3.6.2"
     raf-stub: "npm:^3.0.0"
     react: "npm:^19.1.0"
-    react-dom: "npm:^19.1.0"
+    react-dom: "npm:^19.1.1"
     react-hotkeys: "npm:^2.0.0"
     rollup: "npm:^4.46.2"
     rollup-plugin-dts: "npm:^6.2.1"
@@ -2521,7 +2521,7 @@ __metadata:
     yalc: "npm:^1.0.0-pre.53"
   peerDependencies:
     react: ^19.1.0
-    react-dom: ^19.1.0
+    react-dom: ^19.1.1
   languageName: unknown
   linkType: soft
 
@@ -4771,11 +4771,11 @@ __metadata:
   linkType: hard
 
 "@types/react-dom@npm:^19":
-  version: 19.1.6
-  resolution: "@types/react-dom@npm:19.1.6"
+  version: 19.1.7
+  resolution: "@types/react-dom@npm:19.1.7"
   peerDependencies:
     "@types/react": ^19.0.0
-  checksum: 7ba74eee2919e3f225e898b65fdaa16e54952aaf9e3472a080ddc82ca54585e46e60b3c52018d21d4b7053f09d27b8293e9f468b85f9932ff452cd290cc131e8
+  checksum: 8db5751c1567552fe4e1ece9f5823b682f2994ec8d30ed34ba0ef984e3c8ace1435f8be93d02f55c350147e78ac8c4dbcd8ed2c3b6a60f575bc5374f588c51c9
   languageName: node
   linkType: hard
 
@@ -14813,25 +14813,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
-  version: 19.0.0
-  resolution: "react-dom@npm:19.0.0"
-  dependencies:
-    scheduler: "npm:^0.25.0"
-  peerDependencies:
-    react: ^19.0.0
-  checksum: a36ce7ab507b237ae2759c984cdaad4af4096d8199fb65b3815c16825e5cfeb7293da790a3fc2184b52bfba7ba3ff31c058c01947aff6fd1a3701632aabaa6a9
-  languageName: node
-  linkType: hard
-
-"react-dom@npm:^19.1.0":
-  version: 19.1.0
-  resolution: "react-dom@npm:19.1.0"
+"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react-dom@npm:^19.1.1":
+  version: 19.1.1
+  resolution: "react-dom@npm:19.1.1"
   dependencies:
     scheduler: "npm:^0.26.0"
   peerDependencies:
-    react: ^19.1.0
-  checksum: 3e26e89bb6c67c9a6aa86cb888c7a7f8258f2e347a6d2a15299c17eb16e04c19194e3452bc3255bd34000a61e45e2cb51e46292392340432f133e5a5d2dfb5fc
+    react: ^19.1.1
+  checksum: 8c91198510521299c56e4e8d5e3a4508b2734fb5e52f29eeac33811de64e76fe586ad32c32182e2e84e070d98df67125da346c3360013357228172dbcd20bcdd
   languageName: node
   linkType: hard
 
@@ -15678,13 +15667,6 @@ __metadata:
   dependencies:
     xmlchars: "npm:^2.2.0"
   checksum: 3847b839f060ef3476eb8623d099aa502ad658f5c40fd60c105ebce86d244389b0d76fcae30f4d0c728d7705ceb2f7e9b34bb54717b6a7dbedaf5dad2d9a4b74
-  languageName: node
-  linkType: hard
-
-"scheduler@npm:^0.25.0":
-  version: 0.25.0
-  resolution: "scheduler@npm:0.25.0"
-  checksum: a4bb1da406b613ce72c1299db43759526058fdcc413999c3c3e0db8956df7633acf395cb20eb2303b6a65d658d66b6585d344460abaee8080b4aa931f10eaafe
   languageName: node
   linkType: hard
 
