@@ -68,7 +68,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.8.1",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "yalc": "^1.0.0-pre.53"
   },
   "repository": {

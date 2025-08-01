@@ -2337,7 +2337,7 @@ __metadata:
     rollup-plugin-dts: "npm:^6.2.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
-    typescript: "npm:^5.8.3"
+    typescript: "npm:^5.9.2"
     yalc: "npm:^1.0.0-pre.53"
   languageName: unknown
   linkType: soft
@@ -2425,7 +2425,7 @@ __metadata:
     stylelint-config-recommended: "npm:^14.0.1"
     tailwindcss: "npm:^3.4.1"
     tslib: "npm:^2.8.1"
-    typescript: "npm:^5.8.3"
+    typescript: "npm:^5.9.2"
     yalc: "npm:^1.0.0-pre.53"
   peerDependencies:
     react: ^19
@@ -2469,7 +2469,7 @@ __metadata:
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
     tslib: "npm:^2.8.1"
-    typescript: "npm:^5.8.3"
+    typescript: "npm:^5.9.2"
     yalc: "npm:^1.0.0-pre.53"
   peerDependencies:
     react: ^19.1.0
@@ -2517,7 +2517,7 @@ __metadata:
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
     tslib: "npm:^2.8.1"
-    typescript: "npm:^5.8.3"
+    typescript: "npm:^5.9.2"
     yalc: "npm:^1.0.0-pre.53"
   peerDependencies:
     react: ^19.1.0
@@ -2550,7 +2550,7 @@ __metadata:
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
     timeago.js: "npm:^4.0.2"
-    typescript: "npm:^5.8.3"
+    typescript: "npm:^5.9.2"
     yalc: "npm:^1.0.0-pre.53"
   languageName: unknown
   linkType: soft
@@ -14798,7 +14798,7 @@ __metadata:
     npm-run-all2: "npm:^7.0.1"
     prettier: "npm:^3.5.3"
     rimraf: "npm:^6.0.1"
-    typescript: "npm:^5.8.3"
+    typescript: "npm:^5.9.2"
   languageName: unknown
   linkType: soft
 
@@ -16910,23 +16910,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.8.3":
-  version: 5.8.3
-  resolution: "typescript@npm:5.8.3"
+"typescript@npm:^5.9.2":
+  version: 5.9.2
+  resolution: "typescript@npm:5.9.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 5f8bb01196e542e64d44db3d16ee0e4063ce4f3e3966df6005f2588e86d91c03e1fb131c2581baf0fb65ee79669eea6e161cd448178986587e9f6844446dbb48
+  checksum: cd635d50f02d6cf98ed42de2f76289701c1ec587a363369255f01ed15aaf22be0813226bff3c53e99d971f9b540e0b3cc7583dbe05faded49b1b0bed2f638a18
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>":
-  version: 5.8.3
-  resolution: "typescript@patch:typescript@npm%3A5.8.3#optional!builtin<compat/typescript>::version=5.8.3&hash=e012d7"
+"typescript@patch:typescript@npm%3A^5.9.2#optional!builtin<compat/typescript>":
+  version: 5.9.2
+  resolution: "typescript@patch:typescript@npm%3A5.9.2#optional!builtin<compat/typescript>::version=5.9.2&hash=e012d7"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 92ea03509e06598948559ddcdd8a4ae5a7ab475766d5589f1b796f5731b3d631a4c7ddfb86a3bd44d58d10102b132cd4b4994dda9b63e6273c66d77d6a271dbd
+  checksum: 66fc07779427a7c3fa97da0cf2e62595eaff2cea4594d45497d294bfa7cb514d164f0b6ce7a5121652cf44c0822af74e29ee579c771c405e002d1f23cf06bfde
   languageName: node
   linkType: hard
 
