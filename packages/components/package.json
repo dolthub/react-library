@@ -120,7 +120,7 @@
     "postcss-preset-env": "^10.2.0",
     "prettier": "^3.6.2",
     "prop-types": "^15.8.1",
-    "react": "^19.1.0",
+    "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-select-event": "^5.5.1",
     "rollup": "^4.46.2",
