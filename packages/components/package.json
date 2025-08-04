@@ -4,7 +4,7 @@
     "name": "DoltHub"
   },
   "description": "A collection of React components for common tasks",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dolthub/react-library.git"
