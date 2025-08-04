@@ -34,7 +34,7 @@
     "react-dom": "^19.1.1"
   },
   "dependencies": {
-    "@dolthub/react-hooks": "^0.1.7"
+    "@dolthub/react-hooks": "^0.1.8"
   },
   "devDependencies": {
     "@babel/core": "^7.27.7",

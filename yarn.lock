@@ -2350,9 +2350,9 @@ __metadata:
     "@babel/preset-env": "npm:^7.27.2"
     "@babel/preset-react": "npm:^7.27.1"
     "@babel/preset-typescript": "npm:^7.27.1"
-    "@dolthub/react-contexts": "npm:^0.1.0"
-    "@dolthub/react-hooks": "npm:^0.1.7"
-    "@dolthub/web-utils": "npm:^0.1.5"
+    "@dolthub/react-contexts": "npm:^0.1.1"
+    "@dolthub/react-hooks": "npm:^0.1.8"
+    "@dolthub/web-utils": "npm:^0.1.9"
     "@react-icons/all-files": "npm:^4.1.0"
     "@rollup/plugin-commonjs": "npm:^28.0.6"
     "@rollup/plugin-node-resolve": "npm:^16.0.1"
@@ -2433,7 +2433,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dolthub/react-contexts@npm:^0.1.0, @dolthub/react-contexts@workspace:packages/contexts":
+"@dolthub/react-contexts@npm:^0.1.1, @dolthub/react-contexts@workspace:packages/contexts":
   version: 0.0.0-use.local
   resolution: "@dolthub/react-contexts@workspace:packages/contexts"
   dependencies:
@@ -2441,7 +2441,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.27.2"
     "@babel/preset-react": "npm:^7.27.1"
     "@babel/preset-typescript": "npm:^7.27.1"
-    "@dolthub/react-hooks": "npm:^0.1.7"
+    "@dolthub/react-hooks": "npm:^0.1.8"
     "@rollup/plugin-commonjs": "npm:^28.0.6"
     "@rollup/plugin-node-resolve": "npm:^16.0.1"
     "@rollup/plugin-typescript": "npm:^11.1.5"
@@ -2477,7 +2477,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dolthub/react-hooks@npm:^0.1.7, @dolthub/react-hooks@workspace:packages/hooks":
+"@dolthub/react-hooks@npm:^0.1.8, @dolthub/react-hooks@workspace:packages/hooks":
   version: 0.0.0-use.local
   resolution: "@dolthub/react-hooks@workspace:packages/hooks"
   dependencies:
@@ -2485,7 +2485,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.27.2"
     "@babel/preset-react": "npm:^7.27.1"
     "@babel/preset-typescript": "npm:^7.27.1"
-    "@dolthub/web-utils": "npm:^0.1.5"
+    "@dolthub/web-utils": "npm:^0.1.9"
     "@rollup/plugin-commonjs": "npm:^28.0.6"
     "@rollup/plugin-node-resolve": "npm:^16.0.1"
     "@rollup/plugin-typescript": "npm:^11.1.5"
@@ -2525,7 +2525,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dolthub/web-utils@npm:^0.1.5, @dolthub/web-utils@workspace:packages/utils":
+"@dolthub/web-utils@npm:^0.1.9, @dolthub/web-utils@workspace:packages/utils":
   version: 0.0.0-use.local
   resolution: "@dolthub/web-utils@workspace:packages/utils"
   dependencies:
