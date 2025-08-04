@@ -8,7 +8,7 @@ type Props = {
   onChangeString?: (value: string) => void;
   hasError?: boolean;
   light?: boolean;
-  inputref?: React.RefObject<HTMLTextAreaElement>;
+  inputref?: React.RefObject<HTMLTextAreaElement | null>;
   horizontal?: boolean;
   mobileFriendly?: boolean;
   noMaxWidth?: boolean;

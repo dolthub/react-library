@@ -125,7 +125,7 @@ jobs:
       - name: Enable Pull Request Auto-Merge
         run:  gh pr merge --merge --auto "${{ github.event.inputs.package }}-package-release"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
 
       - name: Enable Corepack before setting up Node
         run: corepack enable
@@ -148,7 +148,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
-          release_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
  
       - name: Publish to npm
         run: npm publish

@@ -14,7 +14,7 @@ type Props = {
   onFocus?: () => void;
   onBlur?: () => void;
   maxLength?: number;
-  inputref?: React.RefObject<HTMLTextAreaElement>;
+  inputref?: React.RefObject<HTMLTextAreaElement | null>;
   onKeyDown?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => Promise<void>;
   ["aria-label"]?: string;
   className?: string;
