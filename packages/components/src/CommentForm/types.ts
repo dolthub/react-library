@@ -7,7 +7,7 @@ export type CommonProps = {
   profPic?: ReactNode;
   comment: string;
   setComment: (c: string) => void;
-  inputRef?: React.RefObject<HTMLTextAreaElement>;
+  inputRef?: React.RefObject<HTMLTextAreaElement | null>;
   hasMinHeight?: boolean;
   unroundBottom?: boolean;
   placeholder?: string;

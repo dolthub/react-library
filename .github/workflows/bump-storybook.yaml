@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
       - uses: actions/setup-node@v4
         with:
           node-version: '20'   
@@ -38,7 +38,7 @@ jobs:
         with:
           source_branch: "bump-storybook-deps"
           destination_branch: "main"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
           pr_title: "Bump Storybook dependencies"
           pr_reviewer: tbantle22
           pr_label: "dependencies"
