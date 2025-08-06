@@ -75,4 +75,5 @@ export const mutationExamples = [
   "SET GLOBAL slow_query_log = 1",
   "SET SESSION slow_query_log = 1",
   "FLUSH PRIVILEGES",
+  `REPLACE INTO dolt_docs VALUES ("README.md", "This is a README with a \\"quote\\".")`,
 ];

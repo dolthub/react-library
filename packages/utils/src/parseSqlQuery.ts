@@ -336,6 +336,7 @@ export function isMutation(q?: string): boolean {
       lower.startsWith("revoke") ||
       lower.startsWith("grant") ||
       lower.startsWith("flush") ||
+      // lower.startsWith("replace into") ||
       (lower.startsWith("with") &&
         ((lower.includes("update") && lower.includes("set")) ||
           lower.includes("delete from")))

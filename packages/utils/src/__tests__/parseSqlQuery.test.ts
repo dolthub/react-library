@@ -537,9 +537,22 @@ function getParserCol(
       column: name,
       table: table ?? null,
       type: "column_ref",
+      // TODO: Remove type cast when this issue is fixed https://github.com/taozhi8833998/node-sql-parser/issues/2522
+      collate: null as any,
     },
     as: null,
     type: includeType ? "expr" : undefined,
+  };
+}
+
+function getParserStarCol(): Column {
+  return {
+    expr: {
+      column: "*",
+      table: null,
+      type: "column_ref",
+    },
+    as: null,
   };
 }
 
@@ -548,7 +561,7 @@ describe("test getColumns", () => {
     {
       desc: "select *",
       query: "select * from `test`",
-      expected: [getParserCol("*")],
+      expected: [getParserStarCol()],
     },
     {
       desc: "select one column",
