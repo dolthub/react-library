@@ -2513,9 +2513,9 @@ __metadata:
     "@types/jest": "npm:^29.5.14"
     "@types/numeral": "npm:^2"
     "@types/prop-types": "npm:^15"
-    "@types/react": "npm:^19"
+    "@types/react": "npm:19.1.12"
     "@types/react-copy-to-clipboard": "npm:^5"
-    "@types/react-dom": "npm:^19"
+    "@types/react-dom": "npm:19.1.1"
     "@types/react-loader": "npm:^2"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
     "@typescript-eslint/eslint-plugin": "npm:^8.0.0"
@@ -2539,9 +2539,9 @@ __metadata:
     postcss-preset-env: "npm:^10.2.0"
     prettier: "npm:^3.6.2"
     prop-types: "npm:^15.8.1"
-    react: "npm:^19.1.1"
+    react: "npm:19.1.1"
     react-copy-to-clipboard: "npm:^5.1.0"
-    react-dom: "npm:^19.1.1"
+    react-dom: "npm:19.1.1"
     react-loader: "npm:^2.4.7"
     react-markdown: "npm:^10.0.0"
     react-select: "npm:^5.10.2"
@@ -5079,6 +5079,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-dom@npm:19.1.1":
+  version: 19.1.1
+  resolution: "@types/react-dom@npm:19.1.1"
+  peerDependencies:
+    "@types/react": ^19.0.0
+  checksum: 83833af502f501a372b370fdeb7cf933dfc8780903fe0e0d6e6a76b4ea3adbe5316159a62a0388d8afdd409afd76a40959e2ce82fbb788f57d32c786a63601ee
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:^19":
   version: 19.1.9
   resolution: "@types/react-dom@npm:19.1.9"
@@ -5106,7 +5115,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^19":
+"@types/react@npm:*, @types/react@npm:19.1.12, @types/react@npm:^19":
   version: 19.1.12
   resolution: "@types/react@npm:19.1.12"
   dependencies:
@@ -15502,7 +15511,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react-dom@npm:^19.1.1":
+"react-dom@npm:19.1.1, react-dom@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0, react-dom@npm:^19.1.1":
   version: 19.1.1
   resolution: "react-dom@npm:19.1.1"
   dependencies:
@@ -15686,17 +15695,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react@npm:19.1.1, react@npm:^19.1.1":
+  version: 19.1.1
+  resolution: "react@npm:19.1.1"
+  checksum: 8c9769a2dfd02e603af6445058325e6c8a24b47b185d0e461f66a6454765ddcaecb3f0a90184836c68bb509f3c38248359edbc42f0d07c23eb500a5c30c87b4e
+  languageName: node
+  linkType: hard
+
 "react@npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
   version: 19.0.0
   resolution: "react@npm:19.0.0"
   checksum: 9cad8f103e8e3a16d15cb18a0d8115d8bd9f9e1ce3420310aea381eb42aa0a4f812cf047bb5441349257a05fba8a291515691e3cb51267279b2d2c3253f38471
-  languageName: node
-  linkType: hard
-
-"react@npm:^19.1.1":
-  version: 19.1.1
-  resolution: "react@npm:19.1.1"
-  checksum: 8c9769a2dfd02e603af6445058325e6c8a24b47b185d0e461f66a6454765ddcaecb3f0a90184836c68bb509f3c38248359edbc42f0d07c23eb500a5c30c87b4e
   languageName: node
   linkType: hard
 
