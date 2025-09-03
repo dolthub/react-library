@@ -78,12 +78,13 @@ export default function Menu<
   ...props
 }: MenuProps<OptionType, IsMulti, CustomGroupBase<OptionType>> &
   GroupIndexProps) {
+  const MenuComponent = components.Menu as any;
   return (
-    <components.Menu {...props}>
+    <MenuComponent {...props}>
       <Tabs {...props} options={props.selectProps.options} />
       {children}
       <GroupNoOptions {...props} options={props.selectProps.options} />
       <Footer {...props} options={props.selectProps.options} />
-    </components.Menu>
+    </MenuComponent>
   );
 }
