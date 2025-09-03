@@ -11,11 +11,11 @@ export default function OptionComponent<
   OptionType extends Option<T>,
   IsMulti extends boolean,
 >(props: OptionProps<OptionType, IsMulti>): ReactElement {
-  const OptionComponent = components.Option as any;
+  const ReactSelectOption = components.Option as any;
   return (
-    <OptionComponent {...props}>
+    <ReactSelectOption {...props}>
       <CustomOption data={props.data} labelPrefix="select-option" />
-    </OptionComponent>
+    </ReactSelectOption>
   );
 }
 
@@ -24,13 +24,13 @@ export function OptionForGroup<
   OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean,
 >(props: OptionProps<OptionType, IsMulti>): ReactElement {
-  const OptionForGroupComponent = components.Option as any;
+  const ReactSelectOptionForGroup = components.Option as any;
   return (
-    <OptionForGroupComponent {...props} className={css.option}>
+    <ReactSelectOptionForGroup {...props} className={css.option}>
       <FiCheck
         className={cx(css.check, { [css.checkInvisible]: !props.isSelected })}
       />
       <CustomOption data={props.data} labelPrefix="select-option" />
-    </OptionForGroupComponent>
+    </ReactSelectOptionForGroup>
   );
 }

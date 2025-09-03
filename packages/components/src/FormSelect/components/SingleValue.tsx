@@ -8,10 +8,10 @@ export default function SingleValueComponent<
   OptionType extends Option<T>,
   IsMulti extends boolean,
 >(props: SingleValueProps<OptionType, IsMulti>): ReactNode {
-  const SingleValueComponent = components.SingleValue as any;
+  const ReactSelectSingleValue = components.SingleValue as any;
   return (
-    <SingleValueComponent {...props}>
+    <ReactSelectSingleValue {...props}>
       <CustomOption data={props.data} labelPrefix="single-value" />
-    </SingleValueComponent>
+    </ReactSelectSingleValue>
   );
 }
