@@ -57,7 +57,14 @@ export default typescriptEslint.config(
       "import/resolver": {
         typescript: {
           alwaysTryTypes: true,
-          project: "./tsconfig.json",
+          project: ["./tsconfig.json", "./packages/*/tsconfig.json"],
+          paths: {
+            "@dolthub/react-hooks": ["./packages/hooks/src"],
+            "@dolthub/web-utils": ["./packages/utils/src"],
+            "@dolthub/react-contexts": ["./packages/contexts/src"],
+            "@dolthub/react-components": ["./packages/components/src"],
+            "@dolthub/proto-resource-utils": ["./packages/resource-utils/src"],
+          },
         },
         node: {
           extensions: [".js", ".jsx", ".ts", ".tsx"],
@@ -159,6 +166,10 @@ export default typescriptEslint.config(
       "import/no-extraneous-dependencies": [
         "error",
         { devDependencies: ["**/__tests__/**", "**/__stories__/**"] },
+      ],
+      "import/no-unresolved": [
+        "error",
+        { ignore: ["^@dolthub/"] },
       ],
       
       // General rules
