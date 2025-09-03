@@ -1,7 +1,0 @@
-dist
-node_modules
-.eslintrc.js
-./*.js
-storybook-static
-coverage
-__mocks__

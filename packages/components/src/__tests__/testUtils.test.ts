@@ -15,7 +15,6 @@ export async function waitForQueryLoaders(): Promise<void> {
  * Renders the given component and waits for queries to load
  */
 export async function renderAndWait(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ui: ReactElement<any, string | JSXElementConstructor<any>>,
 ): Promise<RenderResult> {
   const result = render(ui);
@@ -30,7 +29,6 @@ export async function renderAndWait(
  * result and user event
  */
 export async function setupAndWait(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ui: ReactElement<any, string | JSXElementConstructor<any>>,
 ): Promise<RenderResult & { user: UserEvent }> {
   const result = render(ui);

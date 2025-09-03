@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { KeyMap } from "react-hotkeys";
 
 type ReturnType = {
-  keyMap: KeyMap | undefined;
+  keyMap?: KeyMap;
   handlers: {
-    [key: string]: (keyEvent?: KeyboardEvent | undefined) => void;
+    [key: string]: (keyEvent?: KeyboardEvent) => void;
   };
 };
 
