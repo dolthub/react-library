@@ -11,9 +11,10 @@ export default function NoOptionsMessage<
     noOptionsMsg?: string;
   },
 ) {
+  const NoOptionsMessageComponent = components.NoOptionsMessage as any;
   return (
-    <components.NoOptionsMessage {...props}>
+    <NoOptionsMessageComponent {...props}>
       {props.noOptionsMsg ?? "No options"}
-    </components.NoOptionsMessage>
+    </NoOptionsMessageComponent>
   );
 }

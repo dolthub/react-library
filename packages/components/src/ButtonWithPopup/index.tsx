@@ -1,7 +1,7 @@
 import { FaCaretDown } from "@react-icons/all-files/fa/FaCaretDown";
 import { FaCaretUp } from "@react-icons/all-files/fa/FaCaretUp";
 import cx from "classnames";
-import React, { ReactNode } from "react";
+import React, { ReactElement, ReactNode } from "react";
 import Popup, { PopupProps } from "../Popup";
 import css from "./index.module.css";
 
@@ -37,7 +37,7 @@ export default function ButtonWithPopup({
       offsetX={triggerText ? 32 : 0}
       contentStyle={{ width: "10rem" }}
       closeOnDocumentClick
-      trigger={open =>
+      trigger={(open: boolean) =>
         getTriggerButton(
           open,
           triggerText,
@@ -58,7 +58,7 @@ function getTriggerButton(
   triggerText?: string,
   buttonClassName?: string,
   dataCy?: string,
-): JSX.Element {
+): ReactElement {
   return (
     <button
       type="button"

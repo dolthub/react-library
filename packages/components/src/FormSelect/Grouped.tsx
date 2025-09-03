@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import Select from "react-select";
 import Wrapper from "./Wrapper";
 import { getComponentsForGroup } from "./components";
@@ -21,7 +21,7 @@ export default function FormSelectGrouped<
   forMobile = false,
   selectedOptionFirst = false,
   ...props
-}: GroupedProps<T, OptionType, IsMulti>): JSX.Element {
+}: GroupedProps<T, OptionType, IsMulti>): ReactElement {
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(0);
 
   const styles = getCustomStyles<T, OptionType, IsMulti>(
