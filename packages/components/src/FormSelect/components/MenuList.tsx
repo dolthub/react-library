@@ -30,9 +30,10 @@ export default function MenuList<
     return (group.props as any).data?.label === activeGroup?.label;
   });
 
+  const MenuListComponent = components.MenuList as any;
   return (
-    <components.MenuList {...props} className={css.menuList}>
+    <MenuListComponent {...props} className={css.menuList}>
       {filteredChildren}
-    </components.MenuList>
+    </MenuListComponent>
   );
 }
