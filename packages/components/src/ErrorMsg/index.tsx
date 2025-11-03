@@ -23,7 +23,7 @@ export default function ErrorMsg({ err, errString, className }: Props) {
   if (customComp !== null) {
     return React.cloneElement(customComp, {
       className: cx(css.errorMsg, className),
-    });
+    } as any);
   }
 
   const splitMsg = msg.split("\n").filter(Boolean);
