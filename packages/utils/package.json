@@ -33,7 +33,7 @@
     "@babel/preset-env": "^7.28.3",
     "@babel/preset-typescript": "^7.28.5",
     "@rollup/plugin-commonjs": "^28.0.6",
-    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/eslint": "^9",
     "@types/jest": "^29.5.14",
