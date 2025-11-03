@@ -2675,7 +2675,7 @@ __metadata:
     cssnano: "npm:^7.1.0"
     deepmerge: "npm:^4.3.1"
     eslint: "npm:^9.36.0"
-    eslint-plugin-storybook: "npm:^9.1.10"
+    eslint-plugin-storybook: "npm:^10.0.3"
     github-markdown-css: "npm:^5.8.1"
     identity-obj-proxy: "npm:^3.0.0"
     jest: "npm:^29.7.0"
@@ -9421,15 +9421,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:^9.1.10":
-  version: 9.1.10
-  resolution: "eslint-plugin-storybook@npm:9.1.10"
+"eslint-plugin-storybook@npm:^10.0.3":
+  version: 10.0.3
+  resolution: "eslint-plugin-storybook@npm:10.0.3"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.8.1"
   peerDependencies:
     eslint: ">=8"
-    storybook: ^9.1.10
-  checksum: 4a1a9db221a417c26cdbc5e8a97e22fb5f443e0d1b96c19becbcef1536d05e05cf3f3ed5d400ca2398c7dd5bf27a81326c8825711f97e843eab6830b905d28d4
+    storybook: ^10.0.3
+  checksum: f371668fe55e6d1f65a79e2d08902ca83aa175a643309fceea289b9420877b4a1753d2d42dcf6240e39e28700b0e4c86e8b1b9dc5a7b1ad95e9b5ce95a8da7ec
   languageName: node
   linkType: hard
 

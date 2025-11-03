@@ -110,7 +110,7 @@
     "chromatic": "^13.3.3",
     "cssnano": "^7.1.0",
     "eslint": "^9.36.0",
-    "eslint-plugin-storybook": "^9.1.10",
+    "eslint-plugin-storybook": "^10.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^30.2.0",
