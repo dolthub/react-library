@@ -54,8 +54,11 @@
     "eslint-plugin-testing-library": "^7.0.0",
     "npm-run-all2": "^7.0.1",
     "prettier": "^3.6.2",
-    "rimraf": "^6.0.1",
+    "rimraf": "^6.1.0",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.0.0"
+  },
+  "resolutions": {
+    "glob@npm:10.4.2": "11.1.0"
   }
 }
