@@ -59,6 +59,8 @@
     "typescript-eslint": "^8.0.0"
   },
   "resolutions": {
-    "glob@npm:10.4.2": "11.1.0"
+    "js-yaml": "4.1.1",
+    "glob@^10": "10.5.0",
+    "glob@^11": "11.1.0"
   }
 }
