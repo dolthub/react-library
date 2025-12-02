@@ -10,6 +10,9 @@ module.exports = {
   moduleFileExtensions: ["ts", "js", "tsx"],
   moduleNameMapper: {
     "\\.(css|less)$": "identity-obj-proxy",
+    "^@dolthub/web-utils$": "<rootDir>/../utils/src/index.ts",
+    "^@dolthub/react-hooks$": "<rootDir>/../hooks/src/index.ts",
+    "^@dolthub/react-contexts$": "<rootDir>/../contexts/src/index.ts",
   },
   collectCoverage: false,
   clearMocks: true,

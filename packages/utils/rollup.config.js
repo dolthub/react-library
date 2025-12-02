@@ -28,7 +28,7 @@ export default [
       external(),
       nodeResolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json", outputToFilesystem: true }),
+      typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
     ],
   },
