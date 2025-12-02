@@ -11,8 +11,8 @@
   "compilerOptions": {
     "target": "ES2015",
     "lib": ["DOM", "esnext"],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "jsx": "react",
     "resolveJsonModule": true,
     "esModuleInterop": true,

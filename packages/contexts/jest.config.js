@@ -8,6 +8,10 @@ module.exports = {
   },
   testPathIgnorePatterns: ["types", "node_modules", ".rollup.cache", "dist"],
   moduleFileExtensions: ["ts", "js", "tsx"],
+  moduleNameMapper: {
+    "^@dolthub/web-utils$": "<rootDir>/../utils/src/index.ts",
+    "^@dolthub/react-hooks$": "<rootDir>/../hooks/src/index.ts",
+  },
   collectCoverage: false,
   clearMocks: true,
 };
