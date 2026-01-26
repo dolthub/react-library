@@ -34,7 +34,7 @@
     "test:components": "yarn workspace @dolthub/react-components test"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.0.0",
+    "@eslint/compat": "^2.0.0",
     "@eslint/eslintrc": "^3.0.0",
     "@eslint/js": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
