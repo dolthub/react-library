@@ -28,7 +28,7 @@
     "yalc:push": "yarn dbuild && yalc push"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.23"
   },
   "devDependencies": {
     "@babel/core": "^7.28.3",
