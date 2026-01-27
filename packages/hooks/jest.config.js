@@ -10,4 +10,7 @@ module.exports = {
   moduleFileExtensions: ["ts", "js", "tsx"],
   collectCoverage: false,
   clearMocks: true,
+  moduleNameMapper: {
+    "^@dolthub/web-utils$": "<rootDir>/../utils/src/index.ts",
+  },
 };
