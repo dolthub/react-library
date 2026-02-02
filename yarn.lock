@@ -2845,7 +2845,7 @@ __metadata:
     lodash: "npm:^4.17.23"
     prettier: "npm:^3.6.2"
     rollup: "npm:^4.50.0"
-    rollup-plugin-dts: "npm:^6.2.3"
+    rollup-plugin-dts: "npm:^6.3.0"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
     typescript: "npm:^5.9.3"
@@ -2926,7 +2926,7 @@ __metadata:
     reactjs-popup: "npm:^2.0.6"
     remark-gfm: "npm:^4.0.1"
     rollup: "npm:^4.50.0"
-    rollup-plugin-dts: "npm:^6.2.3"
+    rollup-plugin-dts: "npm:^6.3.0"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-postcss: "npm:^4.0.2"
     rollup-plugin-terser: "npm:^7.0.2"
@@ -2976,7 +2976,7 @@ __metadata:
     react: "npm:^19.1.1"
     react-dom: "npm:^19.1.1"
     rollup: "npm:^4.50.0"
-    rollup-plugin-dts: "npm:^6.2.3"
+    rollup-plugin-dts: "npm:^6.3.0"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
     tslib: "npm:^2.8.1"
@@ -3024,7 +3024,7 @@ __metadata:
     react-dom: "npm:^19.1.1"
     react-hotkeys: "npm:^2.0.0"
     rollup: "npm:^4.50.0"
-    rollup-plugin-dts: "npm:^6.2.3"
+    rollup-plugin-dts: "npm:^6.3.0"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
     tslib: "npm:^2.8.1"
@@ -3057,7 +3057,7 @@ __metadata:
     node-sql-parser: "npm:^5.4.0"
     prettier: "npm:^3.6.2"
     rollup: "npm:^4.50.0"
-    rollup-plugin-dts: "npm:^6.2.3"
+    rollup-plugin-dts: "npm:^6.3.0"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
     timeago.js: "npm:^4.0.2"
@@ -4098,6 +4098,13 @@ __metadata:
   version: 1.5.0
   resolution: "@jridgewell/sourcemap-codec@npm:1.5.0"
   checksum: 2eb864f276eb1096c3c11da3e9bb518f6d9fc0023c78344cdc037abadc725172c70314bdb360f2d4b7bffec7f5d657ce006816bc5d4ecb35e61b66132db00c18
+  languageName: node
+  linkType: hard
+
+"@jridgewell/sourcemap-codec@npm:^1.5.5":
+  version: 1.5.5
+  resolution: "@jridgewell/sourcemap-codec@npm:1.5.5"
+  checksum: f9e538f302b63c0ebc06eecb1dd9918dd4289ed36147a0ddce35d6ea4d7ebbda243cda7b2213b6a5e1d8087a298d5cf630fb2bd39329cdecb82017023f6081a0
   languageName: node
   linkType: hard
 
@@ -12986,12 +12993,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.30.17":
-  version: 0.30.17
-  resolution: "magic-string@npm:0.30.17"
+"magic-string@npm:^0.30.21":
+  version: 0.30.21
+  resolution: "magic-string@npm:0.30.21"
   dependencies:
-    "@jridgewell/sourcemap-codec": "npm:^1.5.0"
-  checksum: 16826e415d04b88378f200fe022b53e638e3838b9e496edda6c0e086d7753a44a6ed187adc72d19f3623810589bf139af1a315541cd6a26ae0771a0193eaf7b8
+    "@jridgewell/sourcemap-codec": "npm:^1.5.5"
+  checksum: 299378e38f9a270069fc62358522ddfb44e94244baa0d6a8980ab2a9b2490a1d03b236b447eee309e17eb3bddfa482c61259d47960eb018a904f0ded52780c4a
   languageName: node
   linkType: hard
 
@@ -16832,19 +16839,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-dts@npm:^6.2.3":
-  version: 6.2.3
-  resolution: "rollup-plugin-dts@npm:6.2.3"
+"rollup-plugin-dts@npm:^6.3.0":
+  version: 6.3.0
+  resolution: "rollup-plugin-dts@npm:6.3.0"
   dependencies:
     "@babel/code-frame": "npm:^7.27.1"
-    magic-string: "npm:^0.30.17"
+    magic-string: "npm:^0.30.21"
   peerDependencies:
     rollup: ^3.29.4 || ^4
     typescript: ^4.5 || ^5.0
   dependenciesMeta:
     "@babel/code-frame":
       optional: true
-  checksum: 41cebbd0efcfcafbd35159d03d52531d6cc56f02b4fc99f56b6e552efdb6acf3228854520a1a12c879f90cdd60668edc115a73a8c822e4b4b62d267333f8f160
+  checksum: 7eae726f0a15651a4705d49771cc02d2c7fb35fe107ada03cdacade5ed8bf026af066f1fc8936dde2c07da269d03dd790110589cd3b0c7062ed3bedc0f3c75ee
   languageName: node
   linkType: hard
 
