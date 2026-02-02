@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import AsyncSelect from "react-select/async";
 import Wrapper from "./Wrapper";
 import { getComponents } from "./components";
@@ -19,7 +19,7 @@ export default function FormSelectAsync<
   rounded = false,
   forMobile = false,
   ...props
-}: AsyncProps<T, OptionType, IsMulti>): JSX.Element {
+}: AsyncProps<T, OptionType, IsMulti>): ReactElement {
   const styles = getCustomStyles<T, OptionType, IsMulti>(
     mono,
     light,

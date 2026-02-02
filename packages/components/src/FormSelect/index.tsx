@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import Select from "react-select";
 import FormSelectAsync from "./Async";
 import FormSelectGrouped from "./Grouped";
@@ -27,7 +27,7 @@ function FormSelect<T>({
   rounded = false,
   forMobile = false,
   ...props
-}: Props<T, Option<T>>): JSX.Element {
+}: Props<T, Option<T>>): ReactElement {
   const styles = getCustomStyles<T, Option<T>, false>(
     mono,
     light,

@@ -1,14 +1,20 @@
-import React, { createContext, useCallback, useContext, useMemo } from "react";
+import React, {
+  ReactElement,
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+} from "react";
 
 type Props = {
   children: React.ReactNode;
   improveErrorMsgFn?: (m: string) => string;
-  renderDifferentComp?: (m: string) => JSX.Element | null;
+  renderDifferentComp?: (m: string) => ReactElement | null;
 };
 
 type ErrorMsgContextType = {
   improveErrorMsg: (m: string) => string;
-  renderDifferentComp?: (m: string) => JSX.Element | null;
+  renderDifferentComp?: (m: string) => ReactElement | null;
 };
 
 const ErrorMsgContext = createContext<ErrorMsgContextType>({
