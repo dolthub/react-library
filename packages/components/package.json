@@ -124,7 +124,7 @@
     "react-dom": "^19.1.1",
     "react-select-event": "^5.5.1",
     "rollup": "^4.50.0",
-    "rollup-plugin-dts": "^6.2.3",
+    "rollup-plugin-dts": "^6.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
