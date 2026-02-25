@@ -2,10 +2,17 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
-import external from "rollup-plugin-peer-deps-external";
 import { dts } from "rollup-plugin-dts";
 
 const packageJson = require("./package.json");
+
+// Externalize all dependencies to avoid bundling them
+const externalDeps = [
+  ...Object.keys(packageJson.dependencies || {}),
+  ...Object.keys(packageJson.peerDependencies || {}),
+  "querystring",
+  "url",
+];
 
 export default [
   {
@@ -23,9 +30,8 @@ export default [
         sourcemap: true,
       },
     ],
-    external: ["querystring", "url"],
+    external: (id) => externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`)),
     plugins: [
-      external(),
       nodeResolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json", outputToFilesystem: true }),

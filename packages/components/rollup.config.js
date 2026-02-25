@@ -2,11 +2,18 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
-import external from "rollup-plugin-peer-deps-external";
 import { dts } from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 
 const packageJson = require("./package.json");
+
+// ESM-only packages must be bundled since CJS output can't require() them
+const esmOnlyPackages = new Set(["react-markdown", "remark-gfm"]);
+
+const externalDeps = [
+  ...Object.keys(packageJson.dependencies || {}),
+  ...Object.keys(packageJson.peerDependencies || {}),
+].filter((dep) => !esmOnlyPackages.has(dep));
 
 export default [
   {
@@ -24,8 +31,10 @@ export default [
         sourcemap: true,
       },
     ],
+    external: (id) =>
+      !id.endsWith(".css") &&
+      externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`)),
     plugins: [
-      external(),
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),

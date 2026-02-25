@@ -1,12 +1,10 @@
-import { last } from "lodash";
-
 type NamedResource = {
   name: string;
 };
 
 export default function byHash(o1: NamedResource, o2: NamedResource): number {
-  const o1LastParam = last(o1.name.split("/"));
-  const o2LastParam = last(o2.name.split("/"));
+  const o1LastParam = o1.name.split("/").at(-1);
+  const o2LastParam = o2.name.split("/").at(-1);
 
   if (!o1LastParam) {
     throw new Error(`Malformatted name: ${o1.name}`);
