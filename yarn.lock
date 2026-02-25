@@ -2835,14 +2835,12 @@ __metadata:
     "@rollup/plugin-typescript": "npm:^11.1.5"
     "@types/eslint": "npm:^9"
     "@types/jest": "npm:^29.5.14"
-    "@types/lodash": "npm:^4"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
     "@typescript-eslint/eslint-plugin": "npm:^8.54.0"
     "@typescript-eslint/parser": "npm:^8.45.0"
     babel-jest: "npm:^30.2.0"
     eslint: "npm:^9.39.2"
     jest: "npm:^29.7.0"
-    lodash: "npm:^4.17.23"
     prettier: "npm:^3.6.2"
     rollup: "npm:^4.50.0"
     rollup-plugin-dts: "npm:^6.3.0"
@@ -2888,7 +2886,6 @@ __metadata:
     "@types/identity-obj-proxy": "npm:^3"
     "@types/jest": "npm:^29.5.14"
     "@types/numeral": "npm:^2"
-    "@types/prop-types": "npm:^15"
     "@types/react": "npm:^19"
     "@types/react-copy-to-clipboard": "npm:^5"
     "@types/react-dom": "npm:^19"
@@ -2914,7 +2911,6 @@ __metadata:
     postcss-modules: "npm:^6.0.1"
     postcss-preset-env: "npm:^10.4.0"
     prettier: "npm:^3.6.2"
-    prop-types: "npm:^15.8.1"
     react: "npm:^19.1.1"
     react-copy-to-clipboard: "npm:^5.1.0"
     react-dom: "npm:^19.1.1"
@@ -2939,8 +2935,21 @@ __metadata:
     typescript: "npm:^5.9.3"
     yalc: "npm:^1.0.0-pre.53"
   peerDependencies:
+    github-markdown-css: ^5.0.0
     react: ^19
     react-dom: ^19
+    react-markdown: ^9.0.0 || ^10.0.0
+    react-select: ^5.0.0
+    react-tooltip: ^5.0.0
+    remark-gfm: ^4.0.0
+    tailwindcss: ^3.0.0
+  peerDependenciesMeta:
+    github-markdown-css:
+      optional: true
+    react-markdown:
+      optional: true
+    remark-gfm:
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -3063,6 +3072,11 @@ __metadata:
     timeago.js: "npm:^4.0.2"
     typescript: "npm:^5.9.3"
     yalc: "npm:^1.0.0-pre.53"
+  peerDependencies:
+    node-sql-parser: ^5.4.0
+  peerDependenciesMeta:
+    node-sql-parser:
+      optional: false
   languageName: unknown
   linkType: soft
 
@@ -5425,13 +5439,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:^4":
-  version: 4.17.20
-  resolution: "@types/lodash@npm:4.17.20"
-  checksum: 98cdd0faae22cbb8079a01a3bb65aa8f8c41143367486c1cbf5adc83f16c9272a2a5d2c1f541f61d0d73da543c16ee1d21cf2ef86cb93cd0cc0ac3bced6dd88f
-  languageName: node
-  linkType: hard
-
 "@types/mdast@npm:^4.0.0":
   version: 4.0.3
   resolution: "@types/mdast@npm:4.0.3"
@@ -5485,7 +5492,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*, @types/prop-types@npm:^15":
+"@types/prop-types@npm:*":
   version: 15.7.15
   resolution: "@types/prop-types@npm:15.7.15"
   checksum: b59aad1ad19bf1733cf524fd4e618196c6c7690f48ee70a327eb450a42aab8e8a063fbe59ca0a5701aebe2d92d582292c0fb845ea57474f6a15f6994b0e260b2
@@ -12608,7 +12615,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.2, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.23":
+"lodash@npm:^4.17.2, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
   version: 4.17.23
   resolution: "lodash@npm:4.17.23"
   checksum: 1264a90469f5bb95d4739c43eb6277d15b6d9e186df4ac68c3620443160fc669e2f14c11e7d8b2ccf078b81d06147c01a8ccced9aab9f9f63d50dcf8cace6bf6

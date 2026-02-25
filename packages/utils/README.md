@@ -13,3 +13,15 @@ or
 ```
 % npm install @dolthub/web-utils
 ```
+
+### Peer dependencies
+
+The following peer dependency must be installed in your project:
+
+| Package | Required |
+|---|---|
+| `node-sql-parser` | Yes |
+
+```
+% yarn add node-sql-parser
+```

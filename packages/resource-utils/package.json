@@ -27,9 +27,6 @@
     "yalc:publish": "yarn dbuild && yalc publish",
     "yalc:push": "yarn dbuild && yalc push"
   },
-  "dependencies": {
-    "lodash": "^4.17.23"
-  },
   "devDependencies": {
     "@babel/core": "^7.28.3",
     "@babel/preset-env": "^7.28.6",
@@ -39,7 +36,6 @@
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/eslint": "^9",
     "@types/jest": "^29.5.14",
-    "@types/lodash": "^4",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@typescript-eslint/eslint-plugin": "^8.54.0",
     "@typescript-eslint/parser": "^8.45.0",

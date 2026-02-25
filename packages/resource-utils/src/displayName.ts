@@ -1,4 +1,3 @@
-import { last } from "lodash";
 import { NamedObjectable, NamedResource } from "./ResourceUtils";
 
 export default function displayName<O extends NamedObjectable<NamedResource>>(
@@ -16,7 +15,7 @@ export default function displayName<O extends NamedObjectable<NamedResource>>(
   }
 
   const name = "getName" in r ? r.getName() : r.name;
-  const shortName = last(name.split("/"));
+  const shortName = name.split("/").at(-1);
 
   return shortName ?? name;
 }

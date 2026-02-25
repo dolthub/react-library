@@ -15,10 +15,11 @@ hooks % yarn dbuild
 And publish to `yalc`:
 
 ```zsh
+# If yalc is installed globally
 hooks % yalc publish
+# Using yarn script
+hooks % yarn yalc:publish
 ```
-
-The `yalc:publish` script will also achieve the above.
 
 Then in your app, link to this package:
 
@@ -36,22 +37,26 @@ To remove the yalc package in your app, run `yalc remove --all`.
 
 You can use `yalc` to watch for changes in the `components` package and automatically push.
 
-1. In the root of `react-library`: 
+1. In the root of `react-library`:
+
 ```bash
 yarn && yarn dbuild
 ```
 
 2. Publish the `components` package, in `packages/components`:
+
 ```bash
 yarn yalc:publish
 ```
 
 3. Link the local package in your app:
+
 ```bash
 yarn yalc @dolthub/react-components
 ```
 
-4. Start watch mode in `packages/components`: 
+4. Start watch mode in `packages/components`:
+
 ```bash
 yarn dbuild:watch
 ```

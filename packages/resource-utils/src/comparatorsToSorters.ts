@@ -1,4 +1,3 @@
-import { mapValues } from "lodash";
 import {
   Comparator,
   Comparators,
@@ -10,7 +9,9 @@ import {
 export default function comparatorsToSorters<T extends NamedResource>(
   cmps: Comparators<T>,
 ): Sorters<T> {
-  return mapValues(cmps, comparatorToSorter) as Sorters<T>;
+  return Object.fromEntries(
+    Object.entries(cmps).map(([k, v]) => [k, comparatorToSorter(v)]),
+  ) as Sorters<T>;
 }
 
 export function comparatorToSorter<T extends NamedResource>(
