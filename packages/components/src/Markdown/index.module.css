@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .preview {
   @apply p-6 font-sans text-primary leading-5;
   text-align: -webkit-auto;

@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .label {
   @apply font-semibold pb-2;
 }

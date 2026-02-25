@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .stackedButton {
   @apply flex flex-col;
   button {

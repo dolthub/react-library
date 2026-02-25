@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .button {
   @apply flex items-center flex-shrink-0 border border-white/10 rounded-[0.25rem] px-1.5 py-[0.2rem];
 
@@ -15,17 +17,17 @@
 }
 
 .darkButton {
-  @apply border-opacity-20 border border-[#333C50];
+  @apply border border-[#333C50]/20;
 
   svg {
     @apply text-background-acc-1;
 
     &:hover {
-      @apply text-primary text-opacity-80;
+      @apply text-primary/80;
     }
   }
 }
 
 .darkInner {
-  @apply bg-opacity-10 bg-[#333C50] text-background-acc-1 font-semibold;
+  @apply bg-[#333C50]/10 text-background-acc-1 font-semibold;
 }

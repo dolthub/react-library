@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .cellDropdown {
   @apply hidden;
 

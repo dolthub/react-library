@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .code {
   @apply text-left p-6 mb-4 rounded-lg bg-code-background;
 

@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .loading {
   @apply ml-8 italic;
 

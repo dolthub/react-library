@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .clipboard {
   @apply p-1 rounded ml-4 text-button-1;
 

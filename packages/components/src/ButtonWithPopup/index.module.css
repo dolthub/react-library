@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .triggerButton {
   @apply rounded px-3 py-1 text-sm font-semibold border border-primary whitespace-nowrap bg-transparent flex items-center justify-center;
 
