@@ -83,9 +83,9 @@ export const MobileFriendly: Story = {
     value: "test",
     mobileFriendly: true,
   },
-  parameters: {
-    viewport: { defaultViewport: "iphonex" },
-    backgrounds: { default: "lightish" },
+  globals: {
+    viewport: { value: "iphonex" },
+    backgrounds: { value: "lightish" },
   },
 };
 

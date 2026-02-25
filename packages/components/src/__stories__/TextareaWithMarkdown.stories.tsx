@@ -28,8 +28,8 @@ export const Basic: Story = {
     placeholder: "Placeholder",
     rows: 10,
   },
-  parameters: {
-    backgrounds: { default: "lightish" },
+  globals: {
+    backgrounds: { value: "lightish" },
   },
 };
 
@@ -57,7 +57,7 @@ export const MinHeight: Story = {
     rows: 6,
     hasMinHeight: true,
   },
-  parameters: { backgrounds: { default: "lightish" } },
+  globals: { backgrounds: { value: "lightish" } },
 };
 
 export const SeparateTabs: Story = {
@@ -67,9 +67,9 @@ export const SeparateTabs: Story = {
     value: markdown,
     separateTabs: true,
   },
-  parameters: {
-    viewport: { defaultViewport: "iphonex" },
-    backgrounds: { default: "lightish" },
+  globals: {
+    viewport: { value: "iphonex" },
+    backgrounds: { value: "lightish" },
   },
 };
 

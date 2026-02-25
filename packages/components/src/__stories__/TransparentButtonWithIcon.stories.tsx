@@ -19,8 +19,8 @@ export const Basic: Story = {
     icon: <FaDiscord />,
     children: "Discord",
   },
-  parameters: {
-    backgrounds: { default: "dark" },
+  globals: {
+    backgrounds: { value: "dark" },
   },
 };
 

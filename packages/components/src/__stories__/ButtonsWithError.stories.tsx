@@ -40,7 +40,7 @@ export const Stacked: Story = {
     stackedButton: true,
   },
   parameters: {
-    viewport: { defaultViewport: "iphonex" },
+    viewport: { value: "iphonex" },
   },
 };
 

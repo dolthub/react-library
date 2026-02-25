@@ -1,6 +1,5 @@
-import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { Preview } from "@storybook/react";
-import React from "react";
+import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import "../src/styles/global.css";
 import ThemeProvider from "../src/tailwind/context";
 import { staticColors } from "../src/tailwind/theme/base/colors";
@@ -26,6 +25,9 @@ const preview: Preview = {
       },
     },
   },
+  initialGlobals: {
+    backgrounds: { value: "light" },
+  },
   parameters: {
     controls: {
       matchers: {
@@ -35,13 +37,12 @@ const preview: Preview = {
     },
 
     backgrounds: {
-      default: "light",
-      values: [
-        { name: "light", value: "white" },
-        { name: "lightish", value: staticColors.stone["50"] },
-        { name: "dark", value: staticColors.space["700"] },
-        { name: "blue", value: staticColors.ocean["400"] },
-      ],
+      options: {
+        light: { name: "light", value: "white" },
+        lightish: { name: "lightish", value: staticColors.stone["50"] },
+        dark: { name: "dark", value: staticColors.space["700"] },
+        blue: { name: "blue", value: staticColors.ocean["400"] },
+      },
     },
     viewport: {
       viewports: INITIAL_VIEWPORTS,
