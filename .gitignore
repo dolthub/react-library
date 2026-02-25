@@ -13,6 +13,7 @@ cjs/
 dist/
 esm/
 .rollup.cache/
+storybook-static/
 
 # typescript
 *.tsbuildinfo
