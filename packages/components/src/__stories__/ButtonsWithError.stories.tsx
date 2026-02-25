@@ -39,7 +39,7 @@ export const Stacked: Story = {
     ...WithError.args,
     stackedButton: true,
   },
-  parameters: {
+  globals: {
     viewport: { value: "iphonex" },
   },
 };
