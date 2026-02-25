@@ -1,4 +1,4 @@
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { Preview } from "@storybook/react";
 import React from "react";
 import "../src/styles/global.css";
@@ -16,9 +16,7 @@ const preview: Preview = {
       description: "Global theme for components",
       defaultValue: "dolthub",
       toolbar: {
-        // The icon for the toolbar item
         icon: "circlehollow",
-        // Array of options
         items: [
           { value: "dolthub", title: "DoltHub" },
           { value: "hosted", title: "Hosted Dolt" },
@@ -29,7 +27,6 @@ const preview: Preview = {
     },
   },
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
