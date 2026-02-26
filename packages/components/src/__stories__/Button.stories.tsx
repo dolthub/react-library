@@ -55,8 +55,8 @@ export const WhitePill: Story = {
     white: true,
     pill: true,
   },
-  parameters: {
-    backgrounds: { default: "lightish" },
+  globals: {
+    backgrounds: { value: "lightish" },
   },
   name: "White Pill (Hosted)",
 };

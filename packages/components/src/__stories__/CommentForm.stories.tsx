@@ -57,8 +57,8 @@ export const ForMobile: Story = {
     children: <Button className="w-full my-2">Child 1</Button>,
     maxCharCount: 1000,
   },
-  parameters: {
-    viewport: { defaultViewport: "iphonex" },
-    backgrounds: { default: "lightish" },
+  globals: {
+    viewport: { value: "iphonex" },
+    backgrounds: { value: "lightish" },
   },
 };

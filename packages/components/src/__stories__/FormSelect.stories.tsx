@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "storybook/test";
 import React from "react";
+import { expect, userEvent, within } from "storybook/test";
 import FormSelect from "../FormSelect";
 
 const meta: Meta<typeof FormSelect> = {
@@ -130,8 +130,8 @@ export const TransparentBorderPill: Story = {
     transparentBorder: true,
     pill: true,
   },
-  parameters: {
-    backgrounds: { default: "blue" },
+  globals: {
+    backgrounds: { value: "blue" },
   },
   name: "Transparent Border Pill (Hosted)",
 };
@@ -162,7 +162,7 @@ export const ForMobileLight: Story = {
     forMobile: true,
     light: true,
   },
-  parameters: { viewport: { defaultViewport: "iphonex" } },
+  globals: { viewport: { value: "iphonex" } },
 };
 
 export const ForMobileDark: Story = {
@@ -171,9 +171,9 @@ export const ForMobileDark: Story = {
     options,
     forMobile: true,
   },
-  parameters: {
-    viewport: { defaultViewport: "iphonex" },
-    backgrounds: { default: "dark" },
+  globals: {
+    viewport: { value: "iphonex" },
+    backgrounds: { value: "dark" },
   },
 };
 
