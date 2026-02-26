@@ -17,7 +17,7 @@
 }
 
 .checkbox {
-  @apply absolute -top-0 left-0 h-[1.1rem] w-[1.1rem] bg-white rounded-sm mt-1 border border-primary/30;
+  @apply absolute -top-0 left-0 h-[1.1rem] w-[1.1rem] bg-white rounded-xs mt-1 border border-primary/30;
 }
 
 .disabledContainer .checkbox {

@@ -13,7 +13,7 @@
 }
 
 .clipboard {
-  @apply p-2 mx-2 rounded h-10 min-w-[37px] text-white flex items-center justify-center;
+  @apply p-2 mx-2 rounded-sm h-10 min-w-[37px] text-white flex items-center justify-center;
 
   &:hover {
     @apply bg-storm-200;

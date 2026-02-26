@@ -31,14 +31,14 @@
 }
 
 .input {
-  @apply py-2 pl-3 w-full text-sm rounded bg-stone-50 border border-stone-100;
+  @apply py-2 pl-3 w-full text-sm rounded-sm bg-stone-50 border border-stone-100;
 
   &::placeholder {
     @apply text-storm-200;
   }
 
   &:focus {
-    @apply bg-white outline-none;
+    @apply bg-white outline-hidden;
   }
 }
 

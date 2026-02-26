@@ -6,6 +6,10 @@
 
 @config "../../tailwind.config.ts";
 
+@theme {
+  --default-border-color: #D7D8DF;
+}
+
 html,
 body {
   @apply font-sans text-primary;

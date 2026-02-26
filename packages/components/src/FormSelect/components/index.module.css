@@ -17,7 +17,7 @@
 }
 
 .multiValueRemove {
-  @apply flex px-1 items-center rounded-sm text-primary;
+  @apply flex px-1 items-center rounded-xs text-primary;
 
   &:hover {
     @apply text-red-400;

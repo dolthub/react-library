@@ -12,7 +12,7 @@
   @apply bg-white rounded-full;
 
   &:focus {
-    @apply outline-none widget-shadow-lightblue;
+    @apply outline-hidden widget-shadow-lightblue;
   }
 }
 

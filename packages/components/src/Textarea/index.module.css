@@ -28,10 +28,10 @@
 }
 
 .textarea {
-  @apply font-sans text-primary text-sm rounded py-2 px-3 bg-stone-50 border border-stone-100 w-full;
+  @apply font-sans text-primary text-sm rounded-sm py-2 px-3 bg-stone-50 border border-stone-100 w-full;
 
   &:focus {
-    @apply outline-none bg-white;
+    @apply outline-hidden bg-white;
   }
 
   &:disabled {
