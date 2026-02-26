@@ -1,4 +1,4 @@
-export type { FilterOptionOption } from "react-select/dist/declarations/src/filters";
+export type { FilterOptionOption } from "react-select";
 export { default as Btn } from "./Btn";
 export { default as Button } from "./Button";
 export { default as ButtonWithPopup } from "./ButtonWithPopup";

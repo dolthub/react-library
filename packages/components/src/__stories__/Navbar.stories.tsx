@@ -55,8 +55,8 @@ export const TransparentDark: Story = {
     bgColor: "bg-transparent",
     rightLinks: rightLinks(true),
   },
-  parameters: {
-    backgrounds: { default: "lightish" },
+  globals: {
+    backgrounds: { value: "lightish" },
   },
 };
 
@@ -70,14 +70,14 @@ export const LogoLeft: Story = {
 export const Mobile: Story = {
   args: Basic.args,
 
-  parameters: {
-    viewport: { defaultViewport: "iphonex" },
+  globals: {
+    viewport: { value: "iphonex" },
   },
 };
 
 export const MobileTransparentDark: Story = {
   args: TransparentDark.args,
-  parameters: {
-    viewport: { defaultViewport: "iphonex" },
+  globals: {
+    viewport: { value: "iphonex" },
   },
 };

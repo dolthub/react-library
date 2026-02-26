@@ -39,8 +39,8 @@ export const Stacked: Story = {
     ...WithError.args,
     stackedButton: true,
   },
-  parameters: {
-    viewport: { defaultViewport: "iphonex" },
+  globals: {
+    viewport: { value: "iphonex" },
   },
 };
 

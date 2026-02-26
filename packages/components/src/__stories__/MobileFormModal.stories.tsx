@@ -11,9 +11,9 @@ const meta: Meta<typeof MobileFormModal> = {
   title: "MobileFormModal",
   component: MobileFormModal,
   tags: ["autodocs"],
-  parameters: {
-    viewport: { defaultViewport: "iphonex" },
-    backgrounds: { default: "lightish" },
+  globals: {
+    viewport: { value: "iphonex" },
+    backgrounds: { value: "lightish" },
   },
 };
 

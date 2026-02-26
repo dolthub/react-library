@@ -1,65 +1,71 @@
 import { StorybookConfig } from "@storybook/react-webpack5";
-import { dirname, join, resolve } from "path";
 
-/**
- * This function is used to resolve the absolute path of a package.
- * It is needed in projects that use Yarn PnP or are set up within a monorepo.
- */
-function getAbsolutePath(value: string): string {
-  return dirname(require.resolve(join(value, "package.json")));
-}
+const postcssLoader = {
+  loader: "postcss-loader",
+  options: {
+    postcssOptions: {
+      plugins: [
+        "tailwindcss/nesting",
+        "tailwindcss",
+        "postcss-preset-env",
+        "cssnano",
+        "autoprefixer",
+      ],
+    },
+  },
+};
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
-    getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@storybook/addon-essentials"),
-    getAbsolutePath("@storybook/addon-interactions"),
-    getAbsolutePath("@storybook/addon-styling-webpack"),
-    {
-      name: getAbsolutePath("storybook-css-modules"),
-      options: {
-        cssModulesLoaderOptions: {
-          importLoaders: 1,
-          modules: {
-            localIdentName: "[folder]_[local]__[hash:base64:5]",
-          },
-        },
-      },
-    },
+    "@storybook/addon-docs",
+    "@storybook/addon-links",
     "@storybook/addon-webpack5-compiler-swc",
   ],
   framework: {
-    name: getAbsolutePath("@storybook/react-webpack5"),
+    name: "@storybook/react-webpack5",
     options: {
       builder: {},
     },
   },
   webpackFinal: async config => {
-    (config.module?.rules ?? []).push({
-      test: /\.css$/,
-      use: [
-        {
-          loader: "postcss-loader",
+    // Remove ALL existing CSS rules (including Storybook's implicit one)
+    config.module!.rules = (config.module?.rules ?? []).filter(rule => {
+      if (!rule || typeof rule !== "object") return true;
+      if (rule.test instanceof RegExp && rule.test.test("test.css")) {
+        return false;
+      }
+      return true;
+    });
+
+    // Add our own CSS rules with proper CSS modules support
+    config.module!.rules.push(
+      {
+        test: /\.css$/,
+        exclude: /\.module\.css$/,
+        sideEffects: true,
+        use: ["style-loader", "css-loader", postcssLoader],
+      },
+      {
+        test: /\.module\.css$/,
+        use: [
+          "style-loader",
+          {
+          loader: "css-loader",
           options: {
-            postcssOptions: {
-              plugins: {
-                "tailwindcss/nesting": {},
-                tailwindcss: {},
-                "postcss-preset-env": {},
-                cssnano: {},
-                autoprefixer: {},
-              },
+            importLoaders: 1,
+            modules: {
+              localIdentName: "[folder]_[local]__[hash:base64:5]",
+              namedExport: false,
             },
           },
-        },
-      ],
-      include: resolve(__dirname, "../"),
-    });
+          },
+          postcssLoader,
+        ],
+      },
+    );
+
     return config;
-  },
-  docs: {
-    autodocs: "tag",
   },
 };
 export default config;

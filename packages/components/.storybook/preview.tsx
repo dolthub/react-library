@@ -1,6 +1,5 @@
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { Preview } from "@storybook/react";
-import React from "react";
+import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import "../src/styles/global.css";
 import ThemeProvider from "../src/tailwind/context";
 import { staticColors } from "../src/tailwind/theme/base/colors";
@@ -16,9 +15,7 @@ const preview: Preview = {
       description: "Global theme for components",
       defaultValue: "dolthub",
       toolbar: {
-        // The icon for the toolbar item
         icon: "circlehollow",
-        // Array of options
         items: [
           { value: "dolthub", title: "DoltHub" },
           { value: "hosted", title: "Hosted Dolt" },
@@ -28,8 +25,10 @@ const preview: Preview = {
       },
     },
   },
+  initialGlobals: {
+    backgrounds: { value: "light" },
+  },
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -38,16 +37,15 @@ const preview: Preview = {
     },
 
     backgrounds: {
-      default: "light",
-      values: [
-        { name: "light", value: "white" },
-        { name: "lightish", value: staticColors.stone["50"] },
-        { name: "dark", value: staticColors.space["700"] },
-        { name: "blue", value: staticColors.ocean["400"] },
-      ],
+      options: {
+        light: { name: "light", value: "white" },
+        lightish: { name: "lightish", value: staticColors.stone["50"] },
+        dark: { name: "dark", value: staticColors.space["700"] },
+        blue: { name: "blue", value: staticColors.ocean["400"] },
+      },
     },
     viewport: {
-      viewports: INITIAL_VIEWPORTS,
+      options: INITIAL_VIEWPORTS,
     },
   },
   decorators: [

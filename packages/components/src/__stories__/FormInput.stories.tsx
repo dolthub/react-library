@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { expect, userEvent, within } from "@storybook/test";
+import { expect, userEvent, within } from "storybook/test";
 import FormInput from "../FormInput";
 
 const meta: Meta<typeof FormInput> = {
@@ -83,9 +83,9 @@ export const MobileFriendly: Story = {
     value: "test",
     mobileFriendly: true,
   },
-  parameters: {
-    viewport: { defaultViewport: "iphonex" },
-    backgrounds: { default: "lightish" },
+  globals: {
+    viewport: { value: "iphonex" },
+    backgrounds: { value: "lightish" },
   },
 };
 
