@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .form {
   @apply flex mx-auto;
 
@@ -28,7 +30,7 @@
   textarea {
     @apply text-primary rounded-b-xl rounded-tl-none text-sm border-t-0;
     &:focus {
-      @apply outline-none;
+      @apply outline-hidden;
     }
   }
 }

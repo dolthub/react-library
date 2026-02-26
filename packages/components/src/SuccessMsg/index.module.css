@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .successMsg {
   @apply text-green-500 font-semibold;
 }

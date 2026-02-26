@@ -17,7 +17,7 @@ Need this until this transparent button issue is fixed https://github.com/tailwi
   box-sizing: border-box; /* 1 */
   border-width: 0; /* 2 */
   border-style: solid; /* 2 */
-  border-color: #D7D8DF; /* 2 */
+  border-color: #d7d8df; /* 2 */
 }
 
 ::before,
@@ -115,8 +115,9 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
 
@@ -325,7 +326,7 @@ textarea {
 input::placeholder,
 textarea::placeholder {
   opacity: 1; /* 1 */
-  color: #9C9FB1; /* 2 */
+  color: #9c9fb1; /* 2 */
 }
 
 /*

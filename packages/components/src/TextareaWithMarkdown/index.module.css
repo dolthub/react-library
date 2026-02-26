@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .label {
   @apply font-semibold pb-2;
 }
@@ -29,7 +31,7 @@
 .textarea {
   @apply bg-white rounded-b-md;
   textarea {
-    @apply p-6 mb-0 w-full outline-none max-w-full resize-y border-none break-words min-h-[9.25rem];
+    @apply p-6 mb-0 w-full outline-hidden max-w-full resize-y border-none break-words min-h-[9.25rem];
   }
 }
 
@@ -42,13 +44,13 @@
 }
 
 .textareaSeparate {
-  @apply mt-4 border rounded;
+  @apply mt-4 border rounded-sm;
 
   textarea {
-    @apply w-full py-3 px-4 rounded;
+    @apply w-full py-3 px-4 rounded-sm;
 
     &:focus {
-      @apply outline-none;
+      @apply outline-hidden;
     }
   }
 }

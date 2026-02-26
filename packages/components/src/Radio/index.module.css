@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .container {
   @apply block relative pl-8 mb-2 text-primary font-semibold cursor-pointer select-none;
 

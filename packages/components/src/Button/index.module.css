@@ -1,12 +1,14 @@
+@reference "../styles/theme.css";
+
 .button {
-  @apply rounded px-8 py-1 outline-none text-white text-sm font-semibold leading-relaxed button-shadow bg-button-1;
+  @apply rounded-sm px-8 py-1 outline-hidden text-white text-sm font-semibold leading-relaxed button-shadow bg-button-1;
 
   &:hover {
     @apply button-shadow-hover bg-button-2;
   }
 
   &:focus {
-    @apply outline-none widget-shadow-lightblue;
+    @apply outline-hidden widget-shadow-lightblue;
   }
 
   &:disabled {
@@ -23,14 +25,14 @@
 }
 
 .outlined {
-  @apply rounded px-12 py-1 outline-none font-semibold leading-relaxed border button-shadow bg-transparent text-button-1 border-button-1;
+  @apply rounded-sm px-12 py-1 outline-hidden font-semibold leading-relaxed border button-shadow bg-transparent text-button-1 border-button-1;
 
   &:hover {
     @apply border-button-2 text-button-2;
   }
 
   &:focus {
-    @apply outline-none widget-shadow-lightblue;
+    @apply outline-hidden widget-shadow-lightblue;
   }
 
   &:disabled {
@@ -50,7 +52,7 @@
   }
 
   &:focus {
-    @apply outline-none widget-shadow-lightblue;
+    @apply outline-hidden widget-shadow-lightblue;
   }
 
   &:disabled {

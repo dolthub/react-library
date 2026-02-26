@@ -4,13 +4,7 @@ const postcssLoader = {
   loader: "postcss-loader",
   options: {
     postcssOptions: {
-      plugins: [
-        "tailwindcss/nesting",
-        "tailwindcss",
-        "postcss-preset-env",
-        "cssnano",
-        "autoprefixer",
-      ],
+      plugins: ["@tailwindcss/postcss"],
     },
   },
 };

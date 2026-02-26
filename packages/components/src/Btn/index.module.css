@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .btn {
   @apply bg-transparent;
   background-image: none;

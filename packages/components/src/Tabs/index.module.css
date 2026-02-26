@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .tabList {
   @apply w-full overflow-x-auto flex border-b border-stone-100;
 

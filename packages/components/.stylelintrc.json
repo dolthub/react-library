@@ -2,7 +2,7 @@
   "extends": "stylelint-config-recommended",
   "ignoreFiles": "coverage/**",
   "rules": {
-    "at-rule-no-unknown": [true, { "ignoreAtRules": ["tailwind", "screen"] }],
+    "at-rule-no-unknown": [true, { "ignoreAtRules": ["tailwind", "screen", "config", "theme", "source", "reference", "layer"] }],
     "selector-pseudo-class-no-unknown": [
       true,
       {

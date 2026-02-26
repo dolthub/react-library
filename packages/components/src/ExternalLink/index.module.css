@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .link {
   @apply font-semibold text-link-1;
 

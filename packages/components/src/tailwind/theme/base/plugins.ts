@@ -1,3 +1,4 @@
+import type { Config } from "tailwindcss/plugin";
 import plugin from "tailwindcss/plugin";
 
 const widgetPlugin = plugin(({ addUtilities }) => {
@@ -76,4 +77,11 @@ const backgroundPlugin = plugin(({ addUtilities }) => {
   });
 });
 
-export default [widgetPlugin, oddSizesPlugin, borderPlugin, backgroundPlugin];
+const plugins: NonNullable<Config["plugins"]> = [
+  widgetPlugin,
+  oddSizesPlugin,
+  borderPlugin,
+  backgroundPlugin,
+];
+
+export default plugins;

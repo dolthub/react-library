@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .field {
   @apply md:flex items-center my-2;
 }

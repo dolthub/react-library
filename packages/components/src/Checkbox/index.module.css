@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .container {
   @apply block relative pl-10 mb-2 text-primary font-semibold cursor-pointer select-none;
 
@@ -15,7 +17,7 @@
 }
 
 .checkbox {
-  @apply absolute -top-0 left-0 h-[1.1rem] w-[1.1rem] bg-white rounded-sm mt-1 border border-primary/30;
+  @apply absolute -top-0 left-0 h-[1.1rem] w-[1.1rem] bg-white rounded-xs mt-1 border border-primary/30;
 }
 
 .disabledContainer .checkbox {

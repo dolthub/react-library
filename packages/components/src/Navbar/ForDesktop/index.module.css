@@ -1,3 +1,5 @@
+@reference "../../styles/theme.css";
+
 .container {
   @apply hidden lg:block w-full text-white pt-2 h-12 z-50 mx-auto pb-2;
 }
@@ -57,7 +59,7 @@
     @apply text-background-acc-1 font-semibold;
 
     &:hover {
-      @apply text-primary text-opacity-80;
+      @apply text-primary/80;
     }
   }
 }

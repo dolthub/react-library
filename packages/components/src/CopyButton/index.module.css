@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .copy {
   @apply py-0 ml-4 h-6 w-20;
 }

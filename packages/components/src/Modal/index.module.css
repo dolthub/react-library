@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .hide {
   @apply hidden;
 }

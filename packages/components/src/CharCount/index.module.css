@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .charCount {
   @apply text-stone-300;
 }

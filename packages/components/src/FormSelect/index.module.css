@@ -1,3 +1,5 @@
+@reference "../styles/theme.css";
+
 .horizontal {
   @apply flex;
 }

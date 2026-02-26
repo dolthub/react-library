@@ -1,8 +1,10 @@
+@reference "../styles/theme.css";
+
 .triggerButton {
-  @apply rounded px-3 py-1 text-sm font-semibold border border-primary whitespace-nowrap bg-transparent flex items-center justify-center;
+  @apply rounded-sm px-3 py-1 text-sm font-semibold border border-primary whitespace-nowrap bg-transparent flex items-center justify-center;
 
   &:focus {
-    @apply outline-none widget-shadow-lightblue;
+    @apply outline-hidden widget-shadow-lightblue;
   }
 }
 
