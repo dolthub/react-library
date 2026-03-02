@@ -132,7 +132,7 @@
     "react-select-event": "^5.5.1",
     "react-tooltip": "^5.30.0",
     "remark-gfm": "^4.0.1",
-    "rollup": "^4.50.0",
+    "rollup": "^4.59.0",
     "rollup-plugin-dts": "^6.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
