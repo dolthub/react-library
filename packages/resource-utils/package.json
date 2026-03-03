@@ -14,7 +14,6 @@
     "utils",
     "frontend"
   ],
-  "packageManager": "yarn@4.0.2",
   "scripts": {
     "compile": "tsc -b",
     "build": "rollup -c --bundleConfigAsCjs",
