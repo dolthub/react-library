@@ -61,6 +61,6 @@
   "resolutions": {
     "js-yaml": "4.1.1",
     "tar": "7.5.8",
-    "webpack": "5.104.0"
+    "webpack": "5.104.1"
   }
 }
