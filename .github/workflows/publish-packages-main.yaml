@@ -3,20 +3,20 @@ name: Publish Package
 on:
   workflow_dispatch:
     inputs:
-        package:
-          description: 'Name of package to publish'
-          required: true
-          default: 'components'
-          type: choice
-          options:
+      package:
+        description: "Name of package to publish"
+        required: true
+        default: "components"
+        type: choice
+        options:
           - components
           - contexts
           - hooks
           - resource-utils
           - utils
-        version:
-          description: 'SemVer format release tag, i.e. 0.2.4'
-          required: true
+      version:
+        description: "SemVer format release tag, i.e. 0.2.4"
+        required: true
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.inputs.package }}-${{ github.ref }}
@@ -24,19 +24,19 @@ concurrency:
 
 jobs:
   format-version:
-      runs-on: ubuntu-22.04
-      outputs:
-        version: ${{ steps.format_version.outputs.version }}
-      steps:
-        - name: Format Input
-          id: format_version
-          run: |
-            version="${{ github.event.inputs.version }}"
-            if [[ $version == v* ]];
-            then
-              version="${version:1}"
-            fi
-            echo "version=$version" >> $GITHUB_OUTPUT
+    runs-on: ubuntu-22.04
+    outputs:
+      version: ${{ steps.format_version.outputs.version }}
+    steps:
+      - name: Format Input
+        id: format_version
+        run: |
+          version="${{ github.event.inputs.version }}"
+          if [[ $version == v* ]];
+          then
+            version="${version:1}"
+          fi
+          echo "version=$version" >> $GITHUB_OUTPUT
 
   build-and-release:
     needs: format-version
@@ -63,7 +63,7 @@ jobs:
           TAGS=$(git tag | grep "^${{ github.event.inputs.package }}-v" | sort -rV | head -n 1)
           LAST_TAG=$(echo "$TAGS" | sed -n '1p')
           echo "LAST_TAG=${LAST_TAG}" >> $GITHUB_ENV
-      
+
       - name: Generate Changelog
         id: changelog
         uses: mikepenz/release-changelog-builder-action@v4
@@ -107,33 +107,33 @@ jobs:
           fromTag: "${{ env.LAST_TAG }}"
           toTag: "main"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
- 
+          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+
       - name: Add and Commit Changes
         uses: EndBug/add-and-commit@v9.1.1
         with:
-            message: "Update ${{ github.event.inputs.package }} package version to ${{ needs.format-version.outputs.version }}"
-            add: "${{ github.workspace }}/packages/${{ github.event.inputs.package }}/package.json"
-            cwd: "."
-            new_branch: ${{ github.event.inputs.package }}-package-release
+          message: "Update ${{ github.event.inputs.package }} package version to ${{ needs.format-version.outputs.version }}"
+          add: "${{ github.workspace }}/packages/${{ github.event.inputs.package }}/package.json"
+          cwd: "."
+          new_branch: ${{ github.event.inputs.package }}-package-release
 
       - name: Create Pull Request
         run: gh pr create --base main --head "${{ github.event.inputs.package }}-package-release" --title "Release ${{ github.event.inputs.package }} ${{ needs.format-version.outputs.version }}" --body "Created by the Release workflow to update ${{ github.event.inputs.package }} version"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
 
       - name: Enable Pull Request Auto-Merge
-        run:  gh pr merge --merge --auto "${{ github.event.inputs.package }}-package-release"
+        run: gh pr merge --merge --auto "${{ github.event.inputs.package }}-package-release"
         env:
-          GH_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
 
       - name: Enable Corepack before setting up Node
         run: corepack enable
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install and run build
         working-directory: ./
@@ -145,12 +145,12 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
         with:
           tag_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
- 
+
       - name: Publish to npm
         run: npm publish
-        working-directory: packages/${{ github.event.inputs.package }} 
+        working-directory: packages/${{ github.event.inputs.package }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
