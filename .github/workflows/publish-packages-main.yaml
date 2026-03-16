@@ -65,11 +65,48 @@ jobs:
           LAST_TAG=$(echo "$TAGS" | sed -n '1p')
           echo "LAST_TAG=${LAST_TAG}" >> $GITHUB_ENV
 
+      - name: Write changelog config
+        run: |
+          cat > /tmp/changelog-config.json << 'EOF'
+          {
+            "categories": [
+              {
+                "title": "## PACKAGE_NAME",
+                "labels": ["PACKAGE_NAME"],
+                "exhaustive": true,
+                "exhaustive_rules": "false",
+                "empty_content": "- no matching PRs",
+                "rules": [
+                  {
+                    "pattern": "PACKAGE_NAME",
+                    "on_property": "labels"
+                  },
+                  {
+                    "pattern": "merged",
+                    "on_property": "status"
+                  }
+                ]
+              }
+            ],
+            "sort": {
+              "order": "ASC",
+              "on_property": "mergedAt"
+            },
+            "template": "#{{CHANGELOG}}\n",
+            "pr_template": "* [#{{NUMBER}}](#{{URL}}): #{{TITLE}}\n    #{{BODY}}",
+            "empty_template": "- no changes",
+            "max_tags_to_fetch": 200,
+            "max_back_track_time_days": 365,
+            "base_branches": ["main"]
+          }
+          EOF
+          sed -i 's/PACKAGE_NAME/${{ github.event.inputs.package }}/g' /tmp/changelog-config.json
+
       - name: Generate Changelog
         id: changelog
         uses: mikepenz/release-changelog-builder-action@v4
         with:
-          configuration: changelog-config.json
+          configuration: /tmp/changelog-config.json
           fromTag: "${{ env.LAST_TAG }}"
           toTag: "main"
         env:
@@ -92,8 +129,13 @@ jobs:
           cwd: "."
           new_branch: ${{ github.event.inputs.package }}-package-release
 
+      - name: Ensure package label exists
+        run: gh label create "${{ github.event.inputs.package }}" --force
+        env:
+          GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+
       - name: Create Pull Request
-        run: gh pr create --base main --head "${{ github.event.inputs.package }}-package-release" --title "Release ${{ github.event.inputs.package }} ${{ needs.format-version.outputs.version }}" --body "Created by the Release workflow to update ${{ github.event.inputs.package }} version"
+        run: gh pr create --base main --head "${{ github.event.inputs.package }}-package-release" --title "Release ${{ github.event.inputs.package }} ${{ needs.format-version.outputs.version }}" --body "Created by the Release workflow to update ${{ github.event.inputs.package }} version" --label "${{ github.event.inputs.package }}"
         env:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
 
