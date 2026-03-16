@@ -23,8 +23,8 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  id-token: write  # Required for OIDC
-  contents: write  # Required for creating GitHub releases
+  id-token: write # Required for OIDC
+  contents: write # Required for creating GitHub releases
 
 jobs:
   format-version:
@@ -43,6 +43,7 @@ jobs:
           echo "version=$version" >> $GITHUB_OUTPUT
 
   update-and-pr:
+    name: Update version and create PR
     needs: format-version
     runs-on: ubuntu-22.04
     steps:
@@ -175,8 +176,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          registry-url: "https://registry.npmjs.org"
+          node-version: "24"
 
       - name: Install and run build
         run: |
@@ -196,7 +196,5 @@ jobs:
           body_path: /tmp/changelog.md
 
       - name: Publish to npm
-        run: npm publish --provenance --access public
+        run: npm publish --access public
         working-directory: packages/${{ github.event.inputs.package }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
