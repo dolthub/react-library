@@ -1,8 +1,8 @@
 name: Run CI
 on:
   pull_request:
-    paths:
-      - '**'
+    paths-ignore:
+      - '.github/**'
   workflow_dispatch:
 
 concurrency:
