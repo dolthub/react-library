@@ -22,6 +22,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.inputs.package }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  id-token: write  # Required for OIDC
+  contents: write  # Required for creating GitHub releases
+
 jobs:
   format-version:
     runs-on: ubuntu-22.04
@@ -38,12 +42,9 @@ jobs:
           fi
           echo "version=$version" >> $GITHUB_OUTPUT
 
-  build-and-release:
+  update-and-pr:
     needs: format-version
-    name: Create release
     runs-on: ubuntu-22.04
-    outputs:
-      release_id: ${{ steps.create_release.outputs.id }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -55,11 +56,11 @@ jobs:
           sed -i -e 's/"version"\s*:\s*".*"/"version": "'"$NEW_VERSION"'"/' "$FILE"
         env:
           FILE: ${{ github.workspace }}/packages/${{ github.event.inputs.package }}/package.json
-          NEW_VERSION: ${{ github.event.inputs.version }}
+          NEW_VERSION: ${{ needs.format-version.outputs.version }}
 
       - name: Determine and Set Tags
         run: |
-          # Find the last two tags that match the package pattern, sort them to get the latest
+          # Find the last tag that matches the package pattern
           TAGS=$(git tag | grep "^${{ github.event.inputs.package }}-v" | sort -rV | head -n 1)
           LAST_TAG=$(echo "$TAGS" | sed -n '1p')
           echo "LAST_TAG=${LAST_TAG}" >> $GITHUB_ENV
@@ -68,46 +69,20 @@ jobs:
         id: changelog
         uses: mikepenz/release-changelog-builder-action@v4
         with:
-          configurationJson: |
-            {
-              "categories": [
-                  {
-                      "title": "## ${{ github.event.inputs.package }}",
-                      "labels": [
-                          "${{ github.event.inputs.package }}"
-                      ],
-                      "exhaustive": true,
-                      "exhaustive_rules": "false",
-                      "empty_content": "- no matching PRs",
-                      "rules": [
-                          {
-                              "pattern": "${{ github.event.inputs.package }}",
-                              "on_property": "labels"
-                          },
-                          {
-                              "pattern": "merged",
-                              "on_property": "status"
-                          }
-                      ]
-                  }
-              ],
-              "sort": {
-                  "order": "ASC",
-                  "on_property": "mergedAt"
-              },
-              "template": "#{{CHANGELOG}}\n",
-              "pr_template": "* [#{{NUMBER}}](#{{URL}}): #{{TITLE}}\n    #{{BODY}}",
-              "empty_template": "- no changes",
-              "max_tags_to_fetch": 200,
-              "max_back_track_time_days": 365,
-              "base_branches": [
-                  "main"
-              ]
-            }
+          configuration: changelog-config.json
           fromTag: "${{ env.LAST_TAG }}"
           toTag: "main"
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+      - name: Save changelog artifact
+        run: echo "${{ steps.changelog.outputs.changelog }}" > /tmp/changelog.md
+
+      - name: Upload changelog
+        uses: actions/upload-artifact@v4
+        with:
+          name: changelog
+          path: /tmp/changelog.md
 
       - name: Add and Commit Changes
         uses: EndBug/add-and-commit@v9.1.1
@@ -127,6 +102,32 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
 
+      - name: Wait for PR to merge
+        run: |
+          for i in $(seq 1 30); do
+            state=$(gh pr view "${{ github.event.inputs.package }}-package-release" --json state -q '.state')
+            if [ "$state" = "MERGED" ]; then
+              echo "PR merged successfully"
+              exit 0
+            fi
+            echo "Waiting for PR to merge... ($i/30)"
+            sleep 20
+          done
+          echo "Timed out waiting for PR to merge"
+          exit 1
+        env:
+          GH_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+  build-and-publish:
+    needs: [format-version, update-and-pr]
+    name: Build and publish
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
       - name: Enable Corepack before setting up Node
         run: corepack enable
 
@@ -136,21 +137,22 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Install and run build
-        working-directory: ./
         run: |
           yarn install --immutable
           yarn dbuild
 
+      - name: Download changelog
+        uses: actions/download-artifact@v4
+        with:
+          name: changelog
+          path: /tmp
+
       - name: Create Release
-        id: create_release
         uses: softprops/action-gh-release@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
         with:
           tag_name: ${{ github.event.inputs.package }}-v${{ needs.format-version.outputs.version }}
+          body_path: /tmp/changelog.md
 
       - name: Publish to npm
-        run: npm publish
+        run: npm publish --provenance --access public
         working-directory: packages/${{ github.event.inputs.package }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
