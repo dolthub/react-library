@@ -191,5 +191,5 @@ jobs:
           body_path: /tmp/changelog.md
 
       - name: Publish to npm
-        run: npm publish --access public
+        run: yarn npm publish --access public
         working-directory: packages/${{ github.event.inputs.package }}
