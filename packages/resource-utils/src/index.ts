@@ -1,7 +1,7 @@
 export {
   invalidBranchNames,
   invalidBranchProtectionNames,
-  validBranchNames
+  validBranchNames,
 } from "./__tests__/helpers/branchNames";
 export { default as byHash } from "./byHash";
 export { default as byName } from "./byName";
@@ -10,11 +10,11 @@ export { default as comparatorsToSorters } from "./comparatorsToSorters";
 export { default as displayName } from "./displayName";
 export {
   default as doNameValidation,
-  ResourceNameValidationError
+  ResourceNameValidationError,
 } from "./doNameValidation";
 export {
   default as doParamValidation,
-  ResourceParamValidationError
+  ResourceParamValidationError,
 } from "./doParamValidation";
 export { ResourceNameConverter, ToResourceOptions } from "./ResourceNamesUtils";
 export {
@@ -22,7 +22,6 @@ export {
   NamedResource,
   ResourceUtils,
   Sorter,
-  Sorters
+  Sorters,
 } from "./ResourceUtils";
 export * as validResourceSegmentPattern from "./validResourceSegmentPattern";
-
