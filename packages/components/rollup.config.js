@@ -24,6 +24,7 @@ export default [
         format: "cjs",
         sourcemap: true,
         name: "react-ts-lib",
+        interop: "auto",
       },
       {
         file: packageJson.module,
