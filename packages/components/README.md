@@ -18,14 +18,15 @@ or
 
 The following peer dependencies must be installed in your project:
 
-| Package | Required |
-|---|---|
-| `react` | Yes |
-| `react-dom` | Yes |
-| `react-select` | Yes |
-| `react-tooltip` | Yes |
-| `tailwindcss` | Yes |
+| Package               | Required                                           |
+| --------------------- | -------------------------------------------------- |
+| `react`               | Yes                                                |
+| `react-dom`           | Yes                                                |
+| `react-select`        | Yes                                                |
+| `react-tooltip`       | Yes                                                |
+| `tailwindcss`         | Yes                                                |
 | `github-markdown-css` | No (only needed if using the `Markdown` component) |
+| `remark-gfm`          | No (only needed if using the `Markdown` component) |
 
 Install the required ones with:
 
