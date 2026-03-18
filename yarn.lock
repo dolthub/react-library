@@ -3163,7 +3163,7 @@ __metadata:
     node-sql-parser: ^5.4.0
   peerDependenciesMeta:
     node-sql-parser:
-      optional: false
+      optional: true
   languageName: unknown
   linkType: soft
 

@@ -25,8 +25,9 @@ The following peer dependencies must be installed in your project:
 | `react-select`        | Yes                                                |
 | `react-tooltip`       | Yes                                                |
 | `tailwindcss`         | Yes                                                |
-| `github-markdown-css` | No (only needed if using the `Markdown` component) |
-| `remark-gfm`          | No (only needed if using the `Markdown` component) |
+| `github-markdown-css` | No (only needed if using components with markdown) |
+| `react-markdown`      | No (only needed if using components with markdown) |
+| `remark-gfm`          | No (only needed if using components with markdown) |
 
 Install the required ones with:
 
