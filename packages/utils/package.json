@@ -6,6 +6,18 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./parseSqlQuery": {
+      "require": "./dist/cjs/parseSqlQuery.js",
+      "import": "./dist/esm/parseSqlQuery.js",
+      "types": "./dist/parseSqlQuery.d.ts"
+    }
+  },
   "files": [
     "dist"
   ],
