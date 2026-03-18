@@ -14,33 +14,54 @@ const externalDeps = [
   "url",
 ];
 
+const external = (id) =>
+  externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`));
+
+const plugins = [
+  nodeResolve(),
+  commonjs(),
+  typescript({ tsconfig: "./tsconfig.json", outputToFilesystem: true }),
+  terser(),
+];
+
 export default [
   {
-    input: "src/index.ts",
+    input: {
+      index: "src/index.ts",
+      parseSqlQuery: "src/parseSqlQuery.ts",
+    },
     output: [
       {
-        file: packageJson.main,
+        dir: "dist/cjs",
         format: "cjs",
         sourcemap: true,
-        name: "utils-ts-lib",
+        preserveModules: true,
+        preserveModulesRoot: "src",
       },
       {
-        file: packageJson.module,
+        dir: "dist/esm",
         format: "esm",
         sourcemap: true,
+        preserveModules: true,
+        preserveModulesRoot: "src",
       },
     ],
-    external: (id) => externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`)),
-    plugins: [
-      nodeResolve(),
-      commonjs(),
-      typescript({ tsconfig: "./tsconfig.json", outputToFilesystem: true }),
-      terser(),
-    ],
+    external,
+    plugins,
   },
   {
-    input: "./types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
+    input: {
+      index: "./types/index.d.ts",
+      parseSqlQuery: "./types/parseSqlQuery.d.ts",
+    },
+    output: [
+      {
+        dir: "dist",
+        format: "esm",
+        preserveModules: true,
+        preserveModulesRoot: "types",
+      },
+    ],
     plugins: [dts()],
   },
 ];
