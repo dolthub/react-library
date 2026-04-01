@@ -3039,7 +3039,7 @@ __metadata:
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
     "@typescript-eslint/eslint-plugin": "npm:^8.54.0"
     "@typescript-eslint/parser": "npm:^8.45.0"
-    autoprefixer: "npm:^10.4.21"
+    autoprefixer: "npm:^10.4.27"
     babel-jest: "npm:^30.2.0"
     chromatic: "npm:^15.2.0"
     classnames: "npm:^2.5.1"
@@ -6849,6 +6849,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"autoprefixer@npm:^10.4.27":
+  version: 10.4.27
+  resolution: "autoprefixer@npm:10.4.27"
+  dependencies:
+    browserslist: "npm:^4.28.1"
+    caniuse-lite: "npm:^1.0.30001774"
+    fraction.js: "npm:^5.3.4"
+    picocolors: "npm:^1.1.1"
+    postcss-value-parser: "npm:^4.2.0"
+  peerDependencies:
+    postcss: ^8.1.0
+  bin:
+    autoprefixer: bin/autoprefixer
+  checksum: 10c0/698ad9e23436635af1806d4a8b80393020135174d1d4a97eb81887cdddac2f297f198d1d717932db8503b325f9f2dc3accb6e290b2d3ce1a7ddeb947100e5b25
+  languageName: node
+  linkType: hard
+
 "available-typed-arrays@npm:^1.0.7":
   version: 1.0.7
   resolution: "available-typed-arrays@npm:1.0.7"
@@ -7470,6 +7487,13 @@ __metadata:
   version: 1.0.30001774
   resolution: "caniuse-lite@npm:1.0.30001774"
   checksum: 10c0/cc6a340a5421b9a67d8fa80889065ee27b2839ad62993571dded5296e18f02bbf685ce7094e93fe908cddc9fefdfad35d6c010b724cc3d22a6479b0d0b679f8c
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001774":
+  version: 1.0.30001784
+  resolution: "caniuse-lite@npm:1.0.30001784"
+  checksum: 10c0/d6ff48177e48819a9041edab27d1ce9089b1ab9ba76f681b4925710dba5b00ff0347f70c6a99269d97fddc59e9f6947d219155b6bf4c1da9dd642503a03e5ce4
   languageName: node
   linkType: hard
 
@@ -10137,6 +10161,13 @@ __metadata:
   version: 4.3.7
   resolution: "fraction.js@npm:4.3.7"
   checksum: 10c0/df291391beea9ab4c263487ffd9d17fed162dbb736982dee1379b2a8cc94e4e24e46ed508c6d278aded9080ba51872f1bc5f3a5fd8d7c74e5f105b508ac28711
+  languageName: node
+  linkType: hard
+
+"fraction.js@npm:^5.3.4":
+  version: 5.3.4
+  resolution: "fraction.js@npm:5.3.4"
+  checksum: 10c0/f90079fe9bfc665e0a07079938e8ff71115bce9462f17b32fc283f163b0540ec34dc33df8ed41bb56f028316b04361b9a9995b9ee9258617f8338e0b05c5f95a
   languageName: node
   linkType: hard
 
