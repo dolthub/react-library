@@ -23,14 +23,14 @@ jobs:
         with:
           filters: |
             components:
-              - 'packages/components/**'  
+              - 'packages/components/**'
 
       - name: Enable Corepack before setting up Node
         run: corepack enable
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: '20'
+          node-version: "24"
 
       - name: Install and run build
         working-directory: ./

@@ -2,7 +2,7 @@ name: Bump Storybook Dependencies
 
 on:
   schedule:
-    - cron: '0 10 1 * *' # Runs every first of the month
+    - cron: "0 10 1 * *" # Runs every first of the month
   workflow_dispatch:
 
 jobs:
@@ -13,11 +13,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.PAT_TOKEN }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: '20'   
+          node-version: "24"
       - name: Enable Corepack
-        run: corepack enable    
+        run: corepack enable
       - name: Install yarn
         working-directory: .
         run: yarn
