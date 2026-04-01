@@ -2936,7 +2936,7 @@ __metadata:
     jest: "npm:^29.7.0"
     prettier: "npm:^3.6.2"
     rollup: "npm:^4.59.0"
-    rollup-plugin-dts: "npm:^6.3.0"
+    rollup-plugin-dts: "npm:^6.4.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
     typescript: "npm:^5.9.3"
@@ -3010,7 +3010,7 @@ __metadata:
     reactjs-popup: "npm:^2.0.6"
     remark-gfm: "npm:^4.0.1"
     rollup: "npm:^4.59.0"
-    rollup-plugin-dts: "npm:^6.3.0"
+    rollup-plugin-dts: "npm:^6.4.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-postcss: "npm:^4.0.2"
     rollup-plugin-terser: "npm:^7.0.2"
@@ -3072,7 +3072,7 @@ __metadata:
     react: "npm:^19.1.1"
     react-dom: "npm:^19.1.1"
     rollup: "npm:^4.59.0"
-    rollup-plugin-dts: "npm:^6.3.0"
+    rollup-plugin-dts: "npm:^6.4.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
     tslib: "npm:^2.8.1"
@@ -3120,7 +3120,7 @@ __metadata:
     react-dom: "npm:^19.1.1"
     react-hotkeys: "npm:^2.0.0"
     rollup: "npm:^4.59.0"
-    rollup-plugin-dts: "npm:^6.3.0"
+    rollup-plugin-dts: "npm:^6.4.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
     tslib: "npm:^2.8.1"
@@ -3153,7 +3153,7 @@ __metadata:
     node-sql-parser: "npm:^5.4.0"
     prettier: "npm:^3.6.2"
     rollup: "npm:^4.59.0"
-    rollup-plugin-dts: "npm:^6.3.0"
+    rollup-plugin-dts: "npm:^6.4.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-terser: "npm:^7.0.2"
     timeago.js: "npm:^4.0.2"
@@ -16424,19 +16424,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-dts@npm:^6.3.0":
-  version: 6.3.0
-  resolution: "rollup-plugin-dts@npm:6.3.0"
+"rollup-plugin-dts@npm:^6.4.1":
+  version: 6.4.1
+  resolution: "rollup-plugin-dts@npm:6.4.1"
   dependencies:
-    "@babel/code-frame": "npm:^7.27.1"
+    "@babel/code-frame": "npm:^7.29.0"
+    "@jridgewell/remapping": "npm:^2.3.5"
+    "@jridgewell/sourcemap-codec": "npm:^1.5.5"
+    convert-source-map: "npm:^2.0.0"
     magic-string: "npm:^0.30.21"
   peerDependencies:
     rollup: ^3.29.4 || ^4
-    typescript: ^4.5 || ^5.0
+    typescript: ^4.5 || ^5.0 || ^6.0
   dependenciesMeta:
     "@babel/code-frame":
       optional: true
-  checksum: 10c0/7eae726f0a15651a4705d49771cc02d2c7fb35fe107ada03cdacade5ed8bf026af066f1fc8936dde2c07da269d03dd790110589cd3b0c7062ed3bedc0f3c75ee
+  checksum: 10c0/23d51f4780c5878cb31a45103da961e2e1f81fb830d4b53114931060b58ee431e44c561c1215d253477ad884ba50223dd2586fee704763db9a454cb1c6b97a1d
   languageName: node
   linkType: hard
 
