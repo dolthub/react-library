@@ -27,7 +27,7 @@ export default function MenuList<
       return false;
     }
     if (!React.isValidElement(group)) return false;
-    return (group.props as any).data?.label === activeGroup?.label;
+    return (group.props as { data?: { label?: string } }).data?.label === activeGroup?.label;
   });
 
   return (

@@ -8,14 +8,14 @@ import ErrorMsg from "../ErrorMsg";
 import css from "./index.module.css";
 
 type ButtonProps = {
-  onRequestClose: () => void | Promise<void>;
+  onRequestClose: () => void;
   children?: ReactNode;
   err?: Error;
   pill?: boolean;
 };
 
 export type OuterProps = {
-  onRequestClose: () => void | Promise<void>;
+  onRequestClose: () => void;
   children: ReactNode;
   title: string;
   className?: string;

@@ -11,7 +11,7 @@ type Props<OptionType> = {
 export default function CustomOption<T, OptionType extends Option<T>>(
   props: Props<OptionType>,
 ) {
-  const label = `${props.labelPrefix}-${props.data.value}`;
+  const label = `${props.labelPrefix}-${String(props.data.value)}`;
   return (
     <div
       className={cx({

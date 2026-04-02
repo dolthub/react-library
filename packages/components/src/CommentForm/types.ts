@@ -3,7 +3,7 @@ import { ReactNode, SyntheticEvent } from "react";
 export type CommonProps = {
   children?: ReactNode;
   ["data-cy"]?: string;
-  onSubmit: (e: SyntheticEvent) => Promise<void>;
+  onSubmit: (e: SyntheticEvent) => void;
   profPic?: ReactNode;
   comment: string;
   setComment: (c: string) => void;
