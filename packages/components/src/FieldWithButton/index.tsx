@@ -11,6 +11,7 @@ export type CommonProps = {
   help?: ReactNode;
   blur?: boolean;
   labelClassName?: string;
+  valueClassName?: string;
   className?: string;
   smallValue?: boolean;
   vertical?: boolean;
@@ -45,10 +46,14 @@ export default function FieldWithButton(props: Props) {
           <div className={css.valContainer}>
             {props.help}
             <div
-              className={cx(css.value, {
-                [css.blueValue]: !!props.blue,
-                [css.smallValue]: !!props.smallValue,
-              })}
+              className={cx(
+                css.value,
+                {
+                  [css.blueValue]: !!props.blue,
+                  [css.smallValue]: !!props.smallValue,
+                },
+                props.valueClassName,
+              )}
             >
               <span
                 className={cx({
