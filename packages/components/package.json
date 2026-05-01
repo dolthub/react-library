@@ -125,7 +125,7 @@
     "postcss-preset-env": "^10.4.0",
     "prettier": "^3.8.3",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "react-dom": "^19.2.5",
     "react-markdown": "^10.1.0",
     "react-select": "^5.10.2",
     "react-select-event": "^5.5.1",
