@@ -3,7 +3,6 @@ import { replaceRaf } from "raf-stub";
 import {
   useReactiveElementHeight,
   useReactiveHeight,
-  useReactiveScrollWidth,
   useReactiveWidth,
 } from "..";
 
@@ -163,59 +162,5 @@ describe("useReactiveElementHeight", () => {
     });
 
     expect(result.current).toBe(360);
-  });
-});
-
-describe("useReactiveScrollWidth", () => {
-  beforeEach(() => {
-    Object.defineProperty(window, "innerWidth", {
-      configurable: true,
-      value: 1024,
-    });
-  });
-
-  it("initializes with element scrollWidth and window innerWidth", () => {
-    const element = createElement();
-    const { result } = renderHook(() => useReactiveScrollWidth(element));
-
-    expect(result.current).toEqual({
-      scrollWidth: 300,
-      windowInnerWidth: 1024,
-    });
-  });
-
-  it("updates element and window on window resize", () => {
-    const element = createElement();
-    const { result, rerender } = renderHook(() =>
-      useReactiveScrollWidth(element),
-    );
-
-    act(() => {
-      Object.defineProperty(element, "scrollWidth", {
-        configurable: true,
-        value: 500,
-      });
-      triggerResize("width", 1000);
-      requestAnimationFrame.step();
-    });
-
-    rerender();
-
-    expect(result.current.windowInnerWidth).toBe(1000);
-    expect(result.current.scrollWidth).toBe(500);
-  });
-
-  it("updates window on window resize with no element", () => {
-    const { result, rerender } = renderHook(() => useReactiveScrollWidth());
-
-    act(() => {
-      triggerResize("width", 2000);
-      requestAnimationFrame.step();
-    });
-
-    rerender();
-
-    expect(result.current.windowInnerWidth).toBe(2000);
-    expect(result.current.scrollWidth).toBe(0);
   });
 });
