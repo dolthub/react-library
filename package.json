@@ -59,6 +59,9 @@
     "typescript-eslint": "^8.54.0"
   },
   "resolutions": {
+    "@emotion/react": "11.14.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
     "serialize-javascript": "7.0.3",
     "tar": "7.5.11"
   }

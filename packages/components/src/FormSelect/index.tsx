@@ -27,7 +27,7 @@ function FormSelect<T>({
   rounded = false,
   forMobile = false,
   ...props
-}: Props<T, Option<T>>): JSX.Element {
+}: Props<T, Option<T>>): React.JSX.Element {
   const styles = getCustomStyles<T, Option<T>, false>(
     mono,
     light,

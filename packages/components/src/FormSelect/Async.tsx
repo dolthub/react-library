@@ -19,7 +19,7 @@ export default function FormSelectAsync<
   rounded = false,
   forMobile = false,
   ...props
-}: AsyncProps<T, OptionType, IsMulti>): JSX.Element {
+}: AsyncProps<T, OptionType, IsMulti>): React.JSX.Element {
   const styles = getCustomStyles<T, OptionType, IsMulti>(
     mono,
     light,

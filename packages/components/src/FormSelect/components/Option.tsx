@@ -10,7 +10,7 @@ export default function OptionComponent<
   T,
   OptionType extends Option<T>,
   IsMulti extends boolean,
->(props: OptionProps<OptionType, IsMulti>): JSX.Element {
+>(props: OptionProps<OptionType, IsMulti>): React.JSX.Element {
   return (
     <components.Option {...props}>
       <CustomOption data={props.data} labelPrefix="select-option" />
@@ -22,7 +22,7 @@ export function OptionForGroup<
   T,
   OptionType extends OptionTypeBase<T>,
   IsMulti extends boolean,
->(props: OptionProps<OptionType, IsMulti>): JSX.Element {
+>(props: OptionProps<OptionType, IsMulti>): React.JSX.Element {
   return (
     <components.Option {...props} className={css.option}>
       <FiCheck
