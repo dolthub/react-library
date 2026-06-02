@@ -1,6 +1,6 @@
 import cx from "classnames";
-import React, { ReactNode } from "react";
-import ReactLoader from "react-loader";
+import React, { CSSProperties, ReactNode } from "react";
+import Spinner from "../Spinner";
 import css from "./index.module.css";
 
 const smallLoaderDefaultOptions = {
@@ -33,13 +33,28 @@ type Props = {
 };
 
 function SmallLoader(props: Props) {
+  const options = { ...smallLoaderDefaultOptions, ...props.options };
+
   return (
     <div className={props.className}>
-      <ReactLoader
-        {...props}
-        // uses default options, but overrides fields provided as props
-        options={{ ...smallLoaderDefaultOptions, ...props.options }}
-      />
+      {props.loaded ? (
+        props.children
+      ) : (
+        <Spinner
+          lines={options.lines}
+          length={options.length}
+          width={options.width}
+          radius={options.radius}
+          color={options.color}
+          speed={options.speed}
+          opacity={options.opacity}
+          style={{
+            position: options.position as CSSProperties["position"],
+            top: options.top,
+            left: options.left,
+          }}
+        />
+      )}
     </div>
   );
 }

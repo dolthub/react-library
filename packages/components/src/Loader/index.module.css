@@ -1,0 +1,4 @@
+.fixedCenter {
+  /* Matches react-loader's default zIndex (2e9) so it sits above page content. */
+  @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[2000000000];
+}
