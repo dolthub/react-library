@@ -3046,7 +3046,6 @@ __metadata:
     "@types/jest": "npm:^29.5.14"
     "@types/numeral": "npm:^2"
     "@types/react": "npm:^19.2.14"
-    "@types/react-copy-to-clipboard": "npm:^5"
     "@types/react-dom": "npm:^19.2.3"
     "@types/react-loader": "npm:^2"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
@@ -3071,7 +3070,6 @@ __metadata:
     postcss-preset-env: "npm:^10.4.0"
     prettier: "npm:^3.8.3"
     react: "npm:^19.2.7"
-    react-copy-to-clipboard: "npm:^5.1.1"
     react-dom: "npm:^19.2.7"
     react-loader: "npm:^2.4.7"
     react-markdown: "npm:^10.1.0"
@@ -5443,15 +5441,6 @@ __metadata:
   version: 0.10.6
   resolution: "@types/pegjs@npm:0.10.6"
   checksum: 10c0/ee4a31cf07679ae5422fec95e499ad059483a9ab2815af1ada0ee858a00af6c7e6579a8e172810c1c9db04005941bef96d0dd2c28648769211f57df330f9c30f
-  languageName: node
-  linkType: hard
-
-"@types/react-copy-to-clipboard@npm:^5":
-  version: 5.0.7
-  resolution: "@types/react-copy-to-clipboard@npm:5.0.7"
-  dependencies:
-    "@types/react": "npm:*"
-  checksum: 10c0/33bea4549fa263b597d0dedb3807f99286d8ccf59adb370e3d82d1c9075195925a343982abd73c63cc47854a7240ddae79873a5cb3590c9b33c1b65bf9d07689
   languageName: node
   linkType: hard
 
@@ -8001,15 +7990,6 @@ __metadata:
   version: 2.0.0
   resolution: "convert-source-map@npm:2.0.0"
   checksum: 10c0/8f2f7a27a1a011cc6cc88cc4da2d7d0cfa5ee0369508baae3d98c260bb3ac520691464e5bbe4ae7cdf09860c1d69ecc6f70c63c6e7c7f7e3f18ec08484dc7d9b
-  languageName: node
-  linkType: hard
-
-"copy-to-clipboard@npm:^3.3.3":
-  version: 3.3.3
-  resolution: "copy-to-clipboard@npm:3.3.3"
-  dependencies:
-    toggle-selection: "npm:^1.0.6"
-  checksum: 10c0/3ebf5e8ee00601f8c440b83ec08d838e8eabb068c1fae94a9cda6b42f288f7e1b552f3463635f419af44bf7675afc8d0390d30876cf5c2d5d35f86d9c56a3e5f
   languageName: node
   linkType: hard
 
@@ -15995,18 +15975,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-copy-to-clipboard@npm:^5.1.1":
-  version: 5.1.1
-  resolution: "react-copy-to-clipboard@npm:5.1.1"
-  dependencies:
-    copy-to-clipboard: "npm:^3.3.3"
-    prop-types: "npm:^15.8.1"
-  peerDependencies:
-    react: ">=15.3.0"
-  checksum: 10c0/a46adefbb47508259af135c6de3b29de14a68b3874d94f76d20f079e0b3b399e1038f06a9116216805dce64d90d9d96cdab10af06969dd4b941c4b5d546b6158
-  languageName: node
-  linkType: hard
-
 "react-docgen-typescript@npm:^2.2.2":
   version: 2.2.2
   resolution: "react-docgen-typescript@npm:2.2.2"
@@ -18196,13 +18164,6 @@ __metadata:
   dependencies:
     is-number: "npm:^7.0.0"
   checksum: 10c0/487988b0a19c654ff3e1961b87f471702e708fa8a8dd02a298ef16da7206692e8552a0250e8b3e8759270f62e9d8314616f6da274734d3b558b1fc7b7724e892
-  languageName: node
-  linkType: hard
-
-"toggle-selection@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "toggle-selection@npm:1.0.6"
-  checksum: 10c0/f2cf1f2c70f374fd87b0cdc8007453ba9e981c4305a8bf4eac10a30e62ecdfd28bca7d18f8f15b15a506bf8a7bfb20dbe3539f0fcf2a2c8396c1a78d53e1f179
   languageName: node
   linkType: hard
 

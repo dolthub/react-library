@@ -2,7 +2,7 @@ import { useDelay } from "@dolthub/react-hooks";
 import { IoCopyOutline } from "@react-icons/all-files/io5/IoCopyOutline";
 import cx from "classnames";
 import React from "react";
-import CopyToClipboard from "react-copy-to-clipboard";
+import CopyToClipboard from "../CopyToClipboard";
 import Button from "../Button";
 import css from "./index.module.css";
 
