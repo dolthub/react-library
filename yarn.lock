@@ -3305,7 +3305,6 @@ __metadata:
     raf-stub: "npm:^3.0.0"
     react: "npm:^19.1.1"
     react-dom: "npm:^19.1.1"
-    react-hotkeys: "npm:^2.0.0"
     rollup: "npm:^4.59.0"
     rollup-plugin-dts: "npm:^6.4.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
@@ -15854,7 +15853,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.5.8, prop-types@npm:^15.6.0, prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -15992,17 +15991,6 @@ __metadata:
   peerDependencies:
     react: ">=16.13.1"
   checksum: 10c0/f977ca61823e43de2381d53dd7aa8b4d79ff6a984c9afdc88dc44f9973b99de7fd382d2f0f91f2688e24bb987c0185bf45d0b004f22afaaab0f990a830253bfb
-  languageName: node
-  linkType: hard
-
-"react-hotkeys@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "react-hotkeys@npm:2.0.0"
-  dependencies:
-    prop-types: "npm:^15.6.1"
-  peerDependencies:
-    react: ">= 0.14.0"
-  checksum: 10c0/3b0b47c4426775a86ecf0654760d60e4141da8fc47ef90fe51053210259d55d5905750c3787abfdf5a1fbb29ca7c73a516fa0bec21055ddd7ac11116194ed067
   languageName: node
   linkType: hard
 
