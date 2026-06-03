@@ -74,7 +74,6 @@
     "@react-icons/all-files": "^4.1.0",
     "classnames": "^2.5.1",
     "deepmerge": "^4.3.1",
-    "numeral": "^2.0.6",
     "react-copy-to-clipboard": "^5.1.1",
     "react-loader": "^2.4.7",
     "reactjs-popup": "^2.0.6"
@@ -101,7 +100,6 @@
     "@types/eslint": "^9",
     "@types/identity-obj-proxy": "^3",
     "@types/jest": "^29.5.14",
-    "@types/numeral": "^2",
     "@types/react": "^19",
     "@types/react-copy-to-clipboard": "^5",
     "@types/react-dom": "^19",
