@@ -14,7 +14,8 @@
     "baseUrl": ".",
     "declarationDir": "types",
     "outDir": "dist",
-    "moduleResolution": "Bundler"
+    "moduleResolution": "Bundler",
+    "tsBuildInfoFile": "tsconfig.tsbuildinfo"
   },
   "references": [
     { "path": "../contexts" },
