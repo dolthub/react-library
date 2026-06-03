@@ -14,9 +14,9 @@ describe("test GithubButton star count formatting", () => {
     expect(screen.getByText("2.5m")).toBeInTheDocument();
   });
 
-  it("keeps small counts with a single decimal", () => {
+  it("shows small counts without a decimal", () => {
     render(<GithubButton href="github.com" githubStarCount={42} />);
-    expect(screen.getByText("42.0")).toBeInTheDocument();
+    expect(screen.getByText("42")).toBeInTheDocument();
   });
 
   it("honors a custom formatStarCount", () => {

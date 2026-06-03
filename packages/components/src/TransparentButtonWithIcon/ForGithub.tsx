@@ -20,15 +20,16 @@ const UNITS: Array<[number, string]> = [
   [1e3, "k"],
 ];
 
-// Formats a count with a single decimal and a lowercase magnitude suffix,
-// matching the previous numeral "0.0a" output (e.g. 10900 -> "10.9k").
+// Formats a count compactly: abbreviated values get a single decimal and a
+// lowercase magnitude suffix (e.g. 10900 -> "10.9k"), while values below 1000
+// are shown as-is (e.g. 42 -> "42").
 function compactCount(count: number): string {
   const unit = UNITS.find(([threshold]) => Math.abs(count) >= threshold);
   if (unit) {
     const [threshold, suffix] = unit;
     return `${(count / threshold).toFixed(1)}${suffix}`;
   }
-  return count.toFixed(1);
+  return String(count);
 }
 
 export default function ForGithub({
