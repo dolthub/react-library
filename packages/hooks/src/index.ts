@@ -15,7 +15,6 @@ export { default as useOnClickOutside } from "./useOnClickOutside";
 export {
   useReactiveElementHeight,
   useReactiveHeight,
-  useReactiveScrollWidth,
   useReactiveWidth,
 } from "./useReactiveSize";
 export { default as useSessionQueryHistory } from "./useSessionQueryHistory";

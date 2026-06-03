@@ -1,18 +1,7 @@
-const TEST_REGEX = "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$";
+const base = require("../../jest.config.base.cjs");
 
 module.exports = {
-  testRegex: TEST_REGEX,
-  transform: {
-    "^.+\\.tsx?$": "babel-jest",
-  },
-  testPathIgnorePatterns: [
-    "types",
-    "node_modules",
-    ".rollup.cache",
-    "dist",
-    "helpers",
-  ],
+  ...base,
   moduleFileExtensions: ["ts", "js"],
-  collectCoverage: false,
-  clearMocks: true,
+  testPathIgnorePatterns: [...base.testPathIgnorePatterns, "helpers"],
 };
