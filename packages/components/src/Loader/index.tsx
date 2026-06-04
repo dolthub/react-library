@@ -1,5 +1,7 @@
+import cx from "classnames";
 import React, { ReactNode } from "react";
-import ReactLoader from "react-loader";
+import Spinner from "../Spinner";
+import css from "./index.module.css";
 
 interface LoaderOptions {
   lines?: number;
@@ -31,7 +33,35 @@ interface LoaderProps extends LoaderOptions {
   children?: ReactNode;
 }
 
-// Fixed loader in center of viewport
-export default function Loader(props: LoaderProps) {
-  return <ReactLoader {...props} position="fixed" />;
+// Fixed loader in center of viewport. Renders children once loaded, otherwise a
+// spinner centered in the viewport.
+export default function Loader({
+  loaded,
+  options,
+  className,
+  children,
+  ...rest
+}: LoaderProps) {
+  if (loaded) {
+    return <>{children}</>;
+  }
+
+  const { lines, length, width, radius, color, speed, opacity } = {
+    ...rest,
+    ...options,
+  };
+
+  return (
+    <div className={cx(css.fixedCenter, className)}>
+      <Spinner
+        lines={lines}
+        length={length}
+        width={width}
+        radius={radius}
+        color={color}
+        speed={speed}
+        opacity={opacity}
+      />
+    </div>
+  );
 }
