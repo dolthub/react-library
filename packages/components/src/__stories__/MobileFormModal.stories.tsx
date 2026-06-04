@@ -1,4 +1,5 @@
-import { FaDiscord, FaGithub } from "react-icons/fa";
+import { AiFillDiscord } from "react-icons/ai";
+import { FaGithub } from "react-icons/fa";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import Button from "../Button";
@@ -34,7 +35,7 @@ const Nav = (
           <FaGithub />
         </a>
         <a>
-          <FaDiscord />
+          <AiFillDiscord />
         </a>
       </>
     }
