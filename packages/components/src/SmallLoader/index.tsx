@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { CSSProperties, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import Spinner from "../Spinner";
 import css from "./index.module.css";
 
@@ -48,11 +48,6 @@ function SmallLoader(props: Props) {
           color={options.color}
           speed={options.speed}
           opacity={options.opacity}
-          style={{
-            position: options.position as CSSProperties["position"],
-            top: options.top,
-            left: options.left,
-          }}
         />
       )}
     </div>
