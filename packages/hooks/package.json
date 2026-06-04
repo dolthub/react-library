@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@dolthub/web-utils": "workspace:^",
-    "js-cookie": "^3.0.5",
+    "js-cookie": "^3.0.7",
     "react-hotkeys": "^2.0.0"
   },
   "devDependencies": {
