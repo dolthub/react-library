@@ -63,3 +63,14 @@ export const TwoAtOnce: Story = {
     </>
   ),
 };
+
+// The real-world case: two components each render a default Loader, so two
+// identical spinners overlap exactly in the center of the page.
+export const TwoAtOnceSameStyling: Story = {
+  render: () => (
+    <>
+      <Loader loaded={false} />
+      <Loader loaded={false} />
+    </>
+  ),
+};
