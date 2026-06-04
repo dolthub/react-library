@@ -1,4 +1,4 @@
-import { IoIosArrowDropleftCircle } from "@react-icons/all-files/io/IoIosArrowDropleftCircle";
+import { IoIosArrowDropleftCircle } from "react-icons/io";
 import React, { ReactNode } from "react";
 import Button from "../Button";
 import css from "./index.module.css";

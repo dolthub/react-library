@@ -1,5 +1,4 @@
-import { FaCaretDown } from "@react-icons/all-files/fa/FaCaretDown";
-import { FaCaretUp } from "@react-icons/all-files/fa/FaCaretUp";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import cx from "classnames";
 import React, { ReactNode } from "react";
 import Popup, { PopupProps } from "../Popup";

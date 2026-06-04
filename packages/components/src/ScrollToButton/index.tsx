@@ -1,4 +1,4 @@
-import { FaChevronDown } from "@react-icons/all-files/fa/FaChevronDown";
+import { FaChevronDown } from "react-icons/fa";
 import React from "react";
 import Button from "../Button";
 import css from "./index.module.css";

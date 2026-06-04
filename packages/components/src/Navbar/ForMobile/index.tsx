@@ -1,5 +1,4 @@
-import { AiOutlineClose } from "@react-icons/all-files/ai/AiOutlineClose";
-import { AiOutlineMenu } from "@react-icons/all-files/ai/AiOutlineMenu";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import cx from "classnames";
 import React, { ReactNode, useState } from "react";
 import Btn from "../../Btn";

@@ -1,4 +1,4 @@
-import { AiOutlineClose } from "@react-icons/all-files/ai/AiOutlineClose";
+import { AiOutlineClose } from "react-icons/ai";
 import cx from "classnames";
 import React from "react";
 import { MultiValueRemoveProps } from "react-select";

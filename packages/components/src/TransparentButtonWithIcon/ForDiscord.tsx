@@ -1,4 +1,4 @@
-import { FaDiscord } from "@react-icons/all-files/fa/FaDiscord";
+import { FaDiscord } from "react-icons/fa";
 import React from "react";
 import TransparentButtonWithIcon from ".";
 

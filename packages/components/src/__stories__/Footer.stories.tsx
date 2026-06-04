@@ -1,5 +1,4 @@
-import { FaDiscord } from "@react-icons/all-files/fa/FaDiscord";
-import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
+import { FaDiscord, FaGithub } from "react-icons/fa";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import Footer from "../Footer";
