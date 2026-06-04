@@ -1,8 +1,8 @@
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
+import terser from "@rollup/plugin-terser";
 import typescript from "@rollup/plugin-typescript";
 import { dts } from "rollup-plugin-dts";
-import { terser } from "rollup-plugin-terser";
 
 // Shared Rollup config factory. Every package produces a bundled CJS build
 // (dist/cjs/[name].js), a bundled ESM build (dist/esm/[name].js), and rolled-up
