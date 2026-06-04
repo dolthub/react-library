@@ -13,23 +13,25 @@ type Props = {
   formatStarCount?: (count: number) => string;
 };
 
-const UNITS: Array<[number, string]> = [
-  [1e12, "t"],
-  [1e9, "b"],
-  [1e6, "m"],
-  [1e3, "k"],
+// [minimum value to abbreviate, divisor the suffix stands for, suffix]. "k"
+// only kicks in at 10,000 so that 1,000-9,999 keep their full comma form.
+const UNITS: Array<[number, number, string]> = [
+  [1e12, 1e12, "t"],
+  [1e9, 1e9, "b"],
+  [1e6, 1e6, "m"],
+  [1e4, 1e3, "k"],
 ];
 
-// Formats a count compactly: abbreviated values get a single decimal and a
-// lowercase magnitude suffix (e.g. 10900 -> "10.9k"), while values below 1000
-// are shown as-is (e.g. 42 -> "42").
+// Formats a star count: 10,000+ abbreviate with a single decimal and a
+// lowercase magnitude suffix (e.g. 10900 -> "10.9k"); anything below that is
+// shown in full with thousands separators (e.g. 1000 -> "1,000", 42 -> "42").
 function compactCount(count: number): string {
-  const unit = UNITS.find(([threshold]) => Math.abs(count) >= threshold);
+  const unit = UNITS.find(([min]) => Math.abs(count) >= min);
   if (unit) {
-    const [threshold, suffix] = unit;
-    return `${(count / threshold).toFixed(1)}${suffix}`;
+    const [, divisor, suffix] = unit;
+    return `${(count / divisor).toFixed(1)}${suffix}`;
   }
-  return String(count);
+  return count.toLocaleString("en-US");
 }
 
 export default function ForGithub({
