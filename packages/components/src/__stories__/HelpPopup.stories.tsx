@@ -1,4 +1,4 @@
-import { IoIosInformation } from "@react-icons/all-files/io/IoIosInformation";
+import { IoIosInformation } from "react-icons/io";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import Button from "../Button";

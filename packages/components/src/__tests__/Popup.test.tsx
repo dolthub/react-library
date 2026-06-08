@@ -18,6 +18,14 @@ const popupContentShouldExist = () => {
   expect(screen.getByText(/popup Content/)).toBeInTheDocument();
 };
 
+// reactjs-popup opens/closes after an internal delay (default 100ms). Give
+// waitFor generous headroom over that delay so these assertions don't race the
+// timer under parallel test load. waitFor resolves as soon as its condition
+// passes, so a large timeout doesn't slow the happy path — it only adds
+// patience. (The mouseEnterDelay/mouseLeaveDelay test below deliberately keeps
+// short timeouts to assert the delay is respected.)
+const TRANSITION_TIMEOUT = { timeout: 1000 };
+
 describe("Popup Component Render ", () => {
   test("should render trigger correctly", () => {
     render(<SimplePopup />);
@@ -157,15 +165,12 @@ describe('Popup Component with "on" Prop ', () => {
     render(<SimplePopup on="hover" />);
     popupContentShouldntExist();
     fireEvent.mouseOver(screen.getByText("trigger"));
-    await waitFor(
-      () => popupContentShouldExist(),
-      { timeout: 120 }, // default delay = "100"
-    );
+    await waitFor(() => popupContentShouldExist(), TRANSITION_TIMEOUT);
     fireEvent.mouseLeave(screen.getByText("trigger"));
 
     await waitFor(
       () => expect(screen.queryByText(/popup Content/)).not.toBeInTheDocument(),
-      { timeout: 120 },
+      TRANSITION_TIMEOUT,
     );
     // should not show on click
     fireEvent.click(screen.getByText("trigger"));
@@ -175,12 +180,9 @@ describe('Popup Component with "on" Prop ', () => {
     render(<SimplePopup on="focus" />);
     popupContentShouldntExist();
     fireEvent.focus(screen.getByText("trigger"));
-    await waitFor(
-      () => popupContentShouldExist(),
-      { timeout: 120 }, // default delay = "100"
-    );
+    await waitFor(() => popupContentShouldExist(), TRANSITION_TIMEOUT);
     fireEvent.blur(screen.getByText("trigger"));
-    await waitFor(() => popupContentShouldntExist(), { timeout: 120 });
+    await waitFor(() => popupContentShouldntExist(), TRANSITION_TIMEOUT);
     // should not show content on click
     fireEvent.click(screen.getByText("trigger"));
     popupContentShouldntExist();
@@ -190,12 +192,9 @@ describe('Popup Component with "on" Prop ', () => {
     popupContentShouldntExist();
     // on focus
     fireEvent.focus(screen.getByText("trigger"));
-    await waitFor(
-      () => popupContentShouldExist(),
-      { timeout: 120 }, // default delay = "100"
-    );
+    await waitFor(() => popupContentShouldExist(), TRANSITION_TIMEOUT);
     fireEvent.blur(screen.getByText("trigger"));
-    await waitFor(() => popupContentShouldntExist(), { timeout: 120 });
+    await waitFor(() => popupContentShouldntExist(), TRANSITION_TIMEOUT);
     // on click
     fireEvent.click(screen.getByText("trigger"));
     popupContentShouldExist();
@@ -204,15 +203,12 @@ describe('Popup Component with "on" Prop ', () => {
 
     // on Hover
     fireEvent.mouseOver(screen.getByText("trigger"));
-    await waitFor(
-      () => popupContentShouldExist(),
-      { timeout: 120 }, // default delay = "100"
-    );
+    await waitFor(() => popupContentShouldExist(), TRANSITION_TIMEOUT);
     fireEvent.mouseLeave(screen.getByText("trigger"));
 
     await waitFor(
       () => expect(screen.queryByText(/popup Content/)).not.toBeInTheDocument(),
-      { timeout: 120 },
+      TRANSITION_TIMEOUT,
     );
   });
 

@@ -1,0 +1,22 @@
+.spinner {
+  @apply relative inline-block;
+}
+
+.bar {
+  @apply absolute top-0 left-1/2;
+  /* Animation timing is static; per-bar duration/delay are set inline since
+     they're computed from props. Keyframes can't be expressed as utilities. */
+  animation-name: spinnerFade;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spinnerFade {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: var(--min-opacity, 0.25);
+  }
+}

@@ -1,5 +1,5 @@
 import { useDelay } from "@dolthub/react-hooks";
-import { FaRegClone } from "@react-icons/all-files/fa/FaRegClone";
+import { FaRegClone } from "react-icons/fa";
 import cx from "classnames";
 import React, { ReactNode } from "react";
 import CopyToClipboard from "../CopyToClipboard";
