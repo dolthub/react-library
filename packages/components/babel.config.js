@@ -1,7 +1,1 @@
-module.exports = {
-  presets: [
-    ["@babel/preset-env", { targets: { node: "current" } }],
-    "@babel/preset-react",
-    "@babel/preset-typescript",
-  ],
-};
+module.exports = require("../../babel.config.base.cjs")({ react: true });

@@ -1,4 +1,4 @@
-import { FaDiscord } from "@react-icons/all-files/fa/FaDiscord";
+import { AiFillDiscord } from "react-icons/ai";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import TransparentButtonWithIcon from "../TransparentButtonWithIcon";
@@ -16,7 +16,7 @@ type Story = StoryObj<typeof TransparentButtonWithIcon>;
 export const Basic: Story = {
   args: {
     href: "https://www.google.com",
-    icon: <FaDiscord />,
+    icon: <AiFillDiscord />,
     children: "Discord",
   },
   globals: {

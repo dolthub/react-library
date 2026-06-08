@@ -1,63 +1,21 @@
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
-import { terser } from "rollup-plugin-terser";
-import { dts } from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
+import { createRollupConfig } from "../../rollup.config.base.mjs";
 
-const packageJson = require("./package.json");
+const pkg = require("./package.json");
 
-// ESM-only packages must be bundled since CJS output can't require() them
-const esmOnlyPackages = new Set(["react-markdown", "remark-gfm"]);
-
-const externalDeps = [
-  ...Object.keys(packageJson.dependencies || {}),
-  ...Object.keys(packageJson.peerDependencies || {}),
-].filter((dep) => !esmOnlyPackages.has(dep));
-
-export default [
-  {
-    input: "src/index.ts",
-    output: [
-      {
-        file: packageJson.main,
-        format: "cjs",
-        sourcemap: true,
-        name: "react-ts-lib",
-        interop: "auto",
+// react-markdown and remark-gfm are ESM-only and can't be require()'d from the
+// CJS build, so they're bundled in rather than externalized.
+export default createRollupConfig({
+  pkg,
+  bundledDeps: ["react-markdown", "remark-gfm"],
+  extraPlugins: [
+    postcss({
+      config: { path: "./postcss.config.js" },
+      modules: {
+        generateScopedName: "[folder]_[local]__[hash:base64:5]",
       },
-      {
-        file: packageJson.module,
-        format: "esm",
-        sourcemap: true,
-      },
-    ],
-    external: (id) =>
-      !id.endsWith(".css") &&
-      externalDeps.some((dep) => id === dep || id.startsWith(`${dep}/`)),
-    plugins: [
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
-      postcss({
-        config: {
-          path: "./postcss.config.js",
-        },
-        modules: {
-          generateScopedName: "[folder]_[local]__[hash:base64:5]",
-        },
-        minimize: true,
-        inject: {
-          insertAt: "top",
-        },
-      }),
-      terser(),
-    ],
-  },
-  {
-    input: "./types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
-    external: [/\.css$/],
-  },
-];
+      minimize: true,
+      inject: { insertAt: "top" },
+    }),
+  ],
+});

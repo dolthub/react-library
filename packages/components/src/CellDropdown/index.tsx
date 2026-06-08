@@ -1,5 +1,5 @@
 import { useOnClickOutside } from "@dolthub/react-hooks";
-import { RiMenu5Line } from "@react-icons/all-files/ri/RiMenu5Line";
+import { RiMenu5Line } from "react-icons/ri";
 import cx from "classnames";
 import React, { ReactNode, useRef } from "react";
 import css from "./index.module.css";

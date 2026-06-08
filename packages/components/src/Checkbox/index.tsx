@@ -1,4 +1,4 @@
-import { FiCheck } from "@react-icons/all-files/fi/FiCheck";
+import { FiCheck } from "react-icons/fi";
 import cx from "classnames";
 import React, { ChangeEvent } from "react";
 import css from "./index.module.css";

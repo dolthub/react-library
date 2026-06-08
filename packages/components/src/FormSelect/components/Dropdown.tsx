@@ -1,4 +1,4 @@
-import { AiFillCaretDown } from "@react-icons/all-files/ai/AiFillCaretDown";
+import { AiFillCaretDown } from "react-icons/ai";
 import cx from "classnames";
 import React from "react";
 import { DropdownIndicatorProps } from "react-select";

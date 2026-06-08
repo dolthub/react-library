@@ -1,29 +1,25 @@
 {
+  "extends": "../../tsconfig.base.json",
   "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["./types", "./esm", "./cjs", "node_modules", "./dist", "./src/__mocks__"],
+  "exclude": [
+    "./types",
+    "./esm",
+    "./cjs",
+    "node_modules",
+    "./dist",
+    "./src/__mocks__"
+  ],
   "compilerOptions": {
     "rootDir": "src",
     "baseUrl": ".",
-    "declaration": true,
     "declarationDir": "types",
     "outDir": "dist",
-    "target": "ES2015",
-    "lib": ["DOM", "ESNext"],
-    "module": "ESNext",
     "moduleResolution": "Bundler",
-    "jsx": "react",
-    "emitDeclarationOnly": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "composite": true,
-    "noImplicitAny": true,
-    "types": ["node", "jsdom", "@testing-library/jest-dom"]
+    "tsBuildInfoFile": "tsconfig.tsbuildinfo"
   },
   "references": [
-    { "path": "../contexts"},
-    { "path": "../hooks"},
+    { "path": "../contexts" },
+    { "path": "../hooks" },
     { "path": "../utils" }
   ]
 }

@@ -51,3 +51,26 @@ export const NotLoadedWithStyles: Story = {
     },
   },
 };
+
+// Two separate components fetching API results at the same time each render
+// their own fixed, viewport-centered Loader, so the spinners overlap in the
+// middle of the page. Distinct colors/sizes here just make both visible.
+export const TwoAtOnce: Story = {
+  render: () => (
+    <>
+      <Loader loaded={false} options={{ color: "#0969da" }} />
+      <Loader loaded={false} options={{ color: "#cf222e", radius: 20 }} />
+    </>
+  ),
+};
+
+// The real-world case: two components each render a default Loader, so two
+// identical spinners overlap exactly in the center of the page.
+export const TwoAtOnceSameStyling: Story = {
+  render: () => (
+    <>
+      <Loader loaded={false} />
+      <Loader loaded={false} />
+    </>
+  ),
+};

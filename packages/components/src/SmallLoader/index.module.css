@@ -1,5 +1,11 @@
 .loading {
-  @apply ml-8 italic;
+  @apply ml-8 italic flex items-center;
+
+  /* The SmallLoader wrapper: flex so the spinner has no inline-block descender
+     and sits centered with the text rather than on the text baseline. */
+  > div {
+    @apply flex items-center;
+  }
 
   > span {
     @apply ml-5;

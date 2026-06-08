@@ -59,30 +59,3 @@ export function useReactiveWidth<E extends HTMLElement>(
 
   return { clientWidth, isMobile };
 }
-
-// TODO: This is broken
-export function useReactiveScrollWidth<E extends HTMLElement>(
-  elem?: E | null,
-): { scrollWidth: E["scrollWidth"]; windowInnerWidth: Window["innerWidth"] } {
-  const [scrollWidth, setScrollWidth] = useState(elem?.scrollWidth ?? 0);
-  const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
-
-  useEffectOnMount(() => {
-    const handleResize = () => {
-      setScrollWidth(elem?.scrollWidth ?? 0);
-      setWindowInnerWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
-
-  useEffect(() => {
-    if (elem) {
-      setScrollWidth(elem.scrollWidth);
-    }
-  }, [elem]);
-
-  return { scrollWidth, windowInnerWidth };
-}
