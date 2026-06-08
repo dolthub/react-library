@@ -1,5 +1,4 @@
-import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
-import { FaPencilAlt } from "@react-icons/all-files/fa/FaPencilAlt";
+import { FaGithub, FaPencilAlt } from "react-icons/fa";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import Button from "../Button";

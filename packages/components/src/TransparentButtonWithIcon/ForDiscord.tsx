@@ -1,4 +1,4 @@
-import { FaDiscord } from "@react-icons/all-files/fa/FaDiscord";
+import { AiFillDiscord } from "react-icons/ai";
 import React from "react";
 import TransparentButtonWithIcon from ".";
 
@@ -14,7 +14,7 @@ export default function ForDiscord(props: Props) {
       {...props}
       aria-label="discord-link"
       data-cy="discord-link"
-      icon={<FaDiscord />}
+      icon={<AiFillDiscord />}
     >
       Discord
     </TransparentButtonWithIcon>

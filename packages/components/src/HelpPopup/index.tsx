@@ -1,4 +1,4 @@
-import { BsFillQuestionCircleFill } from "@react-icons/all-files/bs/BsFillQuestionCircleFill";
+import { BsFillQuestionCircleFill } from "react-icons/bs";
 import cx from "classnames";
 import React, { ReactNode } from "react";
 import Popup, { PopupProps } from "../Popup";

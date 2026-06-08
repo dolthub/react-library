@@ -69,7 +69,7 @@ export function moveSelectedToTopForGroup<
   OptionType extends OptionTypeBase<T>,
 >(
   selectedVal: PropsValue<OptionType> | undefined,
-  options?: OptionsOrGroups<OptionType, GroupBase<OptionType>> | undefined,
+  options?: OptionsOrGroups<OptionType, GroupBase<OptionType>>,
 ): OptionsOrGroups<OptionType, GroupBase<OptionType>> | undefined {
   if (!selectedVal || !options) {
     return options ?? [];
@@ -115,7 +115,7 @@ export function findTabIndexForValue<
   OptionType extends OptionTypeBase<T> = Option<T>,
 >(
   options: OptionsOrGroups<OptionType, GroupBase<OptionType>> | undefined,
-  value?: PropsValue<OptionType> | undefined,
+  value?: PropsValue<OptionType>,
 ): number {
   if (!options || !value) return -1;
 

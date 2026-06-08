@@ -1,5 +1,5 @@
-import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
-import { RiStarLine } from "@react-icons/all-files/ri/RiStarLine";
+import { FaGithub } from "react-icons/fa";
+import { RiStarLine } from "react-icons/ri";
 import React from "react";
 import TransparentButtonWithIcon from ".";
 
