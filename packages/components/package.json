@@ -68,7 +68,7 @@
     }
   },
   "dependencies": {
-    "@dolthub/react-contexts": "^0.3.0",
+    "@dolthub/react-contexts": "^0.3.1",
     "@dolthub/react-hooks": "^0.3.1",
     "@dolthub/web-utils": "^0.3.1",
     "classnames": "^2.5.1",
