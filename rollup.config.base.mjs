@@ -65,6 +65,11 @@ export function createRollupConfig({
       format,
       sourcemap: true,
       entryFileNames: "[name].js",
+      // External CJS deps whose default export is the component (e.g.
+      // reactjs-popup) need the importDefault helper in the CJS bundle,
+      // otherwise `import X from "foo"` becomes `require("foo")` (the whole
+      // module namespace) and rendering crashes with "got: object".
+      interop: "auto",
     },
     external,
     plugins: jsPlugins(`dist/${format}`),
