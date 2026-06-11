@@ -1,7 +1,7 @@
 import { useDelay } from "@dolthub/react-hooks";
 import { FaRegClone } from "react-icons/fa";
 import React from "react";
-import CopyToClipboard from "react-copy-to-clipboard";
+import CopyToClipboard from "../CopyToClipboard";
 import Btn from "../Btn";
 import FieldWithButton, { CommonProps } from "../FieldWithButton";
 import css from "./index.module.css";

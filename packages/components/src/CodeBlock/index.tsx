@@ -2,7 +2,7 @@ import { useDelay } from "@dolthub/react-hooks";
 import { FaRegClone } from "react-icons/fa";
 import cx from "classnames";
 import React, { ReactNode } from "react";
-import CopyToClipboard from "react-copy-to-clipboard";
+import CopyToClipboard from "../CopyToClipboard";
 import Btn from "../Btn";
 import css from "./index.module.css";
 
