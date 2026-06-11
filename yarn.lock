@@ -3129,7 +3129,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.29.7"
     "@babel/preset-react": "npm:^7.28.5"
     "@babel/preset-typescript": "npm:^7.29.7"
-    "@dolthub/react-contexts": "npm:^0.3.0"
+    "@dolthub/react-contexts": "npm:^0.3.1"
     "@dolthub/react-hooks": "npm:^0.3.1"
     "@dolthub/web-utils": "npm:^0.3.1"
     "@rollup/plugin-commonjs": "npm:^29.0.2"
@@ -3210,7 +3210,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dolthub/react-contexts@npm:^0.3.0, @dolthub/react-contexts@workspace:packages/contexts":
+"@dolthub/react-contexts@npm:^0.3.1, @dolthub/react-contexts@workspace:packages/contexts":
   version: 0.0.0-use.local
   resolution: "@dolthub/react-contexts@workspace:packages/contexts"
   dependencies:
