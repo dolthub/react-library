@@ -21,7 +21,7 @@ export default function FormSelectGrouped<
   forMobile = false,
   selectedOptionFirst = false,
   ...props
-}: GroupedProps<T, OptionType, IsMulti>): JSX.Element {
+}: GroupedProps<T, OptionType, IsMulti>): React.JSX.Element {
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(0);
 
   const styles = getCustomStyles<T, OptionType, IsMulti>(

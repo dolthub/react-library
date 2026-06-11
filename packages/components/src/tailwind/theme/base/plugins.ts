@@ -1,7 +1,7 @@
 import plugin from "tailwindcss/plugin";
 
-const widgetPlugin = plugin(({ addUtilities }) => {
-  addUtilities({
+const widgetPlugin = plugin(helpers => {
+  helpers.addUtilities({
     ".widget-shadow": {
       "box-shadow": "0 0 4px 0 rgba(148, 163, 167, 0.5)",
     },
@@ -20,8 +20,8 @@ const widgetPlugin = plugin(({ addUtilities }) => {
   });
 });
 
-const oddSizesPlugin = plugin(({ addUtilities }) => {
-  addUtilities({
+const oddSizesPlugin = plugin(helpers => {
+  helpers.addUtilities({
     ".z-1": {
       zIndex: "1",
     },
@@ -58,8 +58,8 @@ const oddSizesPlugin = plugin(({ addUtilities }) => {
   });
 });
 
-const borderPlugin = plugin(({ addUtilities }) => {
-  addUtilities({
+const borderPlugin = plugin(helpers => {
+  helpers.addUtilities({
     ".border-opaque-rounded": {
       border: "1px solid rgba(255, 255, 255, 0.15)",
       borderRadius: "4px",
@@ -67,8 +67,8 @@ const borderPlugin = plugin(({ addUtilities }) => {
   });
 });
 
-const backgroundPlugin = plugin(({ addUtilities }) => {
-  addUtilities({
+const backgroundPlugin = plugin(helpers => {
+  helpers.addUtilities({
     ".bg-opaque-rounded": {
       backgroundColor: "rgba(255, 255, 255, 0.1)",
       borderRadius: "4px",

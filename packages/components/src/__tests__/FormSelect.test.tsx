@@ -1,5 +1,5 @@
 import { loremer, nTimes, randomArrayItem } from "@dolthub/web-utils";
-import { queryByAttribute, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { UserEvent } from "@testing-library/user-event";
 import React from "react";
 import selectEvent from "react-select-event";
@@ -71,17 +71,13 @@ async function runRenderTests(
 async function runSelectedOptionFirstTests(
   selected: StringOption,
   user: UserEvent,
-  container: HTMLElement,
 ) {
   expect(await screen.findByText(selected.value)).toBeVisible();
   // expand the options
   await user.click(screen.getByRole("combobox"));
 
-  // Difficult to get the inner MenuList by anything else
-  const menuList = queryByAttribute("class", container, /MenuList/);
-  if (!menuList) {
-    throw Error("MenuList not found");
-  }
+  // The MenuList renders with role="listbox"
+  const menuList = screen.getByRole("listbox");
   // eslint-disable-next-line testing-library/no-node-access
   expect(menuList.firstElementChild).toHaveTextContent(selected.value);
 }
@@ -104,7 +100,7 @@ describe("test FormSelect", () => {
 
     it(`handles selectedOptionFirst ${mock.desc}`, async () => {
       const selected = randomArrayItem(mock.options);
-      const { container, user } = setup(
+      const { user } = setup(
         <FormSelect
           options={mock.options}
           val={selected.value}
@@ -113,7 +109,7 @@ describe("test FormSelect", () => {
         />,
       );
 
-      await runSelectedOptionFirstTests(selected, user, container);
+      await runSelectedOptionFirstTests(selected, user);
     });
 
     it("handles no options", async () => {
@@ -225,7 +221,7 @@ describe("test FormSelect.Grouped", () => {
 
   it(`handles selectedOptionFirst for group`, async () => {
     const selected = randomArrayItem([...groupOptions[0].options]);
-    const { container, user } = setup(
+    const { user } = setup(
       <FormSelect.Grouped
         options={groupOptions}
         value={selected}
@@ -234,7 +230,7 @@ describe("test FormSelect.Grouped", () => {
       />,
     );
 
-    await runSelectedOptionFirstTests(selected, user, container);
+    await runSelectedOptionFirstTests(selected, user);
   });
 
   it("handles no options", async () => {

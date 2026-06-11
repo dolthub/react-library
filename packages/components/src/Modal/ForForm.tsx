@@ -3,7 +3,7 @@ import { ModalButtons, ModalInner, ModalOuter, OuterProps } from ".";
 import Button from "../Button";
 
 type Props = OuterProps & {
-  onSubmit: (e: SyntheticEvent) => void | Promise<void>;
+  onSubmit: (e: SyntheticEvent) => void;
   err?: Error;
 
   // Button props

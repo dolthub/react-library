@@ -36,7 +36,7 @@ export default function ButtonWithPopup({
       offsetX={triggerText ? 32 : 0}
       contentStyle={{ width: "10rem" }}
       closeOnDocumentClick
-      trigger={open =>
+      trigger={(open: boolean) =>
         getTriggerButton(
           open,
           triggerText,
@@ -57,7 +57,7 @@ function getTriggerButton(
   triggerText?: string,
   buttonClassName?: string,
   dataCy?: string,
-): JSX.Element {
+): React.JSX.Element {
   return (
     <button
       type="button"

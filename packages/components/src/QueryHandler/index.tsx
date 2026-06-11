@@ -32,14 +32,18 @@ export default function QueryHandler<Q extends object>({
 }: HandlerProps<Q>): ReactElement {
   if (loading) {
     return loaderComponent ? (
-      React.cloneElement(loaderComponent, { loaded: false } as any)
+      React.cloneElement(loaderComponent as ReactElement<{ loaded: boolean }>, {
+        loaded: false,
+      })
     ) : (
       <Loader loaded={false} />
     );
   }
   if (error) {
     return errComponent ? (
-      React.cloneElement(errComponent, { error } as any)
+      React.cloneElement(errComponent as ReactElement<{ error: Error }>, {
+        error,
+      })
     ) : (
       <ErrorMsg err={error} />
     );

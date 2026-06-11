@@ -11,10 +11,10 @@ type Props = CommonProps & {
 };
 
 export default function InnerCommentForm(props: Props) {
-  const onKeyDown = async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    const enterKey = e.keyCode === KeyCodes.ENTER;
+  const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const enterKey = (e.keyCode as KeyCodes) === KeyCodes.ENTER;
     if (enterKey && (e.ctrlKey || e.metaKey)) {
-      await props.onSubmit(e);
+      props.onSubmit(e);
     }
   };
 

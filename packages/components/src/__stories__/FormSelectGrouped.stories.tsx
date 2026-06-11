@@ -49,22 +49,26 @@ export const Default: Story = {
     const select = canvas.getByRole("combobox");
     await userEvent.click(select);
 
-    options[0].options.forEach(async option => {
-      const optionLabel = await canvas.findByLabelText(
-        `select-option-${option.value}`,
-      );
-      await expect(optionLabel).toHaveTextContent(option.label);
-    });
+    await Promise.all(
+      options[0].options.map(async option => {
+        const optionLabel = await canvas.findByLabelText(
+          `select-option-${option.value}`,
+        );
+        await expect(optionLabel).toHaveTextContent(option.label);
+      }),
+    );
 
     const secondTab = canvas.getByText(options[1].label);
     await userEvent.click(secondTab);
 
-    options[1].options.forEach(async option => {
-      const optionLabel = await canvas.findByLabelText(
-        `select-option-${option.value}`,
-      );
-      await expect(optionLabel).toHaveTextContent(option.label);
-    });
+    await Promise.all(
+      options[1].options.map(async option => {
+        const optionLabel = await canvas.findByLabelText(
+          `select-option-${option.value}`,
+        );
+        await expect(optionLabel).toHaveTextContent(option.label);
+      }),
+    );
   },
 };
 

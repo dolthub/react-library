@@ -3,12 +3,12 @@ import React, { createContext, useCallback, useContext, useMemo } from "react";
 type Props = {
   children: React.ReactNode;
   improveErrorMsgFn?: (m: string) => string;
-  renderDifferentComp?: (m: string) => JSX.Element | null;
+  renderDifferentComp?: (m: string) => React.JSX.Element | null;
 };
 
 type ErrorMsgContextType = {
   improveErrorMsg: (m: string) => string;
-  renderDifferentComp?: (m: string) => JSX.Element | null;
+  renderDifferentComp?: (m: string) => React.JSX.Element | null;
 };
 
 const ErrorMsgContext = createContext<ErrorMsgContextType>({
