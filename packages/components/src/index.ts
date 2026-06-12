@@ -10,6 +10,7 @@ export { default as CodeBlock } from "./CodeBlock";
 export { default as CommentForm } from "./CommentForm";
 export { default as CopyableField } from "./CopyableField";
 export { default as CopyButton } from "./CopyButton";
+export { default as CopyToClipboard } from "./CopyToClipboard";
 export { default as ErrorMsg } from "./ErrorMsg";
 export {
   default as ErrorMsgProvider,
