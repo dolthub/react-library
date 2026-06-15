@@ -1,0 +1,50 @@
+name: Release
+
+# Changesets-driven release. On every push to main:
+#   - if there are pending changesets, opens/updates a "Version Packages" PR
+#     that bumps versions (including dependents), rewrites internal ranges,
+#     and writes changelogs.
+#   - when that PR is merged (no changesets left, versions changed), builds
+#     and publishes the changed packages and creates GitHub releases.
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write # create release commits/tags and GitHub releases
+  pull-requests: write # open the Version Packages PR
+  id-token: write # npm provenance / OIDC trusted publishing
+
+jobs:
+  release:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Enable Corepack before setting up Node
+        run: corepack enable
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Create Release PR or publish
+        uses: changesets/action@v1
+        with:
+          version: yarn version-packages
+          publish: yarn release
+          title: "Version Packages"
+          commit: "Version Packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}

@@ -7,6 +7,9 @@
   ],
   "scripts": {
     "ci": "yarn prettier && yarn lint && yarn dbuild && yarn test",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "yarn dbuild && changeset publish",
     "clean": "rimraf node_modules -g 'packages/*/.eslintcache' 'packages/*/*.tsbuildinfo' 'packages/*/dist' 'packages/*/.rollup.cache' 'packages/*/types' 'packages/*/coverage'",
     "dbuild": "npm-run-all 'dbuild:*'",
     "dbuild:utils": "yarn workspace @dolthub/web-utils dbuild",
@@ -34,6 +37,8 @@
     "test:components": "yarn workspace @dolthub/react-components test"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.0",
     "@eslint/compat": "^2.1.0",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^9.39.2",
