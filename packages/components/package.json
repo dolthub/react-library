@@ -102,7 +102,7 @@
     "@types/react-dom": "^19.2.3",
     "@types/rollup-plugin-peer-deps-external": "^2",
     "@typescript-eslint/eslint-plugin": "^8.59.1",
-    "@typescript-eslint/parser": "^8.60.1",
+    "@typescript-eslint/parser": "^8.62.1",
     "autoprefixer": "^10.4.27",
     "babel-jest": "^30.4.1",
     "chromatic": "^15.2.0",
