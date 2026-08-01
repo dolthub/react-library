@@ -61,7 +61,7 @@
     "jest-environment-jsdom": "^30.4.1",
     "prettier": "^3.9.4",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7",
+    "react-dom": "^19.2.8",
     "rollup": "^4.59.0",
     "rollup-plugin-dts": "^6.4.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
