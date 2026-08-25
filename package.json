@@ -60,8 +60,8 @@
   },
   "resolutions": {
     "@emotion/react": "11.14.0",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "serialize-javascript": "7.0.5",
     "tar": "7.5.11"
   }
