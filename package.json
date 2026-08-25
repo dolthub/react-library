@@ -67,6 +67,7 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "serialize-javascript": "7.0.5",
+    "svgo@npm:^2.7.0": "2.8.4",
     "tar": "7.5.22"
   }
 }
