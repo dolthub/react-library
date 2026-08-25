@@ -49,7 +49,7 @@ describe("parse sql query", () => {
     const queryWithColsAndWhereNotClause = `SELECT \`name\`, \`restaurant_name\`, \`identifier\`, \`fat_g\` FROM \`menu-items\` WHERE NOT (\`name\` = "APPLE SLICES" AND \`restaurant_name\` = "MCDONALD'S" AND \`identifier\` = "NATIONAL")`;
     expect(getTableName(queryWithColsAndWhereNotClause)).toBe("menu-items");
 
-    expect(() => getTableName(invalidQuery)).not.toThrowError();
+    expect(() => getTableName(invalidQuery)).not.toThrow();
   });
 
   it("gets the table name for mutations", () => {
@@ -145,7 +145,7 @@ describe("parse sql query", () => {
 
     expect(() =>
       convertToSqlWithNewCondition(invalidQuery, column, value),
-    ).not.toThrowError();
+    ).not.toThrow();
   });
 
   it("adds or removes order by clause to query", () => {
@@ -182,9 +182,7 @@ describe("parse sql query", () => {
       convertToSqlWithOrderBy(expectedOrderBySameColSameOrder, column),
     ).toBe(expectedQueryRemoved);
 
-    expect(() =>
-      convertToSqlWithOrderBy(invalidQuery, column),
-    ).not.toThrowError();
+    expect(() => convertToSqlWithOrderBy(invalidQuery, column)).not.toThrow();
   });
 
   it("gets query type", () => {
@@ -203,7 +201,7 @@ describe("parse sql query", () => {
         "CREATE TABLE tablename (id INT, name VARCHAR(255), PRIMARY KEY(id))",
       ),
     ).toEqual("create");
-    expect(() => getQueryType(invalidQuery)).not.toThrowError();
+    expect(() => getQueryType(invalidQuery)).not.toThrow();
     expect(getQueryType(invalidQuery)).toEqual(undefined);
   });
 });
@@ -253,7 +251,7 @@ describe("test isMutation", () => {
   });
 
   it("doesn't throw error for invalid query", () => {
-    expect(() => isMutation(invalidQuery)).not.toThrowError();
+    expect(() => isMutation(invalidQuery)).not.toThrow();
   });
 });
 
@@ -376,7 +374,7 @@ describe("removes column from query", () => {
 
   expect(() =>
     removeColumnFromQuery(invalidQuery, "age", columns.slice(0, 2)),
-  ).not.toThrowError();
+  ).not.toThrow();
 });
 
 describe("test executable query", () => {
