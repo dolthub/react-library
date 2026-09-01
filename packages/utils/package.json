@@ -60,7 +60,7 @@
     "jest": "^30.5.0",
     "node-sql-parser": "^5.4.0",
     "prettier": "^3.9.6",
-    "rollup": "^4.59.0",
+    "rollup": "^4.63.1",
     "rollup-plugin-dts": "^6.4.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "typescript": "^5.9.3",
