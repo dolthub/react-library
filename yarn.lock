@@ -2754,7 +2754,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.62.1"
     autoprefixer: "npm:^10.4.27"
     babel-jest: "npm:^30.4.1"
-    chromatic: "npm:^15.2.0"
+    chromatic: "npm:^18.7.1"
     classnames: "npm:^2.5.1"
     cssnano: "npm:^8.0.2"
     deepmerge: "npm:^4.3.1"
@@ -7672,22 +7672,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^15.2.0":
-  version: 15.2.0
-  resolution: "chromatic@npm:15.2.0"
+"chromatic@npm:^18.7.1":
+  version: 18.7.1
+  resolution: "chromatic@npm:18.7.1"
+  dependencies:
+    semver: "npm:^7.3.5"
   peerDependencies:
     "@chromatic-com/cypress": ^0.*.* || ^1.0.0
     "@chromatic-com/playwright": ^0.*.* || ^1.0.0
+    "@chromatic-com/vitest": ^0.*.* || ^1.0.0
+  dependenciesMeta:
+    "@sentry/cli":
+      built: true
+    esbuild:
+      built: true
   peerDependenciesMeta:
     "@chromatic-com/cypress":
       optional: true
     "@chromatic-com/playwright":
       optional: true
+    "@chromatic-com/vitest":
+      optional: true
   bin:
-    chroma: dist/bin.js
-    chromatic: dist/bin.js
-    chromatic-cli: dist/bin.js
-  checksum: 10c0/b46c9e288236c76128935373ca90eda0127eb604a0431ba25c4600e952fc2bba414dbc3268513be7cc35b9d0ffff8566ca95e838bc9d4341940a99ef33a5808b
+    chroma: dist/bin.cjs
+    chromatic: dist/bin.cjs
+    chromatic-cli: dist/bin.cjs
+  checksum: 10c0/36b024635ce12e73ab40f2524f70aedb48d647613ecba11ab55d43625b0e453cbcbc4efc8e70e31cc149c068e05dd8cae23b30903d9891630da2825624d0694e
   languageName: node
   linkType: hard
 
