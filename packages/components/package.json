@@ -111,7 +111,7 @@
     "eslint-plugin-storybook": "^10.4.6",
     "github-markdown-css": "^5.9.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^30.4.2",
+    "jest": "^30.5.0",
     "jest-environment-jsdom": "^30.4.1",
     "postcss": "^8.5.26",
     "postcss-loader": "^8.2.1",
