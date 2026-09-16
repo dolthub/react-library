@@ -35,7 +35,9 @@ export {
 export { default as FormModal } from "./Modal/ForForm";
 export { default as Navbar } from "./Navbar";
 export { default as DesktopNavbar } from "./Navbar/ForDesktop";
+export { default as DesktopNavDropdown } from "./Navbar/ForDesktop/NavDropdown";
 export { default as MobileNavbar } from "./Navbar/ForMobile";
+export { default as MobileNavDropdown } from "./Navbar/ForMobile/NavDropdown";
 export { default as NoneFoundMsg } from "./NoneFoundMsg";
 export { default as Popup, PopupProps } from "./Popup";
 export { default as QueryHandler } from "./QueryHandler";

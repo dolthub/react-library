@@ -1,0 +1,27 @@
+.dropdown {
+  @apply flex flex-col items-stretch w-full;
+}
+
+/* The row height, padding and divider come from the menu's `.links button`
+ * rule; this only has to push the caret out to the trailing edge. */
+.trigger {
+  @apply w-full justify-between;
+}
+
+.caret {
+  @apply shrink-0 text-base;
+}
+
+.panel {
+  @apply flex flex-col items-stretch w-full;
+}
+
+/*
+ * The menu styles every descendant `a`/`button` as a full-height row. Panel
+ * content is nested, not a row, so it opts out here: two class selectors
+ * outrank that one-class-plus-element rule without needing !important.
+ */
+.dropdown .panel a,
+.dropdown .panel button {
+  @apply h-auto py-2 pl-10 pr-6 text-base font-normal tracking-normal border-b-0 text-white/80;
+}

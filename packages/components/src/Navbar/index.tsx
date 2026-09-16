@@ -14,7 +14,9 @@ type Props = {
   logoLeft?: boolean;
 
   // Mobile-only
+  mobileActions?: ReactNode; // Full-width call to action below the links
   mobileBottomLinks?: ReactNode;
+  leftLinksMobile?: ReactNode; // Overrides `leftLinks` for mobile
   rightLinksMobile?: ReactNode; // Overrides `rightLinks` for mobile
 };
 
@@ -33,10 +35,11 @@ export default function Navbar(props: Props) {
       <MobileNavbar
         bgColor={props.bgColor}
         logo={props.logo}
+        mobileActions={props.mobileActions}
         mobileBottomLinks={props.mobileBottomLinks}
         dark={props.dark}
       >
-        {props.leftLinks}
+        {props.leftLinksMobile ?? props.leftLinks}
         {props.rightLinksMobile ?? props.rightLinks}
       </MobileNavbar>
     </>

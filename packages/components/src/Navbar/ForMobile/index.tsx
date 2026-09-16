@@ -12,6 +12,7 @@ type CommonProps = {
 type Props = CommonProps & {
   dark?: boolean;
   children: ReactNode;
+  mobileActions?: ReactNode;
   mobileBottomLinks?: ReactNode;
 };
 
@@ -47,6 +48,7 @@ export default function ForMobile(props: Props) {
 type NavProps = CommonProps & {
   onClose: () => void;
   children: ReactNode;
+  mobileActions?: ReactNode;
   mobileBottomLinks?: ReactNode;
 };
 
@@ -58,6 +60,7 @@ function NavMenu(props: NavProps) {
     >
       <Top
         {...props}
+        className={css.menuTop}
         icon={
           <Btn
             onClick={props.onClose}
@@ -71,6 +74,11 @@ function NavMenu(props: NavProps) {
       <div className={css.links} data-cy="mobile-navbar-links">
         {props.children}
       </div>
+      {props.mobileActions && (
+        <div className={css.actions} data-cy="mobile-navbar-actions">
+          {props.mobileActions}
+        </div>
+      )}
       {props.mobileBottomLinks && (
         <div className={css.bottomLinks} data-cy="mobile-navbar-social-links">
           {props.mobileBottomLinks}

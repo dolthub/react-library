@@ -1,5 +1,12 @@
+/*
+ * `relative` is what lets a dropdown panel span the full page width: the panel
+ * anchors here rather than to the third-width `.left` column. It also finally
+ * activates the `z-50` above, which was inert on a static element. That keeps
+ * the navbar over page content but still under Modal (1000) and the mobile
+ * menu (100).
+ */
 .container {
-  @apply hidden lg:block w-full text-white pt-2 h-12 z-50 mx-auto pb-2;
+  @apply hidden lg:block relative w-full text-white pt-2 h-12 z-50 mx-auto pb-2;
 }
 
 .inner {
@@ -62,8 +69,16 @@
   }
 }
 
+/*
+ * Previously `relative` here, so that `.right` could be pinned with `absolute
+ * right-0`. `ml-auto` does the same job in flow, and dropping the positioning
+ * matters: otherwise `.inner` -- inset by the header's own px-6/px-8 -- became
+ * the anchor for any absolutely positioned panel, making a full-bleed dropdown
+ * impossible. Keeping `.right` in flow also means wide left links compress it
+ * rather than sliding underneath.
+ */
 .logoLeft {
-  @apply justify-start relative;
+  @apply justify-start;
 
   .left {
     @apply order-2 w-auto ml-6;
@@ -78,6 +93,6 @@
   }
 
   .right {
-    @apply order-3 w-auto absolute right-0 mr-8;
+    @apply order-3 w-auto ml-auto mr-8;
   }
 }
