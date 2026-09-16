@@ -1,8 +1,4 @@
-/*
- * Deliberately static: the panel anchors to the navbar header, not to this
- * wrapper, which is what lets it span the full page width instead of the
- * third-width column the trigger sits in.
- */
+/* Static, so the panel anchors to the header and spans the full width. */
 .dropdown {
   @apply flex items-center;
 }
@@ -24,11 +20,7 @@
   @apply absolute left-0 right-0 top-full text-left;
 }
 
-/*
- * The navbar styles every descendant `a`/`button` as a nav link, including the
- * `.left a` margins. Panel content is not a nav link, so it opts out here: two
- * class selectors outrank those one-class-plus-element rules.
- */
+/* Two classes, to outrank the navbar's `.inner a` / `.left a` link styling. */
 .dropdown .panel a,
 .dropdown .panel button {
   @apply mx-0 items-start text-base font-normal tracking-normal text-white hover:text-white;

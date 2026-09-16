@@ -10,18 +10,14 @@ type Props = {
   children: ReactNode;
   defaultOpen?: boolean;
   className?: string;
-  // Applied to the panel, which is where a background colour belongs since the
-  // panel spans the full page width.
   panelClassName?: string;
-  // Controlled mode. Both must be provided to take effect.
   isOpen?: boolean;
   setIsOpen?: (o: boolean) => void;
   ["data-cy"]?: string;
 };
 
-// NavDropdown is a nav item whose panel spans the full width of the page,
-// dimming the content beneath it. Must be rendered inside DesktopNavbar, whose
-// header is the positioned ancestor the panel anchors to.
+// A nav item whose panel spans the page width, dimming the content beneath.
+// Must be rendered inside DesktopNavbar, which the panel anchors to.
 export default function NavDropdown({
   label,
   children,

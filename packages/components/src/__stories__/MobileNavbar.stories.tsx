@@ -7,13 +7,8 @@ import Navbar from "../Navbar";
 import MobileNavDropdown from "../Navbar/ForMobile/NavDropdown";
 import { dolthubLogo } from "./images";
 
-/*
- * These stories exist to pin the mobile navbar's current appearance before the
- * Homepage v3 restyle. Each one mirrors the link shape a real consumer passes
- * (DoltHub, Hosted, DoltLab, Workbench) so Chromatic catches any regression to
- * an app we are not touching yet. The last three cover the new behaviour: a
- * menu that scrolls, and a nav item that expands in place.
- */
+// Each story mirrors a real consumer's link shape, so Chromatic catches
+// regressions to apps this PR does not touch.
 const meta: Meta<typeof Navbar> = {
   title: "MobileNavbar",
   component: Navbar,
@@ -28,8 +23,7 @@ type Story = StoryObj<typeof Navbar>;
 
 const logo = <img src={dolthubLogo} alt="DoltHub" />;
 
-// The menu only mounts once the hamburger is clicked, so every "open" story
-// drives it through the same interaction a user would.
+// The menu only mounts once the hamburger is clicked.
 async function openMobileMenu(canvasElement: HTMLElement) {
   const canvas = within(canvasElement);
   await userEvent.click(canvas.getByLabelText("open mobile navbar menu"));
@@ -53,7 +47,6 @@ const socialLinks = (
   </>
 );
 
-// The action slot styles whatever it is given, so a bare button is enough here.
 const signInAction = (
   <button type="button" data-cy="mobile-navbar-signin">
     Sign in
@@ -133,8 +126,7 @@ export const OpenHosted: Story = {
   play: async ({ canvasElement }) => openMobileMenu(canvasElement),
 };
 
-// Workbench passes an empty fragment for `leftLinks`, so the mobile menu is
-// made up entirely of right links.
+// Workbench passes an empty fragment for `leftLinks`.
 export const OpenWorkbench: Story = {
   args: {
     logo,
@@ -155,8 +147,7 @@ export const OpenWorkbench: Story = {
 
 // NEW BEHAVIOUR
 
-// More links than fit on a phone. Before the menu became a scrolling flex
-// column the overflow was simply unreachable.
+// More links than fit on a phone.
 export const OpenScrollable: Story = {
   args: {
     ...dolthubArgs,
@@ -225,8 +216,6 @@ export const OpenWithDropdown: Story = {
   play: async ({ canvasElement }) => openMobileMenu(canvasElement),
 };
 
-// The full-width call to action sits between the rows and the socials rather
-// than inside the link list, so the row styling never reaches it.
 export const OpenWithSignIn: Story = {
   args: {
     ...dolthubArgs,
@@ -241,8 +230,6 @@ export const OpenWithSignIn: Story = {
   play: async ({ canvasElement }) => openMobileMenu(canvasElement),
 };
 
-// Expanding pushes the items below it down rather than overlaying them, which
-// is what makes the menu tall enough to need scrolling.
 export const OpenWithDropdownExpanded: Story = {
   args: {
     ...dolthubArgs,

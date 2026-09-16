@@ -9,15 +9,12 @@ type Props = {
   children: ReactNode;
   defaultOpen?: boolean;
   className?: string;
-  // Controlled mode. Both must be provided to take effect.
   isOpen?: boolean;
   setIsOpen?: (o: boolean) => void;
   ["data-cy"]?: string;
 };
 
-// NavDropdown is a nav item that expands in place, pushing the items below it
-// down rather than overlaying them. Intended for the mobile nav menu, where a
-// popup would have nowhere to go.
+// A nav item that expands in place, pushing the items below it down.
 export default function NavDropdown({
   label,
   children,

@@ -19,8 +19,7 @@
   }
 }
 
-/* A white chip would wash out against the light/transparent variant, so the
- * dark text treatment keeps the plain icon. */
+/* A white chip would wash out here, so keep the plain icon. */
 .darkTop {
   button {
     @apply text-background-acc-1 bg-transparent hover:text-primary;
@@ -41,13 +40,7 @@
   @apply fixed top-0 bottom-0 left-0 right-0 z-100 flex flex-col overflow-y-auto overscroll-contain;
 }
 
-/*
- * Full-bleed 60px rows divided by hairlines. The selector stays a descendant
- * one rather than `> a`: both apps' sign-out buttons arrive wrapped in a div,
- * and scoping to direct children would leave them unstyled. Nested content
- * that should not look like a row overrides this with two classes (see
- * NavDropdown.module.css).
- */
+/* Descendant rather than `> a`: sign-out buttons arrive wrapped in a div. */
 .links {
   @apply flex flex-col items-stretch w-full border-t border-white/10;
 
@@ -57,11 +50,7 @@
   }
 }
 
-/*
- * A full-width call to action sitting between the rows and the socials. It is
- * its own region rather than another child of `.links` so the row styling
- * never reaches it. Like `.links` and `.bottomLinks`, it styles its children.
- */
+/* Its own region, so the row styling above never reaches it. */
 .actions {
   @apply mt-auto shrink-0 px-6 pt-8;
 
@@ -71,8 +60,7 @@
   }
 }
 
-/* `mt-auto` pins these to the bottom when the menu is short and lets them fall
- * at the end of the content when it is long. */
+/* `mt-auto`: bottom of a short menu, end of the content on a long one. */
 .bottomLinks {
   @apply mt-auto flex justify-center gap-6 px-6 py-8;
 

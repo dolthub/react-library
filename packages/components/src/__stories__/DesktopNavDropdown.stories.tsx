@@ -5,12 +5,8 @@ import Navbar from "../Navbar";
 import DesktopNavDropdown from "../Navbar/ForDesktop/NavDropdown";
 import { dolthubLogo } from "./images";
 
-/*
- * A feasibility check for the Homepage v3 mega menu: a full-bleed panel hung
- * off one of the left nav links, dimming the page beneath it. The columns and
- * cards below stand in for what the app would pass as children -- they are
- * DoltHub marketing content, not library UI.
- */
+// The columns and cards below stand in for what the app would pass as
+// children; they are DoltHub marketing content, not library UI.
 const meta: Meta<typeof Navbar> = {
   title: "DesktopNavDropdown",
   component: Navbar,
@@ -22,8 +18,7 @@ export default meta;
 
 type Story = StoryObj<typeof Navbar>;
 
-// The nav background is not in the palette yet, so it is an arbitrary value
-// here rather than a token.
+// Not in the palette yet.
 const navBg = "bg-[#070f25]";
 
 type Product = { name: string; description: string };
@@ -159,7 +154,6 @@ export const Open: Story = {
   decorators: [withHero],
 };
 
-// Opened the way a user would, rather than via defaultOpen.
 export const OpenedByClick: Story = {
   args: args(false),
   decorators: [withHero],
