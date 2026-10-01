@@ -126,7 +126,7 @@
     "react-tooltip": "^6.0.8",
     "remark-gfm": "^4.0.1",
     "rollup": "^4.63.1",
-    "rollup-plugin-dts": "^6.4.1",
+    "rollup-plugin-dts": "^6.5.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
     "storybook": "^10.5.10",
