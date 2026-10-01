@@ -79,6 +79,11 @@ like it succeeds and changes nothing.
 
 Current entries:
 
+- **`webpack-dev-middleware@npm:^6.1.2`** -- Storybook's Webpack builder still
+  requests 6.x, which is affected by GHSA-g84c-rxfj-3j2c. Override only that
+  descriptor to 7.4.6, whose path traversal fix rejects requests outside the output
+  directory. Remove this override once Storybook requests a patched version.
+
 - **`tar`** -- keep. This one is load-bearing and is *not* redundant. Its dependents
   (`cacache`, `node-gyp`) both cap at `^6`, so without the pin `tar` resolves to 6.2.1,
   which is inside the advisory ranges (they are unbounded below). The pin is doing a
