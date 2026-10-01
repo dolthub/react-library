@@ -42,7 +42,7 @@
     "babel-jest": "^30.4.1",
     "eslint": "^9.39.2",
     "jest": "^30.5.0",
-    "prettier": "^3.9.6",
+    "prettier": "^3.9.9",
     "rollup": "^4.63.1",
     "rollup-plugin-dts": "^6.5.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
