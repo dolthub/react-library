@@ -2749,7 +2749,7 @@ __metadata:
     jest: "npm:^30.5.0"
     prettier: "npm:^3.9.6"
     rollup: "npm:^4.63.1"
-    rollup-plugin-dts: "npm:^6.4.1"
+    rollup-plugin-dts: "npm:^6.5.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     typescript: "npm:^5.9.3"
     yalc: "npm:^1.0.0-pre.53"
@@ -2816,7 +2816,7 @@ __metadata:
     reactjs-popup: "npm:^2.0.6"
     remark-gfm: "npm:^4.0.1"
     rollup: "npm:^4.63.1"
-    rollup-plugin-dts: "npm:^6.4.1"
+    rollup-plugin-dts: "npm:^6.5.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     rollup-plugin-postcss: "npm:^4.0.2"
     storybook: "npm:^10.5.10"
@@ -2877,7 +2877,7 @@ __metadata:
     react: "npm:^19.2.8"
     react-dom: "npm:^19.2.8"
     rollup: "npm:^4.63.1"
-    rollup-plugin-dts: "npm:^6.4.1"
+    rollup-plugin-dts: "npm:^6.5.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     tslib: "npm:^2.8.1"
     typescript: "npm:^5.9.3"
@@ -2923,7 +2923,7 @@ __metadata:
     react: "npm:^19.2.8"
     react-dom: "npm:^19.2.8"
     rollup: "npm:^4.63.1"
-    rollup-plugin-dts: "npm:^6.4.1"
+    rollup-plugin-dts: "npm:^6.5.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     tslib: "npm:^2.8.1"
     typescript: "npm:^5.9.3"
@@ -2956,7 +2956,7 @@ __metadata:
     node-sql-parser: "npm:^5.4.0"
     prettier: "npm:^3.9.6"
     rollup: "npm:^4.63.1"
-    rollup-plugin-dts: "npm:^6.4.1"
+    rollup-plugin-dts: "npm:^6.5.1"
     rollup-plugin-peer-deps-external: "npm:^2.2.4"
     timeago.js: "npm:^4.0.2"
     typescript: "npm:^5.9.3"
@@ -16970,22 +16970,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-dts@npm:^6.4.1":
-  version: 6.4.1
-  resolution: "rollup-plugin-dts@npm:6.4.1"
+"rollup-plugin-dts@npm:^6.5.1":
+  version: 6.5.1
+  resolution: "rollup-plugin-dts@npm:6.5.1"
   dependencies:
-    "@babel/code-frame": "npm:^7.29.0"
+    "@babel/code-frame": "npm:^8.0.0"
     "@jridgewell/remapping": "npm:^2.3.5"
     "@jridgewell/sourcemap-codec": "npm:^1.5.5"
     convert-source-map: "npm:^2.0.0"
     magic-string: "npm:^0.30.21"
   peerDependencies:
-    rollup: ^3.29.4 || ^4
-    typescript: ^4.5 || ^5.0 || ^6.0
+    "@typescript/typescript6": ^6
+    rollup: ^3 || ^4
+    typescript: ^4.5 || ^5 || ^6 || ^7
   dependenciesMeta:
     "@babel/code-frame":
       optional: true
-  checksum: 10c0/23d51f4780c5878cb31a45103da961e2e1f81fb830d4b53114931060b58ee431e44c561c1215d253477ad884ba50223dd2586fee704763db9a454cb1c6b97a1d
+  peerDependenciesMeta:
+    "@typescript/typescript6":
+      optional: true
+  checksum: 10c0/d2d22e3ddbdbf66bcc46519f39451f7a9f3f8744defde5994e7aa35defb1d5a07f126c107c4df65f8181bde96bb7089cc3b57d2d1b65b322961071f947ed306b
   languageName: node
   linkType: hard
 
