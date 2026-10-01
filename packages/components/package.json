@@ -104,7 +104,7 @@
     "@typescript-eslint/eslint-plugin": "^8.68.0",
     "@typescript-eslint/parser": "^8.62.1",
     "autoprefixer": "^10.6.1",
-    "babel-jest": "^30.4.1",
+    "babel-jest": "^30.5.2",
     "chromatic": "^18.7.1",
     "cssnano": "^8.0.2",
     "eslint": "^9.39.2",
