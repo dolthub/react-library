@@ -62,6 +62,7 @@
     "@emotion/react": "11.14.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "tar": "7.5.22"
+    "tar": "7.5.22",
+    "webpack-dev-middleware@npm:^6.1.2": "7.4.6"
   }
 }
