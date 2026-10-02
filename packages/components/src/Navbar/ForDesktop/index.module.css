@@ -1,6 +1,6 @@
 /* `relative` so a dropdown panel anchors here and can span the full width. */
 .container {
-  @apply hidden lg:block relative w-full text-white pt-2 h-12 z-50 mx-auto pb-2;
+  @apply hidden lg:block relative w-full text-white h-12 z-50 mx-auto;
 }
 
 .inner {
@@ -28,12 +28,13 @@
   }
 }
 
+/*
+ * `gap` rather than margins on `a`: a dropdown trigger is a div, so
+ * margin-based spacing skipped it and left the row unevenly spaced. 48px
+ * matches the old ml-2 + mr-10 so existing navs keep their rhythm.
+ */
 .left {
-  @apply flex w-1/3 ml-2 order-first;
-
-  a {
-    @apply ml-2 mr-10;
-  }
+  @apply flex self-stretch w-1/3 ml-2 order-first items-center gap-12;
 }
 
 .logo {
@@ -67,8 +68,10 @@
 .logoLeft {
   @apply justify-start;
 
+  /* Design separates the logo from the links by ~106px; with the logo's own
+   * mr-3 that lands at 108. */
   .left {
-    @apply order-2 w-auto ml-6;
+    @apply order-2 w-auto ml-24;
   }
 
   .logo {

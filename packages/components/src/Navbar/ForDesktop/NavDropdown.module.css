@@ -1,10 +1,35 @@
-/* Static, so the panel anchors to the header and spans the full width. */
+/* Static, so a full-width panel anchors to the header. */
 .dropdown {
-  @apply flex items-center;
+  @apply flex self-stretch items-center;
 }
 
+/*
+ * Wraps trigger + panel; the scrim sits outside it so it still covers the
+ * page. Always full height, so the trigger's underline lands on the navbar's
+ * bottom edge in both alignments.
+ */
+.triggerWrap {
+  @apply flex self-stretch items-center;
+}
+
+/* Only the anchored alignments position the panel against this wrapper. */
+.anchor {
+  @apply relative;
+}
+
+/* Full height so the underline below can sit on the navbar's bottom edge. */
 .trigger {
-  @apply flex items-center gap-2;
+  @apply relative flex h-full items-center gap-2;
+}
+
+/*
+ * Drawn on a pseudo-element so the trigger's box is identical open or closed.
+ * Padding or a real border would grow it and, under the row's `items-center`,
+ * nudge the label up out of line with the sibling links.
+ */
+.triggerOpen::after {
+  @apply absolute inset-x-0 bottom-0 h-0.5 bg-sky-400;
+  content: "";
 }
 
 .caret {
@@ -20,8 +45,21 @@
   @apply absolute left-0 right-0 top-full text-left;
 }
 
+/* Anchored to the trigger rather than the header; order matters, these must
+ * follow `.panel` to win the left/right tie. */
+.panelLeft {
+  @apply right-auto;
+}
+
+.panelRight {
+  @apply left-auto right-0;
+}
+
 /* Two classes, to outrank the navbar's `.inner a` / `.left a` link styling. */
+/* Deliberately silent on align-items: the navbar's `.inner a` centers content,
+ * which is what simple rows want. Panels needing top alignment set it on an
+ * inner element the navbar rules do not reach. */
 .dropdown .panel a,
 .dropdown .panel button {
-  @apply mx-0 items-start text-base font-normal tracking-normal text-white hover:text-white;
+  @apply mx-0 text-base font-normal tracking-normal text-white hover:text-white;
 }
