@@ -1,0 +1,21 @@
+.dropdown {
+  @apply flex flex-col items-stretch w-full;
+}
+
+.trigger {
+  @apply w-full justify-between;
+}
+
+.caret {
+  @apply shrink-0 text-base;
+}
+
+.panel {
+  @apply flex flex-col items-stretch w-full;
+}
+
+/* Two classes, to outrank the menu's `.links a` row styling. */
+.dropdown .panel a,
+.dropdown .panel button {
+  @apply h-auto py-2 pl-10 pr-6 text-base font-normal tracking-normal border-b-0 text-white/80;
+}

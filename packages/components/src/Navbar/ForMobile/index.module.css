@@ -3,20 +3,26 @@
 }
 
 .topContainer {
-  @apply w-full text-white px-5 py-2 h-14;
+  @apply w-full text-white px-5 py-2 h-[62px] shrink-0;
+}
+
+/* Keeps the close button reachable while a long menu scrolls under it. */
+.menuTop {
+  @apply sticky top-0 z-10;
 }
 
 .top {
   @apply flex justify-between items-center;
 
   button {
-    @apply text-xl p-2.5 text-white hover:text-white/70;
+    @apply text-xl p-2 rounded bg-white/10 text-white hover:text-white/70;
   }
 }
 
+/* A white chip would wash out here, so keep the plain icon. */
 .darkTop {
   button {
-    @apply text-background-acc-1 hover:text-primary;
+    @apply text-background-acc-1 bg-transparent hover:text-primary;
   }
 }
 
@@ -31,24 +37,36 @@
 }
 
 .openMenu {
-  @apply fixed top-0 bottom-0 left-0 right-0 z-100;
+  @apply fixed top-0 bottom-0 left-0 right-0 z-100 flex flex-col overflow-y-auto overscroll-contain;
 }
 
+/* Descendant rather than `> a`: sign-out buttons arrive wrapped in a div. */
 .links {
-  @apply flex flex-col items-center mx-0 mt-10;
+  @apply flex flex-col items-stretch w-full border-t border-white/10;
 
   a,
   button {
-    @apply text-xl my-4 mx-0 font-semibold tracking-widest text-white/90 hover:text-sky-100;
+    @apply flex items-center h-[60px] px-6 text-base font-semibold tracking-[0.16px] text-white/90 border-b border-white/10 hover:text-sky-100;
   }
 }
 
+/* Its own region, so the row styling above never reaches it. */
+.actions {
+  @apply mt-auto shrink-0 px-6 pt-8;
+
+  a,
+  button {
+    @apply flex items-center justify-center w-full h-[45px] px-12 rounded border border-white bg-white/10 text-[15px] font-semibold tracking-[0.3px] text-white hover:bg-white/20;
+  }
+}
+
+/* `mt-auto`: bottom of a short menu, end of the content on a long one. */
 .bottomLinks {
-  @apply absolute left-0 right-0 bottom-8 flex justify-between mx-auto px-4 max-w-xs;
+  @apply mt-auto flex justify-center gap-6 px-6 py-8;
 
   img,
   svg {
-    @apply text-white h-9 w-9;
+    @apply text-white h-6 w-6;
   }
 }
 
