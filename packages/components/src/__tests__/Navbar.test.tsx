@@ -134,12 +134,29 @@ describe("test MobileNavbar", () => {
     );
 
     await user.click(screen.getByLabelText("open mobile navbar menu"));
-    const tops = screen.getAllByLabelText("mobile navbar top");
-    tops.forEach(top => {
-      expect(top).toHaveClass(bgColor);
-    });
+    // The bar over the page stays transparent; the open menu's own bar takes
+    // the menu's solid color so links scrolling under it stay hidden.
+    const [pageTop, menuTop] = screen.getAllByLabelText("mobile navbar top");
+    expect(pageTop).toHaveClass(bgColor);
+    expect(menuTop).toHaveClass("bg-background-acc-1");
     expect(screen.getByLabelText("mobile nav menu")).toHaveClass(
       "bg-background-acc-1",
     );
+  });
+
+  it("applies menu background color", async () => {
+    const bgColor = "bg-transparent";
+    const menuBgColor = "bg-custom-menu-color";
+    const { user } = setup(
+      <MobileNavbar logo={logo} bgColor={bgColor} menuBgColor={menuBgColor}>
+        {children}
+      </MobileNavbar>,
+    );
+
+    await user.click(screen.getByLabelText("open mobile navbar menu"));
+    const [pageTop, menuTop] = screen.getAllByLabelText("mobile navbar top");
+    expect(pageTop).toHaveClass(bgColor);
+    expect(menuTop).toHaveClass(menuBgColor);
+    expect(screen.getByLabelText("mobile nav menu")).toHaveClass(menuBgColor);
   });
 });
