@@ -68,10 +68,8 @@
 .logoLeft {
   @apply justify-start;
 
-  /* Design separates the logo from the links by ~106px; with the logo's own
-   * mr-3 that lands at 108. */
   .left {
-    @apply order-2 w-auto ml-24;
+    @apply order-2 w-auto ml-16;
   }
 
   .logo {

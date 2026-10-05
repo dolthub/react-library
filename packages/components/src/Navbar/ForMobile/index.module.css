@@ -12,7 +12,7 @@
 }
 
 .top {
-  @apply flex justify-between items-center;
+  @apply flex h-full justify-between items-center;
 
   button {
     @apply text-xl p-2 rounded bg-white/10 text-white hover:text-white/70;
@@ -40,19 +40,27 @@
   @apply fixed top-0 bottom-0 left-0 right-0 z-100 flex flex-col overflow-y-auto overscroll-contain;
 }
 
-/* Descendant rather than `> a`: sign-out buttons arrive wrapped in a div. */
+/*
+ * Descendant rather than `> a`: sign-out buttons arrive wrapped in a div.
+ * Dropdown panel content is skipped so it keeps its own styling.
+ */
 .links {
   @apply flex flex-col items-stretch w-full border-t border-white/10;
 
-  a,
-  button {
+  a:not([data-nav-panel] *),
+  button:not([data-nav-panel] *) {
     @apply flex items-center h-[60px] px-6 text-base font-semibold tracking-[0.16px] text-white/90 border-b border-white/10 hover:text-sky-100;
   }
 }
 
+/* Like `.actions`, outside `.links` so the row styling never reaches it. */
+.account {
+  @apply shrink-0 px-6 pt-5 pb-2;
+}
+
 /* Its own region, so the row styling above never reaches it. */
 .actions {
-  @apply mt-auto shrink-0 px-6 pt-8;
+  @apply mt-auto shrink-0 px-6 pt-8 md:mx-auto md:w-[375px];
 
   a,
   button {
@@ -70,7 +78,7 @@
   }
 }
 
-.links a {
+.links a:not([data-nav-panel] *) {
   @apply flex items-center;
   > svg {
     @apply mr-3;

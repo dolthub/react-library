@@ -15,6 +15,7 @@ type Props = {
 
   // Mobile-only
   mobileActions?: ReactNode; // Full-width call to action below the links
+  mobileAccount?: ReactNode; // Signed in user's section between the links and actions
   mobileBottomLinks?: ReactNode;
   leftLinksMobile?: ReactNode; // Overrides `leftLinks` for mobile
   rightLinksMobile?: ReactNode; // Overrides `rightLinks` for mobile
@@ -36,6 +37,7 @@ export default function Navbar(props: Props) {
         bgColor={props.bgColor}
         logo={props.logo}
         mobileActions={props.mobileActions}
+        mobileAccount={props.mobileAccount}
         mobileBottomLinks={props.mobileBottomLinks}
         dark={props.dark}
       >

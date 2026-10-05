@@ -7,15 +7,9 @@
 }
 
 .caret {
-  @apply shrink-0 text-base;
+  @apply shrink-0 flex px-2 py-1 rounded bg-white/10 text-xl;
 }
 
 .panel {
-  @apply flex flex-col items-stretch w-full;
-}
-
-/* Two classes, to outrank the menu's `.links a` row styling. */
-.dropdown .panel a,
-.dropdown .panel button {
-  @apply h-auto py-2 pl-10 pr-6 text-base font-normal tracking-normal border-b-0 text-white/80;
+  @apply flex flex-col items-stretch w-full border-b border-white/10;
 }

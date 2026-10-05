@@ -194,7 +194,11 @@ const withDropdown = (defaultOpen: boolean) => (
       data-cy="mobile-navbar-products"
     >
       {products.map(p => (
-        <a href={p.href} key={p.name}>
+        <a
+          href={p.href}
+          key={p.name}
+          className="block py-2 pl-10 pr-6 text-white/80"
+        >
           {p.name}
         </a>
       ))}

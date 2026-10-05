@@ -1,4 +1,4 @@
-import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import cx from "classnames";
 import React, { ReactNode, useState } from "react";
 import Btn from "../../Btn";
@@ -43,14 +43,16 @@ export default function NavDropdown({
         data-cy={props["data-cy"]}
       >
         <span>{label}</span>
-        {open ? (
-          <FaCaretUp className={css.caret} aria-hidden />
-        ) : (
-          <FaCaretDown className={css.caret} aria-hidden />
-        )}
+        <span className={css.caret} aria-hidden>
+          {open ? <FiChevronUp /> : <FiChevronDown />}
+        </span>
       </Btn>
       {open && (
-        <div className={css.panel} aria-label="nav dropdown panel">
+        <div
+          className={css.panel}
+          aria-label="nav dropdown panel"
+          data-nav-panel
+        >
           {children}
         </div>
       )}
