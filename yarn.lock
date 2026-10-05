@@ -2772,7 +2772,7 @@ __metadata:
     "@babel/preset-react": "npm:^8.0.1"
     "@babel/preset-typescript": "npm:^8.0.1"
     "@dolthub/react-contexts": "npm:^0.3.1"
-    "@dolthub/react-hooks": "npm:^0.3.1"
+    "@dolthub/react-hooks": "npm:^0.3.2"
     "@dolthub/web-utils": "npm:^0.3.2"
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
@@ -2860,7 +2860,7 @@ __metadata:
     "@babel/preset-env": "npm:^8.0.2"
     "@babel/preset-react": "npm:^8.0.1"
     "@babel/preset-typescript": "npm:^8.0.1"
-    "@dolthub/react-hooks": "npm:^0.3.1"
+    "@dolthub/react-hooks": "npm:^0.3.2"
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
     "@rollup/plugin-terser": "npm:^1.0.0"
@@ -2895,7 +2895,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@dolthub/react-hooks@npm:^0.3.1, @dolthub/react-hooks@workspace:packages/hooks":
+"@dolthub/react-hooks@npm:^0.3.2":
+  version: 0.3.2
+  resolution: "@dolthub/react-hooks@npm:0.3.2"
+  dependencies:
+    "@dolthub/web-utils": "npm:^0.3.2"
+    js-cookie: "npm:^3.0.7"
+  peerDependencies:
+    react: ^19.1.0
+    react-dom: ^19.1.1
+  checksum: 10c0/de0562dcf4dc652cd6e19dd31a7177166e859eab52f2c8654041d67ccdd19d0369cc3bb69ed1f174a7e3ed4ff3aa97945e13bd7d45104b39facaf35dca3f23c5
+  languageName: node
+  linkType: hard
+
+"@dolthub/react-hooks@workspace:packages/hooks":
   version: 0.0.0-use.local
   resolution: "@dolthub/react-hooks@workspace:packages/hooks"
   dependencies:
