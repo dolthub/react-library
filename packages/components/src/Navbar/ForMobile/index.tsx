@@ -121,8 +121,9 @@ function Top(props: TopProps) {
 
 function getBgColor(bgColor?: string, forMenu = false): string {
   if (bgColor) {
+    // The open menu covers the page, so it needs a solid ground.
     if (bgColor === "bg-transparent" && forMenu) {
-      return "bg-background-acc-1";
+      return "bg-space-900";
     }
     return bgColor;
   }

@@ -68,7 +68,10 @@
   }
 }
 
-/* `mt-auto`: bottom of a short menu, end of the content on a long one. */
+/*
+ * `mt-auto`: bottom of a short menu, end of the content on a long one. After
+ * actions it sits right below them, so the two stay together at the bottom.
+ */
 .bottomLinks {
   @apply mt-auto flex justify-center gap-6 px-6 py-8;
 
@@ -76,6 +79,10 @@
   svg {
     @apply text-white h-6 w-6;
   }
+}
+
+.actions + .bottomLinks {
+  @apply mt-0;
 }
 
 .links a:not([data-nav-panel] *) {
