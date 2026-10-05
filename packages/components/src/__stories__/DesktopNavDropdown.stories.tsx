@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
+import React, { ReactNode, useState } from "react";
 import { expect, userEvent, within } from "storybook/test";
 import Navbar from "../Navbar";
 import DesktopNavDropdown from "../Navbar/ForDesktop/NavDropdown";
@@ -107,7 +107,33 @@ const productsMenu = (defaultOpen: boolean) => (
   </DesktopNavDropdown>
 );
 
-function args(defaultOpen: boolean) {
+const docsLinks = ["Dolt", "DoltgreSQL", "DoltLab"];
+
+type DocsMenuProps = Partial<React.ComponentProps<typeof DesktopNavDropdown>>;
+
+// A small panel anchored to its trigger, like the Docs menu.
+const docsMenu = (props: DocsMenuProps) => (
+  <DesktopNavDropdown
+    label="Docs"
+    panelClassName={`w-[233px] ${navBg}`}
+    data-cy="navbar-docs"
+    {...props}
+  >
+    <div className="flex flex-col gap-1 px-3 py-4">
+      {docsLinks.map(name => (
+        <a
+          key={name}
+          href={`#${name.toLowerCase()}`}
+          className="rounded-md px-2 py-2 hover:bg-white/10"
+        >
+          {name}
+        </a>
+      ))}
+    </div>
+  </DesktopNavDropdown>
+);
+
+function navArgs(products: ReactNode, docs: ReactNode) {
   return {
     logo: <img src={dolthubLogo} alt="DoltHub" />,
     bgColor: navBg,
@@ -115,15 +141,18 @@ function args(defaultOpen: boolean) {
     large: true,
     leftLinks: (
       <>
-        {productsMenu(defaultOpen)}
+        {products}
         <a href="#pricing">Pricing</a>
-        <a href="#docs">Docs</a>
+        {docs}
         <a href="#blog">Blog</a>
-        <a href="#public-databases">Public Databases</a>
       </>
     ),
     rightLinks: <a href="#signin">Sign in</a>,
   };
+}
+
+function args(defaultOpen: boolean) {
+  return navArgs(productsMenu(defaultOpen), <a href="#docs">Docs</a>);
 }
 
 // A tall hero so the scrim has something to dim.
@@ -160,6 +189,97 @@ export const OpenedByClick: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await userEvent.click(canvas.getByRole("button", { name: /products/i }));
+    await expect(
+      canvas.getByLabelText("nav dropdown panel"),
+    ).toBeInTheDocument();
+  },
+};
+
+// `align`: "left" and "right" anchor the panel to the trigger instead of
+// spanning the page.
+export const AlignLeft: Story = {
+  args: navArgs(
+    productsMenu(false),
+    docsMenu({ align: "left", defaultOpen: true }),
+  ),
+  decorators: [withHero],
+};
+
+export const AlignRight: Story = {
+  args: navArgs(
+    productsMenu(false),
+    docsMenu({ align: "right", defaultOpen: true }),
+  ),
+  decorators: [withHero],
+};
+
+export const HideCaret: Story = {
+  args: navArgs(
+    productsMenu(false),
+    docsMenu({ align: "left", hideCaret: true }),
+  ),
+  decorators: [withHero],
+};
+
+export const UnderlineOnOpen: Story = {
+  args: navArgs(
+    productsMenu(false),
+    docsMenu({ align: "left", underlineOnOpen: true, defaultOpen: true }),
+  ),
+  decorators: [withHero],
+};
+
+export const OpenOnHover: Story = {
+  args: navArgs(
+    productsMenu(false),
+    docsMenu({ align: "left", openOnHover: true }),
+  ),
+  decorators: [withHero],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.hover(canvas.getByRole("button", { name: /docs/i }));
+    await expect(
+      await canvas.findByLabelText("nav dropdown panel"),
+    ).toBeInTheDocument();
+  },
+};
+
+// `className` wraps the whole item; `triggerClassName` styles the button.
+export const CustomClassNames: Story = {
+  args: navArgs(
+    productsMenu(false),
+    docsMenu({
+      align: "left",
+      defaultOpen: true,
+      className: "rounded bg-white/5 px-2",
+      // The navbar sets link color and weight, so show one it doesn't.
+      triggerClassName: "uppercase",
+    }),
+  ),
+  decorators: [withHero],
+};
+
+function ControlledDocsMenu() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      {docsMenu({ align: "left", isOpen: open, setIsOpen: setOpen })}
+      <span className="text-sm text-stone-300" data-cy="docs-open-state">
+        {open ? "open" : "closed"}
+      </span>
+    </>
+  );
+}
+
+// `isOpen`/`setIsOpen` let the parent own the open state.
+export const Controlled: Story = {
+  args: navArgs(productsMenu(false), <ControlledDocsMenu />),
+  decorators: [withHero],
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText("closed")).toBeInTheDocument();
+    await userEvent.click(canvas.getByRole("button", { name: /docs/i }));
+    await expect(canvas.getByText("open")).toBeInTheDocument();
     await expect(
       canvas.getByLabelText("nav dropdown panel"),
     ).toBeInTheDocument();

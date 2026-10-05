@@ -16,6 +16,7 @@ type Props = {
   // Mobile-only
   mobileActions?: ReactNode; // Full-width call to action below the links
   mobileAccount?: ReactNode; // Signed in user's section between the links and actions
+  mobileMenuBgColor?: string; // Open menu's background, when it should differ from `bgColor`
   mobileBottomLinks?: ReactNode;
   leftLinksMobile?: ReactNode; // Overrides `leftLinks` for mobile
   rightLinksMobile?: ReactNode; // Overrides `rightLinks` for mobile
@@ -38,6 +39,7 @@ export default function Navbar(props: Props) {
         logo={props.logo}
         mobileActions={props.mobileActions}
         mobileAccount={props.mobileAccount}
+        menuBgColor={props.mobileMenuBgColor}
         mobileBottomLinks={props.mobileBottomLinks}
         dark={props.dark}
       >

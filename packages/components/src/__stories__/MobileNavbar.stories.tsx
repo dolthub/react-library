@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { AiFillDiscord } from "react-icons/ai";
 import { FaGithub, FaLinkedinIn, FaYoutube } from "react-icons/fa";
-import React from "react";
+import React, { useState } from "react";
 import { expect, userEvent, within } from "storybook/test";
 import Navbar from "../Navbar";
 import MobileNavDropdown from "../Navbar/ForMobile/NavDropdown";
@@ -242,4 +242,121 @@ export const OpenWithDropdownExpanded: Story = {
     mobileActions: signInAction,
   },
   play: async ({ canvasElement }) => openMobileMenu(canvasElement),
+};
+
+const signOutAction = (
+  <button type="button" data-cy="mobile-navbar-signout">
+    Sign out
+  </button>
+);
+
+const account = (
+  <>
+    <div className="flex items-center justify-between text-base text-stone-300">
+      <span>
+        Signed in as{" "}
+        <a href="#profile" className="font-semibold text-sky-400">
+          tbantle
+        </a>
+      </span>
+      <span className="size-9 rounded-full bg-white/20" aria-hidden />
+    </div>
+    <ul className="mt-4 flex flex-col gap-6 text-base font-semibold text-white">
+      {["Settings", "My Organizations", "Contact DoltHub"].map(name => (
+        <li key={name}>
+          <a href={`#${name.toLowerCase().replace(/\s/g, "-")}`}>{name}</a>
+        </li>
+      ))}
+    </ul>
+  </>
+);
+
+// `mobileAccount` sits between the links and the actions, outside the row
+// styling.
+export const OpenWithAccount: Story = {
+  args: {
+    ...dolthubArgs,
+    leftLinksMobile: withDropdown(false),
+    rightLinksMobile: <></>,
+    mobileAccount: account,
+    mobileActions: signOutAction,
+  },
+  play: async ({ canvasElement }) => {
+    await openMobileMenu(canvasElement);
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText(/Signed in as/)).toBeVisible();
+    await expect(
+      canvas.getByRole("button", { name: "Sign out" }),
+    ).toBeInTheDocument();
+  },
+};
+
+// A transparent bar over a hero still opens onto a solid menu.
+export const OpenWithMenuBgColor: Story = {
+  args: {
+    ...dolthubArgs,
+    bgColor: "bg-transparent",
+    mobileMenuBgColor: "bg-space-900",
+    leftLinksMobile: withDropdown(false),
+    rightLinksMobile: <></>,
+    mobileActions: signInAction,
+  },
+  play: async ({ canvasElement }) => {
+    await openMobileMenu(canvasElement);
+    const canvas = within(canvasElement);
+    await expect(canvas.getByLabelText("mobile nav menu")).toHaveClass(
+      "bg-space-900",
+    );
+  },
+};
+
+function ControlledDropdown() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <MobileNavDropdown
+        label={`Products (${open ? "open" : "closed"})`}
+        isOpen={open}
+        setIsOpen={setOpen}
+        className="bg-white/5"
+        data-cy="mobile-navbar-products"
+      >
+        {products.map(p => (
+          <a
+            href={p.href}
+            key={p.name}
+            className="block py-2 pl-10 pr-6 text-white/80"
+          >
+            {p.name}
+          </a>
+        ))}
+      </MobileNavDropdown>
+      <a href="#pricing">Pricing</a>
+      <a href="#blog">Blog</a>
+    </>
+  );
+}
+
+// `isOpen`/`setIsOpen` let the parent own the open state; `className` styles
+// the dropdown's wrapper.
+export const OpenWithControlledDropdown: Story = {
+  args: {
+    ...dolthubArgs,
+    leftLinksMobile: <ControlledDropdown />,
+    rightLinksMobile: <></>,
+    mobileActions: signInAction,
+  },
+  play: async ({ canvasElement }) => {
+    await openMobileMenu(canvasElement);
+    const canvas = within(canvasElement);
+    await userEvent.click(
+      canvas.getByRole("button", { name: /products \(closed\)/i }),
+    );
+    await expect(
+      canvas.getByRole("button", { name: /products \(open\)/i }),
+    ).toBeInTheDocument();
+    await expect(
+      canvas.getByLabelText("nav dropdown panel"),
+    ).toBeInTheDocument();
+  },
 };

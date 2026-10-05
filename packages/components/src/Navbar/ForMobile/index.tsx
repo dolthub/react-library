@@ -7,6 +7,7 @@ import css from "./index.module.css";
 type CommonProps = {
   logo: ReactNode;
   bgColor?: string;
+  menuBgColor?: string;
 };
 
 type Props = CommonProps & {
@@ -55,13 +56,13 @@ type NavProps = CommonProps & {
 };
 
 function NavMenu(props: NavProps) {
+  const menuBgColor = props.menuBgColor ?? getBgColor(props.bgColor, true);
   return (
-    <div
-      className={cx(css.openMenu, getBgColor(props.bgColor, true))}
-      aria-label="mobile nav menu"
-    >
+    <div className={cx(css.openMenu, menuBgColor)} aria-label="mobile nav menu">
+      {/* The menu's own color, so links scrolling under the sticky bar stay hidden. */}
       <Top
         {...props}
+        bgColor={menuBgColor}
         className={css.menuTop}
         icon={
           <Btn
@@ -121,9 +122,8 @@ function Top(props: TopProps) {
 
 function getBgColor(bgColor?: string, forMenu = false): string {
   if (bgColor) {
-    // The open menu covers the page, so it needs a solid ground.
     if (bgColor === "bg-transparent" && forMenu) {
-      return "bg-space-900";
+      return "bg-background-acc-1";
     }
     return bgColor;
   }
