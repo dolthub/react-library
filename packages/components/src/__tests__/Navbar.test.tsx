@@ -143,20 +143,4 @@ describe("test MobileNavbar", () => {
       "bg-background-acc-1",
     );
   });
-
-  it("applies menu background color", async () => {
-    const bgColor = "bg-transparent";
-    const menuBgColor = "bg-custom-menu-color";
-    const { user } = setup(
-      <MobileNavbar logo={logo} bgColor={bgColor} menuBgColor={menuBgColor}>
-        {children}
-      </MobileNavbar>,
-    );
-
-    await user.click(screen.getByLabelText("open mobile navbar menu"));
-    const [pageTop, menuTop] = screen.getAllByLabelText("mobile navbar top");
-    expect(pageTop).toHaveClass(bgColor);
-    expect(menuTop).toHaveClass(menuBgColor);
-    expect(screen.getByLabelText("mobile nav menu")).toHaveClass(menuBgColor);
-  });
 });

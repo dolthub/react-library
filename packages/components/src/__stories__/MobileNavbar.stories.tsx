@@ -301,25 +301,6 @@ export const OpenWithAccount: Story = {
   },
 };
 
-// A transparent bar over a hero still opens onto a solid menu.
-export const OpenWithMenuBgColor: Story = {
-  args: {
-    ...dolthubArgs,
-    bgColor: "bg-transparent",
-    mobileMenuBgColor: "bg-space-900",
-    leftLinksMobile: withDropdown(false),
-    rightLinksMobile: <></>,
-    mobileActions: signInAction,
-  },
-  play: async ({ canvasElement }) => {
-    await openMobileMenu(canvasElement);
-    const canvas = within(canvasElement);
-    await expect(canvas.getByLabelText("mobile nav menu")).toHaveClass(
-      "bg-space-900",
-    );
-  },
-};
-
 function ControlledDropdown() {
   const [open, setOpen] = useState(false);
   return (
