@@ -3,7 +3,6 @@
   @apply flex self-stretch items-center;
 }
 
-/* Wraps trigger + panel; the scrim stays outside so it still covers the page. */
 .triggerWrap {
   @apply flex self-stretch items-center;
 }
@@ -12,7 +11,6 @@
   @apply relative;
 }
 
-/* Full height so the underline below can sit on the navbar's bottom edge. */
 .trigger {
   @apply relative flex h-full items-center gap-2;
 }
@@ -27,7 +25,6 @@
   @apply shrink-0 text-sm;
 }
 
-/* Starts below the navbar so the bar itself is not dimmed. */
 .scrim {
   @apply absolute left-0 right-0 top-full h-screen bg-[rgba(0,0,0,0.56)];
 }
@@ -45,11 +42,7 @@
   @apply left-auto right-0;
 }
 
-/*
- * Two classes, to outrank the navbar's `.inner a` / `.left a` styling. Silent
- * on align-items: `.inner a` already centers, and cards needing top alignment
- * set it on an inner element these rules do not reach.
- */
+/* Two classes, to outrank the navbar's `.inner a` / `.left a` styling. */
 .dropdown .panel a,
 .dropdown .panel button {
   @apply mx-0 text-base font-normal tracking-normal text-white hover:text-white;

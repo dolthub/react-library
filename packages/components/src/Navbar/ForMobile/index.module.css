@@ -6,7 +6,6 @@
   @apply w-full text-white px-5 py-2 h-[62px] shrink-0;
 }
 
-/* Keeps the close button reachable while a long menu scrolls under it. */
 .menuTop {
   @apply sticky top-0 z-10;
 }
@@ -19,7 +18,6 @@
   }
 }
 
-/* A white chip would wash out here, so keep the plain icon. */
 .darkTop {
   button {
     @apply text-background-acc-1 bg-transparent hover:text-primary;
@@ -54,7 +52,6 @@
   @apply shrink-0 px-6 pt-5 pb-2;
 }
 
-/* Its own region, like `.account`, so the row styling never reaches it. */
 .actions {
   @apply mt-auto shrink-0 px-6 pt-8 md:mx-auto md:w-[375px];
 
@@ -71,7 +68,6 @@
   }
 }
 
-/* `mt-auto`: bottom of a short menu, end of the content on a long one. */
 .bottomLinks {
   @apply mt-auto flex justify-center gap-6 px-6 py-8;
 
