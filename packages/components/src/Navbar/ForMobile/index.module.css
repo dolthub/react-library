@@ -40,10 +40,7 @@
   @apply fixed top-0 bottom-0 left-0 right-0 z-100 flex flex-col overflow-y-auto overscroll-contain;
 }
 
-/*
- * Descendant rather than `> a`: sign-out buttons arrive wrapped in a div.
- * Dropdown panel content is skipped so it keeps its own styling.
- */
+/* Descendant, not `> a`: sign-out buttons arrive wrapped in a div. */
 .links {
   @apply flex flex-col items-stretch w-full border-t border-white/10;
 
@@ -53,12 +50,11 @@
   }
 }
 
-/* Like `.actions`, outside `.links` so the row styling never reaches it. */
 .account {
   @apply shrink-0 px-6 pt-5 pb-2;
 }
 
-/* Its own region, so the row styling above never reaches it. */
+/* Its own region, like `.account`, so the row styling never reaches it. */
 .actions {
   @apply mt-auto shrink-0 px-6 pt-8 md:mx-auto md:w-[375px];
 
@@ -68,10 +64,7 @@
   }
 }
 
-/*
- * `mt-auto`: bottom of a short menu, end of the content on a long one. After
- * actions it sits right below them, so the two stay together at the bottom.
- */
+/* `mt-auto`: bottom of a short menu, end of the content on a long one. */
 .bottomLinks {
   @apply mt-auto flex justify-center gap-6 px-6 py-8;
 

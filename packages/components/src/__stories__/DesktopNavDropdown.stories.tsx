@@ -18,8 +18,7 @@ export default meta;
 
 type Story = StoryObj<typeof Navbar>;
 
-// Not in the palette yet.
-const navBg = "bg-[#070f25]";
+const navBg = "bg-space-900";
 
 type Product = { name: string; description: string };
 
@@ -195,8 +194,6 @@ export const OpenedByClick: Story = {
   },
 };
 
-// `align`: "left" and "right" anchor the panel to the trigger instead of
-// spanning the page.
 export const AlignLeft: Story = {
   args: navArgs(
     productsMenu(false),
@@ -271,7 +268,6 @@ function ControlledDocsMenu() {
   );
 }
 
-// `isOpen`/`setIsOpen` let the parent own the open state.
 export const Controlled: Story = {
   args: navArgs(productsMenu(false), <ControlledDocsMenu />),
   decorators: [withHero],

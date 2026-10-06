@@ -8,14 +8,11 @@ import css from "./NavDropdown.module.css";
 type Props = {
   label: ReactNode;
   children: ReactNode;
-  // "full" spans the page width. "left"/"right" anchor the panel to the
-  // trigger and size it to its content.
+  // "full" spans the page width; "left"/"right" anchor it to the trigger.
   align?: "full" | "left" | "right";
   hideCaret?: boolean;
-  // Underlines the trigger while the panel is open.
   underlineOnOpen?: boolean;
-  // Opens on hover as well as click. Click still toggles, so the menu stays
-  // reachable by keyboard and on touch.
+  // Click still toggles, keeping the menu reachable by keyboard and on touch.
   openOnHover?: boolean;
   defaultOpen?: boolean;
   className?: string;
@@ -26,8 +23,8 @@ type Props = {
   ["data-cy"]?: string;
 };
 
-// A nav item with a dropdown panel that dims the page beneath it. Must be
-// rendered inside DesktopNavbar, which a full-width panel anchors to.
+// A nav item whose panel dims the page beneath it. Must be rendered inside
+// DesktopNavbar, which a full-width panel anchors to.
 export default function NavDropdown({
   label,
   children,
@@ -55,8 +52,7 @@ export default function NavDropdown({
 
   useOnClickOutside(ref, () => setOpen(false));
 
-  // Closing is delayed so the pointer can cross the gap between the trigger
-  // and the panel without the menu snapping shut.
+  // Delayed, so the pointer can cross the gap to the panel without it closing.
   const closeTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
     undefined,
   );
@@ -68,8 +64,7 @@ export default function NavDropdown({
   };
   useEffect(() => cancelClose, []);
 
-  // Bound to the trigger/panel wrapper rather than the root: the scrim is a
-  // root child covering the page, so hovering it would pin the menu open.
+  // On the wrapper, not the root: the root's scrim would pin the menu open.
   const hoverProps = openOnHover
     ? {
         onMouseEnter: () => {

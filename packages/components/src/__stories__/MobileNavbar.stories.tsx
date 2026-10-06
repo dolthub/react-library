@@ -337,8 +337,6 @@ function ControlledDropdown() {
   );
 }
 
-// `isOpen`/`setIsOpen` let the parent own the open state; `className` styles
-// the dropdown's wrapper.
 export const OpenWithControlledDropdown: Story = {
   args: {
     ...dolthubArgs,

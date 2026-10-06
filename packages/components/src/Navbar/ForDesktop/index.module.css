@@ -28,11 +28,7 @@
   }
 }
 
-/*
- * `gap` rather than margins on `a`: a dropdown trigger is a div, so
- * margin-based spacing skipped it and left the row unevenly spaced. 48px
- * matches the old ml-2 + mr-10 so existing navs keep their rhythm.
- */
+/* `gap`, not margins on `a`: those skipped the div-wrapped dropdown triggers. */
 .left {
   @apply flex self-stretch w-1/3 ml-2 order-first items-center gap-12;
 }
