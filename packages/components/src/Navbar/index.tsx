@@ -14,7 +14,11 @@ type Props = {
   logoLeft?: boolean;
 
   // Mobile-only
+  mobileActions?: ReactNode; // Full-width call to action below the links
+  mobileActionsPill?: boolean; // Use pill-shaped corners for mobile actions
+  mobileAccount?: ReactNode; // Signed in user's section between the links and actions
   mobileBottomLinks?: ReactNode;
+  leftLinksMobile?: ReactNode; // Overrides `leftLinks` for mobile
   rightLinksMobile?: ReactNode; // Overrides `rightLinks` for mobile
 };
 
@@ -33,10 +37,13 @@ export default function Navbar(props: Props) {
       <MobileNavbar
         bgColor={props.bgColor}
         logo={props.logo}
+        mobileActions={props.mobileActions}
+        mobileActionsPill={props.mobileActionsPill}
+        mobileAccount={props.mobileAccount}
         mobileBottomLinks={props.mobileBottomLinks}
         dark={props.dark}
       >
-        {props.leftLinks}
+        {props.leftLinksMobile ?? props.leftLinks}
         {props.rightLinksMobile ?? props.rightLinks}
       </MobileNavbar>
     </>

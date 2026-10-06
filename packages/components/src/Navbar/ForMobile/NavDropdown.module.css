@@ -1,0 +1,15 @@
+.dropdown {
+  @apply flex flex-col items-stretch w-full;
+}
+
+.trigger {
+  @apply w-full justify-between;
+}
+
+.caret {
+  @apply shrink-0 flex px-2 py-1 rounded bg-white/10 text-xl;
+}
+
+.panel {
+  @apply flex flex-col items-stretch w-full border-b border-white/10;
+}

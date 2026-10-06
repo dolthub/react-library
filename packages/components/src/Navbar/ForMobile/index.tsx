@@ -12,6 +12,9 @@ type CommonProps = {
 type Props = CommonProps & {
   dark?: boolean;
   children: ReactNode;
+  mobileActions?: ReactNode;
+  mobileActionsPill?: boolean;
+  mobileAccount?: ReactNode;
   mobileBottomLinks?: ReactNode;
 };
 
@@ -47,17 +50,21 @@ export default function ForMobile(props: Props) {
 type NavProps = CommonProps & {
   onClose: () => void;
   children: ReactNode;
+  mobileActions?: ReactNode;
+  mobileActionsPill?: boolean;
+  mobileAccount?: ReactNode;
   mobileBottomLinks?: ReactNode;
 };
 
 function NavMenu(props: NavProps) {
+  const menuBgColor = getBgColor(props.bgColor, true);
   return (
-    <div
-      className={cx(css.openMenu, getBgColor(props.bgColor, true))}
-      aria-label="mobile nav menu"
-    >
+    <div className={cx(css.openMenu, menuBgColor)} aria-label="mobile nav menu">
+      {/* The menu's own color, so links scrolling under the sticky bar stay hidden. */}
       <Top
         {...props}
+        bgColor={menuBgColor}
+        className={css.menuTop}
         icon={
           <Btn
             onClick={props.onClose}
@@ -71,6 +78,21 @@ function NavMenu(props: NavProps) {
       <div className={css.links} data-cy="mobile-navbar-links">
         {props.children}
       </div>
+      {props.mobileAccount && (
+        <div className={css.account} data-cy="mobile-navbar-account">
+          {props.mobileAccount}
+        </div>
+      )}
+      {props.mobileActions && (
+        <div
+          className={cx(css.actions, {
+            [css.pillActions]: props.mobileActionsPill,
+          })}
+          data-cy="mobile-navbar-actions"
+        >
+          {props.mobileActions}
+        </div>
+      )}
       {props.mobileBottomLinks && (
         <div className={css.bottomLinks} data-cy="mobile-navbar-social-links">
           {props.mobileBottomLinks}

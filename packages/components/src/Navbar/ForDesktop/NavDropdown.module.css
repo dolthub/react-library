@@ -1,0 +1,49 @@
+/* Static, so a full-width panel anchors to the header. */
+.dropdown {
+  @apply flex self-stretch items-center;
+}
+
+.triggerWrap {
+  @apply flex self-stretch items-center;
+}
+
+.anchor {
+  @apply relative;
+}
+
+.trigger {
+  @apply relative flex h-full items-center gap-2;
+}
+
+/* A pseudo-element, so the box is unchanged and the label does not shift. */
+.triggerOpen::after {
+  @apply absolute inset-x-0 bottom-0 h-0.5 bg-sky-400;
+  content: "";
+}
+
+.caret {
+  @apply shrink-0 text-sm;
+}
+
+.scrim {
+  @apply absolute left-0 right-0 top-full h-screen bg-[rgba(0,0,0,0.56)];
+}
+
+.panel {
+  @apply absolute left-0 right-0 top-full text-left;
+}
+
+/* Must follow `.panel` to win the left/right tie. */
+.panelLeft {
+  @apply right-auto;
+}
+
+.panelRight {
+  @apply left-auto right-0;
+}
+
+/* Two classes, to outrank the navbar's `.inner a` / `.left a` styling. */
+.dropdown .panel a,
+.dropdown .panel button {
+  @apply mx-0 text-base font-normal tracking-normal text-white hover:text-white;
+}
