@@ -14,6 +14,7 @@ type Props = CommonProps & {
   dark?: boolean;
   children: ReactNode;
   mobileActions?: ReactNode;
+  mobileActionsPill?: boolean;
   mobileAccount?: ReactNode;
   mobileBottomLinks?: ReactNode;
 };
@@ -51,6 +52,7 @@ type NavProps = CommonProps & {
   onClose: () => void;
   children: ReactNode;
   mobileActions?: ReactNode;
+  mobileActionsPill?: boolean;
   mobileAccount?: ReactNode;
   mobileBottomLinks?: ReactNode;
 };
@@ -83,7 +85,12 @@ function NavMenu(props: NavProps) {
         </div>
       )}
       {props.mobileActions && (
-        <div className={css.actions} data-cy="mobile-navbar-actions">
+        <div
+          className={cx(css.actions, {
+            [css.pillActions]: props.mobileActionsPill,
+          })}
+          data-cy="mobile-navbar-actions"
+        >
           {props.mobileActions}
         </div>
       )}

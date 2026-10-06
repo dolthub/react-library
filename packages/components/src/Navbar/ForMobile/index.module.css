@@ -64,6 +64,13 @@
   }
 }
 
+.pillActions {
+  a,
+  button {
+    @apply rounded-full;
+  }
+}
+
 /* `mt-auto`: bottom of a short menu, end of the content on a long one. */
 .bottomLinks {
   @apply mt-auto flex justify-center gap-6 px-6 py-8;

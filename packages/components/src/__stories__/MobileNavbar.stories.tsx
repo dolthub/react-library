@@ -234,6 +234,16 @@ export const OpenWithSignIn: Story = {
   play: async ({ canvasElement }) => openMobileMenu(canvasElement),
 };
 
+export const OpenWithPillActions: Story = {
+  args: {
+    ...dolthubArgs,
+    rightLinksMobile: <></>,
+    mobileActions: signInAction,
+    mobileActionsPill: true,
+  },
+  play: async ({ canvasElement }) => openMobileMenu(canvasElement),
+};
+
 export const OpenWithDropdownExpanded: Story = {
   args: {
     ...dolthubArgs,
