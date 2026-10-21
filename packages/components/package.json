@@ -107,7 +107,7 @@
     "babel-jest": "^30.5.2",
     "chromatic": "^18.7.1",
     "cssnano": "^9.1.1",
-    "eslint": "^9.39.2",
+    "eslint": "^10.13.0",
     "eslint-plugin-storybook": "^10.6.2",
     "github-markdown-css": "^5.9.0",
     "identity-obj-proxy": "^3.0.0",
