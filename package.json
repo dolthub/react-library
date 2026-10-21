@@ -34,8 +34,8 @@
     "test:components": "yarn workspace @dolthub/react-components test"
   },
   "devDependencies": {
-    "@eslint/compat": "^2.1.0",
-    "@eslint/eslintrc": "^3.3.5",
+    "@eslint/compat": "^2.1.1",
+    "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^9.39.2",
     "@typescript-eslint/eslint-plugin": "^8.71.2",
     "@typescript-eslint/parser": "^8.71.2",
@@ -45,10 +45,10 @@
     "eslint-import-resolver-typescript": "^4.4.5",
     "eslint-plugin-css-modules": "^2.12.0",
     "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-jest": "^29.15.4",
+    "eslint-plugin-jest": "^29.17.0",
     "eslint-plugin-jest-dom": "^5.10.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-prettier": "^5.5.7",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-testing-library": "^7.16.2",
