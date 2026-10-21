@@ -21,3 +21,14 @@ updates:
       - "storybook*"
       - "@storybook/*"
       - "eslint-plugin-storybook"
+    typescript-eslint:
+      patterns:
+      - "typescript-eslint"
+      - "@typescript-eslint/*"
+    jest:
+      patterns:
+      - "jest"
+      - "jest-*"
+      - "@jest/*"
+      - "babel-jest"
+      - "@types/jest"
