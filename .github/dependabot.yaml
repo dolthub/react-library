@@ -9,8 +9,15 @@ updates:
   open-pull-requests-limit: 10
   labels:
   - dependencies
-  ignore:
-  # Storybook functions best when dependencies are upgraded together. 
-  # We bump Storybook dependencies manually once a month.
-  - dependency-name: "storybook*"
-  - dependency-name: "@storybook/*"   
+  groups:
+    react:
+      patterns:
+      - "react"
+      - "react-dom"
+      - "@types/react"
+      - "@types/react-dom"
+    storybook:
+      patterns:
+      - "storybook*"
+      - "@storybook/*"
+      - "eslint-plugin-storybook"
