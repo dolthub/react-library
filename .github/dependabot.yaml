@@ -32,3 +32,21 @@ updates:
       - "@jest/*"
       - "babel-jest"
       - "@types/jest"
+    eslint:
+      patterns:
+      - "eslint"
+      - "@eslint/*"
+      - "eslint-*"
+      - "@types/eslint"
+      exclude-patterns:
+      - "eslint-plugin-storybook"
+      update-types:
+      - "minor"
+      - "patch"
+    babel:
+      patterns:
+      - "@babel/*"
+      - "@types/babel__*"
+      update-types:
+      - "minor"
+      - "patch"
