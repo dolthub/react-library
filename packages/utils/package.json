@@ -43,9 +43,9 @@
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^8.0.1",
-    "@babel/preset-env": "^8.0.2",
-    "@babel/preset-typescript": "^8.0.1",
+    "@babel/core": "^8.0.7",
+    "@babel/preset-env": "^8.0.7",
+    "@babel/preset-typescript": "^8.0.7",
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^1.0.0",
