@@ -46,7 +46,7 @@
     "rollup": "^4.64.10",
     "rollup-plugin-dts": "^6.5.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "typescript": "^5.9.3",
+    "typescript": "^7.0.2",
     "yalc": "^1.0.0-pre.53"
   },
   "repository": {
