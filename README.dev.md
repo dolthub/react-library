@@ -89,12 +89,18 @@ Current entries:
   which is inside the advisory ranges (they are unbounded below). The pin is doing a
   deliberate cross-major override, 6.x to 7.5.x. Do not remove it without checking what
   `tar` resolves to afterwards.
-- **`react`, `react-dom`** -- keep. Pinned to the same version on purpose; React wants
-  these two to match. Bump them together, and remember that a Dependabot PR touching
-  only one of them will be a no-op until the pin moves too.
-- **`@emotion/react`** -- keep. Held at a version whose JSX types are compatible with
-  React 19, so `react-select` components typecheck. Currently the same as the latest
-  release, so it has no effect today, but it guards against a future incompatible one.
+
+Removed overrides:
+
+- **`react`, `react-dom`** -- the workspace ranges resolve to one matching pair,
+  recorded in `yarn.lock`. Dependabot groups their updates together; root pins
+  previously prevented those updates from installing without manual changes.
+- **`@emotion/react`** -- the existing dependency range resolves to 11.14.0 without
+  an override, and the component build verifies compatibility with React's types.
+- **`postcss-selector-parser` 6.x descriptors** -- 6.1.5 backports the security fix
+  from 7.1.6, so the existing 6.x ranges now resolve to a patched release. The
+  cross-major overrides are no longer needed. See the
+  [6.1.5 release notes](https://github.com/postcss/postcss-selector-parser/releases/tag/6.1.5).
 
 ### Pinning one major line only
 
