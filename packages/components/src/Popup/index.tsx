@@ -1,7 +1,13 @@
 import React from "react";
 import ReactPopup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import type { PopupProps } from "reactjs-popup/dist/types.d";
+import type { PopupProps as ReactPopupProps } from "reactjs-popup/dist/types.d";
+
+// reactjs-popup types `trigger` with the global JSX namespace, which React 19
+// types no longer provide.
+export type PopupProps = Omit<ReactPopupProps, "trigger"> & {
+  trigger?: React.JSX.Element | ((isOpen: boolean) => React.JSX.Element);
+};
 
 export default function Popup(props: PopupProps) {
   return (
@@ -18,5 +24,3 @@ export default function Popup(props: PopupProps) {
     </ReactPopup>
   );
 }
-
-export { PopupProps };
