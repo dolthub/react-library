@@ -90,18 +90,6 @@ Current entries:
   deliberate cross-major override, 6.x to 7.5.x. Do not remove it without checking what
   `tar` resolves to afterwards.
 
-Removed overrides:
-
-- **`react`, `react-dom`** -- the workspace ranges resolve to one matching pair,
-  recorded in `yarn.lock`. Dependabot groups their updates together; root pins
-  previously prevented those updates from installing without manual changes.
-- **`@emotion/react`** -- the existing dependency range resolves to 11.14.0 without
-  an override, and the component build verifies compatibility with React's types.
-- **`postcss-selector-parser` 6.x descriptors** -- 6.1.5 backports the security fix
-  from 7.1.6, so the existing 6.x ranges now resolve to a patched release. The
-  cross-major overrides are no longer needed. See the
-  [6.1.5 release notes](https://github.com/postcss/postcss-selector-parser/releases/tag/6.1.5).
-
 ### Pinning one major line only
 
 When several majors of a package coexist in the tree and only some are vulnerable, the
