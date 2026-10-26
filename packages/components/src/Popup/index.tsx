@@ -1,12 +1,51 @@
 import React from "react";
 import ReactPopup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
-import type { PopupProps as ReactPopupProps } from "reactjs-popup/dist/types.d";
+// Keep the public declarations independent of reactjs-popup's global JSX types.
+type PopupEvent = "hover" | "click" | "focus" | "right-click";
+type PopupPosition =
+  | "top left"
+  | "top center"
+  | "top right"
+  | "right top"
+  | "right center"
+  | "right bottom"
+  | "bottom left"
+  | "bottom center"
+  | "bottom right"
+  | "left top"
+  | "left center"
+  | "left bottom"
+  | "center center";
 
-// reactjs-popup types `trigger` with the global JSX namespace, which React 19
-// types no longer provide.
-export type PopupProps = Omit<ReactPopupProps, "trigger"> & {
+export type PopupProps = {
   trigger?: React.JSX.Element | ((isOpen: boolean) => React.JSX.Element);
+  open?: boolean;
+  disabled?: boolean;
+  nested?: boolean;
+  defaultOpen?: boolean;
+  on?: PopupEvent | PopupEvent[];
+  children: React.ReactNode;
+  position?: PopupPosition | PopupPosition[];
+  offsetX?: number;
+  offsetY?: number;
+  arrow?: boolean;
+  modal?: boolean;
+  lockScroll?: boolean;
+  closeOnDocumentClick?: boolean;
+  closeOnEscape?: boolean;
+  repositionOnResize?: boolean;
+  mouseEnterDelay?: number;
+  mouseLeaveDelay?: number;
+  onOpen?: (event?: React.SyntheticEvent) => void;
+  onClose?: (
+    event?: React.SyntheticEvent | KeyboardEvent | TouchEvent | MouseEvent,
+  ) => void;
+  contentStyle?: React.CSSProperties;
+  overlayStyle?: React.CSSProperties;
+  arrowStyle?: React.CSSProperties;
+  className?: string;
+  keepTooltipInside?: boolean | string;
 };
 
 export default function Popup(props: PopupProps) {
