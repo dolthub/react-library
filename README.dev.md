@@ -89,12 +89,6 @@ Current entries:
   which is inside the advisory ranges (they are unbounded below). The pin is doing a
   deliberate cross-major override, 6.x to 7.5.x. Do not remove it without checking what
   `tar` resolves to afterwards.
-- **`react`, `react-dom`** -- keep. Pinned to the same version on purpose; React wants
-  these two to match. Bump them together, and remember that a Dependabot PR touching
-  only one of them will be a no-op until the pin moves too.
-- **`@emotion/react`** -- keep. Held at a version whose JSX types are compatible with
-  React 19, so `react-select` components typecheck. Currently the same as the latest
-  release, so it has no effect today, but it guards against a future incompatible one.
 
 ### Pinning one major line only
 

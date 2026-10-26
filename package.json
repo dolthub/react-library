@@ -59,14 +59,6 @@
     "typescript-eslint": "^8.71.2"
   },
   "resolutions": {
-    "@emotion/react": "11.14.0",
-    "postcss-selector-parser@npm:^6.0.11": "7.1.6",
-    "postcss-selector-parser@npm:^6.0.2": "7.1.6",
-    "postcss-selector-parser@npm:^6.0.4": "7.1.6",
-    "postcss-selector-parser@npm:^6.0.5": "7.1.6",
-    "postcss-selector-parser@npm:^6.0.9": "7.1.6",
-    "react": "19.3.1",
-    "react-dom": "19.3.1",
     "tar": "7.5.22",
     "webpack-dev-middleware@npm:^6.1.2": "7.4.6"
   }
