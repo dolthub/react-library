@@ -5,42 +5,30 @@ changes to this repository.
 
 ## Requirements
 
-- Node.js 18+
+- Node.js 24, matching the build and publishing workflows
+- Corepack to select the Yarn version pinned in `package.json`
 
-## Getting Set Up
+## Getting set up
 
-If it is your first time using [Yarn 4](https://yarnpkg.com/blog/release/4.0), first run:
-
-```sh
-% corepack enable
-```
-
-Corepack is a tool shipped with Node.js 16+ that will automatically select the right
-package manager version to run depending on the project you're working on.
-
-Then in the project root, install the dependencies:
+From the repository root:
 
 ```sh
-react-library % yarn install
-➤ YN0000: · Yarn 4.0.2
-...
+corepack enable
+yarn install --immutable
+yarn dbuild
 ```
 
-If corepack was enabled correctly, you should see Yarn version 4+ logged when you install.
+If Corepack is unavailable in your Node installation, install it before running
+these commands. `yarn --version` should match the root `packageManager` field.
 
-Next, build the packages:
-
-```sh
-react-library % yarn dbuild
-```
-
-This will compile and build each package.
+`yarn dbuild` compiles and bundles every package in dependency order. Run
+`yarn ci` for the formatting, lint, build, and test checks used by CI.
 
 ## Making a change
 
 1. Make a change to a package.
-2. Write unit tests for your change (see `[package]/src/__tests__`).
-3. [Optional] If making a change to `components`, write a [story](https://storybook.js.org/docs/get-started/whats-a-story) for your change (see `components/src/__stories__`).
+2. Write unit tests for your change (see `packages/<package>/src/__tests__`).
+3. [Optional] If making a change to `components`, write a [story](https://storybook.js.org/docs/get-started/whats-a-story) for your change (see `packages/components/src/__stories__`).
 4. Make sure CI passes by running `yarn ci` in the project root.
 5. Create a pull request against `main` with a description explaining the change.
 6. Address feedback.

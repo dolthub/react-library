@@ -1,69 +1,96 @@
 # Developer notes
 
+## Setup and checks
+
+Use Node.js 24 and the Yarn version selected by Corepack from the root
+`package.json`. See the [contributing guide](./CONTRIBUTING.md) for setup.
+Run these commands from the repository root:
+
+```sh
+yarn install --immutable
+yarn dbuild
+yarn ci
+```
+
+`yarn dbuild` builds utils, hooks, contexts, resource-utils, and components in that
+order. Each package's `compile` script emits declarations to `types/`; `build`
+bundles CommonJS into `dist/cjs/`, ESM into `dist/esm/`, and declarations into
+`dist/`. Published packages include `dist/` rather than the source tree.
+
+For a single package, use its workspace name, for example:
+
+```sh
+yarn workspace @dolthub/react-components dbuild
+yarn workspace @dolthub/react-components test
+```
+
+Build workspace dependencies first with `yarn dbuild`. The root `yarn ci` runs
+formatting checks, lint, builds, and tests in sequence.
+
+## Storybook
+
+After building the packages, run:
+
+```sh
+yarn workspace @dolthub/react-components storybook
+```
+
+This starts Storybook on port 6006. To generate the static site:
+
+```sh
+yarn workspace @dolthub/react-components build-storybook
+```
+
+Stories live in `packages/components/src/__stories__/`. Component PRs that are
+neither drafts nor Dependabot PRs publish to Chromatic through the CI workflow.
+
 ## Testing a package in a local app
 
-Using [`yalc`](https://github.com/wclr/yalc) is the best way to test a library in another
-local package.
+Use [`yalc`](https://github.com/wclr/yalc) to test a built package in another app.
+First build the workspace dependencies, then publish the package locally:
 
-First, choose a package to compile and build:
-
-```zsh
-% cd packages/hooks
-hooks % yarn dbuild
+```sh
+yarn dbuild
+yarn workspace @dolthub/react-hooks yalc:publish
 ```
 
-And publish to `yalc`:
+The `yalc:publish` script rebuilds the package before publishing it to the local
+yalc store. In the consuming app, run the following with the yalc CLI installed:
 
-```zsh
-# If yalc is installed globally
-hooks % yalc publish
-# Using yarn script
-hooks % yarn yalc:publish
+```sh
+yalc link @dolthub/react-hooks
 ```
 
-Then in your app, link to this package:
+After editing the library, rebuild and push the update from this repository:
 
-```zsh
-other-app % yalc link @dolthub/react-hooks
+```sh
+yarn workspace @dolthub/react-hooks yalc:push
 ```
 
-And you will see and up-to-date version of the `react-hooks` package. When you make a
-change to the package, you can push the change by running `yarn yalc:push` and you should
-see it automatically reflected in your app.
+Use `@dolthub/react-components` or another workspace name for other packages.
+If you change a workspace dependency too, rebuild and publish or push that package
+as well. Refresh or restart the consuming app as needed. To remove local links,
+run `yalc remove --all` in that app.
 
-To remove the yalc package in your app, run `yalc remove --all`.
+### Watch mode
 
-## Watch mode
+The components package still has a `dbuild:watch` script, but its
+`rollup.watch.mjs` uses the old JSON import assertion syntax (`assert`), which
+Node.js 24 rejects. Use `yarn workspace @dolthub/react-components yalc:push` after
+changes until the watch script is updated.
 
-You can use `yalc` to watch for changes in the `components` package and automatically push.
+## Dependency updates and releases
 
-1. In the root of `react-library`:
+[Dependabot](./.github/dependabot.yaml) checks npm dependencies monthly and groups
+React, Storybook, TypeScript ESLint, Jest, ESLint, and Babel updates. The ESLint and
+Babel groups include minor and patch updates only. Storybook updates are handled
+by Dependabot; there is no separate scheduled Storybook upgrade workflow.
 
-```bash
-yarn && yarn dbuild
-```
-
-2. Publish the `components` package, in `packages/components`:
-
-```bash
-yarn yalc:publish
-```
-
-3. Link the local package in your app:
-
-```bash
-yarn yalc @dolthub/react-components
-```
-
-4. Start watch mode in `packages/components`:
-
-```bash
-yarn dbuild:watch
-```
-
-5. Make the changes, wait for the watch to finish building and pushing.
-
-6. Refresh the page in your browser to see the change.
+Maintainers release packages with the
+[Publish Package workflow](./.github/workflows/publish-packages-main.yaml), selecting
+the package directory and version. It creates a version PR, enables auto-merge,
+waits for the merge, then builds from `main`, creates a GitHub release, and
+publishes the selected package to npm.
 
 ## Yarn resolutions
 
@@ -84,7 +111,7 @@ Current entries:
   descriptor to 7.4.6, whose path traversal fix rejects requests outside the output
   directory. Remove this override once Storybook requests a patched version.
 
-- **`tar`** -- keep. This one is load-bearing and is *not* redundant. Its dependents
+- **`tar`** -- keep. This one is load-bearing and is _not_ redundant. Its dependents
   (`cacache`, `node-gyp`) both cap at `^6`, so without the pin `tar` resolves to 6.2.1,
   which is inside the advisory ranges (they are unbounded below). The pin is doing a
   deliberate cross-major override, 6.x to 7.5.x. Do not remove it without checking what
@@ -97,7 +124,7 @@ resolution key must be the **full descriptor a dependent actually requests**, fo
 example `"svgo@npm:^2.7.0": "2.8.4"`. Yarn matches these keys against requested
 descriptors, not by semver range, so:
 
-- A bare key (`"svgo"`) matches *every* major and will happily downgrade an unaffected
+- A bare key (`"svgo"`) matches _every_ major and will happily downgrade an unaffected
   one.
 - An abbreviated key (`"svgo@^2"`) matches nothing. Yarn does not warn -- the install
   succeeds and the version never moves.
