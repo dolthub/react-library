@@ -2907,7 +2907,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
     "@rollup/plugin-terser": "npm:^1.0.0"
-    "@rollup/plugin-typescript": "npm:^11.1.5"
+    "@rollup/plugin-typescript": "npm:^12.3.1"
     "@types/eslint": "npm:^9"
     "@types/jest": "npm:^30.0.0"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
@@ -2939,7 +2939,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
     "@rollup/plugin-terser": "npm:^1.0.0"
-    "@rollup/plugin-typescript": "npm:^11.1.5"
+    "@rollup/plugin-typescript": "npm:^12.3.1"
     "@storybook/addon-docs": "npm:^10.6.2"
     "@storybook/addon-links": "npm:^10.6.2"
     "@storybook/addon-webpack5-compiler-swc": "npm:^4.0.3"
@@ -3026,7 +3026,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
     "@rollup/plugin-terser": "npm:^1.0.0"
-    "@rollup/plugin-typescript": "npm:^11.1.5"
+    "@rollup/plugin-typescript": "npm:^12.3.1"
     "@testing-library/jest-dom": "npm:^7.0.1"
     "@testing-library/react": "npm:^16.3.3"
     "@types/babel__core": "npm:^7"
@@ -3069,7 +3069,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
     "@rollup/plugin-terser": "npm:^1.0.0"
-    "@rollup/plugin-typescript": "npm:^11.1.5"
+    "@rollup/plugin-typescript": "npm:^12.3.1"
     "@testing-library/jest-dom": "npm:^7.0.1"
     "@testing-library/react": "npm:^16.3.3"
     "@types/babel__core": "npm:^7"
@@ -3113,7 +3113,7 @@ __metadata:
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
     "@rollup/plugin-terser": "npm:^1.0.0"
-    "@rollup/plugin-typescript": "npm:^11.1.5"
+    "@rollup/plugin-typescript": "npm:^12.3.1"
     "@types/eslint": "npm:^9"
     "@types/jest": "npm:^30.0.0"
     "@types/rollup-plugin-peer-deps-external": "npm:^2"
@@ -5203,9 +5203,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-typescript@npm:^11.1.5":
-  version: 11.1.6
-  resolution: "@rollup/plugin-typescript@npm:11.1.6"
+"@rollup/plugin-typescript@npm:^12.3.1":
+  version: 12.3.1
+  resolution: "@rollup/plugin-typescript@npm:12.3.1"
   dependencies:
     "@rollup/pluginutils": "npm:^5.1.0"
     resolve: "npm:^1.22.1"
@@ -5218,7 +5218,7 @@ __metadata:
       optional: true
     tslib:
       optional: true
-  checksum: 10c0/5347cd73ac28d4cf2401a3e689864a1a0df8f3ae029abd9c38525cbc84bcfa16c3a32a0ac5698dac65ec531ba7cf8332e14f5fc7f8fa501193da23320a134c5c
+  checksum: 10c0/1b10a6bb6f54cc904a52cd5e968d2fbd203995c9ddc967090131d46095c4658449d236c56354f5c07f38bd7ed672537e3034e1113bdd29a3baa05e92b9ec259c
   languageName: node
   linkType: hard
 
