@@ -27,7 +27,7 @@
     "yalc:push": "yarn dbuild && yalc push"
   },
   "devDependencies": {
-    "@babel/core": "^8.0.7",
+    "@babel/core": "^8.0.9",
     "@babel/preset-env": "^8.0.7",
     "@babel/preset-typescript": "^8.0.7",
     "@rollup/plugin-commonjs": "^29.0.3",
