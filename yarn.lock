@@ -2887,7 +2887,7 @@ __metadata:
     "@babel/preset-typescript": "npm:^8.0.7"
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
-    "@rollup/plugin-terser": "npm:^1.0.0"
+    "@rollup/plugin-terser": "npm:^1.0.2"
     "@rollup/plugin-typescript": "npm:^12.3.1"
     "@types/eslint": "npm:^9"
     "@types/jest": "npm:^30.0.0"
@@ -2919,7 +2919,7 @@ __metadata:
     "@dolthub/web-utils": "npm:^0.3.2"
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
-    "@rollup/plugin-terser": "npm:^1.0.0"
+    "@rollup/plugin-terser": "npm:^1.0.2"
     "@rollup/plugin-typescript": "npm:^12.3.1"
     "@storybook/addon-docs": "npm:^10.6.2"
     "@storybook/addon-links": "npm:^10.6.2"
@@ -3006,7 +3006,7 @@ __metadata:
     "@dolthub/react-hooks": "npm:^0.3.2"
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
-    "@rollup/plugin-terser": "npm:^1.0.0"
+    "@rollup/plugin-terser": "npm:^1.0.2"
     "@rollup/plugin-typescript": "npm:^12.3.1"
     "@testing-library/jest-dom": "npm:^7.0.1"
     "@testing-library/react": "npm:^16.3.3"
@@ -3049,7 +3049,7 @@ __metadata:
     "@dolthub/web-utils": "npm:^0.3.2"
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
-    "@rollup/plugin-terser": "npm:^1.0.0"
+    "@rollup/plugin-terser": "npm:^1.0.2"
     "@rollup/plugin-typescript": "npm:^12.3.1"
     "@testing-library/jest-dom": "npm:^7.0.1"
     "@testing-library/react": "npm:^16.3.3"
@@ -3093,7 +3093,7 @@ __metadata:
     "@babel/preset-typescript": "npm:^8.0.7"
     "@rollup/plugin-commonjs": "npm:^29.0.3"
     "@rollup/plugin-node-resolve": "npm:^16.0.3"
-    "@rollup/plugin-terser": "npm:^1.0.0"
+    "@rollup/plugin-terser": "npm:^1.0.2"
     "@rollup/plugin-typescript": "npm:^12.3.1"
     "@types/eslint": "npm:^9"
     "@types/jest": "npm:^30.0.0"
@@ -5168,19 +5168,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-terser@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@rollup/plugin-terser@npm:1.0.0"
+"@rollup/plugin-terser@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@rollup/plugin-terser@npm:1.0.2"
   dependencies:
     serialize-javascript: "npm:^7.0.3"
     smob: "npm:^1.0.0"
-    terser: "npm:^5.17.4"
+    terser: "npm:^5.49.2"
   peerDependencies:
     rollup: ^2.0.0||^3.0.0||^4.0.0
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 10c0/08be445cc2e0677132ee06cdebbcd1b6cd3ab22e220fcd89d8a22eaf9ee501a940f425931ac65c65ab113803ad31a895f2575716248609c882c8e562fd6cc2d4
+  checksum: 10c0/2dd58902f543f9d156d367074cb65d45236245a714ee3af745d695082258ca2525e03a2b8dc704c0123cf9081363ad55b4c01a8ac23a69f9200a944d30e4bc07
   languageName: node
   linkType: hard
 
@@ -18406,20 +18406,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:^5.17.4":
-  version: 5.48.0
-  resolution: "terser@npm:5.48.0"
-  dependencies:
-    "@jridgewell/source-map": "npm:^0.3.3"
-    acorn: "npm:^8.15.0"
-    commander: "npm:^2.20.0"
-    source-map-support: "npm:~0.5.20"
-  bin:
-    terser: bin/terser
-  checksum: 10c0/d6ee713ea09a2b83b461ccbf1b76bd673a5090b3076ec13db7edc6d6470ab940d21c87b8d1ad82523b7cf02d9be07393fcdd334bde8f589e9bc3804da6fc32d2
-  languageName: node
-  linkType: hard
-
 "terser@npm:^5.31.1":
   version: 5.46.0
   resolution: "terser@npm:5.46.0"
@@ -18431,6 +18417,20 @@ __metadata:
   bin:
     terser: bin/terser
   checksum: 10c0/93ad468f13187c4f66b609bbfc00a6aee752007779ca3157f2c1ee063697815748d6010fd449a16c30be33213748431d5f54cc0224ba6a3fbbf5acd3582a4356
+  languageName: node
+  linkType: hard
+
+"terser@npm:^5.49.2":
+  version: 5.51.2
+  resolution: "terser@npm:5.51.2"
+  dependencies:
+    "@jridgewell/source-map": "npm:^0.3.3"
+    acorn: "npm:^8.15.0"
+    commander: "npm:^2.20.0"
+    source-map-support: "npm:~0.5.20"
+  bin:
+    terser: bin/terser
+  checksum: 10c0/e6dd3d9152ad51b5a990e55bf0647701278970193d2ce2359a401623e65827a27a1803f5d58593a1f0b5e10ff3fa316a8d014d4f88a28d98ea94fb69359aeae5
   languageName: node
   linkType: hard
 
