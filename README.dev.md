@@ -92,6 +92,25 @@ the package directory and version. It creates a version PR, enables auto-merge,
 waits for the merge, then builds from `main`, creates a GitHub release, and
 publishes the selected package to npm.
 
+### Releasing dependent packages
+
+The release workflow only bumps and publishes the selected package. It does not
+update sibling dependency ranges or release dependent packages automatically.
+
+When a package starts relying on a change in a sibling package, raise that
+dependency's minimum version in its `package.json`, run `yarn install` to update
+`yarn.lock`, and include both files in the PR. For example, if hooks uses a new
+utility introduced in `@dolthub/web-utils` version `0.3.3`, update its dependency
+from `^0.3.2` to `^0.3.3`. An existing range may allow the new version without
+guaranteeing that consumers install it.
+
+Publish dependencies before the packages that require them: **utils → hooks →
+contexts → components**. Components also depends directly on utils and hooks;
+resource-utils has no sibling dependencies. Run the release workflow separately
+for each affected package, waiting for each dependency to publish before releasing
+its dependents. A sibling release alone does not require bumping every package;
+release dependents when their code or dependency requirements change.
+
 ## Yarn resolutions
 
 `package.json` is strict JSON and cannot carry comments, so the reasoning for each
